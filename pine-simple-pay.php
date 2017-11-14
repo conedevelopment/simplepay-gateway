@@ -40,8 +40,7 @@ endif;
 // Pull in the autoloader
 require_once __DIR__.'/bootstrap/autoloader.php';
 
-// Register the activation and the deactivation hook
-register_activation_hook(__FILE__, [Pine\SimplePay\SimplePay::class, 'activate']);
+// Register the deactivation hook
 register_deactivation_hook(__FILE__, [Pine\SimplePay\SimplePay::class, 'deactivate']);
 
 // Boot up the servicies

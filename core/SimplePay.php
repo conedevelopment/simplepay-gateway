@@ -52,16 +52,6 @@ class SimplePay
     }
 
     /**
-     * Handle the activation.
-     *
-     * @return void
-     */
-    public static function activate()
-    {
-        //
-    }
-
-    /**
      * Handle the deactivation.
      *
      * @return void
