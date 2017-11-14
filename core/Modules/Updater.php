@@ -34,7 +34,7 @@ class Updater
      */
     protected function checkApi()
     {
-        $response = wp_remote_get('https://pine-store.dev/api/update/'.Config::get('LICENSE_KEY'));
+        $response = wp_remote_get('https://store.pineco.de/api/update/'.Config::get('LICENSE_KEY'));
 
         return wp_remote_retrieve_response_code($response) === 200 ? json_decode($response['body']) : false;
     }
@@ -49,11 +49,7 @@ class Updater
      */
     public function allowApi($allow, $host, $url)
     {
-        if (in_array($host, ['pine-store.dev', 'store.pineco.de'])) {
-            $allow = true;
-        }
-
-        return $allow;
+        return $host === 'store.pineco.de' ? true : $allow;
     }
 
     /**
@@ -63,8 +59,6 @@ class Updater
      */
     public function registerHooks()
     {
-        add_filter('https_ssl_verify', '__return_false');
-        add_filter('https_local_ssl_verify', '__return_false');
         add_filter('pre_set_site_transient_update_plugins', [$this, 'check']);
         add_filter('http_request_host_is_external', [$this, 'allowApi'], 10, 3);
     }
