@@ -67,6 +67,7 @@ class ConfigManager
     protected function configure()
     {
         $this->set('LICENSE_KEY', $this->settings['license_key']);
+        $this->set('DEBUG', $this->settings['debug'] === 'yes' ? true : false);
         $this->set('SANDBOX', $this->settings['sandbox'] === 'yes' ? true : false);
         $this->set('BASE_URL',
             $this->get('SANDBOX') ? $this->get('SANDBOX_URL') : $this->get('LIVE_URL')

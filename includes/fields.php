@@ -103,9 +103,9 @@ return [
         'type' => 'checkbox',
         'label' => __('Enable logging', 'pine-simple-pay'),
         'description' => sprintf('%s%s',
-                __('Log SimplePay events, such as IPN requests, inside', 'pine-simple-pay'),
-                " <code>/wp-content/uploads/wc-logs/simple-pay-hash.log</code>."
-            )
+            __('Log SimplePay events, such as IPN requests, inside', 'pine-simple-pay'),
+            " <code>" . WC_Log_Handler_File::get_log_file_path('pine-simple-pay') . "</code>."
+        ),
     ],
 
 ];

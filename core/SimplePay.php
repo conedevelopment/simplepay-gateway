@@ -2,6 +2,7 @@
 
 namespace Pine\SimplePay;
 
+use Pine\SimplePay\Support\Log;
 use Pine\SimplePay\Support\Config;
 use Pine\SimplePay\Modules\Gateway;
 
