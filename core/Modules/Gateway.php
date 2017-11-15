@@ -20,13 +20,6 @@ class Gateway extends WC_Payment_Gateway
     public $id = 'pine-simple-pay';
 
     /**
-     * The icon of the gateway.
-     *
-     * @var string
-     */
-    public $icon;
-
-    /**
      * The title of the gateway.
      *
      * @var string
@@ -163,7 +156,7 @@ class Gateway extends WC_Payment_Gateway
      *
      * @param  int  $orderId
      * @param  int  $amount
-     * @param  strinf  $reason
+     * @param  string  $reason
      * @return array
      */
     public function process_refund($orderId, $amount = null, $reason = '')
@@ -184,7 +177,7 @@ class Gateway extends WC_Payment_Gateway
     /**
 	 * Get the transaction URL.
      *
-	 * @param  WC_Order  $order
+	 * @param  \WC_Order  $order
 	 * @return string
 	 */
     public function get_transaction_url($order)
@@ -231,9 +224,7 @@ class Gateway extends WC_Payment_Gateway
      */
     public function scripts()
     {
-        if ($this->canPay()) {
-            wp_enqueue_style($this->id, pine_url('css/gateway.css'), [], Config::get('VERSION'));
-        }
+        wp_enqueue_style($this->id, pine_url('css/gateway.css'), [], Config::get('VERSION'));
     }
 
     /**

@@ -10,7 +10,7 @@ return [
     'SANDBOX_URL' => 'https://sandbox.simplepay.hu/',
 
     // Pine settings
-    'DEBUG' => true,
+    'DEBUG' => false,
     'VERSION' => '0.1.2',
     'LICENSE_KEY' => null,
 

@@ -1,3 +1,9 @@
+label[for="payment_method_pine-simple-pay"] img {
+    width: 50%;
+    height: auto;
+    margin-top: 4px;
+}
+
 .payment-overlay {
     position: fixed;
     top: 0;

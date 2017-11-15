@@ -18,9 +18,7 @@ class Updater
             return $transient;
         }
 
-        $data = $this->checkApi();
-
-        if (version_compare(Config::get('VERSION'), $data->new_version, '<')) {
+        if (version_compare(Config::get('VERSION'), ($data = $this->checkApi())->new_version, '<')) {
             $transient->response['pine-simple-pay/pine-simple-pay.php'] = $data;
         }
 
