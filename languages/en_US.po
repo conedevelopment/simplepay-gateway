@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pine SimplePay\n"
-"POT-Creation-Date: 2017-11-14 13:57+0100\n"
-"PO-Revision-Date: 2017-11-14 13:57+0100\n"
+"POT-Creation-Date: 2017-11-16 17:59+0100\n"
+"PO-Revision-Date: 2017-11-16 17:59+0100\n"
 "Last-Translator: \n"
 "Language-Team: https://pineco.de\n"
 "Language: en_US\n"
@@ -17,7 +17,23 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: languages\n"
 
-#: core/SimplePay.php:99
+#: core/Handlers/IPNHandler.php:16
+msgid "IPN event was fired."
+msgstr ""
+
+#: core/Handlers/IRNHandler.php:16
+msgid "IRN event was fired."
+msgstr ""
+
+#: core/Handlers/NotificationHandler.php:54
+msgid "Event response: "
+msgstr ""
+
+#: core/SimplePay.php:74
+msgid "Please activate WooCommerce before using SimplePay Gateway!"
+msgstr ""
+
+#: core/SimplePay.php:103
 msgid "Settings"
 msgstr ""
 
@@ -82,99 +98,111 @@ msgid "Enable Sandbox Mode"
 msgstr ""
 
 #: includes/fields.php:46
+msgid "IPN / IRN settings"
+msgstr ""
+
+#: includes/fields.php:49
+msgid "Your IPN url:"
+msgstr ""
+
+#: includes/fields.php:54
 msgid "HUF Mercant Settings"
 msgstr ""
 
-#: includes/fields.php:48
+#: includes/fields.php:56
 msgid ""
 "Settings for HUF currency. These are activated when the customer checks out "
 "with HUF prices."
 msgstr ""
 
-#: includes/fields.php:51
+#: includes/fields.php:59
 msgid "HUF Merchant ID"
 msgstr ""
 
-#: includes/fields.php:53
+#: includes/fields.php:61
 msgid "This is the merchant ID for HUF currency."
 msgstr ""
 
-#: includes/fields.php:57
+#: includes/fields.php:65
 msgid "HUF Secret Key"
 msgstr ""
 
-#: includes/fields.php:59
+#: includes/fields.php:67
 msgid "This is the secret key for HUF currency."
 msgstr ""
 
-#: includes/fields.php:63
+#: includes/fields.php:71
 msgid "EUR Mercant Settings"
 msgstr ""
 
-#: includes/fields.php:65
+#: includes/fields.php:73
 msgid ""
 "Settings for EUR currency. These are activated when the customer checks out "
 "with EUR prices."
 msgstr ""
 
-#: includes/fields.php:68
+#: includes/fields.php:76
 msgid "EUR Merchant ID"
 msgstr ""
 
-#: includes/fields.php:70
+#: includes/fields.php:78
 msgid "This is the merchant ID for EUR currency."
 msgstr ""
 
-#: includes/fields.php:74
+#: includes/fields.php:82
 msgid "EUR Secret Key"
 msgstr ""
 
-#: includes/fields.php:76
+#: includes/fields.php:84
 msgid "This is the secret key for EUR currency."
 msgstr ""
 
-#: includes/fields.php:80
+#: includes/fields.php:88
 msgid "USD Mercant Settings"
 msgstr ""
 
-#: includes/fields.php:82
+#: includes/fields.php:90
 msgid ""
 "Settings for USD currency. These are activated when the customer checks out "
 "with USD prices."
 msgstr ""
 
-#: includes/fields.php:85
+#: includes/fields.php:93
 msgid "USD Merchant ID"
 msgstr ""
 
-#: includes/fields.php:87
+#: includes/fields.php:95
 msgid "This is the merchant ID for USD currency."
 msgstr ""
 
-#: includes/fields.php:91
+#: includes/fields.php:99
 msgid "USD Secret Key"
 msgstr ""
 
-#: includes/fields.php:93
+#: includes/fields.php:101
 msgid "This is the secret key for USD currency."
 msgstr ""
 
-#: includes/fields.php:97
+#: includes/fields.php:105
 msgid "Debug Settings"
 msgstr ""
 
-#: includes/fields.php:102
+#: includes/fields.php:110
 msgid "Debug log"
 msgstr ""
 
-#: includes/fields.php:104
+#: includes/fields.php:112
 msgid "Enable logging"
 msgstr ""
 
-#: includes/fields.php:106
+#: includes/fields.php:114
 msgid "Log SimplePay events, such as IPN requests, inside"
 msgstr ""
 
 #: includes/form.php:4
 msgid "We are redirecting you to the payment page!"
+msgstr ""
+
+#: includes/missing-license-key.php:2
+msgid "The SimplePay Gateway is not activated. Please set a valid license key."
 msgstr ""
