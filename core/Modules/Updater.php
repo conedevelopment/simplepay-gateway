@@ -2,6 +2,7 @@
 
 namespace Pine\SimplePay\Modules;
 
+use Pine\SimplePay\Support\Log;
 use Pine\SimplePay\Support\Config;
 
 class Updater
@@ -32,7 +33,11 @@ class Updater
      */
     protected function checkApi()
     {
-        $response = wp_remote_get('https://store.pineco.de/api/update/'.Config::get('LICENSE_KEY'));
+        $response = wp_remote_get('https://store.pineco.de/api/update/'.Config::get('LICENSE_KEY'), [
+            'headers' => [
+                'X-License-Site' => parse_url(site_url(), PHP_URL_HOST),
+            ],
+        ]);
 
         return wp_remote_retrieve_response_code($response) === 200 ? json_decode($response['body']) : false;
     }
