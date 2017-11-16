@@ -2,15 +2,19 @@
 
 namespace Pine\SimplePay\Handlers;
 
+use Pine\SimplePay\Support\Log;
+
 class IRNHandler extends NotificationHandler
 {
     /**
      * Process the IRN request.
-     * 
+     *
      * @return void
      */
     public function process()
     {
+        Log::info(__('IRN event was fired.', 'pine-simple-pay'));
+
         if ($this->validate() && ($id = wc_get_order_id_by_order_key($_POST['REFNOEXT'])) !== 0) {
 
             $order = wc_get_order($id);
@@ -19,7 +23,7 @@ class IRNHandler extends NotificationHandler
                 if ($amount <= $order->get_remaining_refund_amount()) {
                     wc_create_refund([
                         'order_id' => $id,
-                        'amount' => $amount, 
+                        'amount' => $amount,
                     ]);
                 }
             }

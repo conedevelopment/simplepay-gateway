@@ -14,7 +14,7 @@ class Updater
      */
     public function check($transient)
     {
-        if (empty($transient->checked)) {
+        if (empty($transient->checked) || ! Config::get('LICENSE_KEY')) {
             return $transient;
         }
 
@@ -51,12 +51,25 @@ class Updater
     }
 
     /**
+     * Check if the license key is missing.
+     *
+     * @return void
+     */
+    public function missingLicenseKey()
+    {
+        if (! Config::get('LICENSE_KEY')) {
+            require_once pine_path('includes/missing-license-key.php');
+        }
+    }
+
+    /**
      * Register the hooks.
      *
      * @return void
      */
     public function registerHooks()
     {
+        add_filter('admin_notices', [$this, 'missingLicenseKey']);
         add_filter('pre_set_site_transient_update_plugins', [$this, 'check']);
         add_filter('http_request_host_is_external', [$this, 'allowApi'], 10, 3);
     }

@@ -113,9 +113,11 @@ class Gateway extends WC_Payment_Gateway
      */
     public function process_payment($orderId)
     {
+        WC()->session->set('simple_pay_token', $key = md5($orderId.time()));
+
         return [
             'result' => 'success',
-            'redirect' => wc_get_order($orderId)->get_checkout_payment_url().'&autopay',
+            'redirect' => wc_get_order($orderId)->get_checkout_payment_url()."&simple_pay_token={$key}",
         ];
     }
 
@@ -198,7 +200,10 @@ class Gateway extends WC_Payment_Gateway
      */
     protected function canPay()
     {
-        return $_GET['pay_for_order'] == 'true' && isset($_GET['autopay']) && isset($_GET['key']);
+        return $_GET['pay_for_order'] == 'true'
+            && isset($_GET['simple_pay_token'])
+            && $_GET['simple_pay_token'] === WC()->session->get('simple_pay_token')
+            && isset($_GET['key']);
     }
 
     /**
@@ -224,7 +229,10 @@ class Gateway extends WC_Payment_Gateway
      */
     public function scripts()
     {
-        wp_enqueue_style($this->id, pine_url('css/gateway.css'), [], Config::get('VERSION'));
+        if ($this->canPay()) {
+            wp_enqueue_style("{$this->id}-form", pine_url('css/form.css'), [], Config::get('VERSION'));
+        }
+        wp_enqueue_style("{$this->id}-gateway", pine_url('css/gateway.css'), [], Config::get('VERSION'));
     }
 
     /**

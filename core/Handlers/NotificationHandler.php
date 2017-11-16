@@ -8,7 +8,7 @@ abstract class NotificationHandler
 {
     /**
      * Validate the IPN request.
-     * 
+     *
      * @return bool
      */
     protected function validate()
@@ -34,7 +34,7 @@ abstract class NotificationHandler
 
     /**
      * Confirm the IPN request.
-     * 
+     *
      * @return string
      */
     protected function confirm()
@@ -48,6 +48,10 @@ abstract class NotificationHandler
             ($date = date('YmdHis')),
         ]);
 
-        return sprintf("<EPAYMENT>%s|%s</EPAYMENT>", $date, Str::hash(implode('', $data)));
+        $response = sprintf("<EPAYMENT>%s|%s</EPAYMENT>", $date, Str::hash(implode('', $data)))
+
+        Log::info(__('Event response: ', 'pine-simple-pay').$response);
+
+        return $response;
     }
 }

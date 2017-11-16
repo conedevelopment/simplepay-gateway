@@ -58,7 +58,6 @@ class RefundRequest extends Request
      */
     public function validate()
     {
-
         if (preg_match_all("/<EPAYMENT>(.*?)<\/EPAYMENT>/", $this->response['body'], $matches) === 0) {
             return false;
         }
