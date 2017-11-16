@@ -14,11 +14,11 @@ class Updater
      */
     public function check($transient)
     {
-        if (empty($transient->checked) || ! Config::get('LICENSE_KEY')) {
+        if (empty($transient->checked)) {
             return $transient;
         }
 
-        if (version_compare(Config::get('VERSION'), ($data = $this->checkApi())->new_version, '<')) {
+        if (Config::get('LICENSE_KEY') !== null && version_compare(Config::get('VERSION'), ($data = $this->checkApi())->new_version, '<')) {
             $transient->response['pine-simple-pay/pine-simple-pay.php'] = $data;
         }
 

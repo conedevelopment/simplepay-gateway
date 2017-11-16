@@ -42,6 +42,14 @@ return [
         'type' => 'checkbox',
         'label' => __('Enable Sandbox Mode', 'pine-simple-pay'),
     ],
+    'notification_settings' => [
+        'title'       => __('IPN / IRN settings', 'pine-simple-pay'),
+        'type'        => 'title',
+        'description' => sprintf('%s%s',
+            __('Your IPN url:', 'pine-simple-pay'),
+            ' <code>' . site_url() . '?wc-api=wc_gateway_pine-simple-pay</code>'
+        ),
+    ],
     'huf_settings' => [
         'title'       => __('HUF Mercant Settings', 'pine-simple-pay'),
         'type'        => 'title',

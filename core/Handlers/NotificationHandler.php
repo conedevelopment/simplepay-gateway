@@ -2,6 +2,7 @@
 
 namespace Pine\SimplePay\Handlers;
 
+use Pine\SimplePay\Support\Log;
 use Pine\SimplePay\Support\Str;
 
 abstract class NotificationHandler
@@ -48,7 +49,7 @@ abstract class NotificationHandler
             ($date = date('YmdHis')),
         ]);
 
-        $response = sprintf("<EPAYMENT>%s|%s</EPAYMENT>", $date, Str::hash(implode('', $data)))
+        $response = sprintf("<EPAYMENT>%s|%s</EPAYMENT>", $date, Str::hash(implode('', $data)));
 
         Log::info(__('Event response: ', 'pine-simple-pay').$response);
 

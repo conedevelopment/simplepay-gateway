@@ -55,14 +55,14 @@ class PaymentHandler
     }
 
     /**
-     * Calculate the hash.
+     * Build the URL for hash calculating.
      *
      * @return void
      */
     protected function getUrl()
     {
         return sprintf('%s%s%s',
-            (is_ssl() ? 'https' : 'http')."://".$_SERVER['HTTP_HOST'].'/',
+            site_url('/'),
             trim(str_replace('?'.$_SERVER['QUERY_STRING'], '', $_SERVER['REQUEST_URI']), '/'),
             '?'.$_SERVER['QUERY_STRING']
         );
