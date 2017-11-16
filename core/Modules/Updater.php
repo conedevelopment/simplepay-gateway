@@ -2,7 +2,6 @@
 
 namespace Pine\SimplePay\Modules;
 
-use Pine\SimplePay\Support\Log;
 use Pine\SimplePay\Support\Config;
 
 class Updater
