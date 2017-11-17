@@ -61,7 +61,7 @@ class Updater
      */
     public function missingLicenseKey()
     {
-        if (! Config::get('LICENSE_KEY')) {
+        if (Config::get('LICENSE_KEY') === null) {
             require_once pine_path('includes/missing-license-key.php');
         }
     }
