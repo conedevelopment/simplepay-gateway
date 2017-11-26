@@ -48,7 +48,7 @@ class RefundRequest extends Request
             return Str::length($item);
         }, $this->payload);
 
-        $this->payload['ORDER_HASH'] = Str::hash(implode('', $data));
+        $this->payload['ORDER_HASH'] = Str::hash($data);
     }
 
     /**

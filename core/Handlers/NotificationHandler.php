@@ -49,7 +49,7 @@ abstract class NotificationHandler
             ($date = date('YmdHis')),
         ]);
 
-        $response = sprintf("<EPAYMENT>%s|%s</EPAYMENT>", $date, Str::hash(implode('', $data)));
+        $response = sprintf("<EPAYMENT>%s|%s</EPAYMENT>", $date, Str::hash($data));
 
         Log::info(__('Event response: ', 'pine-simple-pay').$response);
 

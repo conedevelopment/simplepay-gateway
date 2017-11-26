@@ -124,6 +124,6 @@ class PaymentRequest
             return [Str::length(Str::clean($item))];
         }, $this->hashables);
 
-        $this->payload['ORDER_HASH'] = Str::hash(implode('', array_merge(...$data)));
+        $this->payload['ORDER_HASH'] = Str::hash(array_merge(...$data));
     }
 }

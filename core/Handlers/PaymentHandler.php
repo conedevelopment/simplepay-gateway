@@ -32,7 +32,7 @@ class PaymentHandler
      */
     protected function validate()
     {
-        if (! in_array(substr($_GET['RT'], 0, 3), ['000', '001'])) {
+        if (! in_array($_GET['RC']), ['000', '001'])) {
             return false;
         }
 
@@ -61,6 +61,8 @@ class PaymentHandler
      */
     protected function getUrl()
     {
+        // REBUILD BY REQUEST URI
+
         return sprintf('%s%s%s',
             site_url('/'),
             trim(str_replace('?'.$_SERVER['QUERY_STRING'], '', $_SERVER['REQUEST_URI']), '/'),
