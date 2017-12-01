@@ -20,7 +20,6 @@ abstract class Billing
      */
     protected static function serialize(WC_Order $order)
     {
-        // self::$data['BILL_FISCALCODE'] = '';
         self::$data['BILL_CITY'] = $order->get_billing_city();
         self::$data['BILL_PHONE'] = $order->get_billing_phone();
         self::$data['BILL_EMAIL'] = $order->get_billing_email();

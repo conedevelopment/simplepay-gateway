@@ -27,16 +27,16 @@ abstract class Order
      * @return void
      */
     protected static function serialize(WC_Order $order)
-    {        
+    {
         foreach ($order->get_items() as $item) {
             $product = $item->get_product();
-                        
+
             self::$data['ORDER_QTY'][] = $item->get_quantity();
             self::$data['ORDER_PNAME'][] = $product->get_name();
             self::$data['ORDER_PINFO'][] = $product->get_description();
             self::$data['ORDER_PRICE'][] = $item->get_total() / $item->get_quantity();
             self::$data['ORDER_VAT'][] = 0;
-            self::$data['ORDER_PCODE'][] = $product->get_sku() ? $product->get_sku() : $product->get_id();
+            self::$data['ORDER_PCODE'][] = $product->get_sku() ?: $product->get_id();
         }
     }
 

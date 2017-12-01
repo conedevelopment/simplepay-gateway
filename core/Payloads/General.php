@@ -25,7 +25,7 @@ abstract class General
         self::$data['PAY_METHOD'] = 'CCVISAMC';
         self::$data['MERCHANT'] = Config::get('MERCHANT');
         self::$data['ORDER_REF'] = $order->get_order_key();
-        self::$data['DISCOUNT'] = $order->get_discount_total();
+        self::$data['DISCOUNT'] = 0;
         self::$data['PRICES_CURRENCY'] = $order->get_currency();
         self::$data['ORDER_SHIPPING'] = $order->get_total_shipping();
         self::$data['TIMEOUT_URL'] = $order->get_checkout_payment_url();
