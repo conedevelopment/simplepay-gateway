@@ -13,7 +13,7 @@ class IPNHandler extends NotificationHandler
      */
     public function process()
     {
-        Log::info(__('IPN event was fired.', 'pine-simple-pay'));
+        Log::info(__('IPN event was fired.', 'pine-simplepay'));
 
         if ($this->validate() && ($id = wc_get_order_id_by_order_key($_POST['REFNOEXT'])) !== 0) {
             wc_get_order($id)->payment_complete();

@@ -11,7 +11,7 @@ return [
 
     // Pine settings
     'DEBUG' => false,
-    'VERSION' => '0.1.2',
+    'VERSION' => '0.3.0',
     'LICENSE_KEY' => null,
 
 ];

@@ -19,7 +19,7 @@ class Updater
         }
 
         if (Config::get('LICENSE_KEY') !== null && version_compare(Config::get('VERSION'), ($data = $this->checkApi())->new_version, '<')) {
-            $transient->response['pine-simple-pay/pine-simple-pay.php'] = $data;
+            $transient->response['pine-simplepay/pine-simplepay.php'] = $data;
         }
 
         return $transient;

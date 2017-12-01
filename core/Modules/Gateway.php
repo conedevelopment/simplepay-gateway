@@ -17,7 +17,7 @@ class Gateway extends WC_Payment_Gateway
      *
      * @var string
      */
-    public $id = 'pine-simple-pay';
+    public $id = 'pine-simplepay';
 
     /**
      * The title of the gateway.
@@ -113,11 +113,11 @@ class Gateway extends WC_Payment_Gateway
      */
     public function process_payment($orderId)
     {
-        WC()->session->set('simple_pay_token', $key = md5($orderId.time()));
+        WC()->session->set('simplepay_token', $key = md5($orderId.time()));
 
         return [
             'result' => 'success',
-            'redirect' => wc_get_order($orderId)->get_checkout_payment_url()."&simple_pay_token={$key}",
+            'redirect' => wc_get_order($orderId)->get_checkout_payment_url()."&simplepay_token={$key}",
         ];
     }
 
@@ -138,7 +138,6 @@ class Gateway extends WC_Payment_Gateway
 
     /**
      * Process the IPN / IRN call.
-     * API endpoint: ?wc-api=wc_gateway_simple_pay
      *
      * @return void
      */
@@ -201,8 +200,8 @@ class Gateway extends WC_Payment_Gateway
     protected function canPay()
     {
         return $_GET['pay_for_order'] == 'true'
-            && isset($_GET['simple_pay_token'])
-            && $_GET['simple_pay_token'] === WC()->session->get('simple_pay_token')
+            && isset($_GET['simplepay_token'])
+            && $_GET['simplepay_token'] === WC()->session->get('simplepay_token')
             && isset($_GET['key']);
     }
 

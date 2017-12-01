@@ -31,13 +31,13 @@ class SimplePay
      */
     public static function boot()
     {
-        self::configure();
+        static::configure();
 
         add_filter('pre_update_option_active_plugins', [__CLASS__, 'guard']);
-        add_filter('plugin_action_links_pine-simple-pay/pine-simple-pay.php', [__CLASS__, 'addLinks']);
+        add_filter('plugin_action_links_pine-simplepay/pine-simplepay.php', [__CLASS__, 'addLinks']);
 
-        if (self::isActiveWooCommerce()) {
-            foreach (self::$modules as $module) {
+        if (static::isActiveWooCommerce()) {
+            foreach (static::$modules as $module) {
                 (new $module)->registerHooks();
             }
         }
@@ -50,7 +50,7 @@ class SimplePay
      */
     protected static function configure()
     {
-        Config::boot(get_option('woocommerce_pine-simple-pay_settings') ?: []);
+        Config::boot(get_option('woocommerce_pine-simplepay_settings') ?: []);
     }
 
     /**
@@ -60,7 +60,7 @@ class SimplePay
      */
     public static function deactivate()
     {
-        self::$isActive = false;
+        static::$isActive = false;
     }
 
     /**
@@ -70,8 +70,8 @@ class SimplePay
      */
     public static function activate()
     {
-        if (! self::isActiveWooCommerce()) {
-            die(__('Please activate WooCommerce before using SimplePay Gateway!', 'pine-simple-pay'));
+        if (! static::isActiveWooCommerce()) {
+            die(__('Please activate WooCommerce before using SimplePay Gateway!', 'pine-simplepay'));
         }
     }
 
@@ -83,9 +83,9 @@ class SimplePay
      */
     public static function guard($plugins)
     {
-        if (self::$isActive) {
-            unset($plugins[array_search('pine-simple-pay/pine-simple-pay.php', $plugins)]);
-            $plugins[] = 'pine-simple-pay/pine-simple-pay.php';
+        if (static::$isActive) {
+            unset($plugins[array_search('pine-simplepay/pine-simplepay.php', $plugins)]);
+            $plugins[] = 'pine-simplepay/pine-simplepay.php';
         }
 
         return $plugins;
@@ -100,7 +100,7 @@ class SimplePay
     public static function addLinks($links)
     {
         return array_merge($links, [
-            sprintf("<a href='%s'>%s</a>", admin_url('admin.php?page=wc-settings&tab=checkout&section=pine-simple-pay'), __('Settings')),
+            sprintf("<a href='%s'>%s</a>", admin_url('admin.php?page=wc-settings&tab=checkout&section=pine-simplepay'), __('Settings')),
         ]);
     }
 

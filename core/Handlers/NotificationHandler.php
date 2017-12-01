@@ -14,23 +14,10 @@ abstract class NotificationHandler
      */
     protected function validate()
     {
-        $data = [];
+        $hash = $_POST['HASH'];
+        unset($_POST['HASH']);
 
-        foreach ($_POST as $key => $value) {
-            if ($key === 'HASH') {
-                continue;
-            }
-
-            if (is_array($value)) {
-                foreach ($value as $item) {
-                    $data[] = Str::length($item);
-                }
-            } else {
-                $data[] = Str::length($value);
-            }
-        }
-
-        return Str::hash(implode('', $data)) === $_POST['HASH'];
+        return Str::hash($_POST) === $hash;
     }
 
     /**
@@ -40,18 +27,16 @@ abstract class NotificationHandler
      */
     protected function confirm()
     {
-        $data = array_map(function ($item) {
-            return Str::length($item);
-        }, [
+        $data = Str::hash([
             $_POST['IPN_PID'][0],
             $_POST['IPN_PNAME'][0],
             $_POST['IPN_DATE'],
             ($date = date('YmdHis')),
         ]);
 
-        $response = sprintf("<EPAYMENT>%s|%s</EPAYMENT>", $date, Str::hash($data));
+        $response = sprintf("<EPAYMENT>%s|%s</EPAYMENT>", $date, $data);
 
-        Log::info(__('Event response: ', 'pine-simple-pay').$response);
+        Log::info(__('Event response: ', 'pine-simplepay').$response);
 
         return $response;
     }

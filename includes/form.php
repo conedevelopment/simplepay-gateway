@@ -1,7 +1,7 @@
 <!-- Overlay -->
 <div class="payment-overlay">
     <div class="payment-loading-text">
-        <h1><?php _e('We are redirecting you to the payment page!', 'pine-simple-pay'); ?></h1>
+        <h1><?php _e('We are redirecting you to the payment page!', 'pine-simplepay'); ?></h1>
     </div>
     <div class="payment-loader"></div>
 </div>
@@ -28,7 +28,7 @@
 <!-- Script -->
 <script>
     document.querySelector('#order_review').addEventListener('submit', function (event) {
-        if (document.querySelector('input[name="payment_method"]:checked').value === 'pine-simple-pay') {
+        if (document.querySelector('input[name="payment_method"]:checked').value === 'pine-simplepay') {
             event.preventDefault();
         }
     });

@@ -12,9 +12,13 @@ abstract class Str
      */
     public static function hash($data)
     {
-        if (array($data)) {
-            $data = implode('', $data);
-        }
+        $data = implode('', array_map(function ($item) {
+            return is_array($item)
+                ? implode('', array_map(function ($value) {
+                    return static::length($value);
+                }, $item))
+                : static::length($item);
+        }, (array) $data));
 
         return hash_hmac('md5', $data, Config::get('SECRET_KEY'));
     }

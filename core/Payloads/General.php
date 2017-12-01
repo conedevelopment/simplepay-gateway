@@ -21,7 +21,7 @@ abstract class General
      */
     protected static function serialize(WC_Order $order)
     {
-        self::$data['ORDER_TIMEOUT'] = "300";
+        self::$data['ORDER_TIMEOUT'] = 300;
         self::$data['PAY_METHOD'] = 'CCVISAMC';
         self::$data['MERCHANT'] = Config::get('MERCHANT');
         self::$data['ORDER_REF'] = $order->get_order_key();

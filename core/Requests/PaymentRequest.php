@@ -115,15 +115,9 @@ class PaymentRequest
     protected function calculateHash()
     {
         $data = array_map(function ($hashable) {
-            if (is_array($item = $this->payload[$hashable])) {
-                return array_map(function ($value) {
-                    return Str::length(Str::clean($value));
-                }, $item);
-            }
-
-            return [Str::length(Str::clean($item))];
+            return $this->payload[$hashable];
         }, $this->hashables);
 
-        $this->payload['ORDER_HASH'] = Str::hash(array_merge(...$data));
+        $this->payload['ORDER_HASH'] = Str::hash($data);
     }
 }

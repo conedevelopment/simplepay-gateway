@@ -44,11 +44,7 @@ class RefundRequest extends Request
      */
     protected function calculateHash()
     {
-        $data = array_map(function ($item) {
-            return Str::length($item);
-        }, $this->payload);
-
-        $this->payload['ORDER_HASH'] = Str::hash($data);
+        $this->payload['ORDER_HASH'] = Str::hash($this->payload);
     }
 
     /**

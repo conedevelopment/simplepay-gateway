@@ -32,13 +32,13 @@ class PaymentHandler
      */
     protected function validate()
     {
-        if (! in_array($_GET['RC']), ['000', '001'])) {
+        if (! in_array($_GET['RC'], ['000', '001'])) {
             return false;
         }
 
         $url = substr($this->getUrl(), 0, -38);
 
-        return (isset($_GET['ctrl']) && $_GET['ctrl'] === Str::hash(Str::length($url)));
+        return (isset($_GET['ctrl']) && $_GET['ctrl'] === Str::hash($url));
     }
 
     /**
@@ -61,8 +61,6 @@ class PaymentHandler
      */
     protected function getUrl()
     {
-        // REBUILD BY REQUEST URI
-
         return sprintf('%s%s%s',
             site_url('/'),
             trim(str_replace('?'.$_SERVER['QUERY_STRING'], '', $_SERVER['REQUEST_URI']), '/'),

@@ -12,7 +12,7 @@ abstract class Log
      * @var array
      */
     protected static $context = [
-        'source' => 'pine-simple-pay',
+        'source' => 'pine-simplepay',
     ];
 
     /**
@@ -24,7 +24,7 @@ abstract class Log
     public static function info($data)
     {
         if (Config::get('DEBUG')) {
-            wc_get_logger()->info($data, self::$context);
+            wc_get_logger()->info($data, static::$context);
         }
     }
 
@@ -37,7 +37,7 @@ abstract class Log
     public static function debug($data)
     {
         if (Config::get('DEBUG')) {
-            wc_get_logger()->debug($data, self::$context);
+            wc_get_logger()->debug($data, static::$context);
         }
     }
 
@@ -50,7 +50,7 @@ abstract class Log
     public static function error($data)
     {
         if (Config::get('DEBUG')) {
-            wc_get_logger()->error($data, self::$context);
+            wc_get_logger()->error($data, static::$context);
         }
     }
 }
