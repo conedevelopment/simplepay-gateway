@@ -2,35 +2,24 @@
 
 namespace Pine\SimplePay\Support;
 
-abstract class Str
+abstract class Hash
 {
     /**
      * Make a hash version of the data.
      *
-     * @param  string  $data
+     * @param  string|array  $data
      * @return string
      */
-    public static function hash($data)
+    public static function make($data)
     {
         $data = implode('', array_map(function ($item) {
             return is_array($item)
                 ? implode('', array_map(function ($value) {
-                    return static::length($value);
+                    return strlen($value).$value;
                 }, $item))
-                : static::length($item);
+                : strlen($item).$item;
         }, (array) $data));
 
         return hash_hmac('md5', $data, Config::get('SECRET_KEY'));
-    }
-
-    /**
-     * Calculate and prepend the number of bytes to the string.
-     *
-     * @param  string  $string
-     * @return string
-     */
-    public static function length($string)
-    {
-        return strlen($string).$string;
     }
 }

@@ -3,7 +3,7 @@
 namespace Pine\SimplePay\Requests;
 
 use WC_Order;
-use Pine\SimplePay\Support\Str;
+use Pine\SimplePay\Support\Hash;
 use Pine\SimplePay\Support\Config;
 use Pine\SimplePay\Payloads\Transaction;
 
@@ -44,7 +44,7 @@ class RefundRequest extends Request
      */
     protected function calculateHash()
     {
-        $this->payload['ORDER_HASH'] = Str::hash($this->payload);
+        $this->payload['ORDER_HASH'] = Hash::make($this->payload);
     }
 
     /**

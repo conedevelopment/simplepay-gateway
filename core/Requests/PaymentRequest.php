@@ -3,7 +3,7 @@
 namespace Pine\SimplePay\Requests;
 
 use WC_Order;
-use Pine\SimplePay\Support\Str;
+use Pine\SimplePay\Support\Hash;
 use Pine\SimplePay\Support\Config;
 use Pine\SimplePay\Payloads\Order;
 use Pine\SimplePay\Payloads\General;
@@ -118,6 +118,6 @@ class PaymentRequest
             return $this->payload[$hashable];
         }, $this->hashables);
 
-        $this->payload['ORDER_HASH'] = Str::hash($data);
+        $this->payload['ORDER_HASH'] = Hash::make($data);
     }
 }

@@ -3,7 +3,7 @@
 namespace Pine\SimplePay\Handlers;
 
 use Pine\SimplePay\Support\Log;
-use Pine\SimplePay\Support\Str;
+use Pine\SimplePay\Support\Hash;
 
 abstract class NotificationHandler
 {
@@ -17,7 +17,7 @@ abstract class NotificationHandler
         $hash = $_POST['HASH'];
         unset($_POST['HASH']);
 
-        return Str::hash($_POST) === $hash;
+        return Hash::make($_POST) === $hash;
     }
 
     /**
@@ -27,7 +27,7 @@ abstract class NotificationHandler
      */
     protected function confirm()
     {
-        $data = Str::hash([
+        $data = Hash::make([
             $_POST['IPN_PID'][0],
             $_POST['IPN_PNAME'][0],
             $_POST['IPN_DATE'],

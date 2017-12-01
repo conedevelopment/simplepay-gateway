@@ -3,7 +3,7 @@
 namespace Pine\SimplePay\Handlers;
 
 use WC_Order;
-use Pine\SimplePay\Support\Str;
+use Pine\SimplePay\Support\Hash;
 
 class PaymentHandler
 {
@@ -38,7 +38,7 @@ class PaymentHandler
 
         $url = substr($this->getUrl(), 0, -38);
 
-        return (isset($_GET['ctrl']) && $_GET['ctrl'] === Str::hash($url));
+        return (isset($_GET['ctrl']) && $_GET['ctrl'] === Hash::make($url));
     }
 
     /**
@@ -61,10 +61,6 @@ class PaymentHandler
      */
     protected function getUrl()
     {
-        return sprintf('%s%s%s',
-            site_url('/'),
-            trim(str_replace('?'.$_SERVER['QUERY_STRING'], '', $_SERVER['REQUEST_URI']), '/'),
-            '?'.$_SERVER['QUERY_STRING']
-        );
+        return site_url(str_replace('/?', '?', $_SERVER['REQUEST_URI']));
     }
 }
