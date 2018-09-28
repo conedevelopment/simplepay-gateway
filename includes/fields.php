@@ -21,17 +21,6 @@ return [
         'default' => __('Pay with credit card via SimplePay.', 'pine-simplepay'),
         'desc_tip' => true,
     ],
-    'pine_api_settings' => [
-        'title'       => __('Pine API Settings', 'pine-simplepay'),
-        'type'        => 'title',
-        'description' => __('Set you licens key to recieve updates for the plugin.'),
-    ],
-    'license_key' => [
-        'title'       => __('License Key', 'pine-simplepay'),
-        'type'        => 'text',
-        'description' => __('This is the license key what you can obtain at you pine store profile.', 'pine-simplepay'),
-        'desc_tip' => true,
-    ],
     'sanbox_settings' => [
         'title'       => __('Sandbox Settings', 'pine-simplepay'),
         'type'        => 'title',

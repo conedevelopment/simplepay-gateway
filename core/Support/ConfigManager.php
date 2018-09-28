@@ -27,7 +27,7 @@ class ConfigManager
     public function __construct(array $settings = [])
     {
         $this->settings = $settings;
-        $this->options = (include pine_path('includes/config.php'));
+        $this->options = (include simplepay_gateway_path('includes/config.php'));
 
         $this->configure();
     }

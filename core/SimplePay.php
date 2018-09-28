@@ -21,7 +21,6 @@ class SimplePay
      */
     protected static $modules = [
         Modules\Gateway::class,
-        Modules\Updater::class,
     ];
 
     /**

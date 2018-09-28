@@ -13,28 +13,28 @@ use Pine\SimplePay\Handlers\PaymentHandler;
 class Gateway extends WC_Payment_Gateway
 {
     /**
-     * The ID of the gateway.
+     * The ID.
      *
      * @var string
      */
     public $id = 'pine-simplepay';
 
     /**
-     * The title of the gateway.
+     * The title.
      *
      * @var string
      */
     public $method_title = 'Credit Card (SimplePay)';
 
     /**
-     * The description of the gateway.
+     * The description.
      *
      * @var string
      */
     public $method_description = 'SimplePay payment gateway.';
 
     /**
-     * The supported features of the gateway.
+     * The supported features.
      *
      * @var array
      */
@@ -44,7 +44,19 @@ class Gateway extends WC_Payment_Gateway
     ];
 
     /**
-     * Create a new class instance.
+     * The supported currencies.
+     *
+     * @var array
+     */
+    protected $currencies = [
+        'HUF', 'USD', 'EUR',
+        'PLN', 'CZK', 'HRK',
+        'RSD', 'BGN', 'RON',
+        'GBP',
+    ];
+
+    /**
+     * Create a new gateway instance.
      *
      * @return void
      */
@@ -76,7 +88,7 @@ class Gateway extends WC_Payment_Gateway
      */
     public function checkCurrency()
     {
-        if (! in_array(get_woocommerce_currency(), ['HUF', 'USD', 'EUR'])) {
+        if (! in_array(get_woocommerce_currency(), $this->currencies)) {
             $this->enabled = 'no';
         }
     }
@@ -88,7 +100,7 @@ class Gateway extends WC_Payment_Gateway
      */
     public function init_form_fields()
     {
-        $this->form_fields = (include pine_path('includes/fields.php'));
+        $this->form_fields = (include simplepay_gateway_path('includes/fields.php'));
     }
 
     /**
@@ -102,7 +114,7 @@ class Gateway extends WC_Payment_Gateway
             $this->{$key} = $option;
         }
 
-        $this->icon = pine_url('images/bankcards.png');
+        $this->icon = simplepay_gateway_url('images/bankcards.png');
     }
 
     /**
@@ -217,7 +229,7 @@ class Gateway extends WC_Payment_Gateway
 
             $payment = new PaymentRequest($order);
 
-            require_once pine_path('includes/form.php');
+            require_once simplepay_gateway_path('includes/form.php');
         }
     }
 
@@ -229,9 +241,10 @@ class Gateway extends WC_Payment_Gateway
     public function scripts()
     {
         if ($this->canPay()) {
-            wp_enqueue_style("{$this->id}-form", pine_url('css/form.css'), [], Config::get('VERSION'));
+            wp_enqueue_style("{$this->id}-form", simplepay_gateway_url('css/form.css'), [], Config::get('VERSION'));
         }
-        wp_enqueue_style("{$this->id}-gateway", pine_url('css/gateway.css'), [], Config::get('VERSION'));
+
+        wp_enqueue_style("{$this->id}-gateway", simplepay_gateway_url('css/gateway.css'), [], Config::get('VERSION'));
     }
 
     /**

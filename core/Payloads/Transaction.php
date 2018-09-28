@@ -13,12 +13,12 @@ abstract class Transaction
      * @var array
      */
     protected static $data = [];
-    
+
     /**
      * Serialize the data.
      *
      * @param  \WC_Order  $order
-     * @param  int  $amount
+     * @param  int|float  $amount
      * @return void
      */
     protected static function serialize(WC_Order $order, $amount)

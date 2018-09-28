@@ -16,7 +16,6 @@ class IRNHandler extends NotificationHandler
         Log::info(__('IRN event was fired.', 'pine-simplepay'));
 
         if ($this->validate() && ($id = wc_get_order_id_by_order_key($_POST['REFNOEXT'])) !== 0) {
-
             $order = wc_get_order($id);
 
             if (($amount = abs($_POST['IPN_TOTALGENERAL']) - $order->get_total_refunded()) > 0) {

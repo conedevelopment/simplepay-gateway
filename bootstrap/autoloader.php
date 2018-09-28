@@ -8,7 +8,7 @@ spl_autoload_register(function ($class) {
         return;
     }
 
-    $file = pine_path(sprintf(
+    $file = simplepay_gateway_path(sprintf(
         'core/%s.php',
         str_replace('\\', '/', str_replace('Pine\\SimplePay\\', '', $class))
     ));

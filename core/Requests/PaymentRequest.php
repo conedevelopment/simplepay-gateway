@@ -44,18 +44,10 @@ class PaymentRequest
      * @var array
      */
     protected $hashables = [
-        "MERCHANT",
-        "ORDER_REF",
-        "ORDER_DATE",
-        "ORDER_PNAME",
-        "ORDER_PCODE",
-        "ORDER_PINFO",
-        "ORDER_PRICE",
-        "ORDER_QTY",
-        "ORDER_VAT",
-        "ORDER_SHIPPING",
-        "PRICES_CURRENCY",
-        "DISCOUNT",
+        "MERCHANT", "ORDER_REF", "ORDER_DATE",
+        "ORDER_PNAME", "ORDER_PCODE", "ORDER_PINFO",
+        "ORDER_PRICE", "ORDER_QTY", "ORDER_VAT",
+        "ORDER_SHIPPING", "PRICES_CURRENCY", "DISCOUNT",
         "PAY_METHOD",
     ];
 

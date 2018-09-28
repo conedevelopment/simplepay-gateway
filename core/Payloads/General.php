@@ -31,7 +31,7 @@ abstract class General
         self::$data['TIMEOUT_URL'] = $order->get_checkout_payment_url();
         self::$data['BACK_REF'] = $order->get_checkout_order_received_url();
         self::$data['ORDER_DATE'] = $order->get_date_created()->date('Y-m-d H:i:s');
-        self::$data['LANGUAGE'] = strtoupper(substr(get_bloginfo('language'), 0, 2));
+        self::$data['LANGUAGE'] = substr(get_bloginfo('language'), 0, 2);
     }
 
     /**
