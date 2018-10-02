@@ -18,7 +18,7 @@
  *
  * @return string
  */
-if (! function_exists('simplepay_gateway')):
+if (! function_exists('simplepay_gateway_path')):
     function simplepay_gateway_path($file = '')
     {
         return sprintf('%s%s', plugin_dir_path(__FILE__), $file);

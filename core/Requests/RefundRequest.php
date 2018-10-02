@@ -34,16 +34,6 @@ class RefundRequest extends Request
     {
         $this->payload = Transaction::handle($order, $amount);
 
-        $this->calculateHash();
-    }
-
-    /**
-     * Calculate the hash.
-     *
-     * @return void
-     */
-    protected function calculateHash()
-    {
         $this->payload['ORDER_HASH'] = Hash::make($this->payload);
     }
 
@@ -54,10 +44,10 @@ class RefundRequest extends Request
      */
     public function validate()
     {
-        if (preg_match_all("/<EPAYMENT>(.*?)<\/EPAYMENT>/", $this->response['body'], $matches) === 0) {
+        if (! preg_match("/<EPAYMENT>(.*?)<\/EPAYMENT>/", $this->response['body'], $match)) {
             return false;
         }
 
-        return explode('|', $matches[1][0])[2] === 'OK';
+        return explode('|', $matches[1])[2] === 'OK';
     }
 }

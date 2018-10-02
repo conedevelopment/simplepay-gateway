@@ -96,16 +96,6 @@ class PaymentRequest
             $this->payload += $handler::handle($order);
         }
 
-        $this->calculateHash();
-    }
-
-    /**
-     * Calculate the hash.
-     *
-     * @return void
-     */
-    protected function calculateHash()
-    {
         $data = array_map(function ($hashable) {
             return $this->payload[$hashable];
         }, $this->hashables);
