@@ -32,7 +32,7 @@ return [
         'label' => __('Enable Sandbox Mode', 'pine-simplepay'),
     ],
     'notification_settings' => [
-        'title'       => __('IPN / IRN settings', 'pine-simplepay'),
+        'title'       => __('IPN/IRN settings', 'pine-simplepay'),
         'type'        => 'title',
         'description' => sprintf('%s%s',
             __('Your IPN url:', 'pine-simplepay'),
