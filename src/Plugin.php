@@ -22,10 +22,11 @@ class Plugin
     {
         static::configure();
 
+        add_action('widgets_init', [__CLASS__, 'registerWidget']);
         add_filter('pre_update_option_active_plugins', [__CLASS__, 'guard']);
         add_filter('plugin_action_links_simplepay-gateway/simplepay-gateway.php', [__CLASS__, 'addLinks']);
 
-        if (static::isActiveWooCommerce()) {
+        if (class_exists('WooCommerce')) {
             (new Gateway)->registerHooks();
         }
     }
@@ -57,7 +58,7 @@ class Plugin
      */
     public static function activate()
     {
-        if (! static::isActiveWooCommerce()) {
+        if (! class_exists('WooCommerce')) {
             die(__('Please activate WooCommerce before using SimplePay Gateway!', 'simplepay-gateway'));
         }
     }
@@ -92,12 +93,12 @@ class Plugin
     }
 
     /**
-     * Check if WooCommerce is activated.
+     * Register the logo widget.
      *
-     * @return bool
+     * @return void
      */
-    protected static function isActiveWooCommerce()
+    public static function registerWidget()
     {
-        return class_exists('WooCommerce');
+        register_widget(Widget::class);
     }
 }

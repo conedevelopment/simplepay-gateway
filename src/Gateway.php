@@ -113,8 +113,6 @@ class Gateway extends WC_Payment_Gateway
         foreach (Config::settings() as $key => $option) {
             $this->{$key} = $option;
         }
-
-        // $this->icon = simplepay_gateway_url('images/bankcards.png');
     }
 
     /**
