@@ -48,6 +48,6 @@ class RefundRequest extends Request
             return false;
         }
 
-        return explode('|', $matches[1])[2] === 'OK';
+        return explode('|', $match[1])[2] === 'OK';
     }
 }

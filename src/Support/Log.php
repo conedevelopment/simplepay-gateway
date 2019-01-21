@@ -12,7 +12,7 @@ abstract class Log
      * @var array
      */
     protected static $context = [
-        'source' => 'pine-simplepay',
+        'source' => 'simplepay-gateway',
     ];
 
     /**

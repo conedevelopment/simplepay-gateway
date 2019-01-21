@@ -114,7 +114,7 @@ class Gateway extends WC_Payment_Gateway
             $this->{$key} = $option;
         }
 
-        $this->icon = simplepay_gateway_url('images/bankcards.png');
+        // $this->icon = simplepay_gateway_url('images/bankcards.png');
     }
 
     /**
@@ -170,7 +170,7 @@ class Gateway extends WC_Payment_Gateway
      * @param  int  $orderId
      * @param  int  $amount
      * @param  string  $reason
-     * @return array
+     * @return bool
      */
     public function process_refund($orderId, $amount = null, $reason = '')
     {
