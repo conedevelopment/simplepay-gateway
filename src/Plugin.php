@@ -5,7 +5,7 @@ namespace Pine\SimplePay;
 use Pine\SimplePay\Support\Config;
 use Pine\SimplePay\Modules\Gateway;
 
-class SimplePay
+class Plugin
 {
     /**
      * Determine if the plugin is active.

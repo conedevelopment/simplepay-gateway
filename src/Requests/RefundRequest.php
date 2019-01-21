@@ -18,7 +18,7 @@ class RefundRequest extends Request
      */
     public function __construct(WC_Order $order, $amount)
     {
-        $this->url = Config::get('BASE_URL').Config::get('IRN_URL');
+        $this->url = Config::get('BASE_URL') . 'payment/order/irn.php';
 
         $this->setPayload($order, $amount);
     }

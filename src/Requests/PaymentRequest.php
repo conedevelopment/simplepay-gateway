@@ -61,7 +61,7 @@ class PaymentRequest
     {
         $this->setPayload($order);
 
-        $this->url = Config::get('BASE_URL').Config::get('LU_URL');
+        $this->url = Config::get('BASE_URL') . 'payment/order/lu.php';
     }
 
     /**

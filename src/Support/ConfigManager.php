@@ -27,7 +27,6 @@ class ConfigManager
     public function __construct(array $settings = [])
     {
         $this->settings = $settings;
-        $this->options = (include simplepay_gateway_path('includes/config.php'));
 
         $this->configure();
     }
@@ -66,11 +65,10 @@ class ConfigManager
      */
     protected function configure()
     {
-        $this->set('LICENSE_KEY', $this->settings['license_key']);
         $this->set('DEBUG', $this->settings['debug'] === 'yes' ? true : false);
         $this->set('SANDBOX', $this->settings['sandbox'] === 'yes' ? true : false);
         $this->set('BASE_URL',
-            $this->get('SANDBOX') ? $this->get('SANDBOX_URL') : $this->get('LIVE_URL')
+            $this->get('SANDBOX') ? 'https://sandbox.simplepay.hu/' : 'https://secure.simplepay.hu/'
         );
     }
 

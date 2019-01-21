@@ -38,11 +38,11 @@ if (! function_exists('simplepay_gateway_url')):
 endif;
 
 // Pull in the autoloader
-require_once __DIR__.'/bootstrap/autoloader.php';
+require_once __DIR__ . '/autoload.php';
 
 // Register the deactivation hook
-register_activation_hook(__FILE__, [Pine\SimplePay\SimplePay::class, 'activate']);
-register_deactivation_hook(__FILE__, [Pine\SimplePay\SimplePay::class, 'deactivate']);
+register_activation_hook(__FILE__, [Pine\SimplePay\Plugin::class, 'activate']);
+register_deactivation_hook(__FILE__, [Pine\SimplePay\Plugin::class, 'deactivate']);
 
 // Boot up the servicies
-Pine\SimplePay\SimplePay::boot();
+Pine\SimplePay\Plugin::boot();
