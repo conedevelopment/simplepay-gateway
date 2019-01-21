@@ -1,6 +1,6 @@
 <?php
 
-namespace Pine\SimplePay\Modules;
+namespace Pine\SimplePay;
 
 use WC_Payment_Gateway;
 use Pine\SimplePay\Support\Config;
@@ -17,7 +17,7 @@ class Gateway extends WC_Payment_Gateway
      *
      * @var string
      */
-    public $id = 'pine-simplepay';
+    public $id = 'simplepay-gateway';
 
     /**
      * The title.

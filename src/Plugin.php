@@ -3,7 +3,6 @@
 namespace Pine\SimplePay;
 
 use Pine\SimplePay\Support\Config;
-use Pine\SimplePay\Modules\Gateway;
 
 class Plugin
 {
@@ -15,15 +14,6 @@ class Plugin
     protected static $isActive = true;
 
     /**
-     * The plugin modules.
-     *
-     * @var array
-     */
-    protected static $modules = [
-        Modules\Gateway::class,
-    ];
-
-    /**
      * Boot the plugin.
      *
      * @return void
@@ -33,12 +23,10 @@ class Plugin
         static::configure();
 
         add_filter('pre_update_option_active_plugins', [__CLASS__, 'guard']);
-        add_filter('plugin_action_links_pine-simplepay/pine-simplepay.php', [__CLASS__, 'addLinks']);
+        add_filter('plugin_action_links_simplepay-gateway/simplepay-gateway.php', [__CLASS__, 'addLinks']);
 
         if (static::isActiveWooCommerce()) {
-            foreach (static::$modules as $module) {
-                (new $module)->registerHooks();
-            }
+            (new Gateway)->registerHooks();
         }
     }
 
@@ -49,7 +37,7 @@ class Plugin
      */
     protected static function configure()
     {
-        Config::boot(get_option('woocommerce_pine-simplepay_settings') ?: []);
+        Config::boot(get_option('woocommerce_simplepay-gateway_settings') ?: []);
     }
 
     /**
@@ -70,7 +58,7 @@ class Plugin
     public static function activate()
     {
         if (! static::isActiveWooCommerce()) {
-            die(__('Please activate WooCommerce before using SimplePay Gateway!', 'pine-simplepay'));
+            die(__('Please activate WooCommerce before using SimplePay Gateway!', 'simplepay-gateway'));
         }
     }
 
@@ -83,8 +71,8 @@ class Plugin
     public static function guard($plugins)
     {
         if (static::$isActive) {
-            unset($plugins[array_search('pine-simplepay/pine-simplepay.php', $plugins)]);
-            $plugins[] = 'pine-simplepay/pine-simplepay.php';
+            unset($plugins[array_search('simplepay-gateway/simplepay-gateway.php', $plugins)]);
+            $plugins[] = 'simplepay-gateway/simplepay-gateway.php';
         }
 
         return $plugins;
@@ -99,7 +87,7 @@ class Plugin
     public static function addLinks($links)
     {
         return array_merge($links, [
-            sprintf("<a href='%s'>%s</a>", admin_url('admin.php?page=wc-settings&tab=checkout&section=pine-simplepay'), __('Settings')),
+            sprintf("<a href='%s'>%s</a>", admin_url('admin.php?page=wc-settings&tab=checkout&section=simplepay-gateway'), __('Settings')),
         ]);
     }
 

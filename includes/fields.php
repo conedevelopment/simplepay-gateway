@@ -36,7 +36,7 @@ return [
         'type'        => 'title',
         'description' => sprintf('%s%s',
             __('Your IPN url:', 'pine-simplepay'),
-            ' <code>' . site_url() . '?wc-api=wc_gateway_pine-simplepay</code>'
+            ' <code>' . site_url() . '?wc-api=wc_gateway_simplepay-gateway</code>'
         ),
     ],
     'huf_settings' => [
@@ -101,7 +101,7 @@ return [
         'label' => __('Enable logging', 'pine-simplepay'),
         'description' => sprintf('%s%s',
             __('Log SimplePay events, such as IPN requests, inside', 'pine-simplepay'),
-            " <code>" . WC_Log_Handler_File::get_log_file_path('pine-simplepay') . "</code>."
+            " <code>" . WC_Log_Handler_File::get_log_file_path('simplepay-gateway') . "</code>."
         ),
     ],
 
