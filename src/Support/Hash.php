@@ -2,7 +2,7 @@
 
 namespace Pine\SimplePay\Support;
 
-abstract class Hash
+class Hash
 {
     /**
      * Make a hash version of the data.

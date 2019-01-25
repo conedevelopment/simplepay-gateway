@@ -76,7 +76,7 @@ class ConfigManager
      * Set the secret key and merchant by the currency.
      *
      * @param  string  $currency
-     * @return voud
+     * @return void
      */
     public function setByCurrency($currency)
     {

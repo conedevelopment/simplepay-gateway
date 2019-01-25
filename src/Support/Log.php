@@ -2,9 +2,7 @@
 
 namespace Pine\SimplePay\Support;
 
-use WC_Logger;
-
-abstract class Log
+class Log
 {
     /**
      * The log context.

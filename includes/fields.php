@@ -22,8 +22,8 @@ return [
         'desc_tip' => true,
     ],
     'sanbox_settings' => [
-        'title'       => __('Sandbox Settings', 'pine-simplepay'),
-        'type'        => 'title',
+        'title' => __('Sandbox Settings', 'pine-simplepay'),
+        'type' => 'title',
         'description' => __('If this option is on this gateway is in test (sandbox) mode.', 'pine-simplepay'),
     ],
     'sandbox' => [
@@ -32,16 +32,16 @@ return [
         'label' => __('Enable Sandbox Mode', 'pine-simplepay'),
     ],
     'notification_settings' => [
-        'title'       => __('IPN/IRN settings', 'pine-simplepay'),
-        'type'        => 'title',
+        'title' => __('IPN/IRN settings', 'pine-simplepay'),
+        'type' => 'title',
         'description' => sprintf('%s%s',
             __('Your IPN url:', 'pine-simplepay'),
             ' <code>' . site_url() . '?wc-api=wc_gateway_simplepay-gateway</code>'
         ),
     ],
     'huf_settings' => [
-        'title'       => __('HUF Mercant Settings', 'pine-simplepay'),
-        'type'        => 'title',
+        'title' => __('HUF Mercant Settings', 'pine-simplepay'),
+        'type' => 'title',
         'description' => __('Settings for HUF currency. These are activated when the customer checks out with HUF prices.', 'pine-simplepay'),
     ],
     'huf_merchant' => [
@@ -57,8 +57,8 @@ return [
         'desc_tip' => true,
     ],
     'eur_settings' => [
-        'title'       => __('EUR Mercant Settings', 'pine-simplepay'),
-        'type'        => 'title',
+        'title' => __('EUR Mercant Settings', 'pine-simplepay'),
+        'type' => 'title',
         'description' => __('Settings for EUR currency. These are activated when the customer checks out with EUR prices.', 'pine-simplepay'),
     ],
     'eur_merchant' => [
@@ -74,8 +74,8 @@ return [
         'desc_tip' => true,
     ],
     'usd_settings' => [
-        'title'       => __('USD Mercant Settings', 'pine-simplepay'),
-        'type'        => 'title',
+        'title' => __('USD Mercant Settings', 'pine-simplepay'),
+        'type' => 'title',
         'description' => __('Settings for USD currency. These are activated when the customer checks out with USD prices.', 'pine-simplepay'),
     ],
     'usd_merchant' => [
@@ -91,8 +91,8 @@ return [
         'desc_tip' => true,
     ],
     'debug_settings' => [
-        'title'       => __('Debug Settings', 'pine-simplepay'),
-        'type'        => 'title',
+        'title' => __('Debug Settings', 'pine-simplepay'),
+        'type' => 'title',
         'description' => '',
     ],
     'debug' => [

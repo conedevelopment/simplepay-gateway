@@ -2,7 +2,7 @@
 
 namespace Pine\SimplePay\Support;
 
-abstract class Config
+class Config
 {
     /**
      * The config instance.
