@@ -239,10 +239,22 @@ class Gateway extends WC_Payment_Gateway
     public function scripts()
     {
         if ($this->canPay()) {
-            wp_enqueue_style("{$this->id}-form", simplepay_gateway_url('css/form.css'), [], Config::get('VERSION'));
+            wp_enqueue_style("{$this->id}-form", simplepay_gateway_url('css/form.css'), []);
         }
 
-        wp_enqueue_style("{$this->id}-gateway", simplepay_gateway_url('css/gateway.css'), [], Config::get('VERSION'));
+        wp_enqueue_style("{$this->id}-gateway", simplepay_gateway_url('css/gateway.css'), []);
+    }
+
+    /**
+     * A new method.
+     *
+     * @param  string  $url
+     * @param  \WC_Order  $order
+     * @return string
+     */
+    public function formatUrl($url, $order)
+    {
+        return str_replace('/?', '?', $url);
     }
 
     /**
@@ -256,6 +268,7 @@ class Gateway extends WC_Payment_Gateway
         add_action('wp_enqueue_scripts', [$this, 'scripts']);
         add_filter('woocommerce_payment_gateways', [$this, 'register']);
         add_filter("woocommerce_thankyou_{$this->id}", [$this, 'processPaymentResonse']);
+        add_filter('woocommerce_get_checkout_order_received_url', [$this, 'formatUrl'], 10, 2);
         add_action("woocommerce_api_wc_gateway_{$this->id}", [$this, 'processNotificationResponse']);
         add_action("woocommerce_update_options_payment_gateways_{$this->id}", [$this, 'process_admin_options']);
     }

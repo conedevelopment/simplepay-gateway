@@ -61,6 +61,6 @@ class PaymentHandler
      */
     protected function getUrl()
     {
-        return site_url($_SERVER['REQUEST_URI']);
+        return str_replace('/?', '?', site_url($_SERVER['REQUEST_URI']));
     }
 }
