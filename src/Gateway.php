@@ -144,6 +144,8 @@ class Gateway extends WC_Payment_Gateway
         Config::setByCurrency($order->get_currency());
 
         (new PaymentHandler($order))->handle();
+
+        WC()->session->set('simplepay_token', null);
     }
 
     /**
@@ -193,14 +195,14 @@ class Gateway extends WC_Payment_Gateway
 	 */
     public function get_transaction_url($order)
     {
-		if ($this->sandbox === 'yes') {
-			$this->view_transaction_url = 'https://sandbox.simplepay.hu/admin/transactions/data/%s';
-		} else {
-			$this->view_transaction_url = 'https://secure.simplepay.hu/admin/transactions/data/%s';
+        if ($this->sandbox === 'yes') {
+            $this->view_transaction_url = 'https://sandbox.simplepay.hu/admin/transactions/data/%s';
+        } else {
+            $this->view_transaction_url = 'https://secure.simplepay.hu/admin/transactions/data/%s';
         }
 
-		return parent::get_transaction_url($order);
-	}
+        return parent::get_transaction_url($order);
+    }
 
     /**
      * Determine if the user can pay.
