@@ -188,11 +188,11 @@ class Gateway extends WC_Payment_Gateway
     }
 
     /**
-	 * Get the transaction URL.
+     * Get the transaction URL.
      *
-	 * @param  \WC_Order  $order
-	 * @return string
-	 */
+     * @param  \WC_Order  $order
+     * @return string
+     */
     public function get_transaction_url($order)
     {
         if ($this->sandbox === 'yes') {
