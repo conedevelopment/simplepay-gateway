@@ -45,7 +45,7 @@ To prevent price conflicts, prices will be passed as gross values and VAT will b
 
 WooCommerce handles discounts differently than SimplePay.
 Woo reduces the discount from the prodocut prices direcly.
-Because of this, SimplePay will get the reduces price.
+Because of this, SimplePay will get the reduced prices.
 To prevent double price reduction, the discounted amount will be 0.
 
 ## Refunds
