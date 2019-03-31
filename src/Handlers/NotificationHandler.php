@@ -14,10 +14,11 @@ abstract class NotificationHandler
      */
     protected function validate()
     {
-        $hash = $_POST['HASH'];
-        unset($_POST['HASH']);
+        $hash = Hash::make(array_filter($_POST, function ($key) {
+            return $key !== 'HASH';
+        }, ARRAY_FILTER_USE_KEY));
 
-        return Hash::make($_POST) === $hash;
+        return $hash === $_POST['HASH'];
     }
 
     /**
@@ -34,9 +35,9 @@ abstract class NotificationHandler
             ($date = date('YmdHis')),
         ]);
 
-        $response = sprintf("<EPAYMENT>%s|%s</EPAYMENT>", $date, $data);
+        $response = sprintf('<EPAYMENT>%s|%s</EPAYMENT>', $date, $data);
 
-        Log::info(__('Event response: ', 'pine-simplepay').$response);
+        Log::info(__('Event response: ', 'pine-simplepay') . $response);
 
         return $response;
     }

@@ -13,11 +13,9 @@ class Hash
     public static function make($data)
     {
         $data = implode('', array_map(function ($item) {
-            return is_array($item)
-                ? implode('', array_map(function ($value) {
-                    return strlen($value).$value;
-                }, $item))
-                : strlen($item).$item;
+            return implode('', array_map(function ($value) {
+                return strlen($value).$value;
+            }, (array) $item));
         }, (array) $data));
 
         return hash_hmac('md5', $data, Config::get('SECRET_KEY'));

@@ -38,7 +38,7 @@ class PaymentHandler
 
         $url = substr($this->getUrl(), 0, -38);
 
-        return (isset($_GET['ctrl']) && $_GET['ctrl'] === Hash::make($url));
+        return isset($_GET['ctrl']) && $_GET['ctrl'] === Hash::make($url);
     }
 
     /**
@@ -46,7 +46,7 @@ class PaymentHandler
      *
      * @return void
      */
-    public function process()
+    public function handle()
     {
         if ($this->validate()) {
             $this->order->set_transaction_id($_GET['payrefno']);

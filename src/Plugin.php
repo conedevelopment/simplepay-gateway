@@ -26,6 +26,8 @@ class Plugin
         add_filter('pre_update_option_active_plugins', [__CLASS__, 'guard']);
         add_filter('plugin_action_links_simplepay-gateway/simplepay-gateway.php', [__CLASS__, 'addLinks']);
 
+        load_theme_textdomain('pine-simplepay', simplepay_gateway_path('languages'));
+
         if (class_exists('WooCommerce')) {
             (new Gateway)->registerHooks();
         }
@@ -38,7 +40,7 @@ class Plugin
      */
     protected static function configure()
     {
-        Config::boot(get_option('woocommerce_simplepay-gateway_settings') ?: []);
+        Config::boot(get_option('woocommerce_simplepay-gateway_settings', []));
     }
 
     /**

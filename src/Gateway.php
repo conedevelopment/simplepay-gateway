@@ -24,7 +24,7 @@ class Gateway extends WC_Payment_Gateway
      *
      * @var string
      */
-    public $method_title = 'Credit Card (SimplePay)';
+    public $method_title = 'SimplePay';
 
     /**
      * The description.
@@ -50,9 +50,9 @@ class Gateway extends WC_Payment_Gateway
      */
     protected $currencies = [
         'HUF', 'USD', 'EUR',
-        'PLN', 'CZK', 'HRK',
-        'RSD', 'BGN', 'RON',
-        'GBP',
+        // 'PLN', 'CZK', 'HRK',
+        // 'RSD', 'BGN', 'RON',
+        // 'GBP',
     ];
 
     /**
@@ -119,7 +119,7 @@ class Gateway extends WC_Payment_Gateway
      * Process the payment.
      *
      * @param  string  $orderId
-     * @return return  array
+     * @return array
      */
     public function process_payment($orderId)
     {
@@ -127,38 +127,38 @@ class Gateway extends WC_Payment_Gateway
 
         return [
             'result' => 'success',
-            'redirect' => wc_get_order($orderId)->get_checkout_payment_url()."&simplepay_token={$key}",
+            'redirect' => wc_get_order($orderId)->get_checkout_payment_url() . "&simplepay_token={$key}",
         ];
     }
 
     /**
-     * Process the payment response.
+     * Handle the payment.
      *
      * @param  int  $orderId
      * @return void
      */
-    public function processPaymentResonse($orderId)
+    public function handlePayment($orderId)
     {
         $order = wc_get_order($orderId);
 
         Config::setByCurrency($order->get_currency());
 
-        (new PaymentHandler($order))->process();
+        (new PaymentHandler($order))->handle();
     }
 
     /**
-     * Process the IPN / IRN call.
+     * Handle the IPN / IRN call.
      *
      * @return void
      */
-    public function processNotificationResponse()
+    public function handleNotification()
     {
         Config::setByCurrency($_POST['CURRENCY']);
 
         if (in_array($_POST['ORDERSTATUS'], ['COMPLETE', 'PAYMENT_RECEIVED', 'PAYMENT_AUTHORIZED'])) {
-            (new IPNHandler)->process();
+            (new IPNHandler)->handle();
         } elseif ($_POST['ORDERSTATUS'] === 'REFUND') {
-            (new IRNHandler)->process();
+            (new IRNHandler)->handle();
         }
     }
 
@@ -166,8 +166,8 @@ class Gateway extends WC_Payment_Gateway
      * Process the refund.
      *
      * @param  int  $orderId
-     * @param  int  $amount
-     * @param  string  $reason
+     * @param  int|null  $amount
+     * @param  string|null  $reason
      * @return bool
      */
     public function process_refund($orderId, $amount = null, $reason = '')
@@ -209,7 +209,7 @@ class Gateway extends WC_Payment_Gateway
      */
     protected function canPay()
     {
-        return $_GET['pay_for_order'] == 'true'
+        return $_GET['pay_for_order'] === 'true'
             && isset($_GET['simplepay_token'])
             && $_GET['simplepay_token'] === WC()->session->get('simplepay_token')
             && isset($_GET['key']);
@@ -241,12 +241,10 @@ class Gateway extends WC_Payment_Gateway
         if ($this->canPay()) {
             wp_enqueue_style("{$this->id}-form", simplepay_gateway_url('css/form.css'), []);
         }
-
-        wp_enqueue_style("{$this->id}-gateway", simplepay_gateway_url('css/gateway.css'), []);
     }
 
     /**
-     * A new method.
+     * Format the given URL.
      *
      * @param  string  $url
      * @param  \WC_Order  $order
@@ -267,9 +265,9 @@ class Gateway extends WC_Payment_Gateway
         add_action('wp_footer', [$this, 'form']);
         add_action('wp_enqueue_scripts', [$this, 'scripts']);
         add_filter('woocommerce_payment_gateways', [$this, 'register']);
-        add_filter("woocommerce_thankyou_{$this->id}", [$this, 'processPaymentResonse']);
+        add_filter("woocommerce_thankyou_{$this->id}", [$this, 'handlePayment']);
+        add_action("woocommerce_api_wc_gateway_{$this->id}", [$this, 'handleNotification']);
         add_filter('woocommerce_get_checkout_order_received_url', [$this, 'formatUrl'], 10, 2);
-        add_action("woocommerce_api_wc_gateway_{$this->id}", [$this, 'processNotificationResponse']);
         add_action("woocommerce_update_options_payment_gateways_{$this->id}", [$this, 'process_admin_options']);
     }
 }

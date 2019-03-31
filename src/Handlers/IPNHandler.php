@@ -7,11 +7,11 @@ use Pine\SimplePay\Support\Log;
 class IPNHandler extends NotificationHandler
 {
     /**
-     * Process the IPN request.
+     * Handle the IPN request.
      *
      * @return void
      */
-    public function process()
+    public function handle()
     {
         Log::info(__('IPN event was fired.', 'pine-simplepay'));
 

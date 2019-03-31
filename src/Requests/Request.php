@@ -28,7 +28,7 @@ abstract class Request
     /**
      * Send a GET request.
      *
-     * @return void|bool
+     * @return bool
      */
     public function get()
     {
@@ -40,7 +40,7 @@ abstract class Request
     /**
      * Send a POST request.
      *
-     * @return void|bool
+     * @return bool
      */
     public function post()
     {

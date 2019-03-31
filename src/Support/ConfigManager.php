@@ -80,7 +80,9 @@ class ConfigManager
      */
     public function setByCurrency($currency)
     {
-        $this->set('MERCHANT', $this->settings[strtolower($currency)."_merchant"]);
-        $this->set('SECRET_KEY', $this->settings[strtolower($currency)."_secret_key"]);
+        $currency = strtolower($currency);
+
+        $this->set('MERCHANT', $this->settings["{$currency}_merchant"]);
+        $this->set('SECRET_KEY', $this->settings["{$currency}_secret_key"]);
     }
 }

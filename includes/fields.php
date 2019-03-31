@@ -16,7 +16,7 @@ return [
     ],
     'description' => [
         'title' => __('Description', 'woocommerce'),
-        'type' => 'text ',
+        'type' => 'text',
         'description' => __('This controls the description which the user sees during checkout.', 'woocommerce'),
         'default' => __('Pay with credit card via SimplePay.', 'pine-simplepay'),
         'desc_tip' => true,
@@ -35,58 +35,58 @@ return [
         'title' => __('IPN/IRN settings', 'pine-simplepay'),
         'type' => 'title',
         'description' => sprintf('%s%s',
-            __('Your IPN url:', 'pine-simplepay'),
+            __("The shop's IPN/IRN URL:", 'pine-simplepay'),
             ' <code>' . site_url() . '?wc-api=wc_gateway_simplepay-gateway</code>'
         ),
     ],
     'huf_settings' => [
-        'title' => __('HUF Mercant Settings', 'pine-simplepay'),
+        'title' => __('HUF Merchant Settings', 'pine-simplepay'),
         'type' => 'title',
         'description' => __('Settings for HUF currency. These are activated when the customer checks out with HUF prices.', 'pine-simplepay'),
     ],
     'huf_merchant' => [
         'title' => __('HUF Merchant ID', 'pine-simplepay'),
-        'type' => 'text ',
+        'type' => 'text',
         'description' => __('This is the merchant ID for HUF currency.', 'pine-simplepay'),
         'desc_tip' => true,
     ],
     'huf_secret_key' => [
         'title' => __('HUF Secret Key', 'pine-simplepay'),
-        'type' => 'password ',
+        'type' => 'password',
         'description' => __('This is the secret key for HUF currency.', 'pine-simplepay'),
         'desc_tip' => true,
     ],
     'eur_settings' => [
-        'title' => __('EUR Mercant Settings', 'pine-simplepay'),
+        'title' => __('EUR Merchant Settings', 'pine-simplepay'),
         'type' => 'title',
         'description' => __('Settings for EUR currency. These are activated when the customer checks out with EUR prices.', 'pine-simplepay'),
     ],
     'eur_merchant' => [
         'title' => __('EUR Merchant ID', 'pine-simplepay'),
-        'type' => 'text ',
+        'type' => 'text',
         'description' => __('This is the merchant ID for EUR currency.', 'pine-simplepay'),
         'desc_tip' => true,
     ],
     'eur_secret_key' => [
         'title' => __('EUR Secret Key', 'pine-simplepay'),
-        'type' => 'password ',
+        'type' => 'password',
         'description' => __('This is the secret key for EUR currency.', 'pine-simplepay'),
         'desc_tip' => true,
     ],
     'usd_settings' => [
-        'title' => __('USD Mercant Settings', 'pine-simplepay'),
+        'title' => __('USD Merchant Settings', 'pine-simplepay'),
         'type' => 'title',
         'description' => __('Settings for USD currency. These are activated when the customer checks out with USD prices.', 'pine-simplepay'),
     ],
     'usd_merchant' => [
         'title' => __('USD Merchant ID', 'pine-simplepay'),
-        'type' => 'text ',
+        'type' => 'text',
         'description' => __('This is the merchant ID for USD currency.', 'pine-simplepay'),
         'desc_tip' => true,
     ],
     'usd_secret_key' => [
         'title' => __('USD Secret Key', 'pine-simplepay'),
-        'type' => 'password ',
+        'type' => 'password',
         'description' => __('This is the secret key for USD currency.', 'pine-simplepay'),
         'desc_tip' => true,
     ],
@@ -101,7 +101,7 @@ return [
         'label' => __('Enable logging', 'pine-simplepay'),
         'description' => sprintf('%s%s',
             __('Log SimplePay events, such as IPN requests, inside', 'pine-simplepay'),
-            " <code>" . WC_Log_Handler_File::get_log_file_path('simplepay-gateway') . "</code>."
+            ': <code>' . WC_Log_Handler_File::get_log_file_path('simplepay-gateway') . '</code>.'
         ),
     ],
 

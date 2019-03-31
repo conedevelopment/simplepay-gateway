@@ -17,6 +17,7 @@ abstract class General
     /**
      * Serialize the data.
      *
+     * @param  \WC_Order  $order
      * @return void
      */
     protected static function serialize(WC_Order $order)
@@ -27,7 +28,7 @@ abstract class General
         self::$data['ORDER_REF'] = $order->get_order_key();
         self::$data['DISCOUNT'] = 0;
         self::$data['PRICES_CURRENCY'] = $order->get_currency();
-        self::$data['ORDER_SHIPPING'] = $order->get_total_shipping();
+        self::$data['ORDER_SHIPPING'] = $order->get_shipping_total() + $order->get_shipping_tax();
         self::$data['TIMEOUT_URL'] = $order->get_checkout_payment_url();
         self::$data['BACK_REF'] = $order->get_checkout_order_received_url();
         self::$data['ORDER_DATE'] = $order->get_date_created()->date('Y-m-d H:i:s');

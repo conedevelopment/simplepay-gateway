@@ -19,10 +19,12 @@ class Widget extends WP_Widget
     /**
      * The output of the widget.
      *
+     * @param  array  $args
+     * @param  \WP_Widget  $instance
      * @return void
      */
     public function widget($args, $instance)
     {
-		include simplepay_gateway_path('includes/widget.php');
+        include simplepay_gateway_path('includes/widget.php');
     }
 }

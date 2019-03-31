@@ -44,11 +44,19 @@ class PaymentRequest
      * @var array
      */
     protected $hashables = [
-        "MERCHANT", "ORDER_REF", "ORDER_DATE",
-        "ORDER_PNAME", "ORDER_PCODE", "ORDER_PINFO",
-        "ORDER_PRICE", "ORDER_QTY", "ORDER_VAT",
-        "ORDER_SHIPPING", "PRICES_CURRENCY", "DISCOUNT",
-        "PAY_METHOD",
+        'MERCHANT',
+        'ORDER_REF',
+        'ORDER_DATE',
+        'ORDER_PNAME',
+        'ORDER_PCODE',
+        'ORDER_PINFO',
+        'ORDER_PRICE',
+        'ORDER_QTY',
+        'ORDER_VAT',
+        'ORDER_SHIPPING',
+        'PRICES_CURRENCY',
+        'DISCOUNT',
+        'PAY_METHOD',
     ];
 
     /**
@@ -61,6 +69,16 @@ class PaymentRequest
     {
         $this->setPayload($order);
 
+        $this->setUrl();
+    }
+
+    /**
+     * Set the URL.
+     *
+     * @return void
+     */
+    protected function setUrl()
+    {
         $this->url = Config::get('BASE_URL') . 'payment/order/lu.php';
     }
 

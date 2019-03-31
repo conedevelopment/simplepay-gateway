@@ -7,11 +7,11 @@ use Pine\SimplePay\Support\Log;
 class IRNHandler extends NotificationHandler
 {
     /**
-     * Process the IRN request.
+     * Handle the IRN request.
      *
      * @return void
      */
-    public function process()
+    public function handle()
     {
         Log::info(__('IRN event was fired.', 'pine-simplepay'));
 

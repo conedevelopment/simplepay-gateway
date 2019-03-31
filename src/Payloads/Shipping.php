@@ -16,6 +16,7 @@ abstract class Shipping
     /**
      * Serialize the data.
      *
+     * @param  \WC_Order  $order
      * @return void
      */
     protected static function serialize(WC_Order $order)

@@ -27,6 +27,7 @@ class Config
     public static function boot(array $settings = [])
     {
         self::$settings = $settings;
+
         self::$manager = new ConfigManager($settings);
     }
 
@@ -43,6 +44,8 @@ class Config
     /**
      * Call dinamically the config methods.
      *
+     * @param  string  $method
+     * @param  array  $arguments
      * @return mixed
      */
     public static function __callStatic($method, $arguments)
