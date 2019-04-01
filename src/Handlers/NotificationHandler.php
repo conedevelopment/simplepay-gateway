@@ -14,11 +14,11 @@ abstract class NotificationHandler
      */
     protected function validate()
     {
-        $hash = Hash::make(array_filter($_POST, function ($key) {
+        $hashables = array_filter($_POST, function ($key) {
             return $key !== 'HASH';
-        }, ARRAY_FILTER_USE_KEY));
+        }, ARRAY_FILTER_USE_KEY);
 
-        return $hash === $_POST['HASH'];
+        return Hash::make($hashables) === $_POST['HASH'];
     }
 
     /**
@@ -28,14 +28,14 @@ abstract class NotificationHandler
      */
     protected function confirm()
     {
-        $data = Hash::make([
+        $hash = Hash::make([
             $_POST['IPN_PID'][0],
             $_POST['IPN_PNAME'][0],
             $_POST['IPN_DATE'],
             ($date = date('YmdHis')),
         ]);
 
-        $response = sprintf('<EPAYMENT>%s|%s</EPAYMENT>', $date, $data);
+        $response = sprintf('<EPAYMENT>%s|%s</EPAYMENT>', $date, $hash);
 
         Log::info(__('Event response: ', 'pine-simplepay') . $response);
 
