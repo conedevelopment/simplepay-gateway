@@ -49,10 +49,8 @@ class Gateway extends WC_Payment_Gateway
      * @var array
      */
     protected $currencies = [
-        'HUF', 'USD', 'EUR',
-        // 'PLN', 'CZK', 'HRK',
-        // 'RSD', 'BGN', 'RON',
-        // 'GBP',
+        'HUF', 'USD', 'EUR', // 'PLN', 'CZK',
+        // 'HRK', 'RSD', 'BGN', 'RON', 'GBP',
     ];
 
     /**
@@ -82,7 +80,7 @@ class Gateway extends WC_Payment_Gateway
     }
 
     /**
-     * Check if the currency supported by the gateway.
+     * Check if the currency is supported by the gateway.
      *
      * @return void
      */
@@ -218,7 +216,7 @@ class Gateway extends WC_Payment_Gateway
     }
 
     /**
-     * Add the form to the footer.
+     * Append the form to the footer.
      *
      * @return void
      */
