@@ -100,7 +100,7 @@ class Gateway extends WC_Payment_Gateway
      */
     public function init_form_fields()
     {
-        $this->form_fields = (include simplepay_gateway_path('includes/fields.php'));
+        $this->form_fields = (include __DIR__ . '/../includes/fields.php');
     }
 
     /**
@@ -229,7 +229,7 @@ class Gateway extends WC_Payment_Gateway
 
             $payment = new PaymentRequest($order);
 
-            require_once simplepay_gateway_path('includes/form.php');
+            require_once __DIR__ . '/../includes/form.php';
         }
     }
 
@@ -241,7 +241,7 @@ class Gateway extends WC_Payment_Gateway
     public function scripts()
     {
         if ($this->canPay()) {
-            wp_enqueue_style("{$this->id}-form", simplepay_gateway_url('css/form.css'), []);
+            wp_enqueue_style("{$this->id}-form", plugin_dir_url(__DIR__) . 'css/form.css', []);
         }
     }
 

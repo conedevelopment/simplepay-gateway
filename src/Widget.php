@@ -25,6 +25,6 @@ class Widget extends WP_Widget
      */
     public function widget($args, $instance)
     {
-        include simplepay_gateway_path('includes/widget.php');
+        include __DIR__ . '/../includes/widget.php';
     }
 }

@@ -13,28 +13,6 @@
  * Domain Path:       /languages/
  */
 
-/**
- * Get the plugin directory path.
- *
- * @param  string|null  $file
- * @return string
- */
-function simplepay_gateway_path($file = '')
-{
-    return sprintf('%s%s', plugin_dir_path(__FILE__), $file);
-}
-
-/**
- * Get the plugin directory URL.
- *
- * @param  string|null  $file
- * @return string
- */
-function simplepay_gateway_url($file = '')
-{
-    return sprintf('%s%s', plugin_dir_url(__FILE__), $file);
-}
-
 // Pull in the autoloader
 require_once __DIR__ . '/autoload.php';
 

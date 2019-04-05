@@ -90,7 +90,7 @@ class Plugin
     public static function addLinks($links)
     {
         return array_merge($links, [
-            sprintf("<a href='%s'>%s</a>", admin_url('admin.php?page=wc-settings&tab=checkout&section=simplepay-gateway'), __('Settings')),
+            sprintf('<a href="%s">%s</a>', admin_url('admin.php?page=wc-settings&tab=checkout&section=simplepay-gateway'), __('Settings')),
         ]);
     }
 
