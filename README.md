@@ -13,7 +13,7 @@ The sandbox settings and credentials are located at [https://sandbox.simplepay.h
 
 #### Merchants
 
-On SimplePay's admin panel you can access your merchant's ID (MERCHANT) and the secret key (SECRET_KEY).
+On SimplePay's admin panel you can access your merchant's ID (`MERCHANT`) and the secret key (`SECRET_KEY`).
 Copy and paste the credentials to your WooCommerce shop's SimplePay settings page.
 
 Be careful to paste the credentials to the correct currency.
@@ -39,14 +39,14 @@ The supported currencies: `HUF`, `EUR` and `USD`.
 ### VAT handling
 
 WooCommerce handles VAT differently than SimplePay.
-To prevent price conflicts, prices will be passed as gross values and VAT will be 0.
+To prevent price conflicts, prices will be passed as gross values and VAT will be `0`.
 
 ### Discount handling
 
 WooCommerce handles discounts differently than SimplePay.
 Woo reduces the discount from the prodocut prices direcly.
 Because of this, SimplePay will get the reduced prices.
-To prevent double price reduction, the discounted amount will be 0.
+To prevent double price reduction, the discounted amount will be `0`.
 
 ## Refunds
 
