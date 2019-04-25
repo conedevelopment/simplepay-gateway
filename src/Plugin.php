@@ -7,13 +7,6 @@ use Pine\SimplePay\Support\Config;
 class Plugin
 {
     /**
-     * Determine if the plugin is active.
-     *
-     * @var bool
-     */
-    protected static $isActive = true;
-
-    /**
      * Boot the plugin.
      *
      * @return void
@@ -50,7 +43,7 @@ class Plugin
      */
     public static function deactivate()
     {
-        static::$isActive = false;
+        //
     }
 
     /**
@@ -73,8 +66,8 @@ class Plugin
      */
     public static function guard($plugins)
     {
-        if (static::$isActive) {
-            unset($plugins[array_search('simplepay-gateway/simplepay-gateway.php', $plugins)]);
+        if (($index = array_search('simplepay-gateway/simplepay-gateway.php', $plugins)) !== false) {
+            unset($plugins[$index]);
             $plugins[] = 'simplepay-gateway/simplepay-gateway.php';
         }
 
