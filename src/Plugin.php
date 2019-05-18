@@ -7,6 +7,13 @@ use Pine\SimplePay\Support\Config;
 class Plugin
 {
     /**
+     * The plugin slug.
+     *
+     * @var string
+     */
+    const SLUG = 'simplepay-gateway/simplepay-gateway.php';
+
+    /**
      * Boot the plugin.
      *
      * @return void
@@ -17,7 +24,7 @@ class Plugin
 
         add_action('widgets_init', [__CLASS__, 'registerWidget']);
         add_filter('pre_update_option_active_plugins', [__CLASS__, 'guard']);
-        add_filter('plugin_action_links_simplepay-gateway/simplepay-gateway.php', [__CLASS__, 'addLinks']);
+        add_filter('plugin_action_links_' . static::SLUG, [__CLASS__, 'addLinks']);
 
         load_plugin_textdomain('pine-simplepay', false, basename(dirname(__DIR__)) . '/languages');
 
@@ -66,9 +73,9 @@ class Plugin
      */
     public static function guard($plugins)
     {
-        if (($index = array_search('simplepay-gateway/simplepay-gateway.php', $plugins)) !== false) {
+        if (($index = array_search(static::SLUG, $plugins)) !== false) {
             unset($plugins[$index]);
-            $plugins[] = 'simplepay-gateway/simplepay-gateway.php';
+            $plugins[] = static::SLUG;
         }
 
         return $plugins;
