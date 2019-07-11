@@ -16,18 +16,18 @@ class Updater
     /**
      * Get the plugin info.
      *
-     * @param  array  $response
+     * @param  array  $infoponse
      * @param  string  $action
      * @param  object  $args
      * @return mixed
      */
-    public function info($response, $action, $args)
+    public function info($infoponse, $action, $args)
     {
         if ($action !== 'plugin_information') {
             return false;
         } elseif (Plugin::SLUG !== $args->slug) {
-		    return $response;
-        } elseif (! $remote = get_transient('simplepay_update_' . Plugin::SLUG)) {
+		    return $infoponse;
+        } elseif (! $infoponse = get_transient('simplepay_update_' . Plugin::SLUG)) {
             $remote = wp_remote_get($this->url);
 
             if (wp_remote_retrieve_response_code($remote) == 200 && wp_remote_retrieve_body($remote)) {
@@ -38,20 +38,20 @@ class Updater
         if ($remote) {
             $remote = json_decode(wp_remote_retrieve_body($remote));
 
-            $res = new stdClass;
-            $res->name = 'SimplePay Gateway for WooCommerce';
-            $res->slug = Plugin::SLUG;
-            $res->version = str_replace('v', '', $remote->tag_name);
-            $res->tested = '5.2.2';
-            $res->requires = '4.9.0';
-            $res->author = '<a href="https://pineco.de">Pine</a>';
-            $res->author_profile = 'https://pineco.de';
-            $res->download_link = $remote->zipball_url;
-            $res->trunk = $remote->zipball_url;
-            $res->last_updated = date('Y-m-d H:i:s', strtotime($remote->published_at));
-            $res->sections = [];
+            $info = new stdClass;
+            $info->name = 'SimplePay Gateway for WooCommerce';
+            $info->slug = Plugin::SLUG;
+            $info->version = str_replace('v', '', $remote->tag_name);
+            $info->tested = '5.2.2';
+            $info->requires = '4.9.0';
+            $info->author = '<a href="https://pineco.de">Pine</a>';
+            $info->author_profile = 'https://pineco.de';
+            $info->download_link = $remote->zipball_url;
+            $info->trunk = $remote->zipball_url;
+            $info->last_updated = date('Y-m-d H:i:s', strtotime($remote->published_at));
+            $info->sections = [];
 
-            return $res;
+            return $info;
         }
 
         return false;
@@ -79,16 +79,16 @@ class Updater
             $remote = json_decode(wp_remote_retrieve_body($remote));
 
             if (version_compare(Plugin::VERSION, $version = str_replace('v', '', $remote->tag_name), '<')) {
-                $res = new stdClass;
-                $res->slug = Plugin::SLUG;
-                $res->plugin = Plugin::SLUG;
-                $res->new_version = $version;
-                $res->tested = '5.2.2';
-                $res->package = $remote->zipball_url;
-                $res->url = $remote->html_url;
+                $info = new stdClass;
+                $info->slug = Plugin::SLUG;
+                $info->plugin = Plugin::SLUG;
+                $info->new_version = $version;
+                $info->tested = '5.2.2';
+                $info->package = $remote->zipball_url;
+                $info->url = $remote->html_url;
 
-                $transient->response[$res->plugin] = $res;
-                $transient->checked[$res->plugin] = $remote->version;
+                $transient->response[$info->plugin] = $info;
+                $transient->checked[$info->plugin] = $remote->version;
             }
         }
 

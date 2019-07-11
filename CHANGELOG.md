@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.1.0 (2019-07-11)
+### Added
+- Added custom GitHub updater
+
 ## v1.0.2 (2019-07-11)
 ### Changed
 - replace `self` to `static`
