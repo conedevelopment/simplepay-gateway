@@ -11,7 +11,7 @@ class Plugin
      *
      * @var string
      */
-    const VERSION = '1.1.2';
+    const VERSION = '1.1.3';
 
     /**
      * The plugin slug.
@@ -66,10 +66,8 @@ class Plugin
      */
     public static function activate()
     {
-        if (! basename(dirname(__DIR__)) === 'simplepay-gateway') {
-            die(__("Please make sure, the plugin's directory called <code>simplepay-gateway</code>!", 'simplepay-gateway'));
-        } elseif (! class_exists('WooCommerce')) {
-            die(__('Please activate WooCommerce before using SimplePay Gateway!', 'simplepay-gateway'));
+        if (! class_exists('WooCommerce')) {
+            die(__('Please activate WooCommerce before using SimplePay Gateway!', 'pine-simplepay'));
         }
     }
 

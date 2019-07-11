@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.1.3 (2019-07-11)
+### Added
+- Force correct directory name
+
 ## v1.1.2 (2019-07-11)
 ### Fixed
 - Directory naming
