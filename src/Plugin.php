@@ -66,7 +66,9 @@ class Plugin
      */
     public static function activate()
     {
-        if (! class_exists('WooCommerce')) {
+        if (! basename(dirname(__DIR__)) === 'simplepay-gateway') {
+            die(__("Please make sure, the plugin's directory called <code>simplepay-gateway</code>!", 'simplepay-gateway'));
+        } elseif (! class_exists('WooCommerce')) {
             die(__('Please activate WooCommerce before using SimplePay Gateway!', 'simplepay-gateway'));
         }
     }
