@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.1.5 (2019-07-11)
+### Fixed
+- Fixed `glob()` pattern
+
 ## v1.1.4 (2019-07-11)
 ### Fixed
 - Fixed updater hooks
