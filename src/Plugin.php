@@ -7,11 +7,18 @@ use Pine\SimplePay\Support\Config;
 class Plugin
 {
     /**
+     * The plugin version.
+     *
+     * @var string
+     */
+    const VERSION = '1.0.2';
+
+    /**
      * The plugin slug.
      *
      * @var string
      */
-    const SLUG = 'simplepay-gateway/simplepay-gateway.php';
+    const SLUG = 'thepinecode-simplepay-gateway/thepinecode-simplepay-gateway.php';
 
     /**
      * Boot the plugin.
@@ -28,9 +35,8 @@ class Plugin
 
         load_plugin_textdomain('pine-simplepay', false, basename(dirname(__DIR__)) . '/languages');
 
-        if (class_exists('WooCommerce')) {
-            (new Gateway)->registerHooks();
-        }
+        (new Gateway)->registerHooks();
+        (new Updater)->registerHooks();
     }
 
     /**
