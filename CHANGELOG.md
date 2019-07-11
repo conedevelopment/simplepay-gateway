@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.1.4 (2019-07-11)
+### Fixed
+- Fixed updater hooks
+
 ## v1.1.3 (2019-07-11)
 ### Added
 - Force correct directory name
