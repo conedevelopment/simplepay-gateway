@@ -22,17 +22,17 @@ abstract class General
      */
     protected static function serialize(WC_Order $order)
     {
-        self::$data['ORDER_TIMEOUT'] = 300;
-        self::$data['PAY_METHOD'] = 'CCVISAMC';
-        self::$data['MERCHANT'] = Config::get('MERCHANT');
-        self::$data['ORDER_REF'] = $order->get_order_key();
-        self::$data['DISCOUNT'] = 0;
-        self::$data['PRICES_CURRENCY'] = $order->get_currency();
-        self::$data['ORDER_SHIPPING'] = $order->get_shipping_total() + $order->get_shipping_tax();
-        self::$data['TIMEOUT_URL'] = $order->get_checkout_payment_url();
-        self::$data['BACK_REF'] = $order->get_checkout_order_received_url();
-        self::$data['ORDER_DATE'] = $order->get_date_created()->date('Y-m-d H:i:s');
-        self::$data['LANGUAGE'] = substr(get_bloginfo('language'), 0, 2);
+        static::$data['ORDER_TIMEOUT'] = 300;
+        static::$data['PAY_METHOD'] = 'CCVISAMC';
+        static::$data['MERCHANT'] = Config::get('MERCHANT');
+        static::$data['ORDER_REF'] = $order->get_order_key();
+        static::$data['DISCOUNT'] = 0;
+        static::$data['PRICES_CURRENCY'] = $order->get_currency();
+        static::$data['ORDER_SHIPPING'] = $order->get_shipping_total() + $order->get_shipping_tax();
+        static::$data['TIMEOUT_URL'] = $order->get_checkout_payment_url();
+        static::$data['BACK_REF'] = $order->get_checkout_order_received_url();
+        static::$data['ORDER_DATE'] = $order->get_date_created()->date('Y-m-d H:i:s');
+        static::$data['LANGUAGE'] = substr(get_bloginfo('language'), 0, 2);
     }
 
     /**
@@ -43,8 +43,8 @@ abstract class General
      */
     public static function handle(WC_Order $order)
     {
-        self::serialize($order);
+        static::serialize($order);
 
-        return self::$data;
+        return static::$data;
     }
 }

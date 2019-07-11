@@ -26,9 +26,9 @@ class Config
      */
     public static function boot(array $settings = [])
     {
-        self::$settings = $settings;
+        static::$settings = $settings;
 
-        self::$manager = new ConfigManager($settings);
+        static::$manager = new ConfigManager($settings);
     }
 
     /**
@@ -38,7 +38,7 @@ class Config
      */
     public static function settings()
     {
-        return self::$settings;
+        return static::$settings;
     }
 
     /**
@@ -50,6 +50,6 @@ class Config
      */
     public static function __callStatic($method, $arguments)
     {
-        return self::$manager->{$method}(...$arguments);
+        return static::$manager->{$method}(...$arguments);
     }
 }

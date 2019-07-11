@@ -31,12 +31,12 @@ abstract class Order
         foreach ($order->get_items() as $item) {
             $product = $item->get_product();
 
-            self::$data['ORDER_QTY'][] = $item->get_quantity();
-            self::$data['ORDER_PNAME'][] = $product->get_name();
-            self::$data['ORDER_PINFO'][] = $product->get_description();
-            self::$data['ORDER_PRICE'][] = ($item->get_total() + $item->get_total_tax()) / $item->get_quantity();
-            self::$data['ORDER_VAT'][] = 0;
-            self::$data['ORDER_PCODE'][] = $product->get_sku() ?: $product->get_id();
+            static::$data['ORDER_QTY'][] = $item->get_quantity();
+            static::$data['ORDER_PNAME'][] = $product->get_name();
+            static::$data['ORDER_PINFO'][] = $product->get_description();
+            static::$data['ORDER_PRICE'][] = ($item->get_total() + $item->get_total_tax()) / $item->get_quantity();
+            static::$data['ORDER_VAT'][] = 0;
+            static::$data['ORDER_PCODE'][] = $product->get_sku() ?: $product->get_id();
         }
     }
 
@@ -48,8 +48,8 @@ abstract class Order
      */
     public static function handle(WC_Order $order)
     {
-        self::serialize($order);
+        static::serialize($order);
 
-        return self::$data;
+        return static::$data;
     }
 }

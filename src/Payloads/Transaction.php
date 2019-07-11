@@ -23,12 +23,12 @@ abstract class Transaction
      */
     protected static function serialize(WC_Order $order, $amount)
     {
-        self::$data['MERCHANT'] = Config::get('MERCHANT');
-        self::$data['ORDER_REF'] = $order->get_transaction_id();
-        self::$data['ORDER_AMOUNT'] = $order->get_total();
-        self::$data['ORDER_CURRENCY'] = $order->get_order_currency();
-        self::$data['IRN_DATE'] = date('Y-m-d H:i:s');
-        self::$data['AMOUNT'] = $amount;
+        static::$data['MERCHANT'] = Config::get('MERCHANT');
+        static::$data['ORDER_REF'] = $order->get_transaction_id();
+        static::$data['ORDER_AMOUNT'] = $order->get_total();
+        static::$data['ORDER_CURRENCY'] = $order->get_order_currency();
+        static::$data['IRN_DATE'] = date('Y-m-d H:i:s');
+        static::$data['AMOUNT'] = $amount;
     }
 
     /**
@@ -40,8 +40,8 @@ abstract class Transaction
      */
     public static function handle(WC_Order $order, $amount)
     {
-        self::serialize($order, $amount);
+        static::serialize($order, $amount);
 
-        return self::$data;
+        return static::$data;
     }
 }

@@ -21,17 +21,17 @@ abstract class Billing
      */
     protected static function serialize(WC_Order $order)
     {
-        self::$data['BILL_CITY'] = $order->get_billing_city();
-        self::$data['BILL_PHONE'] = $order->get_billing_phone();
-        self::$data['BILL_EMAIL'] = $order->get_billing_email();
-        self::$data['BILL_STATE'] = $order->get_billing_state();
-        self::$data['BILL_COMPANY'] = $order->get_billing_company();
-        self::$data['BILL_LNAME'] = $order->get_billing_last_name();
-        self::$data['BILL_ZIPCODE'] = $order->get_billing_postcode();
-        self::$data['BILL_FNAME'] = $order->get_billing_first_name();
-        self::$data['BILL_ADDRESS'] = $order->get_billing_address_1();
-        self::$data['BILL_ADDRESS2'] = $order->get_billing_address_2();
-        self::$data['BILL_COUNTRYCODE'] = $order->get_billing_country();
+        static::$data['BILL_CITY'] = $order->get_billing_city();
+        static::$data['BILL_PHONE'] = $order->get_billing_phone();
+        static::$data['BILL_EMAIL'] = $order->get_billing_email();
+        static::$data['BILL_STATE'] = $order->get_billing_state();
+        static::$data['BILL_COMPANY'] = $order->get_billing_company();
+        static::$data['BILL_LNAME'] = $order->get_billing_last_name();
+        static::$data['BILL_ZIPCODE'] = $order->get_billing_postcode();
+        static::$data['BILL_FNAME'] = $order->get_billing_first_name();
+        static::$data['BILL_ADDRESS'] = $order->get_billing_address_1();
+        static::$data['BILL_ADDRESS2'] = $order->get_billing_address_2();
+        static::$data['BILL_COUNTRYCODE'] = $order->get_billing_country();
     }
 
     /**
@@ -42,8 +42,8 @@ abstract class Billing
      */
     public static function handle(WC_Order $order)
     {
-        self::serialize($order);
+        static::serialize($order);
 
-        return self::$data;
+        return static::$data;
     }
 }
