@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.1.2 (2019-07-11)
+### Fixed
+- Directory naming
+
+## v1.1.1 (2019-07-11)
+### Fixed
+- Fixed variable names
+
 ## v1.1.0 (2019-07-11)
 ### Added
 - Added custom GitHub updater

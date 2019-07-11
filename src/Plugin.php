@@ -11,14 +11,14 @@ class Plugin
      *
      * @var string
      */
-    const VERSION = '1.1.1';
+    const VERSION = '1.1.2';
 
     /**
      * The plugin slug.
      *
      * @var string
      */
-    const SLUG = 'thepinecode-simplepay-gateway/thepinecode-simplepay-gateway.php';
+    const SLUG = 'simplepay-gateway/simplepay-gateway.php';
 
     /**
      * Boot the plugin.

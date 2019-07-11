@@ -108,8 +108,8 @@ class Updater
         }
 
         foreach ($options['plugins'] as $plugin) {
-            if ($plugin === Plugin::SLUG && $dir = glob(WP_PLUGIN_DIR .'/thepinecode-simplepay-gateway*', GLOB_ONLYDIR)) {
-                rename($dir[0], WP_PLUGIN_DIR . '/thepinecode-simplepay-gateway');
+            if ($plugin === Plugin::SLUG && $dir = glob(WP_PLUGIN_DIR .'/simplepay-gateway*', GLOB_ONLYDIR)) {
+                rename($dir[0], WP_PLUGIN_DIR . '/simplepay-gateway');
             }
         }
     }
