@@ -49,8 +49,7 @@ class Gateway extends WC_Payment_Gateway
      * @var array
      */
     protected $currencies = [
-        'HUF', 'USD', 'EUR', // 'PLN', 'CZK',
-        // 'HRK', 'RSD', 'BGN', 'RON', 'GBP',
+        'HUF', 'USD', 'EUR',
     ];
 
     /**
@@ -98,7 +97,7 @@ class Gateway extends WC_Payment_Gateway
      */
     public function init_form_fields()
     {
-        $this->form_fields = (include __DIR__ . '/../includes/fields.php');
+        $this->form_fields = (include_once __DIR__ . '/../includes/fields.php');
     }
 
     /**
@@ -227,7 +226,7 @@ class Gateway extends WC_Payment_Gateway
 
             $payment = new PaymentRequest($order);
 
-            require_once __DIR__ . '/../includes/form.php';
+            include_once __DIR__ . '/../includes/form.php';
         }
     }
 
