@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.2.1 (2019-07-13)
+### Fixed
+- Option fields
+
 ## v1.2.0 (2019-07-12)
 ### Changed
 - Refactored Updater

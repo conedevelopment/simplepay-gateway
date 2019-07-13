@@ -97,7 +97,7 @@ class Gateway extends WC_Payment_Gateway
      */
     public function init_form_fields()
     {
-        $this->form_fields = (include_once __DIR__ . '/../includes/fields.php');
+        $this->form_fields = (include __DIR__ . '/../includes/fields.php');
     }
 
     /**
