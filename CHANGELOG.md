@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.2.2 (2019-07-13)
+### Changed
+- Revert to `stdClass`
+
 ## v1.2.1 (2019-07-13)
 ### Fixed
 - Option fields

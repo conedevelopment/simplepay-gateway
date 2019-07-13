@@ -2,6 +2,8 @@
 
 namespace Pine\SimplePay;
 
+use stdClass;
+
 class Updater
 {
     /**
@@ -36,19 +38,20 @@ class Updater
         if ($response) {
             $response = json_decode(wp_remote_retrieve_body($response));
 
-            return (object) [
-                'name' => 'SimplePay Gateway for WooCommerce',
-                'slug' => Plugin::SLUG,
-                'trunk' => $response->zipball_url,
-                'download_link' => $response->zipball_url,
-                'version' => substr($response->tag_name, 1),
-                'tested' => '5.2.2',
-                'requires' => '4.9.0',
-                'author_profile' => 'https://pineco.de',
-                'author' => '<a href="https://pineco.de">Pine</a>',
-                'sections' => [],
-                'last_updated' => date('Y-m-d H:i:s', strtotime($response->published_at)),
-            ];
+            $info = new stdClass;
+            $info->name = 'SimplePay Gateway for WooCommerce';
+            $info->slug = Plugin::SLUG;
+            $info->version = str_replace('v', '', $response->tag_name);
+            $info->tested = '5.2.2';
+            $info->requires = '4.9.0';
+            $info->author = '<a href="https://pineco.de">Pine</a>';
+            $info->author_profile = 'https://pineco.de';
+            $info->download_link = $response->zipball_url;
+            $info->trunk = $response->zipball_url;
+            $info->last_updated = date('Y-m-d H:i:s', strtotime($response->published_at));
+            $info->sections = [];
+
+            return $info;
         }
 
         return false;
@@ -76,15 +79,15 @@ class Updater
             $response = json_decode(wp_remote_retrieve_body($response));
 
             if (version_compare(Plugin::VERSION, $version = substr($response->tag_name, 1), '<')) {
-                $transient->response['plugin'] = (object) [
-                    'slug' => Plugin::SLUG,
-                    'plugin' => Plugin::SLUG,
-                    'new_version' => $version,
-                    'tested' => '5.2.2',
-                    'package' => $response->zipball_url,
-                    'url' => $response->html_url,
-                ];
+                $info = new stdClass;
+                $info->slug = Plugin::SLUG;
+                $info->plugin = Plugin::SLUG;
+                $info->new_version = $version;
+                $info->tested = '5.2.2';
+                $info->package = $response->zipball_url;
+                $info->url = $response->html_url;
 
+                $transient->response['plugin'] = $info;
                 $transient->checked['plugin'] = $version;
             }
         }
