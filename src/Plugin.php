@@ -7,13 +7,6 @@ use Pine\SimplePay\Support\Config;
 class Plugin
 {
     /**
-     * The plugin version.
-     *
-     * @var string
-     */
-    const VERSION = '1.2.2';
-
-    /**
      * The plugin slug.
      *
      * @var string
@@ -36,7 +29,6 @@ class Plugin
         load_plugin_textdomain('pine-simplepay', false, basename(dirname(__DIR__)) . '/languages');
 
         (new Gateway)->registerHooks();
-        (new Updater)->registerHooks();
     }
 
     /**

@@ -13,11 +13,6 @@
  * Domain Path:       /languages/
  */
 
-// Force the correct name
-if (basename(__DIR__) !== 'simplepay-gateway') {
-    rename(__DIR__, WP_PLUGIN_DIR . '/simplepay-gateway');
-}
-
 // Pull in the autoloader
 require_once __DIR__ . '/autoload.php';
 
