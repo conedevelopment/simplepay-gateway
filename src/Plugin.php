@@ -7,6 +7,13 @@ use Pine\SimplePay\Support\Config;
 class Plugin
 {
     /**
+     * The plugin version.
+     *
+     * @var string
+     */
+    const VERSION = '1.2.2';
+
+    /**
      * The plugin slug.
      *
      * @var string
