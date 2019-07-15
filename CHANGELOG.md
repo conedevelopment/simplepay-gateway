@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.2.4 (2019-07-14)
+### Added
+- Add banners
+
 ## v1.2.3 (2019-07-14)
 ### Changed
 - Updater structure and logic
