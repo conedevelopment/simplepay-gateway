@@ -8,5 +8,12 @@
     "author_profile": "https://pineco.de",
     "download_link": "https://github.com/thepinecode/simplepay-gateway/archive/master.zip",
     "trunk": "https://github.com/thepinecode/simplepay-gateway/archive/master.zip",
-    "last_updated": "2019-07-15 09:00:00"
+    "last_updated": "2019-07-15 09:00:00",
+
+    "plugin": "simplepay-gateway-master/simplepay-gateway.php",
+    "new_version": "1.2.3",
+    "package": "https://github.com/thepinecode/simplepay-gateway/archive/master.zip",
+    "url": "https://github.com/thepinecode/simplepay-gateway",
+    "sections": {},
+    "banners": []
 }
