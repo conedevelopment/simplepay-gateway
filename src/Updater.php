@@ -51,7 +51,7 @@ class Updater
         if (! $transient->checked) {
             return $transient;
         } elseif (! $response = get_transient('simplepay_update_' . Plugin::SLUG)) {
-            $response = wp_remote_get(sprintf($this->url, 'info'));
+            $response = wp_remote_get(sprintf($this->url, 'update'));
 
             if (wp_remote_retrieve_response_code($response) == 200 && wp_remote_retrieve_body($response)) {
                 set_transient('simplepay_update_' . Plugin::SLUG, $response, 43200);
