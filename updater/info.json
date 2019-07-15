@@ -1,13 +1,13 @@
 {
     "name": "SimplePay Gateway for WooCommerce",
-    "slug": "",
-    "version": "",
-    "tested": "",
-    "requires": "",
-    "author": "",
-    "author_profile": "",
-    "download_link": "",
-    "trunk": "",
-    "last_updated": "",
+    "slug": "simplepay-gateway/simplepay-gateway.php",
+    "version": "1.2.2",
+    "tested": "5.2.2",
+    "requires": "4.8.0",
+    "author": "Pine",
+    "author_profile": "<a href=\"https://pineco.de\">pineco.de</a>",
+    "download_link": "https://github.com/thepinecode/simplepay-gateway/archive/master.zip",
+    "trunk": "https://github.com/thepinecode/simplepay-gateway/archive/master.zip",
+    "last_updated": "2019-07-14 20:00:00",
     "sections": {}
 }
