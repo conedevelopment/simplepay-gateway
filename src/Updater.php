@@ -9,7 +9,7 @@ class Updater
      *
      * @var string
      */
-    protected $url = 'https://raw.githubusercontent.com/thepinecode/simplepay-gateway/master/updater/info.json';
+    protected $url = 'https://raw.githubusercontent.com/thepinecode/simplepay-gateway/master/updater/%s.json';
 
     /**
      * Get the plugin info.
@@ -26,7 +26,7 @@ class Updater
         } elseif (Plugin::SLUG !== $args->slug) {
 		    return $response;
         } elseif (! $response = get_transient('simplepay_info_' . Plugin::SLUG)) {
-            $response = wp_remote_get($this->url);
+            $response = wp_remote_get(sprintf($this->url, 'info'));
 
             if (wp_remote_retrieve_response_code($response) == 200 && wp_remote_retrieve_body($response)) {
                 set_transient('simplepay_info_' . Plugin::SLUG, $response, 43200);
@@ -50,11 +50,11 @@ class Updater
     {
         if (! $transient->checked) {
             return $transient;
-        } elseif (! $response = get_transient('simplepay_info_' . Plugin::SLUG)) {
-            $response = wp_remote_get($this->url);
+        } elseif (! $response = get_transient('simplepay_update_' . Plugin::SLUG)) {
+            $response = wp_remote_get(sprintf($this->url, 'info'));
 
             if (wp_remote_retrieve_response_code($response) == 200 && wp_remote_retrieve_body($response)) {
-                set_transient('simplepay_info_' . Plugin::SLUG, $response, 43200);
+                set_transient('simplepay_update_' . Plugin::SLUG, $response, 43200);
             }
         }
 
@@ -80,6 +80,7 @@ class Updater
     {
         if ($options['action'] === 'update' && $options['type'] === 'plugin') {
             delete_transient('simplepay_info_' . Plugin::SLUG);
+            delete_transient('simplepay_update_' . Plugin::SLUG);
         }
     }
 
