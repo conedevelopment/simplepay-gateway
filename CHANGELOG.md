@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.2.3 (2019-07-14)
+### Changed
+- Updater structure and logic
+
 ## v1.2.2 (2019-07-13)
 ### Changed
 - Revert to `stdClass`

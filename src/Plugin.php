@@ -11,14 +11,14 @@ class Plugin
      *
      * @var string
      */
-    const VERSION = '1.2.2';
+    const VERSION = '1.2.3';
 
     /**
      * The plugin slug.
      *
      * @var string
      */
-    const SLUG = 'simplepay-gateway/simplepay-gateway.php';
+    const SLUG = 'simplepay-gateway-master/simplepay-gateway.php';
 
     /**
      * Boot the plugin.

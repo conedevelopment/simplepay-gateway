@@ -80,12 +80,6 @@ class Updater
     {
         if ($options['action'] === 'update' && $options['type'] === 'plugin') {
             delete_transient('simplepay_update_' . Plugin::SLUG);
-
-            $dir = glob(WP_PLUGIN_DIR . '/*simplepay-gateway*', GLOB_ONLYDIR);
-
-            if (array_search(Plugin::SLUG, $options['plugins']) !== false && ! empty($dir)) {
-                rename($dir[0], WP_PLUGIN_DIR . '/simplepay-gateway');
-            }
         }
     }
 
