@@ -34,7 +34,13 @@ class Updater
         }
 
         if ($response) {
-            return json_decode(wp_remote_retrieve_body($response));
+            $response = json_decode(wp_remote_retrieve_body($response));
+
+            if ($response->banners) {
+                $response->banners = (array) $response->banners;
+            }
+
+            return $response;
         }
 
         return false;
