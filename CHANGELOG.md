@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.2.5 (2019-07-17)
+### Fixed
+- Redirect back to checkout page on failed payment
+
 ## v1.2.4 (2019-07-14)
 ### Added
 - Add banners

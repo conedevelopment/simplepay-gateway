@@ -30,7 +30,7 @@ class PaymentHandler
      *
      * @return bool
      */
-    protected function validate()
+    public function validate()
     {
         if (! in_array($_GET['RC'], ['000', '001'])) {
             return false;
@@ -48,10 +48,16 @@ class PaymentHandler
      */
     public function handle()
     {
+        $url = wc_get_checkout_url();
+
         if ($this->validate()) {
             $this->order->set_transaction_id($_GET['payrefno']);
             $this->order->save();
+            $url = $this->order->get_checkout_order_received_url();
         }
+
+        wp_redirect($url);
+        exit;
     }
 
     /**

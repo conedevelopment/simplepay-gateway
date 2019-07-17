@@ -30,9 +30,12 @@ abstract class General
         static::$data['PRICES_CURRENCY'] = $order->get_currency();
         static::$data['ORDER_SHIPPING'] = $order->get_shipping_total() + $order->get_shipping_tax();
         static::$data['TIMEOUT_URL'] = $order->get_checkout_payment_url();
-        static::$data['BACK_REF'] = $order->get_checkout_order_received_url();
         static::$data['ORDER_DATE'] = $order->get_date_created()->date('Y-m-d H:i:s');
         static::$data['LANGUAGE'] = substr(get_bloginfo('language'), 0, 2);
+        static::$data['BACK_REF'] = add_query_arg([
+            'key' => $order->get_order_key(),
+            'wc-api' => 'process_simplepay_payment',
+        ], site_url());
     }
 
     /**

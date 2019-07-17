@@ -131,18 +131,18 @@ class Gateway extends WC_Payment_Gateway
     /**
      * Handle the payment.
      *
-     * @param  int  $orderId
      * @return void
      */
-    public function handlePayment($orderId)
+    public function handlePayment()
     {
-        $order = wc_get_order($orderId);
+        if (! ($key = $_GET['key']) ||  ! ($order = wc_get_order(wc_get_order_id_by_order_key($key)))) {
+            wp_redirect(wc_get_checkout_url());
+            exit;
+        }
 
         Config::setByCurrency($order->get_currency());
 
         (new PaymentHandler($order))->handle();
-
-        WC()->session->set('simplepay_token', null);
     }
 
     /**
@@ -264,7 +264,7 @@ class Gateway extends WC_Payment_Gateway
         add_action('wp_footer', [$this, 'form']);
         add_action('wp_enqueue_scripts', [$this, 'scripts']);
         add_filter('woocommerce_payment_gateways', [$this, 'register']);
-        add_filter("woocommerce_thankyou_{$this->id}", [$this, 'handlePayment']);
+        add_filter('woocommerce_api_process_simplepay_payment', [$this, 'handlePayment']);
         add_action("woocommerce_api_wc_gateway_{$this->id}", [$this, 'handleNotification']);
         add_filter('woocommerce_get_checkout_order_received_url', [$this, 'formatUrl'], 10, 2);
         add_action("woocommerce_update_options_payment_gateways_{$this->id}", [$this, 'process_admin_options']);
