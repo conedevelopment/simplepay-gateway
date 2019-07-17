@@ -36,9 +36,8 @@ class Updater
         if ($response) {
             $response = json_decode(wp_remote_retrieve_body($response));
 
-            if ($response->banners) {
-                $response->banners = (array) $response->banners;
-            }
+            $response->banners = (array) $response->banners;
+            $response->sections = (array) $response->sections;
 
             return $response;
         }
