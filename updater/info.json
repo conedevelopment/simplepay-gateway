@@ -15,7 +15,7 @@
     },
     "sections": {
         "description": "This plugin provides a payment gateway for OTP SimplePay.",
-        "installation": "Download the .zip file from the GitHub repository and install it in WordPress.",
+        "installation": "Download the <code>.zip</code> file from the GitHub repository and install it in WordPress.",
         "changelog": "<a href=\"https://github.com/thepinecode/simplepay-gateway/blob/master/CHANGELOG.md\">You can find the changelog here.</a>"
     }
 }
