@@ -12,5 +12,10 @@
     "banners": {
         "low": "https://raw.githubusercontent.com/thepinecode/simplepay-gateway/master/updater/cover-low.png",
         "high": "https://raw.githubusercontent.com/thepinecode/simplepay-gateway/master/updater/cover-high.png"
+    },
+    "sections": {
+        "description": "This plugin provides a payment gateway for OTP SimplePay.",
+        "installion": "Download the .zip file from the GitHub repository and install it in WordPress.",
+        "changelog": "<a href=\"https://github.com/thepinecode/simplepay-gateway/blob/master/CHANGELOG.md\">You can find the changelog here.</a>"
     }
 }
