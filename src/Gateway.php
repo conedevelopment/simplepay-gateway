@@ -136,7 +136,7 @@ class Gateway extends WC_Payment_Gateway
     public function handlePayment()
     {
         if (! ($key = $_GET['key']) ||  ! ($order = wc_get_order(wc_get_order_id_by_order_key($key)))) {
-            wp_redirect(wc_get_checkout_url());
+            wp_safe_redirect(wc_get_checkout_url());
             exit;
         }
 

@@ -30,7 +30,7 @@ class PaymentHandler
      *
      * @return bool
      */
-    protected function validate()
+    public function validate()
     {
         if (! in_array($_GET['RC'], ['000', '001'])) {
             return false;
@@ -54,9 +54,11 @@ class PaymentHandler
             $this->order->set_transaction_id($_GET['payrefno']);
             $this->order->save();
             $url = $this->order->get_checkout_order_received_url();
+        } else {
+            wc_add_notice(__('Payment failed. Please try it again later.', 'pine-simplepay'), 'error');
         }
 
-        wp_redirect($url);
+        wp_safe_redirect($url);
         exit;
     }
 

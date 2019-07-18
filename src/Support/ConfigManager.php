@@ -65,8 +65,8 @@ class ConfigManager
      */
     protected function configure()
     {
-        $this->set('DEBUG', $this->settings['debug'] === 'yes' ? true : false);
-        $this->set('SANDBOX', $this->settings['sandbox'] === 'yes' ? true : false);
+        $this->set('DEBUG', $this->settings['debug'] === 'yes');
+        $this->set('SANDBOX', $this->settings['sandbox'] === 'yes');
         $this->set('BASE_URL',
             $this->get('SANDBOX') ? 'https://sandbox.simplepay.hu/' : 'https://secure.simplepay.hu/'
         );
@@ -80,7 +80,7 @@ class ConfigManager
      */
     public function setByCurrency($currency)
     {
-        $currency = strtolower($currency);
+        $currency = sprintf('%s%s', strtolower($currency), $this->get('SANDBOX') ? '_sandbox' : '');
 
         $this->set('MERCHANT', $this->settings["{$currency}_merchant"]);
         $this->set('SECRET_KEY', $this->settings["{$currency}_secret_key"]);

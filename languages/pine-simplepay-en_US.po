@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pine SimplePay\n"
-"POT-Creation-Date: 2019-03-31 14:49+0200\n"
-"PO-Revision-Date: 2019-03-31 14:49+0200\n"
+"POT-Creation-Date: 2019-07-18 16:08+0200\n"
+"PO-Revision-Date: 2019-07-18 16:08+0200\n"
 "Last-Translator: \n"
 "Language-Team: https://pineco.de\n"
 "Language: en_US\n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: languages\n"
 
-#: includes/fields.php:6 includes/fields.php:30
+#: includes/fields.php:6 includes/fields.php:41
 msgid "Enable/Disable"
 msgstr ""
 
@@ -25,141 +25,170 @@ msgstr ""
 msgid "Enable SimplePay"
 msgstr ""
 
-#: includes/fields.php:11
+#: includes/fields.php:12
 msgid "Title"
 msgstr ""
 
-#: includes/fields.php:13
+#: includes/fields.php:14
 msgid "This controls the title which the user sees during checkout."
 msgstr ""
 
-#: includes/fields.php:14
+#: includes/fields.php:15
 msgid "Credit Card"
 msgstr ""
 
-#: includes/fields.php:18
+#: includes/fields.php:19
 msgid "Description"
 msgstr ""
 
-#: includes/fields.php:20
+#: includes/fields.php:21
 msgid "This controls the description which the user sees during checkout."
 msgstr ""
 
-#: includes/fields.php:21
+#: includes/fields.php:22
 msgid "Pay with credit card via SimplePay."
 msgstr ""
 
-#: includes/fields.php:25
-msgid "Sandbox Settings"
-msgstr ""
-
 #: includes/fields.php:27
-msgid "If this option is on this gateway is in test (sandbox) mode."
-msgstr ""
-
-#: includes/fields.php:32
-msgid "Enable Sandbox Mode"
-msgstr ""
-
-#: includes/fields.php:35
 msgid "IPN/IRN settings"
 msgstr ""
 
-#: includes/fields.php:38
+#: includes/fields.php:30
 msgid "The shop's IPN/IRN URL:"
 msgstr ""
 
+#: includes/fields.php:36
+msgid "Sandbox Settings"
+msgstr ""
+
+#: includes/fields.php:38
+msgid "If this option is on this gateway is in test (sandbox) mode."
+msgstr ""
+
 #: includes/fields.php:43
+msgid "Enable Sandbox Mode"
+msgstr ""
+
+#: includes/fields.php:47
 msgid "HUF Merchant Settings"
 msgstr ""
 
-#: includes/fields.php:45
+#: includes/fields.php:49
 msgid ""
 "Settings for HUF currency. These are activated when the customer checks out "
 "with HUF prices."
 msgstr ""
 
-#: includes/fields.php:48
+#: includes/fields.php:52 includes/fields.php:64
 msgid "HUF Merchant ID"
 msgstr ""
 
-#: includes/fields.php:50
+#: includes/fields.php:54
 msgid "This is the merchant ID for HUF currency."
 msgstr ""
 
-#: includes/fields.php:54
+#: includes/fields.php:58 includes/fields.php:70
 msgid "HUF Secret Key"
 msgstr ""
 
-#: includes/fields.php:56
+#: includes/fields.php:60
 msgid "This is the secret key for HUF currency."
 msgstr ""
 
-#: includes/fields.php:60
+#: includes/fields.php:64 includes/fields.php:70 includes/fields.php:94
+#: includes/fields.php:100 includes/fields.php:124 includes/fields.php:130
+msgid "Sandbox"
+msgstr ""
+
+#: includes/fields.php:66
+msgid "This is the sandbox merchant ID for HUF currency."
+msgstr ""
+
+#: includes/fields.php:72
+msgid "This is the sandbox secret key for HUF currency."
+msgstr ""
+
+#: includes/fields.php:77
 msgid "EUR Merchant Settings"
 msgstr ""
 
-#: includes/fields.php:62
+#: includes/fields.php:79
 msgid ""
 "Settings for EUR currency. These are activated when the customer checks out "
 "with EUR prices."
 msgstr ""
 
-#: includes/fields.php:65
+#: includes/fields.php:82 includes/fields.php:94
 msgid "EUR Merchant ID"
 msgstr ""
 
-#: includes/fields.php:67
+#: includes/fields.php:84
 msgid "This is the merchant ID for EUR currency."
 msgstr ""
 
-#: includes/fields.php:71
+#: includes/fields.php:88 includes/fields.php:100
 msgid "EUR Secret Key"
 msgstr ""
 
-#: includes/fields.php:73
+#: includes/fields.php:90
 msgid "This is the secret key for EUR currency."
 msgstr ""
 
-#: includes/fields.php:77
+#: includes/fields.php:96
+msgid "This is the sandbox merchant ID for EUR currency."
+msgstr ""
+
+#: includes/fields.php:102
+msgid "This is the sandbox secret key for EUR currency."
+msgstr ""
+
+#: includes/fields.php:107
 msgid "USD Merchant Settings"
 msgstr ""
 
-#: includes/fields.php:79
+#: includes/fields.php:109
 msgid ""
 "Settings for USD currency. These are activated when the customer checks out "
 "with USD prices."
 msgstr ""
 
-#: includes/fields.php:82
+#: includes/fields.php:112 includes/fields.php:124
 msgid "USD Merchant ID"
 msgstr ""
 
-#: includes/fields.php:84
+#: includes/fields.php:114
 msgid "This is the merchant ID for USD currency."
 msgstr ""
 
-#: includes/fields.php:88
+#: includes/fields.php:118 includes/fields.php:130
 msgid "USD Secret Key"
 msgstr ""
 
-#: includes/fields.php:90
+#: includes/fields.php:120
 msgid "This is the secret key for USD currency."
 msgstr ""
 
-#: includes/fields.php:94
+#: includes/fields.php:126
+msgid "This is the sandbox merchant ID for USD currency."
+msgstr ""
+
+#: includes/fields.php:132
+msgid "This is the sandbox secret key for USD currency."
+msgstr ""
+
+#: includes/fields.php:137
 msgid "Debug Settings"
 msgstr ""
 
-#: includes/fields.php:99
+#: includes/fields.php:142
 msgid "Debug log"
 msgstr ""
 
-#: includes/fields.php:101
+#: includes/fields.php:144
 msgid "Enable logging"
 msgstr ""
 
-#: includes/fields.php:103
+#: includes/fields.php:146
 msgid "Log SimplePay events, such as IPN requests, inside"
 msgstr ""
 
@@ -179,10 +208,14 @@ msgstr ""
 msgid "Event response: "
 msgstr ""
 
-#: src/Plugin.php:64
+#: src/Handlers/PaymentHandler.php:58
+msgid "Payment failed. Please try it again later."
+msgstr ""
+
+#: src/Plugin.php:70
 msgid "Please activate WooCommerce before using SimplePay Gateway!"
 msgstr ""
 
-#: src/Plugin.php:93
+#: src/Plugin.php:99
 msgid "Settings"
 msgstr ""

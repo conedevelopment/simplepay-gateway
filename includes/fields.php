@@ -7,6 +7,7 @@ return [
         'type' => 'checkbox',
         'label' => __('Enable SimplePay', 'pine-simplepay'),
     ],
+
     'title' => [
         'title' => __('Title', 'woocommerce'),
         'type' => 'text',
@@ -21,6 +22,16 @@ return [
         'default' => __('Pay with credit card via SimplePay.', 'pine-simplepay'),
         'desc_tip' => true,
     ],
+
+    'notification_settings' => [
+        'title' => __('IPN/IRN settings', 'pine-simplepay'),
+        'type' => 'title',
+        'description' => sprintf('%s%s',
+            __("The shop's IPN/IRN URL:", 'pine-simplepay'),
+            ' <code>' . site_url() . '?wc-api=wc_gateway_simplepay-gateway</code>'
+        ),
+    ],
+
     'sanbox_settings' => [
         'title' => __('Sandbox Settings', 'pine-simplepay'),
         'type' => 'title',
@@ -31,14 +42,7 @@ return [
         'type' => 'checkbox',
         'label' => __('Enable Sandbox Mode', 'pine-simplepay'),
     ],
-    'notification_settings' => [
-        'title' => __('IPN/IRN settings', 'pine-simplepay'),
-        'type' => 'title',
-        'description' => sprintf('%s%s',
-            __("The shop's IPN/IRN URL:", 'pine-simplepay'),
-            ' <code>' . site_url() . '?wc-api=wc_gateway_simplepay-gateway</code>'
-        ),
-    ],
+
     'huf_settings' => [
         'title' => __('HUF Merchant Settings', 'pine-simplepay'),
         'type' => 'title',
@@ -56,6 +60,19 @@ return [
         'description' => __('This is the secret key for HUF currency.', 'pine-simplepay'),
         'desc_tip' => true,
     ],
+    'huf_sandbox_merchant' => [
+        'title' => sprintf('[%s] %s', __('Sandbox', 'pine-simplepay') ,  __('HUF Merchant ID', 'pine-simplepay')),
+        'type' => 'text',
+        'description' => __('This is the sandbox merchant ID for HUF currency.', 'pine-simplepay'),
+        'desc_tip' => true,
+    ],
+    'huf_sandbox_secret_key' => [
+        'title' => sprintf('[%s] %s', __('Sandbox', 'pine-simplepay') ,  __('HUF Secret Key', 'pine-simplepay')),
+        'type' => 'password',
+        'description' => __('This is the sandbox secret key for HUF currency.', 'pine-simplepay'),
+        'desc_tip' => true,
+    ],
+
     'eur_settings' => [
         'title' => __('EUR Merchant Settings', 'pine-simplepay'),
         'type' => 'title',
@@ -73,6 +90,19 @@ return [
         'description' => __('This is the secret key for EUR currency.', 'pine-simplepay'),
         'desc_tip' => true,
     ],
+    'eur_sandbox_merchant' => [
+        'title' => sprintf('[%s] %s', __('Sandbox', 'pine-simplepay') ,  __('EUR Merchant ID', 'pine-simplepay')),
+        'type' => 'text',
+        'description' => __('This is the sandbox merchant ID for EUR currency.', 'pine-simplepay'),
+        'desc_tip' => true,
+    ],
+    'eur_sandbox_secret_key' => [
+        'title' => sprintf('[%s] %s', __('Sandbox', 'pine-simplepay') ,  __('EUR Secret Key', 'pine-simplepay')),
+        'type' => 'password',
+        'description' => __('This is the sandbox secret key for EUR currency.', 'pine-simplepay'),
+        'desc_tip' => true,
+    ],
+
     'usd_settings' => [
         'title' => __('USD Merchant Settings', 'pine-simplepay'),
         'type' => 'title',
@@ -90,6 +120,19 @@ return [
         'description' => __('This is the secret key for USD currency.', 'pine-simplepay'),
         'desc_tip' => true,
     ],
+    'usd_sandbox_merchant' => [
+        'title' => sprintf('[%s] %s', __('Sandbox', 'pine-simplepay') ,  __('USD Merchant ID', 'pine-simplepay')),
+        'type' => 'text',
+        'description' => __('This is the sandbox merchant ID for USD currency.', 'pine-simplepay'),
+        'desc_tip' => true,
+    ],
+    'usd_sandbox_secret_key' => [
+        'title' => sprintf('[%s] %s', __('Sandbox', 'pine-simplepay') ,  __('USD Secret Key', 'pine-simplepay')),
+        'type' => 'password',
+        'description' => __('This is the sandbox secret key for USD currency.', 'pine-simplepay'),
+        'desc_tip' => true,
+    ],
+
     'debug_settings' => [
         'title' => __('Debug Settings', 'pine-simplepay'),
         'type' => 'title',

@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.2.6 (2019-07-18)
+### Added
+- Added new translations
+- Separate fields for test credentials
+- Show error message when payment failed
+
 ## v1.2.5 (2019-07-17)
 ### Fixed
 - Redirect back to checkout page on failed payment
