@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pine SimplePay\n"
 "POT-Creation-Date: 2019-07-18 16:08+0200\n"
-"PO-Revision-Date: 2019-07-18 16:09+0200\n"
+"PO-Revision-Date: 2019-07-18 16:25+0200\n"
 "Last-Translator: \n"
 "Language-Team: https://pineco.de\n"
 "Language: hu_HU\n"
@@ -64,7 +64,7 @@ msgstr "Teszt mód beállítások"
 
 #: includes/fields.php:38
 msgid "If this option is on this gateway is in test (sandbox) mode."
-msgstr "Ha ez be van kapcsolva, a fizetési kapu teszüzemben működik."
+msgstr "Ha ez be van kapcsolva, a fizetési kapu tesztüzemben működik."
 
 #: includes/fields.php:43
 msgid "Enable Sandbox Mode"
