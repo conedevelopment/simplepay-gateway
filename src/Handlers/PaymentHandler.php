@@ -30,7 +30,7 @@ class PaymentHandler
      *
      * @return bool
      */
-    public function validate()
+    protected function validate()
     {
         if (! in_array($_GET['RC'], ['000', '001'])) {
             return false;
