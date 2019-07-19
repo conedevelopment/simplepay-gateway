@@ -192,7 +192,7 @@ class Gateway extends WC_Payment_Gateway
      */
     public function get_transaction_url($order)
     {
-        if ($this->sandbox === 'yes') {
+        if (Config::get('SANDBOX')) {
             $this->view_transaction_url = 'https://sandbox.simplepay.hu/admin/transactions/data/%s';
         } else {
             $this->view_transaction_url = 'https://secure.simplepay.hu/admin/transactions/data/%s';
