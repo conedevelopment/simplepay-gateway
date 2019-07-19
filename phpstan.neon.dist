@@ -9,7 +9,7 @@ parameters:
     paths:
         - %currentWorkingDirectory%/src/
     autoload_files:
-        - /home/viktor/src/papiron-fofal/test/wc-stubs.php
+        - %currentWorkingDirectory%/tests/wc-stubs.php
     ignoreErrors:
         # Uses func_get_args()
         - '#^Function add_query_arg invoked with [123] parameters?, 0 required\.$#'
