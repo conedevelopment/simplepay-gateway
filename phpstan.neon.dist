@@ -18,3 +18,5 @@ parameters:
         - '#^Function add_query_arg invoked with [123] parameters?, 0 required\.$#'
         # __callStatic
         - '#^Call to an undefined static method Pine\\SimplePay\\Support\\Config::(get|set)\S*\(\)\.$#'
+        # Dynamic property
+        - '#^Access to an undefined property Pine\\SimplePay\\Gateway::\$sandbox\.$#'

@@ -53,11 +53,6 @@ class Gateway extends WC_Payment_Gateway
     ];
 
     /**
-     * @var string
-     */
-    protected $sandbox = 'no';
-
-    /**
      * Create a new gateway instance.
      *
      * @return void
