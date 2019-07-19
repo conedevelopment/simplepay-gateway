@@ -8,7 +8,9 @@
 
 <!-- Form -->
 <form
+    novalidate
     method="POST"
+    autocomplete="off"
     style="display: none;"
     accept-charset="utf-8"
     action="<?php echo $payment->getUrl(); ?>"
