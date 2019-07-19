@@ -1,0 +1,22 @@
+# Start command: composer update --classmap-authoritative && vendor/bin/phpstan analyze
+
+includes:
+    - phar://phpstan.phar/conf/bleedingEdge.neon
+    - vendor/szepeviktor/phpstan-wordpress/extension.neon
+parameters:
+    level: max
+    inferPrivatePropertyTypeFromConstructor: true
+    paths:
+        - %currentWorkingDirectory%/src/
+    autoload_files:
+        - %currentWorkingDirectory%/autoload.php
+        - %currentWorkingDirectory%/tests/wc-stubs.php
+    autoload_directories:
+        - %currentWorkingDirectory%/src/
+    ignoreErrors:
+        # Uses func_get_args()
+        - '#^Function add_query_arg invoked with [123] parameters?, 0 required\.$#'
+        # __callStatic
+        - '#^Call to an undefined static method Pine\\SimplePay\\Support\\Config::(get|set)\S*\(\)\.$#'
+        # Dynamic property
+        - '#^Access to an undefined property Pine\\SimplePay\\Gateway::\$sandbox\.$#'

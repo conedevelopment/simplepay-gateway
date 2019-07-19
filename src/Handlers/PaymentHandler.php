@@ -68,7 +68,7 @@ class PaymentHandler
     /**
      * Build the URL for hash calculating.
      *
-     * @return void
+     * @return string
      */
     protected function getUrl()
     {

@@ -28,7 +28,7 @@ abstract class General
         static::$data['ORDER_REF'] = $order->get_order_key();
         static::$data['DISCOUNT'] = 0;
         static::$data['PRICES_CURRENCY'] = $order->get_currency();
-        static::$data['ORDER_SHIPPING'] = $order->get_shipping_total() + $order->get_shipping_tax();
+        static::$data['ORDER_SHIPPING'] = (float)$order->get_shipping_total() + (float)$order->get_shipping_tax();
         static::$data['TIMEOUT_URL'] = $order->get_checkout_payment_url();
         static::$data['ORDER_DATE'] = $order->get_date_created()->date('Y-m-d H:i:s');
         static::$data['LANGUAGE'] = substr(get_bloginfo('language'), 0, 2);

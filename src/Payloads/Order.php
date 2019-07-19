@@ -28,13 +28,14 @@ abstract class Order
      */
     protected static function serialize(WC_Order $order)
     {
+        /** @var \WC_Order_Item_Product $item */
         foreach ($order->get_items() as $item) {
             $product = $item->get_product();
 
             static::$data['ORDER_QTY'][] = $item->get_quantity();
             static::$data['ORDER_PNAME'][] = $product->get_name();
             static::$data['ORDER_PINFO'][] = $product->get_description();
-            static::$data['ORDER_PRICE'][] = ($item->get_total() + $item->get_total_tax()) / $item->get_quantity();
+            static::$data['ORDER_PRICE'][] = ((float)$item->get_total() + (float)$item->get_total_tax()) / $item->get_quantity();
             static::$data['ORDER_VAT'][] = 0;
             static::$data['ORDER_PCODE'][] = $product->get_sku() ?: $product->get_id();
         }
