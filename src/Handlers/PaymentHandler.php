@@ -53,8 +53,11 @@ class PaymentHandler
         if ($this->validate()) {
             $this->order->set_transaction_id($_GET['payrefno']);
             $this->order->save();
+
             $url = $this->order->get_checkout_order_received_url();
         } else {
+            $this->order->update_status('failed', __('SimplePay payment failed.', 'pine-simplepay'));
+
             wc_add_notice(__('Payment failed. Please try it again later.', 'pine-simplepay'), 'error');
         }
 

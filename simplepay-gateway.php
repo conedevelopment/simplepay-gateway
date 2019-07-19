@@ -4,7 +4,7 @@
  * Plugin Name:       SimplePay Gateway for WooCommerce
  * Plugin URI:        https://github.com/thepinecode/simplepay-gateway
  * Description:       SimplePay credit card gateway integration for WooCommerce.
- * Version:           1.2.6
+ * Version:           1.2.7
  * Author:            Pine
  * Author URI:        https://pineco.de
  * License:           MIT

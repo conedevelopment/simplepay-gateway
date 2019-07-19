@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.2.7 (2019-07-19)
+### Added
+- Set order status to failed when payment failed
+
 ## v1.2.6 (2019-07-18)
 ### Added
 - Added new translations

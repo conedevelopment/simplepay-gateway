@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pine SimplePay\n"
-"POT-Creation-Date: 2019-07-18 16:08+0200\n"
-"PO-Revision-Date: 2019-07-18 16:25+0200\n"
+"POT-Creation-Date: 2019-07-19 14:09+0200\n"
+"PO-Revision-Date: 2019-07-19 14:09+0200\n"
 "Last-Translator: \n"
 "Language-Team: https://pineco.de\n"
 "Language: hu_HU\n"
@@ -215,7 +215,11 @@ msgstr "Az IRN hívás megtörtént."
 msgid "Event response: "
 msgstr "Esemény válasz: "
 
-#: src/Handlers/PaymentHandler.php:58
+#: src/Handlers/PaymentHandler.php:59
+msgid "SimplePay payment failed."
+msgstr "SimplePay fizetés sikertelen."
+
+#: src/Handlers/PaymentHandler.php:61
 msgid "Payment failed. Please try it again later."
 msgstr "A fizetés sikertelen. Kérünk próbáld meg újra később."
 
