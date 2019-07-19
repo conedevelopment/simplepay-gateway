@@ -9,7 +9,10 @@ parameters:
     paths:
         - %currentWorkingDirectory%/src/
     autoload_files:
+        - %currentWorkingDirectory%/autoload.php
         - %currentWorkingDirectory%/tests/wc-stubs.php
+    autoload_directories:
+        - %currentWorkingDirectory%/src/
     ignoreErrors:
         # Uses func_get_args()
         - '#^Function add_query_arg invoked with [123] parameters?, 0 required\.$#'
