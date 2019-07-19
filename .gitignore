@@ -1,1 +1,3 @@
 .vscode
+/composer.lock
+/vendor/
