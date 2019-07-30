@@ -43,7 +43,7 @@ class ConfigManager
             return $this->options;
         }
 
-        return $this->options[$key];
+        return isset($this->options[$key]) ? $this->options[$key] : null;
     }
 
     /**
@@ -65,8 +65,8 @@ class ConfigManager
      */
     protected function configure()
     {
-        $this->set('DEBUG', $this->settings['debug'] === 'yes');
-        $this->set('SANDBOX', $this->settings['sandbox'] === 'yes');
+        $this->set('DEBUG', isset($this->options['debug']) && $this->settings['debug'] === 'yes');
+        $this->set('SANDBOX', isset($this->options['sandbox']) && $this->settings['sandbox'] === 'yes');
         $this->set('BASE_URL',
             $this->get('SANDBOX') ? 'https://sandbox.simplepay.hu/' : 'https://secure.simplepay.hu/'
         );
