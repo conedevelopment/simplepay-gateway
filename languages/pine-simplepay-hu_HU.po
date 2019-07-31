@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pine SimplePay\n"
-"POT-Creation-Date: 2019-07-19 14:09+0200\n"
-"PO-Revision-Date: 2019-07-19 14:09+0200\n"
+"POT-Creation-Date: 2019-07-31 12:31+0200\n"
+"PO-Revision-Date: 2019-07-31 12:32+0200\n"
 "Last-Translator: \n"
 "Language-Team: https://pineco.de\n"
 "Language: hu_HU\n"
@@ -196,8 +196,12 @@ msgid "Enable logging"
 msgstr "Naplózás engedélyezése"
 
 #: includes/fields.php:146
-msgid "Log SimplePay events, such as IPN requests, inside"
-msgstr "SimplePay események naplózása - mint az IPN hívások – ide"
+msgid ""
+"Log SimplePay events, such as IPN requests, inside log files with the "
+"following prefix"
+msgstr ""
+"SimplePay események naplózása - mint az IPN hívások – a megadott előtaggal "
+"ellátott fájlokban"
 
 #: includes/form.php:4
 msgid "We are redirecting you to the payment page!"
