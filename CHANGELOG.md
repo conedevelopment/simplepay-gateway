@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.2.8 (2019-07-31)
+### Fixed
+- Early log file path call
+- Accessing non-existing array keys
+
 ## v1.2.7 (2019-07-19)
 ### Added
 - Set order status to failed when payment failed
