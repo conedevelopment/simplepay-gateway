@@ -2,8 +2,8 @@
 
 namespace Pine\SimplePay\Payloads;
 
-use WC_Order;
 use Pine\SimplePay\Support\Config;
+use WC_Order;
 
 abstract class Transaction
 {

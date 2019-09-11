@@ -2,8 +2,8 @@
 
 namespace Pine\SimplePay\Handlers;
 
-use Pine\SimplePay\Support\Log;
 use Pine\SimplePay\Support\Hash;
+use Pine\SimplePay\Support\Log;
 
 abstract class NotificationHandler
 {

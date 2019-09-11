@@ -2,8 +2,8 @@
 
 namespace Pine\SimplePay\Handlers;
 
-use WC_Order;
 use Pine\SimplePay\Support\Hash;
+use WC_Order;
 
 class PaymentHandler
 {
@@ -50,15 +50,15 @@ class PaymentHandler
     {
         $url = wc_get_checkout_url();
 
-        if ($this->validate()) {
-            $this->order->set_transaction_id($_GET['payrefno']);
-            $this->order->save();
+        $this->order->set_transaction_id($_GET['payrefno']);
+        $this->order->save();
 
+        if ($this->validate()) {
             $url = $this->order->get_checkout_order_received_url();
         } else {
-            $this->order->update_status('failed', __('SimplePay payment failed.', 'pine-simplepay'));
-
-            wc_add_notice(__('Payment failed. Please try it again later.', 'pine-simplepay'), 'error');
+            wc_add_notice(sprintf(
+                __('Failed trasnaction: %d. Please check if the given data is valid. If yes, please contact your card publisher.', 'pine-simplepay'),
+            $_GET['payrefno']), 'error');
         }
 
         wp_safe_redirect($url);

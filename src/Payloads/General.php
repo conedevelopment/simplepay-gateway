@@ -2,8 +2,8 @@
 
 namespace Pine\SimplePay\Payloads;
 
-use WC_Order;
 use Pine\SimplePay\Support\Config;
+use WC_Order;
 
 abstract class General
 {
@@ -29,9 +29,11 @@ abstract class General
         static::$data['DISCOUNT'] = 0;
         static::$data['PRICES_CURRENCY'] = $order->get_currency();
         static::$data['ORDER_SHIPPING'] = $order->get_shipping_total() + $order->get_shipping_tax();
-        static::$data['TIMEOUT_URL'] = $order->get_checkout_payment_url();
         static::$data['ORDER_DATE'] = $order->get_date_created()->date('Y-m-d H:i:s');
         static::$data['LANGUAGE'] = substr(get_bloginfo('language'), 0, 2);
+        static::$data['TIMEOUT_URL'] = add_query_arg([
+            'cancelled' => true,
+        ], $order->get_checkout_payment_url());
         static::$data['BACK_REF'] = add_query_arg([
             'key' => $order->get_order_key(),
             'wc-api' => 'process_simplepay_payment',

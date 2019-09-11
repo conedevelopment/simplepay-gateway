@@ -2,13 +2,13 @@
 
 namespace Pine\SimplePay;
 
-use WC_Payment_Gateway;
-use Pine\SimplePay\Support\Config;
 use Pine\SimplePay\Handlers\IPNHandler;
 use Pine\SimplePay\Handlers\IRNHandler;
-use Pine\SimplePay\Requests\RefundRequest;
-use Pine\SimplePay\Requests\PaymentRequest;
 use Pine\SimplePay\Handlers\PaymentHandler;
+use Pine\SimplePay\Requests\PaymentRequest;
+use Pine\SimplePay\Requests\RefundRequest;
+use Pine\SimplePay\Support\Config;
+use WC_Payment_Gateway;
 
 class Gateway extends WC_Payment_Gateway
 {
@@ -255,6 +255,18 @@ class Gateway extends WC_Payment_Gateway
     }
 
     /**
+     * Add notice if the transaction was cancelled.
+     *
+     * @return void
+     */
+    public function notifyIfCancelled()
+    {
+        if (isset($_GET['cancelled'], $_GET['redirect'])) {
+            wc_add_notice(__('Cancelled transaction! You cancelled you payment, or the transaction has been expired!', 'pine-simplepay'), 'error');
+        }
+    }
+
+    /**
      * Register the hooks.
      *
      * @return void
@@ -262,6 +274,7 @@ class Gateway extends WC_Payment_Gateway
     public function registerHooks()
     {
         add_action('wp_footer', [$this, 'form']);
+        add_action('init', [$this, 'notifyIfCancelled']);
         add_action('wp_enqueue_scripts', [$this, 'scripts']);
         add_filter('woocommerce_payment_gateways', [$this, 'register']);
         add_filter('woocommerce_api_process_simplepay_payment', [$this, 'handlePayment']);

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pine SimplePay\n"
-"POT-Creation-Date: 2019-07-31 12:31+0200\n"
-"PO-Revision-Date: 2019-07-31 12:31+0200\n"
+"POT-Creation-Date: 2019-09-11 17:25+0200\n"
+"PO-Revision-Date: 2019-09-11 17:25+0200\n"
 "Last-Translator: \n"
 "Language-Team: https://pineco.de\n"
 "Language: en_US\n"
@@ -198,6 +198,12 @@ msgstr ""
 msgid "We are redirecting you to the payment page!"
 msgstr ""
 
+#: src/Gateway.php:265
+msgid ""
+"Cancelled transaction! You cancelled you payment, or the transaction has "
+"been expired!"
+msgstr ""
+
 #: src/Handlers/IPNHandler.php:16
 msgid "IPN event was fired."
 msgstr ""
@@ -214,8 +220,11 @@ msgstr ""
 msgid "SimplePay payment failed."
 msgstr ""
 
-#: src/Handlers/PaymentHandler.php:61
-msgid "Payment failed. Please try it again later."
+#: src/Handlers/PaymentHandler.php:62
+#, php-format
+msgid ""
+"Failed trasnaction: %d. Please check if the given data is valid. If yes, "
+"please contact your card publisher."
 msgstr ""
 
 #: src/Plugin.php:70
