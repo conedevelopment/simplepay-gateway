@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pine SimplePay\n"
-"POT-Creation-Date: 2019-09-11 17:25+0200\n"
-"PO-Revision-Date: 2019-09-11 17:25+0200\n"
+"POT-Creation-Date: 2019-09-11 18:25+0200\n"
+"PO-Revision-Date: 2019-09-11 18:25+0200\n"
 "Last-Translator: \n"
 "Language-Team: https://pineco.de\n"
 "Language: en_US\n"
@@ -198,6 +198,10 @@ msgstr ""
 msgid "We are redirecting you to the payment page!"
 msgstr ""
 
+#: includes/order-item-row.php:3
+msgid "SimplePay transaction ID"
+msgstr ""
+
 #: src/Gateway.php:265
 msgid ""
 "Cancelled transaction! You cancelled you payment, or the transaction has "
@@ -216,11 +220,7 @@ msgstr ""
 msgid "Event response: "
 msgstr ""
 
-#: src/Handlers/PaymentHandler.php:59
-msgid "SimplePay payment failed."
-msgstr ""
-
-#: src/Handlers/PaymentHandler.php:62
+#: src/Handlers/PaymentHandler.php:60
 #, php-format
 msgid ""
 "Failed trasnaction: %d. Please check if the given data is valid. If yes, "

@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.3.0 (2019-09-11)
+### Added
+- SimplePay transaction ID to order info
+### Fixed
+- Order handling on failed or cancelled transactions
+
 ## v1.2.8 (2019-07-31)
 ### Fixed
 - Early log file path call
