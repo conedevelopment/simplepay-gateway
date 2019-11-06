@@ -35,7 +35,7 @@ abstract class Transaction
      * Handle the data.
      *
      * @param  \WC_Order  $order
-     * @param  int  $amount
+     * @param  int|float  $amount
      * @return array
      */
     public static function handle(WC_Order $order, $amount)
