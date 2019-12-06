@@ -261,7 +261,7 @@ class Gateway extends WC_Payment_Gateway
      */
     public function notifyIfCancelled()
     {
-        if (isset($_GET['cancelled'], $_GET['redirect'])) {
+        if (isset($_GET['cancelled'])) {
             wc_add_notice(__('Cancelled transaction! You cancelled you payment, or the transaction has been expired!', 'pine-simplepay'), 'error');
         }
     }
