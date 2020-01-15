@@ -278,11 +278,21 @@ class Gateway extends WC_Payment_Gateway
     }
 
     /**
+     * Boot the gateway.
+     *
+     * @return void
+     */
+    public static function boot()
+    {
+        (new static)->registerHooks();
+    }
+
+    /**
      * Register the hooks.
      *
      * @return void
      */
-    public function registerHooks()
+    protected function registerHooks()
     {
         add_action('wp_footer', [$this, 'form']);
         add_action('init', [$this, 'notifyIfCancelled']);

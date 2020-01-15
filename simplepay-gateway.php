@@ -21,6 +21,4 @@ register_activation_hook(__FILE__, [Pine\SimplePay\Plugin::class, 'activate']);
 register_deactivation_hook(__FILE__, [Pine\SimplePay\Plugin::class, 'deactivate']);
 
 // Boot the plugin
-if (class_exists('WooCommerce')) {
-    Pine\SimplePay\Plugin::boot();
-}
+Pine\SimplePay\Plugin::boot();

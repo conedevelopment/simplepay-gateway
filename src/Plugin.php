@@ -35,8 +35,11 @@ class Plugin
 
         load_plugin_textdomain('pine-simplepay', false, basename(dirname(__DIR__)).'/languages');
 
-        (new Gateway)->registerHooks();
-        (new Updater)->registerHooks();
+        if (class_exists('WooCommerce')) {
+            Gateway::boot();
+        }
+
+        Updater::boot();
     }
 
     /**
