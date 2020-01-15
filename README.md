@@ -2,6 +2,14 @@
 
 This plugin provides a payment gateway for OTP SimplePay.
 
+## Installing the plugin
+
+Download the repository as a ZIP file and install it as any other WordPress plugin.
+
+### Updates
+
+The plugin will recieve updates from the GitHub repository that you can install as any other plugin update.
+
 ## Configuration
 
 Both the sandbox and production credentials are available on the SimplePay's admin site.
