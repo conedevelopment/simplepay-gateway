@@ -104,7 +104,7 @@ class Updater
      *
      * @return void
      */
-    protected function registerHooks()
+    public function registerHooks()
     {
         add_filter('plugins_api', [$this, 'info'], 20, 3);
         add_filter('site_transient_update_plugins', [$this, 'update']);
