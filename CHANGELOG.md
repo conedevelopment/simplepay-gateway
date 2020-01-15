@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.3.1 (2020-01-15)
+### Fixed
+- Boot fix if there is no WooCommerce
+- Spacing
+
 ## v1.3.0 (2019-09-11)
 ### Added
 - SimplePay transaction ID to order info

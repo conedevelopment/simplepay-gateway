@@ -31,9 +31,9 @@ class Plugin
 
         add_action('widgets_init', [__CLASS__, 'registerWidget']);
         add_filter('pre_update_option_active_plugins', [__CLASS__, 'guard']);
-        add_filter('plugin_action_links_' . static::SLUG, [__CLASS__, 'addLinks']);
+        add_filter('plugin_action_links_'.static::SLUG, [__CLASS__, 'addLinks']);
 
-        load_plugin_textdomain('pine-simplepay', false, basename(dirname(__DIR__)) . '/languages');
+        load_plugin_textdomain('pine-simplepay', false, basename(dirname(__DIR__)).'/languages');
 
         (new Gateway)->registerHooks();
         (new Updater)->registerHooks();

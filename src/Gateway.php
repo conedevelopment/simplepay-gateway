@@ -97,7 +97,7 @@ class Gateway extends WC_Payment_Gateway
      */
     public function init_form_fields()
     {
-        $this->form_fields = (include __DIR__ . '/../includes/fields.php');
+        $this->form_fields = (include __DIR__.'/../includes/fields.php');
     }
 
     /**
@@ -124,7 +124,7 @@ class Gateway extends WC_Payment_Gateway
 
         return [
             'result' => 'success',
-            'redirect' => wc_get_order($orderId)->get_checkout_payment_url() . "&simplepay_token={$key}",
+            'redirect' => wc_get_order($orderId)->get_checkout_payment_url()."&simplepay_token={$key}",
         ];
     }
 
@@ -226,7 +226,7 @@ class Gateway extends WC_Payment_Gateway
 
             $payment = new PaymentRequest($order);
 
-            include_once __DIR__ . '/../includes/form.php';
+            include_once __DIR__.'/../includes/form.php';
         }
     }
 
@@ -238,7 +238,7 @@ class Gateway extends WC_Payment_Gateway
     public function scripts()
     {
         if ($this->canPay()) {
-            wp_enqueue_style("{$this->id}-form", plugin_dir_url(__DIR__) . 'css/form.css', []);
+            wp_enqueue_style("{$this->id}-form", plugin_dir_url(__DIR__).'css/form.css', []);
         }
     }
 
@@ -274,7 +274,7 @@ class Gateway extends WC_Payment_Gateway
      */
     public function extnendOrderTable($order)
     {
-        include __DIR__ . '/../includes/order-item-row.php';
+        include __DIR__.'/../includes/order-item-row.php';
     }
 
     /**

@@ -2,10 +2,10 @@
 
 namespace Pine\SimplePay\Requests;
 
-use WC_Order;
-use Pine\SimplePay\Support\Hash;
-use Pine\SimplePay\Support\Config;
 use Pine\SimplePay\Payloads\Transaction;
+use Pine\SimplePay\Support\Config;
+use Pine\SimplePay\Support\Hash;
+use WC_Order;
 
 class RefundRequest extends Request
 {
@@ -18,7 +18,7 @@ class RefundRequest extends Request
      */
     public function __construct(WC_Order $order, $amount)
     {
-        $this->url = Config::get('BASE_URL') . 'payment/order/irn.php';
+        $this->url = Config::get('BASE_URL').'payment/order/irn.php';
 
         $this->setPayload($order, $amount);
     }

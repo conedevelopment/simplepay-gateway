@@ -8,7 +8,7 @@ spl_autoload_register(function ($class) {
         return;
     }
 
-    $file = __DIR__ . sprintf('/src/%s.php', str_replace(['Pine\\SimplePay\\', '\\'], ['', '/'], $class));
+    $file = __DIR__.sprintf('/src/%s.php', str_replace(['Pine\\SimplePay\\', '\\'], ['', '/'], $class));
 
     if (file_exists($file)) {
         require_once $file;

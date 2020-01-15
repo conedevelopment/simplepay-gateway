@@ -37,7 +37,7 @@ abstract class NotificationHandler
 
         $response = sprintf('<EPAYMENT>%s|%s</EPAYMENT>', $date, $hash);
 
-        Log::info(__('Event response: ', 'pine-simplepay') . $response);
+        Log::info(__('Event response: ', 'pine-simplepay').$response);
 
         return $response;
     }

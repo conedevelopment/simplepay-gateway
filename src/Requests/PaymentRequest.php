@@ -2,13 +2,13 @@
 
 namespace Pine\SimplePay\Requests;
 
-use WC_Order;
-use Pine\SimplePay\Support\Hash;
-use Pine\SimplePay\Support\Config;
-use Pine\SimplePay\Payloads\Order;
-use Pine\SimplePay\Payloads\General;
 use Pine\SimplePay\Payloads\Billing;
+use Pine\SimplePay\Payloads\General;
+use Pine\SimplePay\Payloads\Order;
 use Pine\SimplePay\Payloads\Shipping;
+use Pine\SimplePay\Support\Config;
+use Pine\SimplePay\Support\Hash;
+use WC_Order;
 
 class PaymentRequest
 {
@@ -79,7 +79,7 @@ class PaymentRequest
      */
     protected function setUrl()
     {
-        $this->url = Config::get('BASE_URL') . 'payment/order/lu.php';
+        $this->url = Config::get('BASE_URL').'payment/order/lu.php';
     }
 
     /**
