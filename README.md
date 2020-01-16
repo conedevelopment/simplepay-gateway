@@ -61,6 +61,10 @@ Woo reduces the discount from the prodocut prices direcly.
 Because of this, SimplePay will get the reduced prices.
 To prevent double price reduction, the discounted amount will be `0`.
 
+### Recurring payments
+
+Recurring payments are not supported.
+
 ## Refunds
 
 Refunds can be performed both from WooCommerce's and SimplePay's side.
