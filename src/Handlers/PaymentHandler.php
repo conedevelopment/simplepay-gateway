@@ -15,19 +15,21 @@ class PaymentHandler extends Handler
         $url = wc_get_checkout_url();
 
         $this->order->set_transaction_id($payload['t']);
-        $this->order->save();
 
         if ($payload['e'] === 'SUCCESS') {
             $url = $this->order->get_checkout_order_received_url();
         } elseif ($payload['e'] === 'CANCEL') {
+            $this->order->set_status('cancelled');
             wc_add_notice(__('You cancelled you transaction.', 'pine-simplepay'), 'error');
         } elseif ($payload['e'] === 'FAIL') {
-            wc_add_notice(
-                sprintf(__('Failed trasnaction: %d. Please contact your card publisher.', 'pine-simplepay'), $payload['t']), 'error'
-            );
+            $this->order->set_status('cancelled');
+            wc_add_notice(sprintf(__('Failed trasnaction: %d. Please contact your card publisher.', 'pine-simplepay'), $payload['t']), 'error');
         } elseif ($payload['e'] === 'TIMEOUT') {
+            $this->order->set_status('cancelled');
             wc_add_notice(__('The transaction has been expired!', 'pine-simplepay'), 'error');
         }
+
+        $this->order->save();
 
         wp_safe_redirect($url);
         exit;
