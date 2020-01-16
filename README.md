@@ -63,5 +63,5 @@ To prevent double price reduction, the discounted amount will be `0`.
 
 ## Refunds
 
-Redunds can be performed both from WooCommerce's and SimplePay's side.
+Refunds can be performed both from WooCommerce's and SimplePay's side.
 Be sure, your configuration – including the IPN/IRN URL – is correct.
