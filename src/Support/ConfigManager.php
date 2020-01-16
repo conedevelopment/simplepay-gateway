@@ -69,7 +69,7 @@ class ConfigManager
         $this->set('SANDBOX', (isset($this->settings['sandbox']) ? $this->settings['sandbox'] : null) === 'yes');
 
         $this->set('BASE_URL',
-            $this->get('SANDBOX') ? 'https://sandbox.simplepay.hu/' : 'https://secure.simplepay.hu/'
+            $this->get('SANDBOX') ? 'https://sandbox.simplepay.hu/payment/v2/' : 'https://secure.simplepay.hu/payment/v2/'
         );
     }
 

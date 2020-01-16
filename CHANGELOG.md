@@ -1,5 +1,10 @@
 # Changelog
 
+## v2.0.0 (2020-01-16)
+### Changed
+- Migrate to SimplePay API v2
+- Refactorings
+
 ## v1.3.1 (2020-01-15)
 ### Fixed
 - Boot fix if there is no WooCommerce

@@ -2,8 +2,17 @@
 
 namespace Pine\SimplePay\Requests;
 
+use Pine\SimplePay\Support\Hash;
+
 abstract class Request
 {
+    /**
+     * The API url.
+     *
+     * @var string
+     */
+    protected $url;
+
     /**
      * The request response.
      *
@@ -12,40 +21,67 @@ abstract class Request
     protected $response = [];
 
     /**
-     * The payload.
+     * The body.
      *
      * @var array
      */
-    protected $payload = [];
+    protected $body = [];
 
     /**
-     * The URL.
+     * The headers.
      *
-     * @var string
+     * @var array
      */
-    protected $url;
+    protected $headers = [
+        'Content-type' => 'application/json',
+    ];
 
     /**
      * Send a GET request.
      *
-     * @return bool
+     * @return array
      */
     public function get()
     {
-        $this->response = wp_remote_get($this->url, ['body' => $this->payload]);
+        $this->response = wp_remote_get($this->url, [
+            'body' => $this->body,
+            'headers' => $this->headers,
+        ]);
 
-        return wp_remote_retrieve_response_code($this->response) === 200;
+        return [
+            'body' => $this->response['body'],
+            'signature' => $this->response['headers']['signature'],
+        ];
     }
 
     /**
      * Send a POST request.
      *
-     * @return bool
+     * @return array
      */
     public function post()
     {
-        $this->response = wp_remote_post($this->url, ['body' => $this->payload]);
+        $this->response = wp_remote_post($this->url, [
+            'body' => $this->body,
+            'headers' => $this->headers,
+        ]);
 
-        return wp_remote_retrieve_response_code($this->response) === 200;
+        return [
+            'body' => $this->response['body'],
+            'signature' => $this->response['headers']['signature'],
+        ];
+    }
+
+    /**
+     * Check if valid request.
+     *
+     * @return bool
+     */
+    public function valid()
+    {
+        $body = json_decode($this->response['body'], true);
+
+        return (! isset($body['errorCodes']))
+            && Hash::check($this->response['headers']['signature'], $this->response['body']);
     }
 }
