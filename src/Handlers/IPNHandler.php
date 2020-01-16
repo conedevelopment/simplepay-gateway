@@ -4,21 +4,18 @@ namespace Pine\SimplePay\Handlers;
 
 use Pine\SimplePay\Support\Log;
 
-class IPNHandler extends NotificationHandler
+class IPNHandler extends Handler
 {
     /**
      * Handle the IPN request.
      *
+     * @param  array  $payload
      * @return void
      */
-    public function handle()
+    public function handle($payload)
     {
         Log::info(__('IPN event was fired.', 'pine-simplepay'));
 
-        if ($this->validate() && ($id = wc_get_order_id_by_order_key($_POST['REFNOEXT'])) !== 0) {
-            wc_get_order($id)->payment_complete();
-
-            die($this->confirm());
-        }
+        $this->order->payment_complete();
     }
 }

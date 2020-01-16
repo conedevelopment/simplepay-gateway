@@ -2,32 +2,36 @@
 
 namespace Pine\SimplePay\Handlers;
 
+use Pine\SimplePay\Requests\StatusRequest;
 use Pine\SimplePay\Support\Log;
 
-class IRNHandler extends NotificationHandler
+class IRNHandler extends Handler
 {
     /**
      * Handle the IRN request.
      *
+     * @param  array  $payload
      * @return void
      */
-    public function handle()
+    public function handle($payload)
     {
         Log::info(__('IRN event was fired.', 'pine-simplepay'));
 
-        if ($this->validate() && ($id = wc_get_order_id_by_order_key($_POST['REFNOEXT'])) !== 0) {
-            $order = wc_get_order($id);
+        $request = new StatusRequest($payload['transactionId']);
+        $response = $request->post();
 
-            if (($amount = abs($_POST['IPN_TOTALGENERAL']) - (float) $order->get_total_refunded()) > 0) {
-                if ($amount <= $order->get_remaining_refund_amount()) {
-                    wc_create_refund([
-                        'order_id' => $id,
-                        'amount' => $amount,
-                    ]);
-                }
-            }
+        if (! $request->valid()) {
+            return;
+        }
 
-            die($this->confirm());
+        $payload = json_decode($response['body'], true);
+        $amount = (float) $this->order->get_remaining_refund_amount() - (float) $payload['transactions'][0]['remainingTotal'];
+
+        if ($amount > 0) {
+            wc_create_refund([
+                'amount' => $amount,
+                'order_id' => $this->order->get_id(),
+            ]);
         }
     }
 }

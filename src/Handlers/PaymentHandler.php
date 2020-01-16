@@ -2,64 +2,34 @@
 
 namespace Pine\SimplePay\Handlers;
 
-use Pine\SimplePay\Support\Hash;
-use WC_Order;
-
-class PaymentHandler
+class PaymentHandler extends Handler
 {
-    /**
-     * The order instance.
-     *
-     * @var \WC_Order
-     */
-    protected $order;
-
-    /**
-     * Initialize a new status request.
-     *
-     * @param  \WC_Order  $order
-     * @return void
-     */
-    public function __construct(WC_Order $order)
-    {
-        $this->order = $order;
-    }
-
-    /**
-     * Validate the response.
-     *
-     * @return bool
-     */
-    protected function validate()
-    {
-        if (! in_array($_GET['RC'], ['000', '001'])) {
-            return false;
-        }
-
-        $url = substr($this->getUrl(), 0, -38);
-
-        return isset($_GET['ctrl']) && $_GET['ctrl'] === Hash::make($url);
-    }
-
     /**
      * Process the payment request.
      *
+     * @param  array  $payload
      * @return void
      */
-    public function handle()
+    public function handle($payload)
     {
         $url = wc_get_checkout_url();
 
-        $this->order->set_transaction_id($_GET['payrefno']);
-        $this->order->save();
+        $this->order->set_transaction_id($payload['t']);
 
-        if ($this->validate()) {
+        if ($payload['e'] === 'SUCCESS') {
             $url = $this->order->get_checkout_order_received_url();
-        } else {
-            wc_add_notice(sprintf(
-                __('Failed trasnaction: %d. Please check if the given data is valid. If yes, please contact your card publisher.', 'pine-simplepay'),
-            $_GET['payrefno']), 'error');
+        } elseif ($payload['e'] === 'CANCEL') {
+            $this->order->set_status('cancelled');
+            wc_add_notice(__('You cancelled you transaction.', 'pine-simplepay'), 'error');
+        } elseif ($payload['e'] === 'FAIL') {
+            $this->order->set_status('cancelled');
+            wc_add_notice(sprintf(__('Failed trasnaction: %d. Please contact your card publisher.', 'pine-simplepay'), $payload['t']), 'error');
+        } elseif ($payload['e'] === 'TIMEOUT') {
+            $this->order->set_status('cancelled');
+            wc_add_notice(__('The transaction has been expired!', 'pine-simplepay'), 'error');
         }
+
+        $this->order->save();
 
         wp_safe_redirect($url);
         exit;

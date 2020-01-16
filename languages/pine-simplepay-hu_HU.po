@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pine SimplePay\n"
-"POT-Creation-Date: 2019-09-11 18:26+0200\n"
-"PO-Revision-Date: 2019-09-11 18:26+0200\n"
+"POT-Creation-Date: 2020-01-16 15:31+0100\n"
+"PO-Revision-Date: 2020-01-16 15:33+0100\n"
 "Last-Translator: \n"
 "Language-Team: https://pineco.de\n"
 "Language: hu_HU\n"
@@ -203,54 +203,55 @@ msgstr ""
 "SimplePay események naplózása - mint az IPN hívások – a megadott előtaggal "
 "ellátott fájlokban"
 
-#: includes/form.php:4
-msgid "We are redirecting you to the payment page!"
-msgstr "Most átirányítjuk a fizetési oldalra!"
-
 #: includes/order-item-row.php:3
 msgid "SimplePay transaction ID"
 msgstr "SimplePay tranzakció azonosító"
 
-#: src/Gateway.php:265
-msgid ""
-"Cancelled transaction! You cancelled you payment, or the transaction has "
-"been expired!"
-msgstr ""
-"Megszakított tranzakció! Ön megszakította a fizetést, vagy lejárt a "
-"tranzakció maximális ideje!"
-
-#: src/Handlers/IPNHandler.php:16
+#: src/Handlers/IPNHandler.php:17
 msgid "IPN event was fired."
 msgstr "Az IPN hívás megtörtént."
 
-#: src/Handlers/IRNHandler.php:16
+#: src/Handlers/IRNHandler.php:18
 msgid "IRN event was fired."
 msgstr "Az IRN hívás megtörtént."
 
-#: src/Handlers/NotificationHandler.php:40
-msgid "Event response: "
-msgstr "Esemény válasz: "
+#: src/Handlers/PaymentHandler.php:23
+msgid "You cancelled you transaction."
+msgstr "Megszakított tranzakció."
 
-#: src/Handlers/PaymentHandler.php:60
+#: src/Handlers/PaymentHandler.php:26
 #, php-format
-msgid ""
-"Failed trasnaction: %d. Please check if the given data is valid. If yes, "
-"please contact your card publisher."
+msgid "Failed trasnaction: %d. Please contact your card publisher."
 msgstr ""
-"Sikertelen tranzakció: %d. Kérjük, ellenőrizze a tranzakció során megadott "
-"adatok helyességét. Amennyiben minden adatot helyesen adott meg, a "
-"visszautasítás okának kivizsgálása kapcsán kérjük, szíveskedjen kapcsolatba "
-"lépni kártyakibocsátó bankjával."
+"Sikertelen tranzakció: %d. Kérjük szíveskedjen kapcsolatba lépni "
+"kártyakibocsátó bankjával."
 
-#: src/Plugin.php:70
+#: src/Handlers/PaymentHandler.php:29
+msgid "The transaction has been expired!"
+msgstr "A tranzakció érvényességi ideje lejárt!"
+
+#: src/Plugin.php:73
 msgid "Please activate WooCommerce before using SimplePay Gateway!"
 msgstr ""
 "Kérünk, aktiváld a WooCommerce bővítményt mielőtt a SimplePay fizetési kaput "
 "használod!"
 
-#: src/Plugin.php:99
+#: src/Plugin.php:102
 msgid "Settings"
 msgstr "Beállítások"
+
+#~ msgid "We are redirecting you to the payment page!"
+#~ msgstr "Most átirányítjuk a fizetési oldalra!"
+
+#~ msgid ""
+#~ "Cancelled transaction! You cancelled you payment, or the transaction has "
+#~ "been expired!"
+#~ msgstr ""
+#~ "Megszakított tranzakció! Ön megszakította a fizetést, vagy lejárt a "
+#~ "tranzakció maximális ideje!"
+
+#~ msgid "Event response: "
+#~ msgstr "Esemény válasz: "
 
 #~ msgid "SimplePay payment failed."
 #~ msgstr "SimplePay fizetés sikertelen."
