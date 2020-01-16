@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pine SimplePay\n"
-"POT-Creation-Date: 2019-09-11 18:25+0200\n"
-"PO-Revision-Date: 2019-09-11 18:25+0200\n"
+"POT-Creation-Date: 2020-01-16 15:31+0100\n"
+"PO-Revision-Date: 2020-01-16 15:31+0100\n"
 "Last-Translator: \n"
 "Language-Team: https://pineco.de\n"
 "Language: en_US\n"
@@ -194,43 +194,35 @@ msgid ""
 "following prefix"
 msgstr ""
 
-#: includes/form.php:4
-msgid "We are redirecting you to the payment page!"
-msgstr ""
-
 #: includes/order-item-row.php:3
 msgid "SimplePay transaction ID"
 msgstr ""
 
-#: src/Gateway.php:265
-msgid ""
-"Cancelled transaction! You cancelled you payment, or the transaction has "
-"been expired!"
-msgstr ""
-
-#: src/Handlers/IPNHandler.php:16
+#: src/Handlers/IPNHandler.php:17
 msgid "IPN event was fired."
 msgstr ""
 
-#: src/Handlers/IRNHandler.php:16
+#: src/Handlers/IRNHandler.php:18
 msgid "IRN event was fired."
 msgstr ""
 
-#: src/Handlers/NotificationHandler.php:40
-msgid "Event response: "
+#: src/Handlers/PaymentHandler.php:23
+msgid "You cancelled you transaction."
 msgstr ""
 
-#: src/Handlers/PaymentHandler.php:60
+#: src/Handlers/PaymentHandler.php:26
 #, php-format
-msgid ""
-"Failed trasnaction: %d. Please check if the given data is valid. If yes, "
-"please contact your card publisher."
+msgid "Failed trasnaction: %d. Please contact your card publisher."
 msgstr ""
 
-#: src/Plugin.php:70
+#: src/Handlers/PaymentHandler.php:29
+msgid "The transaction has been expired!"
+msgstr ""
+
+#: src/Plugin.php:73
 msgid "Please activate WooCommerce before using SimplePay Gateway!"
 msgstr ""
 
-#: src/Plugin.php:99
+#: src/Plugin.php:102
 msgid "Settings"
 msgstr ""
