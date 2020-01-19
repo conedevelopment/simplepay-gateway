@@ -3,6 +3,7 @@
 namespace Pine\SimplePay;
 
 use Pine\SimplePay\Support\Config;
+use WooCommerce;
 
 class Plugin
 {
@@ -35,7 +36,7 @@ class Plugin
 
         load_plugin_textdomain('pine-simplepay', false, basename(dirname(__DIR__)).'/languages');
 
-        if (class_exists('WooCommerce')) {
+        if (class_exists(WooCommerce::class)) {
             Gateway::boot();
         }
 
@@ -68,8 +69,8 @@ class Plugin
      * @return void
      */
     public static function activate()
-    {
-        if (! class_exists('WooCommerce')) {
+
+        if (! class_exists(WooCommerce::class)) {
             die(__('Please activate WooCommerce before using SimplePay Gateway!', 'pine-simplepay'));
         }
     }
