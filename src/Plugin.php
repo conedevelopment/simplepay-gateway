@@ -69,7 +69,7 @@ class Plugin
      * @return void
      */
     public static function activate()
-
+    {
         if (! class_exists(WooCommerce::class)) {
             die(__('Please activate WooCommerce before using SimplePay Gateway!', 'pine-simplepay'));
         }
