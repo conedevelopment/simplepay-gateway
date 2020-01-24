@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.0.1 (2020-01-24)
+### Added
+- Transaction statuses based on response
+
 ## v2.0.0 (2020-01-16)
 ### Changed
 - Migrate to SimplePay API v2

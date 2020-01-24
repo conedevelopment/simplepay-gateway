@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pine SimplePay\n"
-"POT-Creation-Date: 2020-01-16 15:31+0100\n"
-"PO-Revision-Date: 2020-01-16 15:33+0100\n"
+"POT-Creation-Date: 2020-01-24 13:17+0100\n"
+"PO-Revision-Date: 2020-01-24 13:18+0100\n"
 "Last-Translator: \n"
 "Language-Team: https://pineco.de\n"
 "Language: hu_HU\n"
@@ -221,22 +221,24 @@ msgstr "Megszakított tranzakció."
 
 #: src/Handlers/PaymentHandler.php:26
 #, php-format
-msgid "Failed trasnaction: %d. Please contact your card publisher."
+msgid ""
+"Failed SimlpePay trasnaction: %d. Please check if your data or contact your "
+"card publisher."
 msgstr ""
-"Sikertelen tranzakció: %d. Kérjük szíveskedjen kapcsolatba lépni "
-"kártyakibocsátó bankjával."
+"Sikertelen tranzakció: %d. Kérjük ellenőrízze, hogy az adatok helyesek-e "
+"vagy szíveskedjen kapcsolatba lépni kártyakibocsátó bankjával."
 
-#: src/Handlers/PaymentHandler.php:29
+#: src/Handlers/PaymentHandler.php:30
 msgid "The transaction has been expired!"
 msgstr "A tranzakció érvényességi ideje lejárt!"
 
-#: src/Plugin.php:73
+#: src/Plugin.php:74
 msgid "Please activate WooCommerce before using SimplePay Gateway!"
 msgstr ""
 "Kérünk, aktiváld a WooCommerce bővítményt mielőtt a SimplePay fizetési kaput "
 "használod!"
 
-#: src/Plugin.php:102
+#: src/Plugin.php:103
 msgid "Settings"
 msgstr "Beállítások"
 

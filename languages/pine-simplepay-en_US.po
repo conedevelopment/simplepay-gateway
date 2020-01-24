@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pine SimplePay\n"
-"POT-Creation-Date: 2020-01-16 15:31+0100\n"
-"PO-Revision-Date: 2020-01-16 15:31+0100\n"
+"POT-Creation-Date: 2020-01-24 13:17+0100\n"
+"PO-Revision-Date: 2020-01-24 13:17+0100\n"
 "Last-Translator: \n"
 "Language-Team: https://pineco.de\n"
 "Language: en_US\n"
@@ -212,17 +212,19 @@ msgstr ""
 
 #: src/Handlers/PaymentHandler.php:26
 #, php-format
-msgid "Failed trasnaction: %d. Please contact your card publisher."
+msgid ""
+"Failed SimlpePay trasnaction: %d. Please check if your data or contact your "
+"card publisher."
 msgstr ""
 
-#: src/Handlers/PaymentHandler.php:29
+#: src/Handlers/PaymentHandler.php:30
 msgid "The transaction has been expired!"
 msgstr ""
 
-#: src/Plugin.php:73
+#: src/Plugin.php:74
 msgid "Please activate WooCommerce before using SimplePay Gateway!"
 msgstr ""
 
-#: src/Plugin.php:102
+#: src/Plugin.php:103
 msgid "Settings"
 msgstr ""
