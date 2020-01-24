@@ -20,10 +20,10 @@ class PaymentHandler extends Handler
             $url = $this->order->get_checkout_order_received_url();
         } elseif ($payload['e'] === 'CANCEL') {
             $this->order->set_status('cancelled');
-            wc_add_notice(__('You cancelled you transaction.', 'pine-simplepay'), 'error');
+            wc_add_notice(__('You cancelled your transaction.', 'pine-simplepay'), 'error');
         } elseif ($payload['e'] === 'FAIL') {
-            $this->order->set_status('cancelled');
-            $m = __('Failed SimlpePay trasnaction: %d. Please check if your data or contact your card publisher.', 'pine-simplepay');
+            $this->order->set_status('failed');
+            $m = __('Failed SimlpePay trasnaction: %d. Please check if your data is correct. If yes, please contact your card publisher.', 'pine-simplepay');
             wc_add_notice(sprintf($m, $payload['t']), 'error');
         } elseif ($payload['e'] === 'TIMEOUT') {
             $this->order->set_status('cancelled');

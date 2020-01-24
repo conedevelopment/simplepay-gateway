@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pine SimplePay\n"
-"POT-Creation-Date: 2020-01-24 13:17+0100\n"
-"PO-Revision-Date: 2020-01-24 13:18+0100\n"
+"POT-Creation-Date: 2020-01-24 13:26+0100\n"
+"PO-Revision-Date: 2020-01-24 13:27+0100\n"
 "Last-Translator: \n"
 "Language-Team: https://pineco.de\n"
 "Language: hu_HU\n"
@@ -216,14 +216,14 @@ msgid "IRN event was fired."
 msgstr "Az IRN hívás megtörtént."
 
 #: src/Handlers/PaymentHandler.php:23
-msgid "You cancelled you transaction."
+msgid "You cancelled your transaction."
 msgstr "Megszakított tranzakció."
 
 #: src/Handlers/PaymentHandler.php:26
 #, php-format
 msgid ""
-"Failed SimlpePay trasnaction: %d. Please check if your data or contact your "
-"card publisher."
+"Failed SimlpePay trasnaction: %d. Please check if your data is correct. If "
+"yes, please contact your card publisher."
 msgstr ""
 "Sikertelen tranzakció: %d. Kérjük ellenőrízze, hogy az adatok helyesek-e "
 "vagy szíveskedjen kapcsolatba lépni kártyakibocsátó bankjával."

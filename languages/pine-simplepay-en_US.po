@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pine SimplePay\n"
-"POT-Creation-Date: 2020-01-24 13:17+0100\n"
-"PO-Revision-Date: 2020-01-24 13:17+0100\n"
+"POT-Creation-Date: 2020-01-24 13:27+0100\n"
+"PO-Revision-Date: 2020-01-24 13:27+0100\n"
 "Last-Translator: \n"
 "Language-Team: https://pineco.de\n"
 "Language: en_US\n"
@@ -207,14 +207,14 @@ msgid "IRN event was fired."
 msgstr ""
 
 #: src/Handlers/PaymentHandler.php:23
-msgid "You cancelled you transaction."
+msgid "You cancelled your transaction."
 msgstr ""
 
 #: src/Handlers/PaymentHandler.php:26
 #, php-format
 msgid ""
-"Failed SimlpePay trasnaction: %d. Please check if your data or contact your "
-"card publisher."
+"Failed SimlpePay trasnaction: %d. Please check if your data is correct. If "
+"yes, please contact your card publisher."
 msgstr ""
 
 #: src/Handlers/PaymentHandler.php:30

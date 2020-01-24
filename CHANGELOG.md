@@ -1,5 +1,11 @@
 # Changelog
 
+
+## v2.0.2 (2020-01-24)
+### Fixed
+- Fix transaction status when failed
+- Fix translations
+
 ## v2.0.1 (2020-01-24)
 ### Added
 - Transaction statuses based on response
