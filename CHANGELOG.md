@@ -1,5 +1,8 @@
 # Changelog
 
+## v2.0.3 (2020-01-24)
+### Added
+- Pending status
 
 ## v2.0.2 (2020-01-24)
 ### Fixed

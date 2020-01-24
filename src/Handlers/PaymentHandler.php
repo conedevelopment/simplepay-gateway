@@ -17,6 +17,7 @@ class PaymentHandler extends Handler
         $this->order->set_transaction_id($payload['t']);
 
         if ($payload['e'] === 'SUCCESS') {
+            $this->order->set_status('pending');
             $url = $this->order->get_checkout_order_received_url();
         } elseif ($payload['e'] === 'CANCEL') {
             $this->order->set_status('cancelled');
