@@ -4,7 +4,7 @@
 ### Fixed
 - Typo in translations
 
-## v2.0.4 (2020-01-24)
+## v2.0.3 (2020-01-24)
 ### Added
 - Pending status
 
