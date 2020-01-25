@@ -15,7 +15,7 @@ Ez a bővítmény OTP SimplePay fizetési kaput biztosít WooCommerce (WordPress
 
 ### Frissítések
 
-Telepítés után a bővítmény automatikusan ellenőrzni a frissítéseket, amelyek ugyan úgy telepíthetők mint bármely WordPress bővítmény.
+Telepítés után a bővítmény automatikusan ellenőrzni a frissítéseket, amelyek ugyan úgy telepíthetők mint bármely WordPress bővítmény frissítés.
 
 ## Beállítások
 
