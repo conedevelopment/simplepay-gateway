@@ -9,7 +9,7 @@ Ez a bővítmény OTP SimplePay fizetési kaput biztosít WooCommerce (WordPress
 ### Verziók
 
 | Bővítmény | SimplePay API |
-|: -------- |:-------------:|
+|:---------:|:-------------:|
 | v1+       | v1            |
 | v2+       | v2            |
 
