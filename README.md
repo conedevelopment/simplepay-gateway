@@ -4,7 +4,7 @@ Ez a bővítmény OTP SimplePay fizetési kaput biztosít WooCommerce (WordPress
 
 ## A bővítmény telepítése
 
-[A bővítmény letöltése](https://github.com/thepinecode/simplepay-gateway/archive/master.zip) után ugyan úgy telepíthető mint bármely WordPress bővítmény.
+[A bővítmény letöltése](https://github.com/thepinecode/simplepay-gateway/archive/master.zip) után ugyanúgy telepíthető, mint bármely WordPress bővítmény.
 
 ### Verziók
 
@@ -15,11 +15,11 @@ Ez a bővítmény OTP SimplePay fizetési kaput biztosít WooCommerce (WordPress
 
 ### Frissítések
 
-Telepítés után a bővítmény automatikusan ellenőrzni a frissítéseket, amelyek ugyan úgy telepíthetők mint bármely WordPress bővítmény frissítés.
+Telepítés után a bővítmény automatikusan ellenőrizni a frissítéseket, amelyek ugyanúgy telepíthetők, mint bármely WordPress bővítmény frissítés.
 
 ## Beállítások
 
-A teszt és az éles adatok a SimplePay adminisztrációs felületén érhetők el. Az érvényes szerződés megkötését követően, a SimplePay hozzáférést biztosít a felületekhez.
+A teszt és az éles adatok a SimplePay adminisztrációs felületén érhetőek el. Az érvényes szerződés megkötését követően, a SimplePay hozzáférést biztosít a felületekhez.
 
 ### Teszt beállítások
 
@@ -29,7 +29,7 @@ A teszt adatok elérhetők a [https://sandbox.simplepay.hu/admin/login](https://
 
 A SimplePay adminisztrációs felületén elérhető a kereskedői azonosító (`MERCHANT`) és a titkosító kulcs (`SECRET_KEY`). Ezeket az adatokat kell megadni a WooCommerce (WordPress) felületén a fizetési beállításoknál, a SimplePay fül alatt.
 
-> Több kereskedői fiók esetén, a megvelelő devizanemet figyelembevéve kell az adatokat megadni.
+> Több kereskedői fiók esetén, a megfelelő devizanemet figyelembevéve kell az adatokat megadni.
 
 #### IPN/IRN URL
 
@@ -39,7 +39,7 @@ Az áruház és a SimplePay kommunikációját a megfelelő URL beállítással 
 
 ### Éles beállítások
 
-Az éles beállítások azt követően lesznek elérhetőek, hogy a SimplePay munkatársai ellenőrízték az integrációt tesztüzemben és megfelelőnek a működését. Az éles adatok beállítása teljesen ugyan az mint a teszt adatoké, de a [https://admin.simplepay.hu/admin/login](https://admin.simplepay.hu/admin/login) linken érhetők el.
+Az éles beállítások azt követően lesznek elérhetőek, hogy a SimplePay munkatársai ellenőrizték az integrációt tesztüzemben és megfelelőnek a működését. Az éles adatok beállítása teljesen ugyanaz, mint a teszt adatoké, de a [https://admin.simplepay.hu/admin/login](https://admin.simplepay.hu/admin/login) linken érhetők el.
 
 ## Visszatérítések
 
