@@ -1,71 +1,68 @@
-# Readme
+# Olvass el
 
-This plugin provides a payment gateway for OTP SimplePay.
+Ez a bővítmény OTP SimplePay fizetési kaput biztosít WooCommerce (WordPress) áruházak részére.
 
-## Installing the plugin
+## A bővítmény telepítése
 
-[Download the plugin](https://github.com/thepinecode/simplepay-gateway/archive/master.zip) and install it as any other WordPress plugin.
+[A bővítmény letöltése](https://github.com/thepinecode/simplepay-gateway/archive/master.zip) után ugyan úgy telepíthető mint bármely WordPress bővítmény.
 
-### Verisons
+### Verziók
 
-**Important**: All versions under `2.0` supports the SimplePay API `v1`.
-`2.0` and above uses the `v2` API interface.
+| Bővítmény | SimplePay API |
+|: -------- |:-------------:|
+| v1+       | v1            |
+| v2+       | v2            |
 
-### Updates
+### Frissítések
 
-The plugin will recieve updates from the GitHub repository that you can install as any other plugin update.
+Telepítés után a bővítmény automatikusan ellenőrzni a frissítéseket, amelyek ugyan úgy telepíthetők mint bármely WordPress bővítmény.
 
-## Configuration
+## Beállítások
 
-Both the sandbox and production credentials are available on the SimplePay's admin site.
-You may have access after you signed a valid contract with OTP SimplePay.
+A teszt és az éles adatok a SimplePay adminisztrációs felületén érhetők el. Az érvényes szerződés megkötését követően, a SimplePay hozzáférést biztosít a felületekhez.
 
-### Sandbox
+### Teszt beállítások
 
-The sandbox settings and credentials are located at [https://sandbox.simplepay.hu/admin/login](https://sandbox.simplepay.hu/admin/login).
+A teszt adatok elérhetők a [https://sandbox.simplepay.hu/admin/login](https://sandbox.simplepay.hu/admin/login) linken.
 
-#### Merchants
+#### Kereskedői fiókok
 
-On SimplePay's admin panel you can access your merchant's ID (`MERCHANT`) and the secret key (`SECRET_KEY`).
-Copy and paste the credentials to your WooCommerce shop's SimplePay settings page.
+A SimplePay adminisztrációs felületén elérhető a kereskedői azonosító (`MERCHANT`) és a titkosító kulcs (`SECRET_KEY`). Ezeket az adatokat kell megadni a WooCommerce (WordPress) felületén a fizetési beállításoknál, a SimplePay fül alatt.
 
-Be careful to paste the credentials to the correct currency.
-Note, you can have more merchants set up and all of them can be stored in the plugin as well.
+> Több kereskedői fiók esetén, a megvelelő devizanemet figyelembevéve kell az adatokat megadni.
 
 #### IPN/IRN URL
 
-In the WooCommerce's SimplePay settings page, you need to copy the IPN/IRN URL and paste it to the SimplePay's admin panel,
-under the technical details in your merchant. This URL will be responsible to handle requests that are being sent from SimpePay's end.
-So please, copy carefully to make sure the URL is matching.
+Az áruház és a SimplePay kommunikációját a megfelelő URL beállítással biztosíthatjuk a SimplePay adminisztrációs felületén. Az URL automatikusan generálásra kerül a WooCommerce (WordPress) fizetési beállításoknál, a SimplePay fül alatt.
 
-### Production
+> Ügyeljünk, hogy a kimásolt adatok pontosak legyenek, ne tartalmazzanak extra szóközöket.
 
-The production setup is totally the same like the sandbox, but your settings and credentials are located at
-[https://admin.simplepay.hu/admin/login](https://admin.simplepay.hu/admin/login).
+### Éles beállítások
 
-## Limitations
+Az éles beállítások azt követően lesznek elérhetőek, hogy a SimplePay munkatársai ellenőrízték az integrációt tesztüzemben és megfelelőnek a működését. Az éles adatok beállítása teljesen ugyan az mint a teszt adatoké, de a [https://admin.simplepay.hu/admin/login](https://admin.simplepay.hu/admin/login) linken érhetők el.
 
-### Supported currencies
+## Visszatérítések
 
-The supported currencies: `HUF`, `EUR` and `USD`.
+Visszatérítés a WooCommerce (WordPress) és az OTP SimplePay oldaláról is kezdeményezhető.
 
-### VAT handling
+> Győződjünk meg, hogy az IPN/IRN URL megfelelően van beállítva.
 
-WooCommerce handles VAT differently than SimplePay.
-To prevent price conflicts, prices will be passed as gross values and VAT will be `0`.
+## Korlátozások
 
-### Discount handling
+### Támogatott devizák
 
-WooCommerce handles discounts differently than SimplePay.
-Woo reduces the discount from the prodocut prices direcly.
-Because of this, SimplePay will get the reduced prices.
-To prevent double price reduction, the discounted amount will be `0`.
+Jelenleg (a SimplePay által) támogatott devizák: `HUF`, `EUR` és `USD`.
 
-### Recurring payments
+### Adók
 
-Recurring payments are not supported.
+A WooCommerce (WordPress) máshogy kezeli az adókat mint a SimplePay. A lehetséges áreltérések megelőzése érdekében, a **bruttó** árak kerülnek átadása, de a feltüntetett adó mértéke `0`.
 
-## Refunds
+### Kedvezmények
 
-Refunds can be performed both from WooCommerce's and SimplePay's side.
-Be sure, your configuration – including the IPN/IRN URL – is correct.
+A WooCommerce (WordPress) máshogy kezeli a kedvezményeket mint a SimplePay. A lehetséges áreltérések megelőzése érdekében, a kedvezményes árak kerülnek átadása, de a feltüntetett kedvezmény mértéke `0`.
+
+### Ismétlődő fizetések
+
+Jelenleg nem támogatjuk az ismétlődő fizetéseket.
+
+> Miért? Mert az tranzakciók indítása és kezelése az áruházat terhelik. Ennek biztonságos kivitelezése sok áruház esetében nem garantált.

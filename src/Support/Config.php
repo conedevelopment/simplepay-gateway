@@ -2,14 +2,14 @@
 
 namespace Pine\SimplePay\Support;
 
-class Config
+abstract class Config
 {
     /**
-     * The config instance.
+     * The API url.
      *
-     * @var \Pine\SimplePay\Support\ConfigManager
+     * @var string
      */
-    protected static $manager;
+    protected static $url = 'https://%s.simplepay.hu/payment/v2/%s';
 
     /**
      * The database settings.
@@ -27,8 +27,6 @@ class Config
     public static function boot(array $settings = [])
     {
         static::$settings = $settings;
-
-        static::$manager = new ConfigManager($settings);
     }
 
     /**
@@ -42,14 +40,74 @@ class Config
     }
 
     /**
-     * Call dinamically the config methods.
+     * Get a config value by its key.
      *
-     * @param  string  $method
-     * @param  array  $arguments
-     * @return mixed
+     * @param  string|null  $key
+     * @return array
      */
-    public static function __callStatic($method, $arguments)
+    public static function get($key = null)
     {
-        return static::$manager->{$method}(...$arguments);
+        if (is_null($key)) {
+            return static::$settings;
+        }
+
+        return isset(static::$settings[$key]) ? static::$settings[$key] : null;
+    }
+
+    /**
+     * Set a config value of the given key.
+     *
+     * @param  string  $key
+     * @param  mixed  $value
+     * @return void
+     */
+    public static function set($key, $value)
+    {
+        static::$settings[$key] = $value;
+    }
+
+    /**
+     * Set the secret key and merchant by the currency.
+     *
+     * @param  string  $currency
+     * @return void
+     */
+    public static function setByCurrency($currency)
+    {
+        $currency = sprintf('%s%s', strtolower($currency), static::isSandbox() ? '_sandbox' : '');
+
+        static::set('merchant', static::get("{$currency}_merchant"));
+        static::set('secret_key', static::get("{$currency}_secret_key"));
+    }
+
+    /**
+     * Get the url.
+     *
+     * @param  string|null  $path
+     * @return string
+     */
+    public static function url($path = null)
+    {
+        return sprintf(static::$url, static::isSandbox() ?  'sandbox' : 'secure', $path);
+    }
+
+    /**
+     * Determine if the environment is sandbox.
+     *
+     * @return bool
+     */
+    public static function isSandbox()
+    {
+        return static::get('sandbox') === 'yes';
+    }
+
+    /**
+     * Determine if the debugging is enabled.
+     *
+     * @return bool
+     */
+    public static function isDebug()
+    {
+        return static::get('debug') === 'yes';
     }
 }

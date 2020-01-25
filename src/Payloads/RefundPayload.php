@@ -33,7 +33,7 @@ abstract class RefundPayload
         return [
             'salt' => Hash::salt(),
             'refundTotal' => $amount,
-            'merchant' => Config::get('MERCHANT'),
+            'merchant' => Config::get('merchant'),
             'orderRef' => $order->get_order_key(),
             'currency' => $order->get_order_currency(),
             'sdkVersion' => 'Pine SimplePay Gateway:'.Plugin::VERSION,

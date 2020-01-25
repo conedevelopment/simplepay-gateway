@@ -2,7 +2,7 @@
 
 namespace Pine\SimplePay\Support;
 
-class Hash
+abstract class Hash
 {
     /**
      * Make a hash version of the data.
@@ -13,7 +13,7 @@ class Hash
     public static function make($data)
     {
         return base64_encode(
-            hash_hmac('sha384', $data, trim(Config::get('SECRET_KEY')), true)
+            hash_hmac('sha384', $data, trim(Config::get('secret_key')), true)
         );
     }
 
@@ -30,7 +30,7 @@ class Hash
     }
 
     /**
-     * Make a salt.
+     * Generate a salt.
      *
      * @return string
      */

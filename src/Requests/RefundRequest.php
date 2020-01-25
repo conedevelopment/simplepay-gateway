@@ -18,7 +18,7 @@ class RefundRequest extends Request
      */
     public function __construct(WC_Order $order, $amount)
     {
-        $this->url = Config::get('BASE_URL').'refund';
+        $this->url = Config::url('refund');
         $this->body = RefundPayload::handle($order, $amount);
         $this->headers['Signature'] = Hash::make($this->body);
     }

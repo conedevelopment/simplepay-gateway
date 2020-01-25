@@ -17,7 +17,7 @@ class PaymentRequest extends Request
      */
     public function __construct(WC_Order $order)
     {
-        $this->url = Config::get('BASE_URL').'start';
+        $this->url = Config::url('start');
         $this->body = PaymentPayload::handle($order);
         $this->headers['Signature'] = Hash::make($this->body);
     }

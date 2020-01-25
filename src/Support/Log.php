@@ -2,7 +2,7 @@
 
 namespace Pine\SimplePay\Support;
 
-class Log
+abstract class Log
 {
     /**
      * The log context.
@@ -21,7 +21,7 @@ class Log
      */
     public static function info($data)
     {
-        if (Config::get('DEBUG')) {
+        if (Config::isDebug()) {
             wc_get_logger()->info($data, static::$context);
         }
     }
@@ -34,7 +34,7 @@ class Log
      */
     public static function debug($data)
     {
-        if (Config::get('DEBUG')) {
+        if (Config::isDebug()) {
             wc_get_logger()->debug($data, static::$context);
         }
     }
@@ -47,7 +47,7 @@ class Log
      */
     public static function error($data)
     {
-        if (Config::get('DEBUG')) {
+        if (Config::isDebug()) {
             wc_get_logger()->error($data, static::$context);
         }
     }

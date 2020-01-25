@@ -1,5 +1,11 @@
 # Changelog
 
+## v2.1.0 (2020-01-25)
+### Added
+- Hungarian readme
+### Changed
+- Refactored config
+
 ## v2.0.4 (2020-01-24)
 ### Fixed
 - Typo in translations
@@ -98,7 +104,7 @@
 
 ## v1.0.2 (2019-07-11)
 ### Changed
-- replace `self` to `static`
+- Replace `self` to `static`
 
 ## v1.0.1 (2019-04-04)
 ### Changed

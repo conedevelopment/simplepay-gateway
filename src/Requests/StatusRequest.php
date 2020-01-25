@@ -16,7 +16,7 @@ class StatusRequest extends Request
      */
     public function __construct($ids)
     {
-        $this->url = Config::get('BASE_URL').'query';
+        $this->url = Config::url('query');
         $this->body = StatusPayload::handle($ids);
         $this->headers['Signature'] = Hash::make($this->body);
     }

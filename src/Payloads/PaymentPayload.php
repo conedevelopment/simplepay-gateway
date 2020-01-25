@@ -32,7 +32,7 @@ abstract class PaymentPayload
             'salt' => Hash::salt(),
             'timeout' => date('c', strtotime('+30 minutes')),
             'methods' => ['CARD'],
-            'merchant' => Config::get('MERCHANT'),
+            'merchant' => Config::get('merchant'),
             'orderRef' => $order->get_order_key(),
             'discount' => 0,
             'currency' => $order->get_currency(),
