@@ -1,0 +1,19 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Unsafe usage of new static\\(\\)\\.$#"
+			count: 1
+			path: src/Gateway.php
+
+		# Vagy a WC forrásban hibás a string visszatérési típus, vagy simán string-ként jön vissza egy szám, vagy a valuta jele is benne van
+		# 39-es sor!
+		-
+			message: "#^Binary operation \"\\+\" between string and string results in an error\\.$#"
+			count: 1
+			path: src/Payloads/PaymentPayload.php
+
+		-
+			message: "#^Unsafe usage of new static\\(\\)\\.$#"
+			count: 1
+			path: src/Updater.php
+

@@ -1,0 +1,16 @@
+#$ composer require --dev szepeviktor/phpstan-wordpress php-stubs/woocommerce-stubs
+#$ vendor/bin/phpstan analyze
+
+includes:
+    - phpstan-baseline.neon
+    - vendor/szepeviktor/phpstan-wordpress/extension.neon
+parameters:
+    level: 5
+#    TODO Raise level!
+#    level: max
+    inferPrivatePropertyTypeFromConstructor: true
+    paths:
+        - src/
+    autoload_files:
+        - vendor/php-stubs/woocommerce-stubs/woocommerce-stubs.php
+        - autoload.php

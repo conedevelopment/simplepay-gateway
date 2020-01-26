@@ -1,0 +1,26 @@
+#!/bin/sh
+
+set -e
+
+if [ ! -f simplepay-gateway.php ]; then
+    echo "Run tests from the repository root!" 1>&2
+    exit 1
+fi
+
+composer require --dev squizlabs/php_codesniffer szepeviktor/phpstan-wordpress php-stubs/woocommerce-stubs
+
+echo "Running syntax check ..."
+find src/ includes/ -type f -name '*.php' -print0 | xargs -0 -L1 -P4 -- php -l
+echo
+
+echo "Running coding style check ..."
+# TODO Follow PSR-12 standard.
+vendor/bin/phpcs -p --standard=PSR2 src/ includes/
+echo
+
+echo "Running static analysis ..."
+vendor/bin/phpstan analyze
+echo
+
+echo "Cleaning up ..."
+rm -rf vendor/ composer.json composer.lock
