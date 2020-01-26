@@ -1,5 +1,7 @@
 <?php
 
+// phpcs:disable Generic.Files.LineLength.TooLong
+
 return [
 
     'enabled' => [
@@ -26,7 +28,8 @@ return [
     'notification_settings' => [
         'title' => __('IPN/IRN settings', 'pine-simplepay'),
         'type' => 'title',
-        'description' => sprintf('%s%s',
+        'description' => sprintf(
+            '%s%s',
             __("The shop's IPN/IRN URL:", 'pine-simplepay'),
             ' <code>'.site_url().'?wc-api=wc_gateway_simplepay-gateway</code>'
         ),
@@ -61,13 +64,13 @@ return [
         'desc_tip' => true,
     ],
     'huf_sandbox_merchant' => [
-        'title' => sprintf('[%s] %s', __('Sandbox', 'pine-simplepay') ,  __('HUF Merchant ID', 'pine-simplepay')),
+        'title' => sprintf('[%s] %s', __('Sandbox', 'pine-simplepay'), __('HUF Merchant ID', 'pine-simplepay')),
         'type' => 'text',
         'description' => __('This is the sandbox merchant ID for HUF currency.', 'pine-simplepay'),
         'desc_tip' => true,
     ],
     'huf_sandbox_secret_key' => [
-        'title' => sprintf('[%s] %s', __('Sandbox', 'pine-simplepay') ,  __('HUF Secret Key', 'pine-simplepay')),
+        'title' => sprintf('[%s] %s', __('Sandbox', 'pine-simplepay'), __('HUF Secret Key', 'pine-simplepay')),
         'type' => 'password',
         'description' => __('This is the sandbox secret key for HUF currency.', 'pine-simplepay'),
         'desc_tip' => true,
@@ -91,13 +94,13 @@ return [
         'desc_tip' => true,
     ],
     'eur_sandbox_merchant' => [
-        'title' => sprintf('[%s] %s', __('Sandbox', 'pine-simplepay') ,  __('EUR Merchant ID', 'pine-simplepay')),
+        'title' => sprintf('[%s] %s', __('Sandbox', 'pine-simplepay'), __('EUR Merchant ID', 'pine-simplepay')),
         'type' => 'text',
         'description' => __('This is the sandbox merchant ID for EUR currency.', 'pine-simplepay'),
         'desc_tip' => true,
     ],
     'eur_sandbox_secret_key' => [
-        'title' => sprintf('[%s] %s', __('Sandbox', 'pine-simplepay') ,  __('EUR Secret Key', 'pine-simplepay')),
+        'title' => sprintf('[%s] %s', __('Sandbox', 'pine-simplepay'), __('EUR Secret Key', 'pine-simplepay')),
         'type' => 'password',
         'description' => __('This is the sandbox secret key for EUR currency.', 'pine-simplepay'),
         'desc_tip' => true,
@@ -121,13 +124,13 @@ return [
         'desc_tip' => true,
     ],
     'usd_sandbox_merchant' => [
-        'title' => sprintf('[%s] %s', __('Sandbox', 'pine-simplepay') ,  __('USD Merchant ID', 'pine-simplepay')),
+        'title' => sprintf('[%s] %s', __('Sandbox', 'pine-simplepay'), __('USD Merchant ID', 'pine-simplepay')),
         'type' => 'text',
         'description' => __('This is the sandbox merchant ID for USD currency.', 'pine-simplepay'),
         'desc_tip' => true,
     ],
     'usd_sandbox_secret_key' => [
-        'title' => sprintf('[%s] %s', __('Sandbox', 'pine-simplepay') ,  __('USD Secret Key', 'pine-simplepay')),
+        'title' => sprintf('[%s] %s', __('Sandbox', 'pine-simplepay'), __('USD Secret Key', 'pine-simplepay')),
         'type' => 'password',
         'description' => __('This is the sandbox secret key for USD currency.', 'pine-simplepay'),
         'desc_tip' => true,
@@ -142,7 +145,8 @@ return [
         'title' => __('Debug log', 'pine-simplepay'),
         'type' => 'checkbox',
         'label' => __('Enable logging', 'pine-simplepay'),
-        'description' => sprintf('%s%s',
+        'description' => sprintf(
+            '%s%s',
             __('Log SimplePay events, such as IPN requests, inside log files with the following prefix', 'pine-simplepay'),
             ': <code>simplepay-gateway</code>.'
         ),
