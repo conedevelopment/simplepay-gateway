@@ -23,7 +23,7 @@ abstract class Request
     /**
      * The body.
      *
-     * @var array
+     * @var string|array
      */
     protected $body = [];
 
