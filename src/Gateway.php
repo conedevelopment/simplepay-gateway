@@ -32,7 +32,7 @@ class Gateway extends WC_Payment_Gateway
      *
      * @var string
      */
-    public $method_description = 'SimplePay payment gateway.';
+    public $method_description = 'SimplePay payment gateway';
 
     /**
      * The supported features.
@@ -107,7 +107,7 @@ class Gateway extends WC_Payment_Gateway
      */
     protected function setOptions()
     {
-        foreach (Config::settings() as $key => $option) {
+        foreach (Config::get() as $key => $option) {
             $this->{$key} = $option;
         }
     }

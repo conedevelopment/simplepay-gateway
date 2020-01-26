@@ -30,20 +30,10 @@ abstract class Config
     }
 
     /**
-     * Get the settings.
-     *
-     * @return array
-     */
-    public static function settings()
-    {
-        return static::$settings;
-    }
-
-    /**
      * Get a config value by its key.
      *
      * @param  string|null  $key
-     * @return array
+     * @return mixed
      */
     public static function get($key = null)
     {
@@ -88,7 +78,7 @@ abstract class Config
      */
     public static function url($path = null)
     {
-        return sprintf(static::$url, static::isSandbox() ?  'sandbox' : 'secure', $path);
+        return sprintf(static::$url, static::isSandbox() ? 'sandbox' : 'secure', $path);
     }
 
     /**

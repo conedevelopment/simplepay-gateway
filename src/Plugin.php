@@ -28,7 +28,7 @@ class Plugin
      */
     public static function boot()
     {
-        static::configure();
+        Config::boot(get_option('woocommerce_simplepay-gateway_settings', []));
 
         add_action('widgets_init', [__CLASS__, 'registerWidget']);
         add_filter('pre_update_option_active_plugins', [__CLASS__, 'guard']);
@@ -41,16 +41,6 @@ class Plugin
         }
 
         Updater::boot();
-    }
-
-    /**
-     * Load the settings and configure the plugin.
-     *
-     * @return void
-     */
-    protected static function configure()
-    {
-        Config::boot(get_option('woocommerce_simplepay-gateway_settings', []));
     }
 
     /**
