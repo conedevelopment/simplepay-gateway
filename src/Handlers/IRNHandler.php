@@ -25,7 +25,8 @@ class IRNHandler extends Handler
         }
 
         $payload = json_decode($response['body'], true);
-        $amount = (float) $this->order->get_remaining_refund_amount() - (float) $payload['transactions'][0]['remainingTotal'];
+        $amount = (float) $this->order->get_remaining_refund_amount()
+            - (float) $payload['transactions'][0]['remainingTotal'];
 
         if ($amount > 0) {
             wc_create_refund([

@@ -1,5 +1,7 @@
 <?php
 
+// phpcs:disable PSR1.Methods.CamelCapsMethodName.NotCamelCaps
+
 namespace Pine\SimplePay;
 
 use Pine\SimplePay\Handlers\IPNHandler;

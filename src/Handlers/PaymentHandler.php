@@ -24,6 +24,7 @@ class PaymentHandler extends Handler
             wc_add_notice(__('You cancelled your transaction.', 'pine-simplepay'), 'error');
         } elseif ($payload['e'] === 'FAIL') {
             $this->order->set_status('failed');
+            // phpcs:ignore Generic.Files.LineLength.TooLong
             $m = __('Failed SimplePay trasnaction: %d. Please check if your data is correct. If yes, please contact your card publisher.', 'pine-simplepay');
             wc_add_notice(sprintf($m, $payload['t']), 'error');
         } elseif ($payload['e'] === 'TIMEOUT') {
