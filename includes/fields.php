@@ -61,13 +61,13 @@ return [
         'desc_tip' => true,
     ],
     'huf_sandbox_merchant' => [
-        'title' => sprintf('[%s] %s', __('Sandbox', 'pine-simplepay') ,  __('HUF Merchant ID', 'pine-simplepay')),
+        'title' => sprintf('[%s] %s', __('Sandbox', 'pine-simplepay'), __('HUF Merchant ID', 'pine-simplepay')),
         'type' => 'text',
         'description' => __('This is the sandbox merchant ID for HUF currency.', 'pine-simplepay'),
         'desc_tip' => true,
     ],
     'huf_sandbox_secret_key' => [
-        'title' => sprintf('[%s] %s', __('Sandbox', 'pine-simplepay') ,  __('HUF Secret Key', 'pine-simplepay')),
+        'title' => sprintf('[%s] %s', __('Sandbox', 'pine-simplepay'), __('HUF Secret Key', 'pine-simplepay')),
         'type' => 'password',
         'description' => __('This is the sandbox secret key for HUF currency.', 'pine-simplepay'),
         'desc_tip' => true,
@@ -91,13 +91,13 @@ return [
         'desc_tip' => true,
     ],
     'eur_sandbox_merchant' => [
-        'title' => sprintf('[%s] %s', __('Sandbox', 'pine-simplepay') ,  __('EUR Merchant ID', 'pine-simplepay')),
+        'title' => sprintf('[%s] %s', __('Sandbox', 'pine-simplepay'), __('EUR Merchant ID', 'pine-simplepay')),
         'type' => 'text',
         'description' => __('This is the sandbox merchant ID for EUR currency.', 'pine-simplepay'),
         'desc_tip' => true,
     ],
     'eur_sandbox_secret_key' => [
-        'title' => sprintf('[%s] %s', __('Sandbox', 'pine-simplepay') ,  __('EUR Secret Key', 'pine-simplepay')),
+        'title' => sprintf('[%s] %s', __('Sandbox', 'pine-simplepay'), __('EUR Secret Key', 'pine-simplepay')),
         'type' => 'password',
         'description' => __('This is the sandbox secret key for EUR currency.', 'pine-simplepay'),
         'desc_tip' => true,
@@ -121,13 +121,13 @@ return [
         'desc_tip' => true,
     ],
     'usd_sandbox_merchant' => [
-        'title' => sprintf('[%s] %s', __('Sandbox', 'pine-simplepay') ,  __('USD Merchant ID', 'pine-simplepay')),
+        'title' => sprintf('[%s] %s', __('Sandbox', 'pine-simplepay'), __('USD Merchant ID', 'pine-simplepay')),
         'type' => 'text',
         'description' => __('This is the sandbox merchant ID for USD currency.', 'pine-simplepay'),
         'desc_tip' => true,
     ],
     'usd_sandbox_secret_key' => [
-        'title' => sprintf('[%s] %s', __('Sandbox', 'pine-simplepay') ,  __('USD Secret Key', 'pine-simplepay')),
+        'title' => sprintf('[%s] %s', __('Sandbox', 'pine-simplepay'), __('USD Secret Key', 'pine-simplepay')),
         'type' => 'password',
         'description' => __('This is the sandbox secret key for USD currency.', 'pine-simplepay'),
         'desc_tip' => true,
