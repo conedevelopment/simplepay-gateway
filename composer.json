@@ -19,6 +19,5 @@
                 "type:wordpress-plugin"
             ]
         }
-    },
-    "minimum-stability": "dev"
+    }
 }
