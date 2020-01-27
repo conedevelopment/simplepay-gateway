@@ -29,7 +29,7 @@ A teszt adatok elérhetők a [https://sandbox.simplepay.hu/admin/login](https://
 
 A SimplePay adminisztrációs felületén elérhető a kereskedői azonosító (`MERCHANT`) és a titkosító kulcs (`SECRET_KEY`). Ezeket az adatokat kell megadni a WooCommerce (WordPress) felületén a fizetési beállításoknál, a SimplePay fül alatt.
 
-> Több kereskedői fiók esetén, a megfelelő devizanemet figyelembevéve kell az adatokat megadni.
+> Több kereskedői fiók esetén, a megfelelő devizanemet figyelembe véve kell az adatokat megadni.
 
 #### IPN/IRN URL
 
@@ -65,4 +65,4 @@ A WooCommerce (WordPress) máshogy kezeli a kedvezményeket mint a SimplePay. A 
 
 Jelenleg nem támogatjuk az ismétlődő fizetéseket.
 
-> Miért? Mert az tranzakciók indítása és kezelése az áruházat terhelik. Ennek biztonságos kivitelezése sok áruház esetében nem garantált.
+> Miért? Mert a tranzakciók indítása és kezelése az áruházat terhelik. Ennek biztonságos kivitelezése sok áruház esetében nem garantált.
