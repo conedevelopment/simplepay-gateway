@@ -1,5 +1,7 @@
 # Readme
 
+[![Packagist](https://img.shields.io/packagist/v/thepinecode/simplepay-gateway.svg?color=239922&style=popout)](https://packagist.org/packages/thepinecode/simplepay-gateway)
+
 This plugin provides a payment gateway for OTP SimplePay.
 
 ## Installing the plugin

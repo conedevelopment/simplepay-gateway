@@ -1,5 +1,7 @@
 # Olvass el
 
+[![Packagist](https://img.shields.io/packagist/v/thepinecode/simplepay-gateway.svg?color=239922&style=popout)](https://packagist.org/packages/thepinecode/simplepay-gateway)
+
 Ez a bővítmény OTP SimplePay fizetési kaput biztosít WooCommerce (WordPress) áruházak részére.
 
 ## A bővítmény telepítése
