@@ -26,7 +26,7 @@ abstract class RefundPayload
      *
      * @param  \WC_Order  $order
      * @param  int|float  $amount
-     * @return array{salt:string, refundTotal:float, merchant:string, orderRef:string, currency:string, sdkVersion:string}
+     * @return array
      */
     protected static function serialize(WC_Order $order, $amount)
     {
