@@ -24,7 +24,7 @@ class Updater
         if ($action !== 'plugin_information') {
             return false;
         } elseif (Plugin::SLUG !== $args->slug) {
-		    return $response;
+            return $response;
         } elseif (! $response = get_transient('simplepay_info_'.Plugin::SLUG)) {
             $response = wp_remote_get(sprintf($this->url, 'info'));
 

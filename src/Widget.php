@@ -20,7 +20,7 @@ class Widget extends WP_Widget
      * The output of the widget.
      *
      * @param  array  $args
-     * @param  \WP_Widget  $instance
+     * @param  array  $instance
      * @return void
      */
     public function widget($args, $instance)

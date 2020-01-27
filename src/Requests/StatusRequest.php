@@ -11,7 +11,7 @@ class StatusRequest extends Request
     /**
      * Create a new request instance.
      *
-     * @param  string|array  $payload
+     * @param  string|array  $ids
      * @return void
      */
     public function __construct($ids)
