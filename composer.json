@@ -12,5 +12,13 @@
     "require": {
         "php": "^7.0",
         "composer/installers": "~1.7"
-    }
+    },
+    "extra": {
+        "installer-paths": {
+            "wp-content/plugins/simplepay-gateway-master/": [
+                "type:wordpress-plugin"
+            ]
+        }
+    },
+    "minimum-stability": "dev"
 }
