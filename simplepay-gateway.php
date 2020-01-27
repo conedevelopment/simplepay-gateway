@@ -11,6 +11,8 @@
  * License URI:       https://opensource.org/licenses/MIT
  * Text Domain:       pine-simplepay
  * Domain Path:       /languages/
+ * Requires at least: 4.8
+ * Requires PHP:      7.0
  */
 
 // Pull in the autoloader
