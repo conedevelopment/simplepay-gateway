@@ -1,0 +1,16 @@
+{
+    "name": "thepinecode/simplepay-gateway",
+    "description": "OTP SimplePay integration for WooCommerce (WordPress) stores",
+    "type": "wordpress-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gergő D. Nagy",
+            "email": "hello@iamgergo.com"
+        }
+    ],
+    "require": {
+        "php": "^7.0",
+        "composer/installers": "~1.7"
+    }
+}
