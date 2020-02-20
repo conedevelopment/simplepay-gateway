@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.1.1 (2020-02-20)
+### Added
+- composer.json
+
 ## v2.1.0 (2020-01-25)
 ### Added
 - Hungarian readme
