@@ -36,14 +36,4 @@ class PaymentHandler extends Handler
         wp_safe_redirect($url);
         exit;
     }
-
-    /**
-     * Build the URL for hash calculating.
-     *
-     * @return string
-     */
-    protected function getUrl()
-    {
-        return str_replace('/?', '?', site_url($_SERVER['REQUEST_URI']));
-    }
 }
