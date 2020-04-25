@@ -53,7 +53,7 @@ class Updater
      */
     public function update($transient)
     {
-        if (! $transient->checked) {
+        if (! isset($transient->checked) || ! $transient->checked) {
             return $transient;
         } elseif (! $response = get_transient('simplepay_update_'.Plugin::SLUG)) {
             $response = wp_remote_get(sprintf($this->url, 'update'));
