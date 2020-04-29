@@ -23,9 +23,13 @@ class Updater
     {
         if ($action !== 'plugin_information') {
             return false;
-        } elseif (Plugin::SLUG !== $args->slug) {
+        }
+
+        if (Plugin::SLUG !== $args->slug) {
             return $response;
-        } elseif (! $response = get_transient('simplepay_info_'.Plugin::SLUG)) {
+        }
+
+        if (! $response = get_transient('simplepay_info_'.Plugin::SLUG)) {
             $response = wp_remote_get(sprintf($this->url, 'info'));
 
             if (wp_remote_retrieve_response_code($response) == 200 && wp_remote_retrieve_body($response)) {
@@ -49,13 +53,15 @@ class Updater
      * Run the updater.
      *
      * @param  object  $transient
-     * @return mixed
+     * @return object
      */
     public function update($transient)
     {
         if (! isset($transient->checked) || ! $transient->checked) {
             return $transient;
-        } elseif (! $response = get_transient('simplepay_update_'.Plugin::SLUG)) {
+        }
+
+        if (! $response = get_transient('simplepay_update_'.Plugin::SLUG)) {
             $response = wp_remote_get(sprintf($this->url, 'update'));
 
             if (wp_remote_retrieve_response_code($response) == 200 && wp_remote_retrieve_body($response)) {
@@ -80,6 +86,7 @@ class Updater
      *
      * @param  object  $updater
      * @param  array  $options
+     * @return void
      */
     public function clean($updater, $options)
     {
