@@ -65,4 +65,4 @@ A WooCommerce (WordPress) máshogy kezeli a kedvezményeket mint a SimplePay. A 
 
 Jelenleg nem támogatjuk az ismétlődő fizetéseket.
 
-> Miért? Mert a tranzakciók indítása és kezelése az áruházat terhelik. Ennek üzembiztos megvalósítása sok áruház esetében nem garantált.
+> Miért? Mert a tranzakciók indítása, ütemezése és kezelése az áruházat terhelik. Ennek üzembiztos megvalósítása sok áruház esetében nem garantált.
