@@ -55,11 +55,11 @@ Jelenleg (a SimplePay által) támogatott devizák: `HUF`, `EUR` és `USD`.
 
 ### Adók
 
-A WooCommerce (WordPress) máshogy kezeli az adókat mint a SimplePay. A lehetséges áreltérések megelőzése érdekében, a **bruttó** árak kerülnek átadása mint a nettó ár, és a feltüntetett adó mértéke `0`.
+A WooCommerce (WordPress) máshogy kezeli az adókat mint a SimplePay. A lehetséges áreltérések megelőzése érdekében, a **bruttó** árak nettó árként kerülnek átadása, és a feltüntetett adó mértéke `0`.
 
 ### Kedvezmények
 
-A WooCommerce (WordPress) máshogy kezeli a kedvezményeket mint a SimplePay. A lehetséges áreltérések megelőzése érdekében, a **kedvezményes** árak kerülnek átadása mint a normál ár, és a feltüntetett kedvezmény mértéke `0`.
+A WooCommerce (WordPress) máshogy kezeli a kedvezményeket mint a SimplePay. A lehetséges áreltérések megelőzése érdekében, a **kedvezményes** árak normál árként kerülnek átadása, és a feltüntetett kedvezmény mértéke `0`.
 
 ### Ismétlődő fizetések
 
