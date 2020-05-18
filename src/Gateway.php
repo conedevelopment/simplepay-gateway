@@ -163,11 +163,14 @@ class Gateway extends WC_Payment_Gateway
         $input = file_get_contents('php://input');
         $payload = json_decode($input, true);
         $order = wc_get_order(wc_get_order_id_by_order_key($payload['orderRef']));
-        Config::setByCurrency($order->get_currency());
 
         if (! Hash::check($signature, $input) || ! $order) {
             return;
-        } elseif (isset($payload['refundStatus']) && $payload['status'] === 'FINISHED') {
+        }
+
+        Config::setByCurrency($order->get_currency());
+
+        if (isset($payload['refundStatus']) && $payload['status'] === 'FINISHED') {
             (new IRNHandler($order))->handle($payload);
         } elseif ($payload['status'] === 'FINISHED') {
             (new IPNHandler($order))->handle($payload);

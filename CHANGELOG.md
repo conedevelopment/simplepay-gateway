@@ -1,5 +1,11 @@
 # Changelog
 
+## v2.2.0 (2020-05-18)
+### Fixed
+- Do not handle IPN/IRN if order does not exist
+- Update Docblocks ([#22](https://github.com/thepinecode/simplepay-gateway/pull/22))
+- Check for undefined property in updater ([#21](https://github.com/thepinecode/simplepay-gateway/pull/21))
+
 ## v2.1.1 (2020-02-20)
 ### Added
 - composer.json
