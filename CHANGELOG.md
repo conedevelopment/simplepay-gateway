@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.2.1 (2020-05-18)
+### Fixed
+- Put currency based options before hashing
+
 ## v2.2.0 (2020-05-18)
 ### Fixed
 - Do not handle IPN/IRN if order does not exist
