@@ -89,9 +89,9 @@ class Plugin
      */
     public static function addLinks($links)
     {
-        return array_merge($links, [
+        return array_merge([
             sprintf('<a href="%s">%s</a>', admin_url('admin.php?page=wc-settings&tab=checkout&section=simplepay-gateway'), __('Settings')),
-        ]);
+        ], $links);
     }
 
     /**
