@@ -1,5 +1,13 @@
 # Changelog
 
+## v2.2.2 (2020-05-21)
+### Added
+- Added custom error messages when IPN/IRN should fail
+- Added red labels for sanbox inputs
+
+### Fixed
+- Determine if `$order` is instnace of `WC_Order`
+
 ## v2.2.1 (2020-05-18)
 ### Fixed
 - Put currency based options before hashing
