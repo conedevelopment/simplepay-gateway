@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', function (event) {
     });
 
     cb.addEventListener('change', function (event) {
+        checkedClass = event.target.checked ? 'js-simplepay-sandbox-field' : 'js-simplepay-prod-field';
         inputs.forEach(function (el) {
-            checkedClass = event.target.checked ? 'js-simplepay-sandbox-field' : 'js-simplepay-prod-field';
             el.closest('tr').style.display = el.classList.contains(checkedClass) ? 'block' : 'none';
         });
     });
