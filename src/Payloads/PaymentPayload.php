@@ -67,7 +67,7 @@ abstract class PaymentPayload
             'country' => $order->get_billing_country(),
             'address' => $order->get_billing_address_1(),
             'address2' => $order->get_billing_address_2(),
-            'name' => "{$order->get_billing_first_name()} {$order->get_billing_last_name()}",
+            'name' => $order->get_formatted_billing_full_name(),
         ];
     }
 
@@ -88,7 +88,7 @@ abstract class PaymentPayload
             'country' => $order->get_shipping_country(),
             'address' => $order->get_shipping_address_1(),
             'address2' => $order->get_shipping_address_2(),
-            'name' => "{$order->get_shipping_first_name()} {$order->get_shipping_last_name()}",
+            'name' => $order->get_formatted_shipping_full_name(),
         ];
     }
 

@@ -41,6 +41,7 @@ return [
         'title' => __('Enable/Disable', 'woocommerce'),
         'type' => 'checkbox',
         'label' => __('Enable Sandbox Mode', 'pine-simplepay'),
+        'class' => 'js-simplepay-sandbox-mode-checkbox',
     ],
 
     'huf_settings' => [
@@ -53,24 +54,28 @@ return [
         'type' => 'text',
         'description' => __('This is the merchant ID for HUF currency.', 'pine-simplepay'),
         'desc_tip' => true,
+        'class' => 'js-credential-input js-simplepay-prod-field',
     ],
     'huf_secret_key' => [
         'title' => __('HUF Secret Key', 'pine-simplepay'),
         'type' => 'password',
         'description' => __('This is the secret key for HUF currency.', 'pine-simplepay'),
         'desc_tip' => true,
+        'class' => 'js-credential-input js-simplepay-prod-field',
     ],
     'huf_sandbox_merchant' => [
         'title' => sprintf('<span style="background-color: #ff3e3e; color: #fff; font-size: 11px; font-weight: 700; text-transform: uppercase; display: inline-block; padding: 2px 4px; border-radius: 3px;">%s</span> %s', __('Sandbox', 'pine-simplepay'), __('HUF Merchant ID', 'pine-simplepay')),
         'type' => 'text',
         'description' => __('This is the sandbox merchant ID for HUF currency.', 'pine-simplepay'),
         'desc_tip' => true,
+        'class' => 'js-credential-input js-simplepay-sandbox-field',
     ],
     'huf_sandbox_secret_key' => [
         'title' => sprintf('<span style="background-color: #ff3e3e; color: #fff; font-size: 11px; font-weight: 700; text-transform: uppercase; display: inline-block; padding: 2px 4px; border-radius: 3px;">%s</span> %s', __('Sandbox', 'pine-simplepay'), __('HUF Secret Key', 'pine-simplepay')),
         'type' => 'password',
         'description' => __('This is the sandbox secret key for HUF currency.', 'pine-simplepay'),
         'desc_tip' => true,
+        'class' => 'js-credential-input js-simplepay-sandbox-field',
     ],
 
     'eur_settings' => [
@@ -83,24 +88,28 @@ return [
         'type' => 'text',
         'description' => __('This is the merchant ID for EUR currency.', 'pine-simplepay'),
         'desc_tip' => true,
+        'class' => 'js-credential-input js-simplepay-prod-field',
     ],
     'eur_secret_key' => [
         'title' => __('EUR Secret Key', 'pine-simplepay'),
         'type' => 'password',
         'description' => __('This is the secret key for EUR currency.', 'pine-simplepay'),
         'desc_tip' => true,
+        'class' => 'js-credential-input js-simplepay-prod-field',
     ],
     'eur_sandbox_merchant' => [
         'title' => sprintf('<span style="background-color: #ff3e3e; color: #fff; font-size: 11px; font-weight: 700; text-transform: uppercase; display: inline-block; padding: 2px 4px; border-radius: 3px;">%s</span> %s', __('Sandbox', 'pine-simplepay'), __('EUR Merchant ID', 'pine-simplepay')),
         'type' => 'text',
         'description' => __('This is the sandbox merchant ID for EUR currency.', 'pine-simplepay'),
         'desc_tip' => true,
+        'class' => 'js-credential-input js-simplepay-sandbox-field',
     ],
     'eur_sandbox_secret_key' => [
         'title' => sprintf('<span style="background-color: #ff3e3e; color: #fff; font-size: 11px; font-weight: 700; text-transform: uppercase; display: inline-block; padding: 2px 4px; border-radius: 3px;">%s</span> %s', __('Sandbox', 'pine-simplepay'), __('EUR Secret Key', 'pine-simplepay')),
         'type' => 'password',
         'description' => __('This is the sandbox secret key for EUR currency.', 'pine-simplepay'),
         'desc_tip' => true,
+        'class' => 'js-credential-input js-simplepay-sandbox-field',
     ],
 
     'usd_settings' => [
@@ -113,24 +122,28 @@ return [
         'type' => 'text',
         'description' => __('This is the merchant ID for USD currency.', 'pine-simplepay'),
         'desc_tip' => true,
+        'class' => 'js-credential-input js-simplepay-prod-field',
     ],
     'usd_secret_key' => [
         'title' => __('USD Secret Key', 'pine-simplepay'),
         'type' => 'password',
         'description' => __('This is the secret key for USD currency.', 'pine-simplepay'),
         'desc_tip' => true,
+        'class' => 'js-credential-input js-simplepay-prod-field',
     ],
     'usd_sandbox_merchant' => [
         'title' => sprintf('<span style="background-color: #ff3e3e; color: #fff; font-size: 11px; font-weight: 700; text-transform: uppercase; display: inline-block; padding: 2px 4px; border-radius: 3px;">%s</span> %s', __('Sandbox', 'pine-simplepay'), __('USD Merchant ID', 'pine-simplepay')),
         'type' => 'text',
         'description' => __('This is the sandbox merchant ID for USD currency.', 'pine-simplepay'),
         'desc_tip' => true,
+        'class' => 'js-credential-input js-simplepay-sandbox-field',
     ],
     'usd_sandbox_secret_key' => [
         'title' => sprintf('<span style="background-color: #ff3e3e; color: #fff; font-size: 11px; font-weight: 700; text-transform: uppercase; display: inline-block; padding: 2px 4px; border-radius: 3px;">%s</span> %s', __('Sandbox', 'pine-simplepay'), __('USD Secret Key', 'pine-simplepay')),
         'type' => 'password',
         'description' => __('This is the sandbox secret key for USD currency.', 'pine-simplepay'),
         'desc_tip' => true,
+        'class' => 'js-credential-input js-simplepay-sandbox-field',
     ],
 
     'debug_settings' => [

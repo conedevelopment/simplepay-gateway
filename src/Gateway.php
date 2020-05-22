@@ -239,6 +239,19 @@ class Gateway extends WC_Payment_Gateway
     }
 
     /**
+     * Register the admin scripts.
+     *
+     * @param  string  $hook
+     * @return void
+     */
+    public function scripts($hook)
+    {
+        if ($hook === 'woocommerce_page_wc-settings' && $_GET['section'] === 'simplepay-gateway') {
+            wp_enqueue_script('simplepay', plugin_dir_url(__DIR__).'includes/simplepay.js');
+        }
+    }
+
+    /**
      * Boot the gateway.
      *
      * @return void
@@ -255,6 +268,7 @@ class Gateway extends WC_Payment_Gateway
      */
     public function registerHooks()
     {
+        add_action( 'admin_enqueue_scripts', [$this, 'scripts']);
         add_filter('woocommerce_payment_gateways', [$this, 'register']);
         add_filter('woocommerce_api_process_simplepay_payment', [$this, 'handlePayment']);
         add_action("woocommerce_api_wc_gateway_{$this->id}", [$this, 'handleNotification']);
