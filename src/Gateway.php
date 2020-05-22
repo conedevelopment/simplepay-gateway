@@ -142,10 +142,11 @@ class Gateway extends WC_Payment_Gateway
     public function handlePayment()
     {
         $payload = json_decode(base64_decode($_GET['r']), true);
+        $order = wc_get_order(wc_get_order_id_by_order_key(strtolower($payload['o'])));
 
-        if (! $order = wc_get_order(wc_get_order_id_by_order_key(strtolower($payload['o'])))) {
+        if (! $order instanceof WC_Order) {
             wp_safe_redirect(wc_get_checkout_url());
-            exit;
+            die;
         }
 
         Config::setByCurrency($order->get_currency());
