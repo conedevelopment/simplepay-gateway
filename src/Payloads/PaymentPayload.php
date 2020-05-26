@@ -75,10 +75,14 @@ abstract class PaymentPayload
      * Serialize the delivery.
      *
      * @param  \WC_Order  $order
-     * @return array
+     * @return array|null
      */
     protected static function delivery(WC_Order $order)
     {
+        if (! $order->needs_shipping_address()) {
+            return null;
+        }
+
         return [
             'city' => $order->get_shipping_city(),
             'phone' => $order->get_billing_phone(),
@@ -93,7 +97,7 @@ abstract class PaymentPayload
     }
 
     /**
-     * Serialize the item.
+     * Serialize the items.
      *
      * @param  \WC_Order  $order
      * @return array

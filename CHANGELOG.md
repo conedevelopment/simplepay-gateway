@@ -1,5 +1,12 @@
 # Changelog
 
+## v2.2.3 (2020-05-26)
+### Added
+- JS hide/show mechanism on admin
+
+### Fixed
+- Return `null` instead of `array` when order does not need shipping address
+
 ## v2.2.2 (2020-05-21)
 ### Added
 - Added custom error messages when IPN/IRN should fail

@@ -2,7 +2,7 @@
     "slug": "simplepay-gateway-master/simplepay-gateway.php",
     "plugin": "simplepay-gateway-master/simplepay-gateway.php",
     "tested": "5.4.1",
-    "new_version": "2.2.2",
+    "new_version": "2.2.3",
     "package": "https://github.com/thepinecode/simplepay-gateway/archive/master.zip",
     "url": "https://github.com/thepinecode/simplepay-gateway"
 }
