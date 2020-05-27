@@ -106,14 +106,15 @@ abstract class PaymentPayload
     {
         return array_reduce($order->get_items(), function ($items, $item) {
             $product = $item->get_product();
+            $quantity = ceil($item->get_quantity());
 
             $items[] = [
                 'tax' => 0,
+                'amount' => $quantity,
                 'title' => $product->get_name(),
-                'amount' => $item->get_quantity(),
                 'description' => $product->get_description(),
                 'ref' => $product->get_sku() ?: $product->get_id(),
-                'price' => ($item->get_total() + $item->get_total_tax()) / $item->get_quantity(),
+                'price' => ($item->get_total() + $item->get_total_tax()) / $quantity,
             ];
 
             return $items;
