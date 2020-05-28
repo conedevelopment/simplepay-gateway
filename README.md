@@ -1,6 +1,6 @@
 # Olvass el
 
-Ez a bővítmény OTP SimplePay fizetési kaput biztosít WooCommerce (WordPress) áruházak részére.
+Ez az ingyenes bővítmény OTP SimplePay fizetési kaput biztosít WooCommerce (WordPress) áruházak részére.
 
 ## A bővítmény telepítése
 
