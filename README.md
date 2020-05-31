@@ -1,68 +1,46 @@
-# Olvass el
+<p>
+  <a href="https://conedevelopment.com/hu/">
+    <img alt="Cone Development" src="https://conedevelopment.com/wp-content/themes/cone/assets/images/logo.svg" width="100" />
+  </a>
+</p>
 
-Ez az ingyenes bővítmény OTP SimplePay fizetési kaput biztosít WooCommerce (WordPress) áruházak részére.
+# OTP SimplePay bővítmény Woocommerce-hez (WordPress)
 
-## A bővítmény telepítése
+Bővítményünk OTP SimplePay fizetési kaput biztosít WooCommerce (WordPress) áruházak részére ingyenesen.
 
-[A bővítmény letöltése](https://github.com/thepinecode/simplepay-gateway/archive/master.zip) után ugyanúgy telepíthető, mint bármely WordPress bővítmény.
+## További információk
 
-### Verziók
+[Oldalunkon](https://simplepay.conedevelopment.com/) számos leírást készítettünk a bővítmény megfelelő használatáról.
+
+- [A SimplePay fizetési kapu beállításának menete](https://simplepay.conedevelopment.com/a-simplepay-fizetesi-kapu-beallitasanak-menete/)
+- [A WooCommerce SimplePay bővítmény telepítése](https://simplepay.conedevelopment.com/a-woocommerce-simplepay-bovitmeny-telepitese/)
+- [A SimplePay bővítmény beállítási lehetőségei](https://simplepay.conedevelopment.com/a-simplepay-bovitmeny-beallitasi-lehetosegei/)
+- [Mi az a Sandbox? Miért szükséges, hasznos?](https://simplepay.conedevelopment.com/mi-az-a-sandbox-miert-szukseges-hasznos)
+- [A SimplePay bővítmény korlátai](https://simplepay.conedevelopment.com/a-simplepay-bovitmeny-korlatai)
+
+## Frissítések
+
+Telepítés után a bővítmény automatikusan ellenőrizni a frissítéseket, amelyek ugyanúgy telepíthetők, mint bármely WordPress bővítmény frissítés. Az új kiadások után kérünk vedd figyelembe, hogy lehetséges egy-két órás átfutási idő.
+
+## Támogatás
+
+Ez a saját fejlesztéseink alatt is fut, így igyekszünk folyamatosan naprakész állapotban tartani. Személyes segítséget nem áll módunkban díjmentesen biztosítani. Ettől függetlenül a GitHub nyitva áll, ha hibát szeretnél jelenteni.
+
+## Verziók
 
 | Bővítmény | SimplePay API |
 |:---------:|:-------------:|
 | v1+       | v1            |
 | v2+       | v2            |
 
-### Frissítések
+## Közreműködés
 
-Telepítés után a bővítmény automatikusan ellenőrizni a frissítéseket, amelyek ugyanúgy telepíthetők, mint bármely WordPress bővítmény frissítés.
+Ha hibát jeleznél, vagy javítási ötleted van azt szívesen vesszük itt GitHub-on. Közreműködés során kérünk vedd figyelembe a kommunikáció alapszabályait.
 
-## Beállítások
+## Kapcsolat
 
-A teszt és az éles adatok a SimplePay adminisztrációs felületén érhetőek el. Az érvényes szerződés megkötését követően, a SimplePay hozzáférést biztosít a felületekhez.
+A bővítményt a [Cone](https://conedevelopment.com/hu/) fejleszti. Webalkalmazásokat és weboldalakat készítünk kicsitől a nagyig Laravel és WordPress segítségével.
 
-### Teszt beállítások
+## Licensz
 
-A teszt adatok elérhetők a [https://sandbox.simplepay.hu/admin/login](https://sandbox.simplepay.hu/admin/login) linken.
-
-#### Kereskedői fiókok
-
-A SimplePay adminisztrációs felületén elérhető a kereskedői azonosító (`MERCHANT`) és a titkosító kulcs (`SECRET_KEY`). Ezeket az adatokat kell megadni a WooCommerce (WordPress) felületén a fizetési beállításoknál, a SimplePay fül alatt.
-
-> Több kereskedői fiók esetén, a megfelelő devizanemet figyelembe véve kell az adatokat megadni.
-
-#### IPN/IRN URL
-
-Az áruház és a SimplePay kommunikációját a megfelelő URL beállítással biztosíthatjuk a SimplePay adminisztrációs felületén. Az URL automatikusan generálásra kerül a WooCommerce (WordPress) fizetési beállításoknál, a SimplePay fül alatt.
-
-> Ügyeljünk, hogy a kimásolt adatok pontosak legyenek, ne tartalmazzanak extra szóközöket.
-
-### Éles beállítások
-
-Az éles beállítások azt követően lesznek elérhetőek, hogy a SimplePay munkatársai ellenőrizték az integrációt tesztüzemben és megfelelőnek a működését. Az éles adatok beállítása teljesen ugyanaz, mint a teszt adatoké, de a [https://admin.simplepay.hu/admin/login](https://admin.simplepay.hu/admin/login) linken érhetők el.
-
-## Visszatérítések
-
-Visszatérítés a WooCommerce (WordPress) és az OTP SimplePay oldaláról is kezdeményezhető.
-
-> Győződjünk meg, hogy az IPN/IRN URL megfelelően van beállítva.
-
-## Korlátozások
-
-### Támogatott devizák
-
-Jelenleg (a SimplePay által) támogatott devizák: `HUF`, `EUR` és `USD`.
-
-### Adók
-
-A WooCommerce (WordPress) máshogy kezeli az adókat mint a SimplePay. A lehetséges áreltérések megelőzése érdekében, a **bruttó** árak nettó árként kerülnek átadása, és a feltüntetett adó mértéke `0`.
-
-### Kedvezmények
-
-A WooCommerce (WordPress) máshogy kezeli a kedvezményeket mint a SimplePay. A lehetséges áreltérések megelőzése érdekében, a **kedvezményes** árak normál árként kerülnek átadása, és a feltüntetett kedvezmény mértéke `0`.
-
-### Ismétlődő fizetések
-
-Jelenleg nem támogatjuk az ismétlődő fizetéseket.
-
-> Miért? Mert a tranzakciók indítása, ütemezése és kezelése az áruházat terhelik. Ennek üzembiztos megvalósítása sok áruház esetében nem garantált.
+A bővítmény MIT licensz alatt használható.
