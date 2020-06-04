@@ -7,7 +7,6 @@
 ### Changed
 - Refactored requests
 
-
 ## v2.2.4 (2020-05-27)
 ### Fixed
 - Round quantities using `ceil` (SimplePay does not handle decimal quantities)
