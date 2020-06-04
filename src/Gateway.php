@@ -2,13 +2,15 @@
 
 namespace Pine\SimplePay;
 
+use Exception;
 use Pine\SimplePay\Handlers\IPNHandler;
 use Pine\SimplePay\Handlers\IRNHandler;
 use Pine\SimplePay\Handlers\PaymentHandler;
-use Pine\SimplePay\Requests\PaymentRequest;
-use Pine\SimplePay\Requests\RefundRequest;
+use Pine\SimplePay\Payloads\PaymentPayload;
+use Pine\SimplePay\Payloads\RefundPayload;
 use Pine\SimplePay\Support\Config;
 use Pine\SimplePay\Support\Hash;
+use Pine\SimplePay\Support\Request;
 use WC_Order;
 use WC_Payment_Gateway;
 
@@ -125,13 +127,20 @@ class Gateway extends WC_Payment_Gateway
 
         Config::setByCurrency($order->get_currency());
 
-        $request = new PaymentRequest($order);
-        $response = $request->post();
+        $request = Request::make(
+            'POST', Config::url('start'), PaymentPayload::handle($order)
+        );
 
-        return [
-            'result' => $request->valid() ? 'success' : 'error',
-            'redirect' => json_decode($response['body'])->paymentUrl,
-        ];
+        try {
+            $request->send();
+
+            return [
+                'redirect' => $request->body('paymentUrl'),
+                'result' => $request->valid() ? 'success' : 'failure',
+            ];
+        } catch (Exception $e) {
+            wc_add_notice($e->getMessage(), 'error');
+        }
     }
 
     /**
@@ -202,10 +211,17 @@ class Gateway extends WC_Payment_Gateway
         if ($order && $order->get_transaction_id()) {
             Config::setByCurrency($order->get_currency());
 
-            $request = new RefundRequest($order, $amount);
-            $request->post();
+            $request = Request::make(
+                'POST', Config::url('refund'), RefundPayload::handle($order, $amount)
+            );
 
-            return $request->valid();
+            try {
+                $request->send();
+
+                return $request->valid();
+            } catch (Exception $e) {
+                return false;
+            }
         }
 
         return false;
