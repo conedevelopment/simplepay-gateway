@@ -14,21 +14,20 @@ abstract class Arr
      */
     public static function get($array, $key, $default = null)
     {
-        $current = $array;
         $key = strtok($key, '.');
 
         while ($key !== false) {
             $key = is_numeric($key) ? (int) $key : $key;
 
-            if (! isset($current[$key])) {
+            if (! isset($array[$key])) {
                 return $default;
             }
 
-            $current = $current[$key];
+            $array = $array[$key];
 
             $key = strtok('.');
         }
 
-        return $current;
+        return $array;
     }
 }
