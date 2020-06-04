@@ -78,6 +78,8 @@ class Request
      * Send the request.
      *
      * @return void
+     *
+     * @throws \Exception
      */
     public function send()
     {
