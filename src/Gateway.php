@@ -119,7 +119,7 @@ class Gateway extends WC_Payment_Gateway
      * Process the payment.
      *
      * @param  int  $orderId
-     * @return array
+     * @return array|null
      */
     public function process_payment($orderId)
     {
