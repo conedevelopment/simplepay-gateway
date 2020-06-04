@@ -1,5 +1,13 @@
 # Changelog
 
+## v2.3.0 (2020-06-04)
+### Added
+- Exception based error handling
+
+### Changed
+- Refactored requests
+
+
 ## v2.2.4 (2020-05-27)
 ### Fixed
 - Round quantities using `ceil` (SimplePay does not handle decimal quantities)
