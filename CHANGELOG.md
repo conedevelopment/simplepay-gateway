@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.3.1 (2020-06-04)
+### Added
+- Added missing translations
+
 ## v2.3.0 (2020-06-04)
 ### Added
 - Exception based error handling
