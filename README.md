@@ -41,6 +41,10 @@ Ha hibát jeleznél, vagy javítási ötleted van azt szívesen vesszük itt Git
 
 A bővítményt a [Cone](https://conedevelopment.com/hu/) fejleszti. Webalkalmazásokat és weboldalakat készítünk kicsitől a nagyig Laravel és WordPress segítségével.
 
+## Te is használod már?
+
+A [landing oldalunkon](https://simplepay.conedevelopment.com/#igy-hasznald) van egy listánk azokról az oldalakról, amik már használják a bővítményt. Ha szeretnél nekünk segíteni népszerűbbé tenni ezt a kiegészítőt, úgy megköszönjük, ha elküldöd nekünk az oldal URL-jét (ahol fut a bővítmény) e-mailben (ezt természetesen megjelenítjük az oldalon) a következő címre: hello@conedevelopment.com.
+
 ## Licensz
 
 A bővítmény MIT licensz alatt használható.
