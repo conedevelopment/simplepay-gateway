@@ -127,8 +127,8 @@ class Gateway extends WC_Payment_Gateway
 
         Config::setByCurrency($order->get_currency());
 
-        $request = Request::make(
-            'POST', Config::url('start'), PaymentPayload::handle($order)
+        $request = Request::post(
+            Config::url('start'), PaymentPayload::handle($order)
         );
 
         try {
@@ -211,8 +211,8 @@ class Gateway extends WC_Payment_Gateway
         if ($order && $order->get_transaction_id()) {
             Config::setByCurrency($order->get_currency());
 
-            $request = Request::make(
-                'POST', Config::url('refund'), RefundPayload::handle($order, $amount)
+            $request = Request::post(
+                Config::url('refund'), RefundPayload::handle($order, $amount)
             );
 
             try {

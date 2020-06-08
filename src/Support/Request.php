@@ -75,6 +75,32 @@ class Request
     }
 
     /**
+     * Make a new POST request.
+     *
+     * @param  string  $url
+     * @param  array  $body
+     * @param  array  $headers
+     * @return static
+     */
+    public static function post($url, $body = [], $headers = [])
+    {
+        return new static('POST', $url, $body, $headers);
+    }
+
+    /**
+     * Make a new GET request.
+     *
+     * @param  string  $url
+     * @param  array  $body
+     * @param  array  $headers
+     * @return static
+     */
+    public static function get($url, $body = [], $headers = [])
+    {
+        return new static('GET', $url, $body, $headers);
+    }
+
+    /**
      * Send the request.
      *
      * @return void
