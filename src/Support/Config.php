@@ -58,6 +58,17 @@ abstract class Config
     }
 
     /**
+     * Determine if the config has the value with the given key.
+     *
+     * @param  string  $key
+     * @return bool
+     */
+    public static function has($key)
+    {
+        return isset(static::$settings[$key]);
+    }
+
+    /**
      * Set the secret key and merchant by the currency.
      *
      * @param  string  $currency

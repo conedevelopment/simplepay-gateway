@@ -12,7 +12,9 @@ abstract class Str
      */
     public static function refFromId($id)
     {
-        return sprintf('%s%s', Config::get('prefix'), $id);
+        $prefix = Config::has('prefix') ? Config::get('prefix') : 'wc-';
+
+        return sprintf('%s%s', $prefix, $id);
     }
 
     /**
@@ -23,6 +25,8 @@ abstract class Str
      */
     public static function idFromRef($ref)
     {
-        return str_replace(Config::get('prefix'), '', $ref);
+        $prefix = Config::has('prefix') ? Config::get('prefix') : 'wc-';
+
+        return str_replace($prefix, '', $ref);
     }
 }
