@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.3.3 (2020-06-16)
+### Fixed
+- Fixed order references when using capital prefix
+
 ## v2.3.2 (2020-06-16)
 ### Added
 - Added customizable reference prefixes
