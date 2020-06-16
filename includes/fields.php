@@ -22,6 +22,13 @@ return [
         'default' => __('Pay with credit card via SimplePay.', 'pine-simplepay'),
         'desc_tip' => true,
     ],
+    'prefix' => [
+        'title' => __('Transaction Prefix', 'pine-simplepay'),
+        'type' => 'text',
+        'description' => __('This prefix will be prepended to the order.', 'pine-simplepay'),
+        'default' => 'wc-',
+        'desc_tip' => true,
+    ],
 
     'notification_settings' => [
         'title' => __('IPN/IRN settings', 'pine-simplepay'),

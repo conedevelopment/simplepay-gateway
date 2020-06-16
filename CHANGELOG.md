@@ -1,5 +1,11 @@
 # Changelog
 
+## v2.3.2 (2020-06-16)
+### Added
+- Added customizable reference prefixes
+### Changed
+- Using order ID as transaction reference
+
 ## v2.3.1 (2020-06-04)
 ### Added
 - Added missing translations

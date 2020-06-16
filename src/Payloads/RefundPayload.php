@@ -5,6 +5,7 @@ namespace Pine\SimplePay\Payloads;
 use Pine\SimplePay\Plugin;
 use Pine\SimplePay\Support\Config;
 use Pine\SimplePay\Support\Hash;
+use Pine\SimplePay\Support\Str;
 use WC_Order;
 
 abstract class RefundPayload
@@ -34,8 +35,8 @@ abstract class RefundPayload
             'salt' => Hash::salt(),
             'refundTotal' => $amount,
             'merchant' => Config::get('merchant'),
-            'orderRef' => $order->get_order_key(),
             'currency' => $order->get_order_currency(),
+            'orderRef' => Str::refFromId($order->get_order_number()),
             'sdkVersion' => 'Pine SimplePay Gateway:'.Plugin::VERSION,
         ];
     }

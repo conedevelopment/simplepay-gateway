@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pine SimplePay\n"
-"POT-Creation-Date: 2020-06-04 14:06+0200\n"
-"PO-Revision-Date: 2020-06-04 14:08+0200\n"
+"POT-Creation-Date: 2020-06-16 08:24+0200\n"
+"PO-Revision-Date: 2020-06-16 08:26+0200\n"
 "Last-Translator: \n"
 "Language-Team: https://pineco.de\n"
 "Language: hu_HU\n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: languages\n"
 
-#: includes/fields.php:6 includes/fields.php:41
+#: includes/fields.php:6 includes/fields.php:48
 msgid "Enable/Disable"
 msgstr "Bekapcsol/Kikapcsol"
 
@@ -50,31 +50,39 @@ msgstr ""
 msgid "Pay with credit card via SimplePay."
 msgstr "Bankkártyás fizetés SimplePay-en keresztül."
 
-#: includes/fields.php:27
+#: includes/fields.php:26
+msgid "Transaction Prefix"
+msgstr "Tranzakció Előtag"
+
+#: includes/fields.php:28
+msgid "This prefix will be prepended to the order."
+msgstr "Ez az előtag a rendelés azonosítójához lesz csatolva."
+
+#: includes/fields.php:34
 msgid "IPN/IRN settings"
 msgstr "IPN/IRN beállítások"
 
-#: includes/fields.php:30
+#: includes/fields.php:37
 msgid "The shop's IPN/IRN URL:"
 msgstr "A bolt IPN/IRN URL-je:"
 
-#: includes/fields.php:36
+#: includes/fields.php:43
 msgid "Sandbox Settings"
 msgstr "Teszt mód beállítások"
 
-#: includes/fields.php:38
+#: includes/fields.php:45
 msgid "If this option is on this gateway is in test (sandbox) mode."
 msgstr "Ha ez be van kapcsolva, a fizetési kapu tesztüzemben működik."
 
-#: includes/fields.php:43
+#: includes/fields.php:50
 msgid "Enable Sandbox Mode"
 msgstr "Teszt mód engedélyezése"
 
-#: includes/fields.php:48
+#: includes/fields.php:55
 msgid "HUF Merchant Settings"
 msgstr "HUF kiszolgáló beállítások"
 
-#: includes/fields.php:50
+#: includes/fields.php:57
 msgid ""
 "Settings for HUF currency. These are activated when the customer checks out "
 "with HUF prices."
@@ -82,40 +90,40 @@ msgstr ""
 "HUF valuta beállítások. Ezek az értékek akkor érvényesülnek, ha a vásárló "
 "HUF valutában vásárol."
 
-#: includes/fields.php:53 includes/fields.php:67
+#: includes/fields.php:60 includes/fields.php:74
 msgid "HUF Merchant ID"
 msgstr "HUF kiszolgáló azonosító"
 
-#: includes/fields.php:55
+#: includes/fields.php:62
 msgid "This is the merchant ID for HUF currency."
 msgstr "Ez a kiszolgáló azonosító HUF valutához."
 
-#: includes/fields.php:60 includes/fields.php:74
+#: includes/fields.php:67 includes/fields.php:81
 msgid "HUF Secret Key"
 msgstr "HUF titkos kulcs"
 
-#: includes/fields.php:62
+#: includes/fields.php:69
 msgid "This is the secret key for HUF currency."
 msgstr "Ez a titkos kulcs HUF valutához."
 
-#: includes/fields.php:67 includes/fields.php:74 includes/fields.php:101
-#: includes/fields.php:108 includes/fields.php:135 includes/fields.php:142
+#: includes/fields.php:74 includes/fields.php:81 includes/fields.php:108
+#: includes/fields.php:115 includes/fields.php:142 includes/fields.php:149
 msgid "Sandbox"
 msgstr "Teszt"
 
-#: includes/fields.php:69
+#: includes/fields.php:76
 msgid "This is the sandbox merchant ID for HUF currency."
 msgstr "Ez a teszt kiszolgáló azonosító HUF valutához."
 
-#: includes/fields.php:76
+#: includes/fields.php:83
 msgid "This is the sandbox secret key for HUF currency."
 msgstr "Ez a teszt titkos kulcs HUF valutához."
 
-#: includes/fields.php:82
+#: includes/fields.php:89
 msgid "EUR Merchant Settings"
 msgstr "EUR kiszolgáló beállítások"
 
-#: includes/fields.php:84
+#: includes/fields.php:91
 msgid ""
 "Settings for EUR currency. These are activated when the customer checks out "
 "with EUR prices."
@@ -123,35 +131,35 @@ msgstr ""
 "EUR valuta beállítások. Ezek az értékek akkor érvényesülnek, ha a vásárló "
 "EUR valutában vásárol."
 
-#: includes/fields.php:87 includes/fields.php:101
+#: includes/fields.php:94 includes/fields.php:108
 msgid "EUR Merchant ID"
 msgstr "EUR kiszolgáló azonosító"
 
-#: includes/fields.php:89
+#: includes/fields.php:96
 msgid "This is the merchant ID for EUR currency."
 msgstr "Ez a kiszolgáló azonosító EUR valutához."
 
-#: includes/fields.php:94 includes/fields.php:108
+#: includes/fields.php:101 includes/fields.php:115
 msgid "EUR Secret Key"
 msgstr "EUR titkos kulcs"
 
-#: includes/fields.php:96
+#: includes/fields.php:103
 msgid "This is the secret key for EUR currency."
 msgstr "Ez a titkos kulcs EUR valutához."
 
-#: includes/fields.php:103
+#: includes/fields.php:110
 msgid "This is the sandbox merchant ID for EUR currency."
 msgstr "Ez a teszt kiszolgáló azonosító EUR valutához."
 
-#: includes/fields.php:110
+#: includes/fields.php:117
 msgid "This is the sandbox secret key for EUR currency."
 msgstr "Ez a teszt titkos kulcs EUR valutához."
 
-#: includes/fields.php:116
+#: includes/fields.php:123
 msgid "USD Merchant Settings"
 msgstr "USD kiszolgáló beállítások"
 
-#: includes/fields.php:118
+#: includes/fields.php:125
 msgid ""
 "Settings for USD currency. These are activated when the customer checks out "
 "with USD prices."
@@ -159,43 +167,43 @@ msgstr ""
 "USD valuta beállítások. Ezek az értékek akkor érvényesülnek, ha a vásárló "
 "USD valutában vásárol."
 
-#: includes/fields.php:121 includes/fields.php:135
+#: includes/fields.php:128 includes/fields.php:142
 msgid "USD Merchant ID"
 msgstr "USD kiszolgáló azonosító"
 
-#: includes/fields.php:123
+#: includes/fields.php:130
 msgid "This is the merchant ID for USD currency."
 msgstr "Ez a kiszolgáló azonosító USD valutához."
 
-#: includes/fields.php:128 includes/fields.php:142
+#: includes/fields.php:135 includes/fields.php:149
 msgid "USD Secret Key"
 msgstr "USD titkos kulcs"
 
-#: includes/fields.php:130
+#: includes/fields.php:137
 msgid "This is the secret key for USD currency."
 msgstr "Ez a titkos kulcs USD valutához."
 
-#: includes/fields.php:137
+#: includes/fields.php:144
 msgid "This is the sandbox merchant ID for USD currency."
 msgstr "Ez a teszt kiszolgáló azonosító USD valutához."
 
-#: includes/fields.php:144
+#: includes/fields.php:151
 msgid "This is the sandbox secret key for USD currency."
 msgstr "Ez a teszt titkos kulcs USD valutához."
 
-#: includes/fields.php:150
+#: includes/fields.php:157
 msgid "Debug Settings"
 msgstr "Hibakereső beállítások"
 
-#: includes/fields.php:155
+#: includes/fields.php:162
 msgid "Debug log"
 msgstr "Hibakereső napló"
 
-#: includes/fields.php:157
+#: includes/fields.php:164
 msgid "Enable logging"
 msgstr "Naplózás engedélyezése"
 
-#: includes/fields.php:159
+#: includes/fields.php:166
 msgid ""
 "Log SimplePay events, such as IPN requests, inside log files with the "
 "following prefix"
@@ -207,11 +215,11 @@ msgstr ""
 msgid "SimplePay transaction ID"
 msgstr "SimplePay tranzakció azonosító"
 
-#: src/Gateway.php:178
+#: src/Gateway.php:179
 msgid "Order not found."
 msgstr "A rendelés nem található."
 
-#: src/Gateway.php:184
+#: src/Gateway.php:185
 msgid "Invalid signature."
 msgstr "Érvénytelen aláírás."
 

@@ -5,6 +5,7 @@ namespace Pine\SimplePay\Payloads;
 use Pine\SimplePay\Plugin;
 use Pine\SimplePay\Support\Config;
 use Pine\SimplePay\Support\Hash;
+use Pine\SimplePay\Support\Str;
 use WC_Order;
 
 abstract class PaymentPayload
@@ -33,7 +34,7 @@ abstract class PaymentPayload
             'timeout' => date('c', strtotime('+30 minutes')),
             'methods' => ['CARD'],
             'merchant' => Config::get('merchant'),
-            'orderRef' => $order->get_order_key(),
+            'orderRef' => Str::refFromId($order->get_order_number()),
             'discount' => 0,
             'currency' => $order->get_currency(),
             'shippingCost' => $order->get_shipping_total() + $order->get_shipping_tax(),

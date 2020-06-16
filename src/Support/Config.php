@@ -33,15 +33,16 @@ abstract class Config
      * Get a config value by its key.
      *
      * @param  string|null  $key
+     * @param  mixed  $default
      * @return mixed
      */
-    public static function get($key = null)
+    public static function get($key = null, $default = null)
     {
         if (is_null($key)) {
             return static::$settings;
         }
 
-        return isset(static::$settings[$key]) ? static::$settings[$key] : null;
+        return isset(static::$settings[$key]) ? static::$settings[$key] : $default;
     }
 
     /**
