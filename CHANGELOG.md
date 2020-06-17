@@ -1,5 +1,11 @@
 # Changelog
 
+## v2.3.4 (2020-06-17)
+### Added
+- Backward compatibility for custom orderRefs
+### Fixed
+- Payment reference URL based on locale
+
 ## v2.3.3 (2020-06-16)
 ### Fixed
 - Fixed order references when using capital prefix
