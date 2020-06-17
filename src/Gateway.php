@@ -152,7 +152,10 @@ class Gateway extends WC_Payment_Gateway
     public function handlePayment()
     {
         $payload = json_decode(base64_decode($_GET['r']), true);
-        $order = wc_get_order(Str::idFromRef($payload['o']));
+
+        if (! $order = wc_get_order(Str::idFromRef($payload['o']))) {
+            $order = wc_get_order(wc_get_order_id_by_order_key($payload['o']));
+        }
 
         if (! $order instanceof WC_Order) {
             wp_safe_redirect(wc_get_checkout_url());
@@ -173,7 +176,10 @@ class Gateway extends WC_Payment_Gateway
     {
         $input = file_get_contents('php://input');
         $payload = json_decode($input, true);
-        $order = wc_get_order(Str::idFromRef($payload['orderRef']));
+
+        if (! $order = wc_get_order(Str::idFromRef($payload['orderRef']))) {
+            $order = wc_get_order(wc_get_order_id_by_order_key($payload['orderRef']));
+        }
 
         if (! $order instanceof WC_Order) {
             die(__('Order not found.', 'pine-simplepay'));
