@@ -33,9 +33,9 @@ return [
     'notification_settings' => [
         'title' => __('IPN/IRN settings', 'pine-simplepay'),
         'type' => 'title',
-        'description' => sprintf('%s%s',
+        'description' => sprintf('%s <code>%s</code>',
             __("The shop's IPN/IRN URL:", 'pine-simplepay'),
-            ' <code>'.home_url('/').'?wc-api=wc_gateway_simplepay-gateway</code>'
+            add_query_arg(['wc-api' => 'wc_gateway_simplepay-gateway'], home_url())
         ),
     ],
 
