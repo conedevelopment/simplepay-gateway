@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.3.5 (2020-06-22)
+### Changed
+- Use `home_url` instead of `size_url` [#35](https://github.com/thepinecode/simplepay-gateway/pull/35)
+
 ## v2.3.4 (2020-06-17)
 ### Added
 - Backward compatibility for custom orderRefs
@@ -8,35 +12,35 @@
 
 ## v2.3.3 (2020-06-16)
 ### Fixed
-- Fixed order references when using capital prefix
+- Fixed order references when using capital prefix [#33](https://github.com/thepinecode/simplepay-gateway/issues/33)
 
 ## v2.3.2 (2020-06-16)
 ### Added
-- Added customizable reference prefixes
+- Added customizable reference prefixes [#33](https://github.com/thepinecode/simplepay-gateway/issues/33)
 ### Changed
-- Using order ID as transaction reference
+- Using order ID as transaction reference [#33](https://github.com/thepinecode/simplepay-gateway/issues/33)
 
 ## v2.3.1 (2020-06-04)
 ### Added
-- Added missing translations
+- Added missing translations [#31](https://github.com/thepinecode/simplepay-gateway/issues/31)
 
 ## v2.3.0 (2020-06-04)
 ### Added
-- Exception based error handling
+- Exception based error handling [#30](https://github.com/thepinecode/simplepay-gateway/issues/30)
 
 ### Changed
 - Refactored requests
 
 ## v2.2.4 (2020-05-27)
 ### Fixed
-- Round quantities using `ceil` (SimplePay does not handle decimal quantities)
+- Round quantities using `ceil` (SimplePay does not handle decimal quantities) [#26](https://github.com/thepinecode/simplepay-gateway/issues/26)
 
 ## v2.2.3 (2020-05-26)
 ### Added
 - JS hide/show mechanism on admin
 
 ### Fixed
-- Return `null` instead of `array` when order does not need shipping address
+- Return `null` instead of `array` when order does not need shipping address [#25](https://github.com/thepinecode/simplepay-gateway/issues/25)
 
 ## v2.2.2 (2020-05-21)
 ### Added
