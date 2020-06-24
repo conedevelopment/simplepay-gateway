@@ -12,8 +12,9 @@
  * Text Domain:       pine-simplepay
  * Domain Path:       /languages/
  * Requires at least: 5.1
+ * Tested up to:      5.4.2
  * Requires PHP:      7.0
- * WC tested up to:   4.1.1
+ * WC tested up to:   4.2.2
  */
 
 // Pull in the autoloader
