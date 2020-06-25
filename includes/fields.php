@@ -35,7 +35,7 @@ return [
         'type' => 'title',
         'description' => sprintf('%s <code>%s</code>',
             __("The shop's IPN/IRN URL:", 'pine-simplepay'),
-            add_query_arg(['wc-api' => 'wc_gateway_simplepay-gateway'], home_url())
+            add_query_arg(['wc-api' => 'wc_gateway_simplepay-gateway'], home_url('/'))
         ),
     ],
 

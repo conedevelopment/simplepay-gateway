@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.3.6 (2020-06-25)
+### Changed
+- Force trailing slash in IPN url
+
 ## v2.3.5 (2020-06-22)
 ### Changed
 - Use `home_url` instead of `size_url` ([#35](https://github.com/thepinecode/simplepay-gateway/pull/35))
