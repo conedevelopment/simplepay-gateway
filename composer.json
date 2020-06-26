@@ -12,5 +12,21 @@
     "require": {
         "php": "^7.0",
         "composer/installers": "~1.7"
+    },
+    "require-dev": {
+        "php": "^7.2",
+        "squizlabs/php_codesniffer": "^3.5.5",
+        "szepeviktor/phpstan-wordpress": "^0.6.1",
+        "php-stubs/woocommerce-stubs": "^4.2.2"
+    },
+    "scripts": {
+        "test:syntax": "find src/ includes/ -type f -name '*.php' -print0 | xargs -0 -L1 -P4 -- php -l",
+        "test:cs": "phpcs -p --standard=PSR2 src/ includes/",
+        "test:phpstan": "phpstan analyze",
+        "test": [
+            "@test:syntax",
+            "@test:cs",
+            "@test:phpstan"
+        ]
     }
 }
