@@ -14,7 +14,7 @@
  * Requires at least: 5.1
  * Tested up to:      5.4.2
  * Requires PHP:      7.0
- * WC tested up to:   4.2.2
+ * WC tested up to:   4.3.1
  */
 
 // Pull in the autoloader
