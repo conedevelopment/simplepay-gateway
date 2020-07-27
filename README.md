@@ -1,7 +1,7 @@
 <p>
-  <a href="https://conedevelopment.com/hu/">
-    <img alt="Cone Development" src="https://conedevelopment.com/wp-content/themes/cone/assets/images/logo.svg" width="100" />
-  </a>
+    <a href="https://conedevelopment.com/hu/">
+        <img alt="Cone Development" src="https://conedevelopment.com/wp-content/themes/cone/assets/img/logo.svg" width="100">
+    </a>
 </p>
 
 # OTP SimplePay bővítmény Woocommerce-hez (WordPress)

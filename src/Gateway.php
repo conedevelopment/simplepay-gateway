@@ -36,7 +36,7 @@ class Gateway extends WC_Payment_Gateway
      *
      * @var string
      */
-    public $method_description = 'SimplePay payment gateway';
+    public $method_description = 'OTP SimplePay Payment Gateway';
 
     /**
      * The supported features.
@@ -67,6 +67,8 @@ class Gateway extends WC_Payment_Gateway
         $this->init_form_fields();
         $this->setOptions();
         $this->checkCurrency();
+
+        $this->method_description = __('OTP SimplePay Payment Gateway', 'pine-simplepay');
     }
 
     /**

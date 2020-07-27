@@ -12,7 +12,7 @@ class Plugin
      *
      * @var string
      */
-    public const VERSION = '2.3.6';
+    public const VERSION = '2.3.7';
 
     /**
      * The plugin slug.
@@ -33,6 +33,9 @@ class Plugin
         add_action('widgets_init', [__CLASS__, 'registerWidget']);
         add_filter('pre_update_option_active_plugins', [__CLASS__, 'guard']);
         add_filter('plugin_action_links_'.static::SLUG, [__CLASS__, 'addLinks']);
+        add_filter('body_class', function ($classes) {
+            return array_merge($classes, ['pine-simplepay-gateway']);
+        });
 
         load_plugin_textdomain('pine-simplepay', false, basename(dirname(__DIR__)).'/languages');
 
