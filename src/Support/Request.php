@@ -23,9 +23,9 @@ class Request
     /**
      * The request body.
      *
-     * @var array
+     * @var string
      */
-    protected $body = [];
+    protected $body = '';
 
     /**
      * The request headers.
@@ -48,11 +48,11 @@ class Request
      *
      * @param  string  $method
      * @param  string  $url
-     * @param  array  $body
+     * @param  string  $body
      * @param  array  $headers
      * @return void
      */
-    public function __construct($method, $url, $body = [], $headers = [])
+    public function __construct($method, $url, $body = '', $headers = [])
     {
         $this->url = $url;
         $this->body = $body;
@@ -65,11 +65,11 @@ class Request
      *
      * @param  string  $method
      * @param  string  $url
-     * @param  array  $body
+     * @param  string  $body
      * @param  array  $headers
      * @return static
      */
-    public static function make($method, $url, $body = [], $headers = [])
+    public static function make($method, $url, $body = '', $headers = [])
     {
         return new static($method, $url, $body, $headers);
     }
@@ -78,11 +78,11 @@ class Request
      * Make a new POST request.
      *
      * @param  string  $url
-     * @param  array  $body
+     * @param  string  $body
      * @param  array  $headers
      * @return static
      */
-    public static function post($url, $body = [], $headers = [])
+    public static function post($url, $body = '', $headers = [])
     {
         return new static('POST', $url, $body, $headers);
     }
@@ -91,11 +91,11 @@ class Request
      * Make a new GET request.
      *
      * @param  string  $url
-     * @param  array  $body
+     * @param  string  $body
      * @param  array  $headers
      * @return static
      */
-    public static function get($url, $body = [], $headers = [])
+    public static function get($url, $body = '', $headers = [])
     {
         return new static('GET', $url, $body, $headers);
     }
