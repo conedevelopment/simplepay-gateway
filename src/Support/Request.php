@@ -57,7 +57,7 @@ class Request
         $this->url = $url;
         $this->body = $body;
         $this->method = $method;
-        $this->headers = array_merge($this->headers, $headers, ['Signature' => Hash::make($body)]);
+        $this->headers = array_merge($this->headers, $headers, ['Signature' => Hash::make(impode('', $body))]);
     }
 
     /**
