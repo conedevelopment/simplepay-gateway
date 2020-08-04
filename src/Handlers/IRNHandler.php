@@ -21,7 +21,8 @@ class IRNHandler extends Handler
         Log::info(__('IRN event was fired.', 'pine-simplepay'));
 
         $request = Request::post(
-            Config::url('query'), StatusPayload::handle($payload['transactionId'])
+            Config::url('query'),
+            StatusPayload::handle($payload['transactionId'])
         );
 
         try {

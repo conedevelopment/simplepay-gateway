@@ -1,4 +1,4 @@
-<?php
+<?php // phpcs:disable Generic.Files.LineLength.TooLong
 
 return [
 
@@ -33,7 +33,8 @@ return [
     'notification_settings' => [
         'title' => __('IPN/IRN settings', 'pine-simplepay'),
         'type' => 'title',
-        'description' => sprintf('%s <code>%s</code>',
+        'description' => sprintf(
+            '%s <code>%s</code>',
             __("The shop's IPN/IRN URL:", 'pine-simplepay'),
             add_query_arg(['wc-api' => 'wc_gateway_simplepay-gateway'], home_url('/'))
         ),
@@ -162,7 +163,8 @@ return [
         'title' => __('Debug log', 'pine-simplepay'),
         'type' => 'checkbox',
         'label' => __('Enable logging', 'pine-simplepay'),
-        'description' => sprintf('%s%s',
+        'description' => sprintf(
+            '%s%s',
             __('Log SimplePay events, such as IPN requests, inside log files with the following prefix', 'pine-simplepay'),
             ': <code>simplepay-gateway</code>.'
         ),
