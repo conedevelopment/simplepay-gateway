@@ -1,4 +1,4 @@
-<?php // phpcs:disable PSR1.Methods.CamelCapsMethodName.NotCamelCaps
+<?php
 
 namespace Pine\SimplePay;
 
