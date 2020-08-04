@@ -1,5 +1,12 @@
 # Changelog
 
+## v2.4.0 (2020-06-25)
+### Added
+- Multisite compatibility ([#39](https://github.com/thepinecode/simplepay-gateway/issues/39))
+
+### Changed
+- Code cleanup, refactoring
+
 ## v2.3.6 (2020-06-25)
 ### Changed
 - Force trailing slash in IPN url
