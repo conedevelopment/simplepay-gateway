@@ -1,11 +1,15 @@
 # Changelog
 
-## v2.4.0 (2020-06-25)
+## v2.4.0 (2020-08-04)
 ### Added
 - Multisite compatibility ([#39](https://github.com/thepinecode/simplepay-gateway/issues/39))
 
 ### Changed
 - Code cleanup, refactoring
+
+## v2.3.7 (2020-07-27)
+### Fixed
+- Docblocks and param types ([#38](https://github.com/thepinecode/simplepay-gateway/pull/38))
 
 ## v2.3.6 (2020-06-25)
 ### Changed
