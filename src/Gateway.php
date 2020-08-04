@@ -131,7 +131,8 @@ class Gateway extends WC_Payment_Gateway
         Config::setByCurrency($order->get_currency());
 
         $request = Request::post(
-            Config::url('start'), PaymentPayload::handle($order)
+            Config::url('start'),
+            PaymentPayload::handle($order)
         );
 
         try {
@@ -221,7 +222,8 @@ class Gateway extends WC_Payment_Gateway
             Config::setByCurrency($order->get_currency());
 
             $request = Request::post(
-                Config::url('refund'), RefundPayload::handle($order, $amount)
+                Config::url('refund'),
+                RefundPayload::handle($order, $amount)
             );
 
             try {
@@ -294,7 +296,7 @@ class Gateway extends WC_Payment_Gateway
      */
     public function registerHooks()
     {
-        add_action( 'admin_enqueue_scripts', [$this, 'scripts']);
+        add_action('admin_enqueue_scripts', [$this, 'scripts']);
         add_filter('woocommerce_payment_gateways', [$this, 'register']);
         add_filter('woocommerce_api_process_simplepay_payment', [$this, 'handlePayment']);
         add_action("woocommerce_api_wc_gateway_{$this->id}", [$this, 'handleNotification']);
