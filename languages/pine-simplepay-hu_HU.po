@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pine SimplePay\n"
-"POT-Creation-Date: 2020-06-16 08:24+0200\n"
-"PO-Revision-Date: 2020-06-16 08:26+0200\n"
+"POT-Creation-Date: 2020-08-10 08:54+0200\n"
+"PO-Revision-Date: 2020-08-10 08:57+0200\n"
 "Last-Translator: \n"
 "Language-Team: https://pineco.de\n"
 "Language: hu_HU\n"
@@ -192,18 +192,30 @@ msgid "This is the sandbox secret key for USD currency."
 msgstr "Ez a teszt titkos kulcs USD valutához."
 
 #: includes/fields.php:157
+msgid "Icon Settings"
+msgstr "Ikon Beállítások"
+
+#: includes/fields.php:162
+msgid "Show SimplePay icon on checkout"
+msgstr "SimplePay ikon megjelenítése a pénztár oldalon"
+
+#: includes/fields.php:164
+msgid "Show icon"
+msgstr "Ikon megjelenítése"
+
+#: includes/fields.php:168
 msgid "Debug Settings"
 msgstr "Hibakereső beállítások"
 
-#: includes/fields.php:162
+#: includes/fields.php:173
 msgid "Debug log"
 msgstr "Hibakereső napló"
 
-#: includes/fields.php:164
+#: includes/fields.php:175
 msgid "Enable logging"
 msgstr "Naplózás engedélyezése"
 
-#: includes/fields.php:166
+#: includes/fields.php:177
 msgid ""
 "Log SimplePay events, such as IPN requests, inside log files with the "
 "following prefix"
@@ -215,11 +227,15 @@ msgstr ""
 msgid "SimplePay transaction ID"
 msgstr "SimplePay tranzakció azonosító"
 
-#: src/Gateway.php:179
+#: src/Gateway.php:118
+msgid "OTP SimplePay Payment Gateway"
+msgstr "OTP SimplePay Fizetési Kapu"
+
+#: src/Gateway.php:191
 msgid "Order not found."
 msgstr "A rendelés nem található."
 
-#: src/Gateway.php:185
+#: src/Gateway.php:197
 msgid "Invalid signature."
 msgstr "Érvénytelen aláírás."
 
@@ -248,13 +264,13 @@ msgstr ""
 msgid "The transaction has been expired!"
 msgstr "A tranzakció érvényességi ideje lejárt!"
 
-#: src/Plugin.php:64
+#: src/Plugin.php:61
 msgid "Please activate WooCommerce before using SimplePay Gateway!"
 msgstr ""
 "Kérünk, aktiváld a WooCommerce bővítményt mielőtt a SimplePay fizetési kaput "
 "használod!"
 
-#: src/Plugin.php:93
+#: src/Plugin.php:76
 msgid "Settings"
 msgstr "Beállítások"
 
@@ -270,9 +286,6 @@ msgstr "Beállítások"
 
 #~ msgid "Event response: "
 #~ msgstr "Esemény válasz: "
-
-#~ msgid "SimplePay payment failed."
-#~ msgstr "SimplePay fizetés sikertelen."
 
 #~ msgid "Payment failed. Please try it again later."
 #~ msgstr "A fizetés sikertelen. Kérünk próbáld meg újra később."

@@ -67,8 +67,6 @@ class Gateway extends WC_Payment_Gateway
         $this->init_form_fields();
         $this->setOptions();
         $this->checkCurrency();
-
-        $this->method_description = __('OTP SimplePay Payment Gateway', 'pine-simplepay');
     }
 
     /**
@@ -115,6 +113,12 @@ class Gateway extends WC_Payment_Gateway
     {
         foreach (Config::get() as $key => $option) {
             $this->{$key} = $option;
+        }
+
+        $this->method_description = __('OTP SimplePay Payment Gateway', 'pine-simplepay');
+
+        if ($this->show_icon === 'yes') {
+            $this->icon = apply_filters('pine_simplepay_gateway_icon', plugin_dir_url(__DIR__).'/images/icon.png');
         }
     }
 

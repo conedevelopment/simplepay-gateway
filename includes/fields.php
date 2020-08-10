@@ -153,6 +153,17 @@ return [
         'class' => 'js-credential-input js-simplepay-sandbox-field',
     ],
 
+    'icon_settings' => [
+        'title' => __('Icon Settings', 'pine-simplepay'),
+        'type' => 'title',
+        'description' => '',
+    ],
+    'show_icon' => [
+        'title' => __('Show SimplePay icon on checkout', 'pine-simplepay'),
+        'type' => 'checkbox',
+        'label' => __('Show icon', 'pine-simplepay'),
+    ],
+
     'debug_settings' => [
         'title' => __('Debug Settings', 'pine-simplepay'),
         'type' => 'title',

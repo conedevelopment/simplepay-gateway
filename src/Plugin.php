@@ -12,7 +12,7 @@ class Plugin
      *
      * @var string
      */
-    public const VERSION = '2.4.0';
+    public const VERSION = '2.4.1';
 
     /**
      * The plugin slug.

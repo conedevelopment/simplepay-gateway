@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.4.1 (2020-08-10)
+### Added
+- Ability to show icon on the checkout page
+
 ## v2.4.0 (2020-08-04)
 ### Added
 - Multisite compatibility ([#39](https://github.com/thepinecode/simplepay-gateway/issues/39))
