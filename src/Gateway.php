@@ -117,7 +117,7 @@ class Gateway extends WC_Payment_Gateway
 
         $this->method_description = __('OTP SimplePay Payment Gateway', 'pine-simplepay');
 
-        if ($this->show_icon === 'yes') {
+        if (isset($this->show_icon) && $this->show_icon === 'yes') {
             $this->icon = apply_filters('pine_simplepay_gateway_icon', plugin_dir_url(__DIR__).'/images/icon.png');
         }
     }

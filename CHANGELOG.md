@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.4.2 (2020-08-17)
+### Fixed
+- Fixed missing property
+
 ## v2.4.1 (2020-08-10)
 ### Added
 - Ability to show icon on the checkout page
