@@ -1,5 +1,5 @@
 {
-    "name": "thepinecode/simplepay-gateway",
+    "name": "conedevelopment/simplepay-gateway",
     "description": "OTP SimplePay integration for WooCommerce (WordPress) stores",
     "type": "wordpress-plugin",
     "license": "MIT",

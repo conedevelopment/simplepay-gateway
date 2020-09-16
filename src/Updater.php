@@ -9,7 +9,7 @@ class Updater
      *
      * @var string
      */
-    protected $url = 'https://raw.githubusercontent.com/thepinecode/simplepay-gateway/master/updater/%s.json';
+    protected $url = 'https://raw.githubusercontent.com/conedevelopment/simplepay-gateway/master/updater/%s.json';
 
     /**
      * Get the plugin info.

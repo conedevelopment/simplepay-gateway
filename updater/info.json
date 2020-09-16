@@ -1,21 +1,21 @@
 {
     "name": "SimplePay Gateway for WooCommerce",
     "slug": "simplepay-gateway-master/simplepay-gateway.php",
-    "version": "2.4.2",
+    "version": "2.4.3",
     "tested": "5.5.0",
     "requires": "5.1.0",
     "author": "Cone Development",
     "author_profile": "https://conedevelopment.com",
-    "download_link": "https://github.com/thepinecode/simplepay-gateway/archive/master.zip",
-    "trunk": "https://github.com/thepinecode/simplepay-gateway/archive/master.zip",
+    "download_link": "https://github.com/conedevelopment/simplepay-gateway/archive/master.zip",
+    "trunk": "https://github.com/conedevelopment/simplepay-gateway/archive/master.zip",
     "last_updated": "2020-08-17 08:00:00",
     "banners": {
-        "low": "https://raw.githubusercontent.com/thepinecode/simplepay-gateway/master/updater/cover-low.png",
-        "high": "https://raw.githubusercontent.com/thepinecode/simplepay-gateway/master/updater/cover-high.png"
+        "low": "https://raw.githubusercontent.com/conedevelopment/simplepay-gateway/master/updater/cover-low.png",
+        "high": "https://raw.githubusercontent.com/conedevelopment/simplepay-gateway/master/updater/cover-high.png"
     },
     "sections": {
         "description": "This plugin provides a payment gateway for OTP SimplePay.",
         "installation": "Download the <code>.zip</code> file from the GitHub repository and install it in WordPress.",
-        "changelog": "<a href=\"https://github.com/thepinecode/simplepay-gateway/blob/master/CHANGELOG.md\">You can find the changelog on GitHub.</a>"
+        "changelog": "<a href=\"https://github.com/conedevelopment/simplepay-gateway/blob/master/CHANGELOG.md\">You can find the changelog on GitHub.</a>"
     }
 }

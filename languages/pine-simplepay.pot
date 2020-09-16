@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: SimplePay Gateway for WooCommerce\n"
-"Report-Msgid-Bugs-To: https://github.com/thepinecode/simplepay-gateway/issues/new\n"
+"Report-Msgid-Bugs-To: https://github.com/conedevelopment/simplepay-gateway/issues/new\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Pine <hello@pineco.de>\n"
 "MIME-Version: 1.0\n"

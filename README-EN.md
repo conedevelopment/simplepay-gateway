@@ -4,7 +4,7 @@ This plugin provides a payment gateway for OTP SimplePay.
 
 ## Installing the plugin
 
-[Download the plugin](https://github.com/thepinecode/simplepay-gateway/archive/master.zip) and install it as any other WordPress plugin.
+[Download the plugin](https://github.com/conedevelopment/simplepay-gateway/archive/master.zip) and install it as any other WordPress plugin.
 
 ### Verisons
 
