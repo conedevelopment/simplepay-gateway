@@ -271,6 +271,26 @@ class Gateway extends WC_Payment_Gateway
     }
 
     /**
+     * Add a link to the icon.
+     *
+     * @param  string  $icon
+     * @param  string  $id
+     * @return string
+     */
+    public function addIconLink($icon, $id)
+    {
+        if ($id === $this->id) {
+            $icon = sprintf(
+                '<a href="http://simplepartner.hu/download.php?target=paymentinfo%s" target="_blank">%s</a>',
+                get_locale() === 'hu_HU' ? 'hu' : 'en',
+                $icon
+            );
+        }
+
+        return $icon;
+    }
+
+    /**
      * Register the admin scripts.
      *
      * @param  string  $hook
@@ -302,6 +322,7 @@ class Gateway extends WC_Payment_Gateway
     {
         add_action('admin_enqueue_scripts', [$this, 'scripts']);
         add_filter('woocommerce_payment_gateways', [$this, 'register']);
+        add_filter('woocommerce_gateway_icon', [$this, 'addIconLink'], 10, 2);
         add_filter('woocommerce_api_process_simplepay_payment', [$this, 'handlePayment']);
         add_action("woocommerce_api_wc_gateway_{$this->id}", [$this, 'handleNotification']);
         add_action('woocommerce_order_details_after_order_table_items', [$this, 'extnendOrderTable']);

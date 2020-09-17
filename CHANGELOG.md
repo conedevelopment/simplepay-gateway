@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.4.4 (2020-09-17)
+### Added
+- Added icon link on checkout
+
 ## v2.4.3 (2020-09-16)
 ### Changed
 - Move repo to `conedevelopment`
