@@ -14,7 +14,11 @@ class IPNHandler extends Handler
      */
     public function handle($payload)
     {
-        Log::info(__('IPN event was fired.', 'pine-simplepay'));
+        Log::info(sprintf(
+            "%s\n%s",
+            __('IPN event was fired.', 'pine-simplepay'),
+            json_encode($payload)
+        ));
 
         $this->order->payment_complete();
     }

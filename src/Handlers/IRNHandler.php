@@ -18,7 +18,11 @@ class IRNHandler extends Handler
      */
     public function handle($payload)
     {
-        Log::info(__('IRN event was fired.', 'pine-simplepay'));
+        Log::info(sprintf(
+            "%s\n%s",
+            __('IRN event was fired.', 'pine-simplepay'),
+            json_encode($payload)
+        ));
 
         $request = Request::post(
             Config::url('query'),
