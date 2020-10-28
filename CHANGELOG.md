@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.4.5 (2020-10-28)
+### Changes
+- Updated icons ([#43](https://github.com/conedevelopment/simplepay-gateway/pull/43))
+
 ## v2.4.4 (2020-09-17)
 ### Added
 - Added icon link on checkout
