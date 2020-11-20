@@ -42,12 +42,13 @@ abstract class PaymentPayload
             'url' => add_query_arg(['wc-api' => 'process_simplepay_payment'], home_url('/')),
             'sdkVersion' => 'Pine SimplePay Gateway:'.Plugin::VERSION,
             'total' => $order->get_total(),
+            'customer' => $order->get_formatted_billing_full_name(),
             'customerEmail' => $order->get_billing_email(),
             'invoice' => static::invoice($order),
+            'delivery' => static::delivery($order),
             'items' => static::items($order),
             'twoStep' => false,
             'maySelectInvoice' => false,
-            'delivery' => static::delivery($order),
         ];
     }
 
@@ -55,11 +56,11 @@ abstract class PaymentPayload
      * Serialize the invoice.
      *
      * @param  \WC_Order  $order
-     * @return array
+     * @return array|null
      */
     protected static function invoice(WC_Order $order)
     {
-        return [
+        $credentials =  [
             'city' => $order->get_billing_city(),
             'phone' => $order->get_billing_phone(),
             'state' => $order->get_billing_state(),
@@ -68,8 +69,10 @@ abstract class PaymentPayload
             'country' => $order->get_billing_country(),
             'address' => $order->get_billing_address_1(),
             'address2' => $order->get_billing_address_2(),
-            'name' => $order->get_formatted_billing_full_name(),
+            'name' => $name = $order->get_formatted_billing_full_name(),
         ];
+
+        return ! empty(array_diff(array_filter($credentials), compact('name'))) ? $credentials : null;
     }
 
     /**

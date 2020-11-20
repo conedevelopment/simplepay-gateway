@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.4.6 (2020-11-20)
+### Added
+- Handle invoiceless transactions when only billing email and name are given
+
 ## v2.4.5 (2020-10-28)
 ### Changes
 - Updated icons ([#43](https://github.com/conedevelopment/simplepay-gateway/pull/43))
