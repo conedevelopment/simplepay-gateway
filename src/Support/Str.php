@@ -7,7 +7,7 @@ abstract class Str
     /**
      * Make the order reference using the given ID.
      *
-     * @param  int  $id
+     * @param  string  $id
      * @return string
      */
     public static function refFromId($id)
