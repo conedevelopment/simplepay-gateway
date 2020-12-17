@@ -214,7 +214,7 @@ class Gateway extends WC_Payment_Gateway
      * Process the refund.
      *
      * @param  int  $orderId
-     * @param  int|null  $amount
+     * @param  float|null  $amount
      * @param  string|null  $reason
      * @return bool
      */
