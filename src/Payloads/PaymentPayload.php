@@ -72,7 +72,7 @@ abstract class PaymentPayload
             'name' => $name = $order->get_formatted_billing_full_name(),
         ];
 
-        return ! empty(array_diff(array_filter($credentials), compact('name'))) ? $credentials : null;
+        return array_diff(array_filter($credentials), compact('name')) === [] ? null: $credentials;
     }
 
     /**
