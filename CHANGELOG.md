@@ -1,8 +1,12 @@
 # Changelog
 
+## v2.4.7 (2021-01-17)
+### Fixed
+- Fixed `$_GET['section']` parameter handling ([#55](https://github.com/conedevelopment/simplepay-gateway/pull/55))
+
 ## v2.4.6 (2020-11-20)
 ### Added
-- Handle invoiceless transactions when only billing email and name are given
+- Handle invoiceless transactions when only billing email and name are given ([#44](https://github.com/conedevelopment/simplepay-gateway/issues/44))
 
 ## v2.4.5 (2020-10-28)
 ### Changes
