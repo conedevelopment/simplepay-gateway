@@ -4,7 +4,7 @@
  * Plugin Name:       SimplePay Gateway for WooCommerce
  * Plugin URI:        https://simplepay.conedevelopment.com/
  * Description:       SimplePay gateway integration for WooCommerce.
- * Version:           2.4.6
+ * Version:           2.4.7
  * Author:            Cone Development
  * Author URI:        https://conedevelopment.com
  * License:           MIT
@@ -12,7 +12,7 @@
  * Text Domain:       pine-simplepay
  * Domain Path:       /languages/
  * Requires at least: 5.1
- * Tested up to:      5.5.1
+ * Tested up to:      5.6.0
  * Requires PHP:      7.0
  * WC tested up to:   4.6.1
  */
