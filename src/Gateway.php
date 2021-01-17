@@ -298,7 +298,7 @@ class Gateway extends WC_Payment_Gateway
      */
     public function scripts($hook)
     {
-        if ($hook === 'woocommerce_page_wc-settings' && $_GET['section'] === 'simplepay-gateway') {
+        if ($hook === 'woocommerce_page_wc-settings' && (isset($_GET['section']) && $_GET['section'] === 'simplepay-gateway')) {
             wp_enqueue_script('simplepay', plugin_dir_url(__DIR__).'includes/simplepay.js');
         }
     }
