@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.4.8 (2021-02-02)
+### Fixed
+- Fixed products with `0` prices by filtering in the `PaymentPayload` ([#57](https://github.com/conedevelopment/simplepay-gateway/issues/57))
+
 ## v2.4.7 (2021-01-17)
 ### Fixed
 - Fixed `$_GET['section']` parameter handling ([#55](https://github.com/conedevelopment/simplepay-gateway/pull/55))
