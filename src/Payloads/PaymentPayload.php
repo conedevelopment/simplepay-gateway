@@ -113,19 +113,16 @@ abstract class PaymentPayload
             $quantity = ceil($item->get_quantity());
             $price = ($item->get_total() + $item->get_total_tax()) / $quantity;
 
-            // Skip items with zero value
-            if ($price === 0.0) {
-                return $items;
+            if ($price > 0) {
+                $items[] = [
+                    'tax' => 0,
+                    'price' => $price,
+                    'amount' => $quantity,
+                    'title' => $product->get_name(),
+                    'description' => $product->get_description(),
+                    'ref' => $product->get_sku() ?: $product->get_id(),
+                ];
             }
-
-            $items[] = [
-                'tax' => 0,
-                'amount' => $quantity,
-                'title' => $product->get_name(),
-                'description' => $product->get_description(),
-                'ref' => $product->get_sku() ?: $product->get_id(),
-                'price' => $price,
-            ];
 
             return $items;
         }, []);
