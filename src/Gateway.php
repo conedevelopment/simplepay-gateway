@@ -10,6 +10,7 @@ use Pine\SimplePay\Payloads\PaymentPayload;
 use Pine\SimplePay\Payloads\RefundPayload;
 use Pine\SimplePay\Support\Config;
 use Pine\SimplePay\Support\Hash;
+use Pine\SimplePay\Support\Log;
 use Pine\SimplePay\Support\Request;
 use Pine\SimplePay\Support\Str;
 use WC_Order;
@@ -136,17 +137,28 @@ class Gateway extends WC_Payment_Gateway
 
         $request = Request::post(
             Config::url('start'),
-            PaymentPayload::handle($order)
+            $payload = PaymentPayload::handle($order)
         );
 
         try {
             $request->send();
 
+            if (! $request->valid()) {
+                Log::info(sprintf(__('Request is invalid: %s', 'pine-simplepay'), $request->response('body')));
+
+                return [
+                    'result' => 'failure',
+                    'redirect' => $request->body('paymentUrl'),
+                ];
+            }
+
             return [
+                'result' => 'success',
                 'redirect' => $request->body('paymentUrl'),
-                'result' => $request->valid() ? 'success' : 'failure',
             ];
         } catch (Exception $e) {
+            Log::info(sprintf('%s: %s', $e->getMessage(), $payload));
+
             wc_add_notice($e->getMessage(), 'error');
         }
     }
