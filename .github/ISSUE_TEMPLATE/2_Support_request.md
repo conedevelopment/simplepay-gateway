@@ -1,5 +1,5 @@
 ---
-name: Telepítési vagy használi segítség
+name: Telepítési vagy használati segítség
 about: Ha nem működik a bővítmény
 ---
 
