@@ -1,5 +1,12 @@
 # Changelog
 
+## v2.4.9 (2021-02-08)
+### Added
+- Added explicit logging on errors
+
+### Fix
+- Fixed bad locale determination
+
 ## v2.4.8 (2021-02-02)
 ### Fixed
 - Fixed products with `0` prices by filtering in the `PaymentPayload` ([#57](https://github.com/conedevelopment/simplepay-gateway/issues/57))

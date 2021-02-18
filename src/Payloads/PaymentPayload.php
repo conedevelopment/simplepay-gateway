@@ -38,7 +38,7 @@ abstract class PaymentPayload
             'discount' => 0,
             'currency' => $order->get_currency(),
             'shippingCost' => $order->get_shipping_total() + $order->get_shipping_tax(),
-            'language' => substr(get_bloginfo('language'), 0, 2),
+            'language' => substr(get_locale(), 0, 2),
             'url' => add_query_arg(['wc-api' => 'process_simplepay_payment'], home_url('/')),
             'sdkVersion' => 'Pine SimplePay Gateway:'.Plugin::VERSION,
             'total' => $order->get_total(),

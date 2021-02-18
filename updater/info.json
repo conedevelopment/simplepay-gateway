@@ -1,14 +1,14 @@
 {
     "name": "SimplePay Gateway for WooCommerce",
     "slug": "simplepay-gateway-master/simplepay-gateway.php",
-    "version": "2.4.8",
-    "tested": "5.6.0",
+    "version": "2.4.9",
+    "tested": "5.6.1",
     "requires": "5.1.0",
     "author": "Cone Development",
     "author_profile": "https://conedevelopment.com",
     "download_link": "https://github.com/conedevelopment/simplepay-gateway/archive/master.zip",
     "trunk": "https://github.com/conedevelopment/simplepay-gateway/archive/master.zip",
-    "last_updated": "2021-02-02 10:00:00",
+    "last_updated": "2021-02-18 10:00:00",
     "banners": {
         "low": "https://raw.githubusercontent.com/conedevelopment/simplepay-gateway/master/updater/cover-low.png",
         "high": "https://raw.githubusercontent.com/conedevelopment/simplepay-gateway/master/updater/cover-high.png"
