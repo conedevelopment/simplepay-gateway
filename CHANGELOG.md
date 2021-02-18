@@ -4,7 +4,7 @@
 ### Added
 - Added explicit logging on errors
 
-### Fix
+### Fixed
 - Fixed bad locale determination
 
 ## v2.4.8 (2021-02-02)
