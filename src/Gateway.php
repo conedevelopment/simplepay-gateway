@@ -291,17 +291,17 @@ class Gateway extends WC_Payment_Gateway
      */
     public function addIconLink($icon, $id)
     {
-        if ($id === $this->id) {
-            $icon = sprintf(
-                '<a href="%s" target="_blank">%s</a>',
-                get_locale() === 'hu_HU'
-                    ? 'https://simplepartner.hu/PaymentService/Fizetesi_tajekoztato.pdf'
-                    : 'https://simplepartner.hu/PaymentService/Payment_information.pdf',
-                $icon
-            );
+        if ($id !== $this->id) {
+            return $icon;
         }
 
-        return $icon;
+        return sprintf(
+            '<a href="%s" target="_blank">%s</a>',
+            get_locale() === 'hu_HU'
+                ? 'https://simplepartner.hu/PaymentService/Fizetesi_tajekoztato.pdf'
+                : 'https://simplepartner.hu/PaymentService/Payment_information.pdf',
+            $icon
+        );
     }
 
     /**
