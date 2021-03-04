@@ -293,8 +293,10 @@ class Gateway extends WC_Payment_Gateway
     {
         if ($id === $this->id) {
             $icon = sprintf(
-                '<a href="http://simplepartner.hu/download.php?target=paymentinfo%s" target="_blank">%s</a>',
-                get_locale() === 'hu_HU' ? 'hu' : 'en',
+                '<a href="%s" target="_blank">%s</a>',
+                get_locale() === 'hu_HU'
+                    ? 'https://simplepartner.hu/PaymentService/Fizetesi_tajekoztato.pdf'
+                    : 'https://simplepartner.hu/PaymentService/Payment_information.pdf',
                 $icon
             );
         }
