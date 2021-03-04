@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.4.10 (2021-03-04)
+### Changed
+- Changed the usage of `wc_get_checkout_url()` to the `$order->get_checkout_payment_url()` method
+
 ## v2.4.9 (2021-02-08)
 ### Added
 - Added explicit logging on errors
