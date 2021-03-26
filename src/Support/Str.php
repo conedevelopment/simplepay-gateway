@@ -33,6 +33,6 @@ abstract class Str
 
         $position = strrpos($ref, '-');
 
-        return $position === false ? $ref : substr($ref, $position + strlen('-'));
+        return $position === false ? $ref : substr($ref, $position + 1);
     }
 }
