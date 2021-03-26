@@ -196,9 +196,7 @@ class Gateway extends WC_Payment_Gateway
         $input = file_get_contents('php://input');
         $payload = json_decode($input, true);
 
-        if (! $order = wc_get_order(Str::idFromRef($payload['orderRef']))) {
-            $order = wc_get_order(wc_get_order_id_by_order_key($payload['orderRef']));
-        }
+        $order = wc_get_order(Str::idFromRef($payload['orderRef']));
 
         if (! $order instanceof WC_Order) {
             die(__('Order not found.', 'pine-simplepay'));

@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.4.11 (2021-03-26)
+### Changed
+- Changed order prefix handling, now it's more flexible
+
 ## v2.4.10 (2021-03-04)
 ### Changed
 - Changed the usage of `wc_get_checkout_url()` to the `$order->get_checkout_payment_url()` method

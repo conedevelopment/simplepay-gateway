@@ -4,7 +4,7 @@
  * Plugin Name:       OTP SimplePay Gateway for WooCommerce
  * Plugin URI:        https://simplepay.conedevelopment.com/
  * Description:       OTP SimplePay payment gateway integration for WooCommerce.
- * Version:           2.4.10
+ * Version:           2.4.11
  * Author:            Cone Development
  * Author URI:        https://conedevelopment.com
  * License:           MIT
