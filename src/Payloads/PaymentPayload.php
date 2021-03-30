@@ -7,6 +7,8 @@ use Pine\SimplePay\Support\Config;
 use Pine\SimplePay\Support\Hash;
 use Pine\SimplePay\Support\Str;
 use WC_Order;
+use WC_Order_Item;
+use WC_Order_Item_Fee;
 
 abstract class PaymentPayload
 {
@@ -108,23 +110,54 @@ abstract class PaymentPayload
      */
     protected static function items(WC_Order $order)
     {
-        return array_reduce($order->get_items(), function ($items, $item) {
-            $product = $item->get_product();
-            $quantity = ceil($item->get_quantity());
-            $price = ($item->get_total() + $item->get_total_tax()) / $quantity;
+        return array_filter(array_reduce($order->get_items(['line_item', 'fee']), function ($items, $item) {
+            return array_merge(
+                $items,
+                $item instanceof WC_Order_Item_Fee ? [static::mapFeeItem($item)] : [static::mapLineItem($item)]
+            );
+        }, []), function ($item) {
+            return isset($item['price']) && $item['price'] > 0;
+        });
+    }
 
-            if ($price > 0) {
-                $items[] = [
-                    'tax' => 0,
-                    'price' => $price,
-                    'amount' => $quantity,
-                    'title' => $product->get_name(),
-                    'description' => $product->get_description(),
-                    'ref' => $product->get_sku() ?: $product->get_id(),
-                ];
-            }
+    /**
+     * Map the order line item.
+     *
+     * @param  \WC_Order_Item  $item
+     * @return array
+     */
+    protected static function mapLineItem(WC_Order_Item $item)
+    {
+        $product = $item->get_product();
+        $quantity = ceil($item->get_quantity());
 
-            return $items;
-        }, []);
+        return [
+            'tax' => 0,
+            'price' => ($item->get_total() + $item->get_total_tax()) / $quantity,
+            'amount' => $quantity,
+            'title' => $product->get_name(),
+            'description' => $product->get_description(),
+            'ref' => $product->get_sku() ?: $product->get_id(),
+        ];
+    }
+
+    /**
+     * Map the order fee item.
+     *
+     * @param  \WC_Order_Item_Fee  $item
+     * @return array
+     */
+    protected static function mapFeeItem(WC_Order_Item_Fee $item)
+    {
+        $quantity = ceil($item->get_quantity());
+
+        return [
+            'tax' => 0,
+            'price' => ($item->get_total() + $item->get_total_tax()) / $quantity,
+            'amount' => $quantity,
+            'title' => $item->get_name(),
+            'description' => '',
+            'ref' => $item->get_id(),
+        ];
     }
 }

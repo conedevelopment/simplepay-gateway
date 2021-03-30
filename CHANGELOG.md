@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.4.12 (2021-03-30)
+### Added
+- Added `WC_Order_Item_Fee` handling on checkout
+
 ## v2.4.11 (2021-03-26)
 ### Changed
 - Changed order prefix handling, now it's more flexible
