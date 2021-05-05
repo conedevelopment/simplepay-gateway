@@ -117,7 +117,6 @@ abstract class PaymentPayload
                     $item instanceof WC_Order_Item_Fee ? [static::mapFeeItem($item)] : [static::mapLineItem($item)]
                 )
                 : $items;
-          };
         }, []), function ($item) {
             return isset($item['price']) && $item['price'] > 0;
         });
