@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.4.13 (2021-05-05)
+### Added
+- Fixed item mapping if total is `0` ([#68](https://github.com/conedevelopment/simplepay-gateway/pull/68))
+
 ## v2.4.12 (2021-03-30)
 ### Added
 - Added `WC_Order_Item_Fee` handling on checkout
