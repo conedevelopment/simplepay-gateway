@@ -21,7 +21,7 @@ class PaymentHandler extends Handler
 
             $url = $this->order->get_checkout_order_received_url();
         } elseif ($payload['e'] === 'CANCEL') {
-            $this->order->set_status('cancelled');
+            $this->order->set_status('pending');
 
             wc_add_notice(__('You cancelled your transaction.', 'pine-simplepay'), 'error');
         } elseif ($payload['e'] === 'FAIL') {
