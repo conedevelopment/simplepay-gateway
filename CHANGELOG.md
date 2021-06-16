@@ -1,5 +1,11 @@
 # Changelog
 
+## v2.5.0 (Unreleased)
+
+- Changed namespace from `Pine\SimplePay` to `Cone\SimplePay`
+- Changed translation keys from `pine-simplepay` to `cone-simplepay`
+- Added two step payment support
+
 ## v2.4.14 (2021-05-26)
 
 - Fixed order status after cancelling payment ([#71](https://github.com/conedevelopment/simplepay-gateway/issues/71))
