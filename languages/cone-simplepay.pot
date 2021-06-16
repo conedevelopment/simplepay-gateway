@@ -1,21 +1,19 @@
-# Copyright (C) 2020 Pine
-# This file is distributed under the same license as the SimplePay Gateway for WooCommerce plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: SimplePay Gateway for WooCommerce\n"
-"Report-Msgid-Bugs-To: https://github.com/conedevelopment/simplepay-gateway/issues/new\n"
+"Project-Id-Version: OTP SimplePay Gateway for WooCommerce 2.5.0\n"
+"Report-Msgid-Bugs-To: https://simplepay.conedevelopment.com/\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Pine <hello@pineco.de>\n"
+"Language-Team: Cone Development <hello@conedevelopment.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 1970-01-01 00:00+0000\n"
+"POT-Creation-Date: 2021-06-16T08:36:08+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: cone-simplepay\n"
 
 #. Plugin Name of the plugin
-msgid "SimplePay Gateway for WooCommerce"
+msgid "OTP SimplePay Gateway for WooCommerce"
 msgstr ""
 
 #. Plugin URI of the plugin
@@ -23,15 +21,15 @@ msgid "https://simplepay.conedevelopment.com/"
 msgstr ""
 
 #. Description of the plugin
-msgid "SimplePay gateway integration for WooCommerce."
+msgid "OTP SimplePay payment gateway integration for WooCommerce."
 msgstr ""
 
 #. Author of the plugin
-msgid "Pine"
+msgid "Cone Development"
 msgstr ""
 
 #. Author URI of the plugin
-msgid "https://pineco.de"
+msgid "https://conedevelopment.com"
 msgstr ""
 
 #: includes/fields.php:8
@@ -46,150 +44,182 @@ msgstr ""
 msgid "Pay with credit card via SimplePay."
 msgstr ""
 
-#: includes/fields.php:27
+#: includes/fields.php:26
+msgid "Transaction Prefix"
+msgstr ""
+
+#: includes/fields.php:28
+msgid "This prefix will be prepended to the order."
+msgstr ""
+
+#: includes/fields.php:34
 msgid "IPN/IRN settings"
 msgstr ""
 
-#: includes/fields.php:30
+#: includes/fields.php:38
 msgid "The shop's IPN/IRN URL:"
 msgstr ""
 
-#: includes/fields.php:36
+#: includes/fields.php:44
 msgid "Sandbox Settings"
 msgstr ""
 
-#: includes/fields.php:38
+#: includes/fields.php:46
 msgid "If this option is on this gateway is in test (sandbox) mode."
 msgstr ""
 
-#: includes/fields.php:43
+#: includes/fields.php:51
 msgid "Enable Sandbox Mode"
 msgstr ""
 
-#: includes/fields.php:48
+#: includes/fields.php:56
+msgid "Two Step Payments"
+msgstr ""
+
+#: includes/fields.php:58
+msgid "If this option is on, two step payments are enabled."
+msgstr ""
+
+#: includes/fields.php:63
+msgid "Enable Two Step Payments"
+msgstr ""
+
+#: includes/fields.php:67
 msgid "HUF Merchant Settings"
 msgstr ""
 
-#: includes/fields.php:50
+#: includes/fields.php:69
 msgid "Settings for HUF currency. These are activated when the customer checks out with HUF prices."
 msgstr ""
 
-#: includes/fields.php:53
-#: includes/fields.php:67
+#: includes/fields.php:72
+#: includes/fields.php:86
 msgid "HUF Merchant ID"
 msgstr ""
 
-#: includes/fields.php:55
+#: includes/fields.php:74
 msgid "This is the merchant ID for HUF currency."
 msgstr ""
 
-#: includes/fields.php:60
-#: includes/fields.php:74
+#: includes/fields.php:79
+#: includes/fields.php:93
 msgid "HUF Secret Key"
 msgstr ""
 
-#: includes/fields.php:62
+#: includes/fields.php:81
 msgid "This is the secret key for HUF currency."
 msgstr ""
 
-#: includes/fields.php:67
-#: includes/fields.php:74
-#: includes/fields.php:101
-#: includes/fields.php:108
-#: includes/fields.php:135
-#: includes/fields.php:142
+#: includes/fields.php:86
+#: includes/fields.php:93
+#: includes/fields.php:120
+#: includes/fields.php:127
+#: includes/fields.php:154
+#: includes/fields.php:161
 msgid "Sandbox"
 msgstr ""
 
-#: includes/fields.php:69
+#: includes/fields.php:88
 msgid "This is the sandbox merchant ID for HUF currency."
 msgstr ""
 
-#: includes/fields.php:76
+#: includes/fields.php:95
 msgid "This is the sandbox secret key for HUF currency."
 msgstr ""
 
-#: includes/fields.php:82
+#: includes/fields.php:101
 msgid "EUR Merchant Settings"
 msgstr ""
 
-#: includes/fields.php:84
+#: includes/fields.php:103
 msgid "Settings for EUR currency. These are activated when the customer checks out with EUR prices."
 msgstr ""
 
-#: includes/fields.php:87
-#: includes/fields.php:101
+#: includes/fields.php:106
+#: includes/fields.php:120
 msgid "EUR Merchant ID"
 msgstr ""
 
-#: includes/fields.php:89
+#: includes/fields.php:108
 msgid "This is the merchant ID for EUR currency."
 msgstr ""
 
-#: includes/fields.php:94
-#: includes/fields.php:108
+#: includes/fields.php:113
+#: includes/fields.php:127
 msgid "EUR Secret Key"
 msgstr ""
 
-#: includes/fields.php:96
+#: includes/fields.php:115
 msgid "This is the secret key for EUR currency."
 msgstr ""
 
-#: includes/fields.php:103
+#: includes/fields.php:122
 msgid "This is the sandbox merchant ID for EUR currency."
 msgstr ""
 
-#: includes/fields.php:110
+#: includes/fields.php:129
 msgid "This is the sandbox secret key for EUR currency."
 msgstr ""
 
-#: includes/fields.php:116
+#: includes/fields.php:135
 msgid "USD Merchant Settings"
 msgstr ""
 
-#: includes/fields.php:118
+#: includes/fields.php:137
 msgid "Settings for USD currency. These are activated when the customer checks out with USD prices."
 msgstr ""
 
-#: includes/fields.php:121
-#: includes/fields.php:135
+#: includes/fields.php:140
+#: includes/fields.php:154
 msgid "USD Merchant ID"
 msgstr ""
 
-#: includes/fields.php:123
+#: includes/fields.php:142
 msgid "This is the merchant ID for USD currency."
 msgstr ""
 
-#: includes/fields.php:128
-#: includes/fields.php:142
+#: includes/fields.php:147
+#: includes/fields.php:161
 msgid "USD Secret Key"
 msgstr ""
 
-#: includes/fields.php:130
+#: includes/fields.php:149
 msgid "This is the secret key for USD currency."
 msgstr ""
 
-#: includes/fields.php:137
+#: includes/fields.php:156
 msgid "This is the sandbox merchant ID for USD currency."
 msgstr ""
 
-#: includes/fields.php:144
+#: includes/fields.php:163
 msgid "This is the sandbox secret key for USD currency."
 msgstr ""
 
-#: includes/fields.php:150
+#: includes/fields.php:169
+msgid "Icon Settings"
+msgstr ""
+
+#: includes/fields.php:174
+msgid "Show SimplePay icon on checkout"
+msgstr ""
+
+#: includes/fields.php:176
+msgid "Show icon"
+msgstr ""
+
+#: includes/fields.php:180
 msgid "Debug Settings"
 msgstr ""
 
-#: includes/fields.php:155
+#: includes/fields.php:185
 msgid "Debug log"
 msgstr ""
 
-#: includes/fields.php:157
+#: includes/fields.php:187
 msgid "Enable logging"
 msgstr ""
 
-#: includes/fields.php:159
+#: includes/fields.php:190
 msgid "Log SimplePay events, such as IPN requests, inside log files with the following prefix"
 msgstr ""
 
@@ -197,34 +227,66 @@ msgstr ""
 msgid "SimplePay transaction ID"
 msgstr ""
 
-#: src/Gateway.php:169
+#: src/Gateway.php:119
+msgid "OTP SimplePay Payment Gateway"
+msgstr ""
+
+#: src/Gateway.php:147
+msgid "Request is invalid: %s"
+msgstr ""
+
+#: src/Gateway.php:203
 msgid "Order not found."
 msgstr ""
 
-#: src/Gateway.php:175
+#: src/Gateway.php:209
 msgid "Invalid signature."
 msgstr ""
 
-#: src/Handlers/IPNHandler.php:17
+#: src/Handlers/IPNHandler.php:19
 msgid "IPN event was fired."
 msgstr ""
 
-#: src/Handlers/IRNHandler.php:18
+#: src/Handlers/IRNHandler.php:23
 msgid "IRN event was fired."
 msgstr ""
 
-#: src/Handlers/PaymentHandler.php:24
+#: src/Handlers/PaymentHandler.php:36
 msgid "You cancelled your transaction."
 msgstr ""
 
-#: src/Handlers/PaymentHandler.php:27
-msgid "Failed SimplePay trasnaction: %d. Please check if your data is correct. If yes, please contact your card publisher."
+#: src/Handlers/PaymentHandler.php:41
+msgid "Failed SimplePay transaction: %d. Please check if your data is correct. If yes, please contact your card publisher."
 msgstr ""
 
-#: src/Handlers/PaymentHandler.php:31
+#: src/Handlers/PaymentHandler.php:47
 msgid "The transaction has been expired!"
 msgstr ""
 
-#: src/Plugin.php:64
+#: src/Handlers/PaymentHandler.php:79
+msgid "%d %s is reserved in SimplePay."
+msgstr ""
+
+#: src/Handlers/PaymentHandler.php:90
+msgid "%d %s is reserved in SimplePay (not precise)."
+msgstr ""
+
+#: src/Plugin.php:61
 msgid "Please activate WooCommerce before using SimplePay Gateway!"
+msgstr ""
+
+#: src/TwoStepPayment.php:45
+msgid "Finish the two step SimplePay payment"
+msgstr ""
+
+#: src/TwoStepPayment.php:69
+msgid "Request is invalid"
+msgstr ""
+
+#: src/TwoStepPayment.php:73
+msgid "Two step SimplePay payment has been finished."
+msgstr ""
+
+#: src/TwoStepPayment.php:79
+msgid "Two step SimplePay payment request has been failed."
 msgstr ""
