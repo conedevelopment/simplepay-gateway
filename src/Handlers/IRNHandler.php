@@ -2,11 +2,11 @@
 
 namespace Cone\SimplePay\Handlers;
 
-use Exception;
 use Cone\SimplePay\Payloads\StatusPayload;
 use Cone\SimplePay\Support\Config;
 use Cone\SimplePay\Support\Log;
 use Cone\SimplePay\Support\Request;
+use Exception;
 
 class IRNHandler extends Handler
 {
