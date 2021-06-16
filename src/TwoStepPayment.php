@@ -33,7 +33,7 @@ class TwoStepPayment
      * Register the action.
      *
      * @param  array  $actions
-     * @return void
+     * @return array
      */
     public static function register($actions)
     {
