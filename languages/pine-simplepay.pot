@@ -12,7 +12,7 @@ msgstr ""
 "POT-Creation-Date: 1970-01-01 00:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
-"X-Domain: pine-simplepay\n"
+"X-Domain: cone-simplepay\n"
 
 #. Plugin Name of the plugin
 msgid "SimplePay Gateway for WooCommerce"

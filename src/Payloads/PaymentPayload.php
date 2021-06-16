@@ -1,11 +1,11 @@
 <?php
 
-namespace Pine\SimplePay\Payloads;
+namespace Cone\SimplePay\Payloads;
 
-use Pine\SimplePay\Plugin;
-use Pine\SimplePay\Support\Config;
-use Pine\SimplePay\Support\Hash;
-use Pine\SimplePay\Support\Str;
+use Cone\SimplePay\Plugin;
+use Cone\SimplePay\Support\Config;
+use Cone\SimplePay\Support\Hash;
+use Cone\SimplePay\Support\Str;
 use WC_Order;
 use WC_Order_Item;
 use WC_Order_Item_Fee;
@@ -49,8 +49,8 @@ abstract class PaymentPayload
             'invoice' => static::invoice($order),
             'delivery' => static::delivery($order),
             'items' => static::items($order),
-            'twoStep' => false,
             'maySelectInvoice' => false,
+            'twoStep' => static::shouldBeTwoStep($order),
         ];
     }
 
@@ -161,5 +161,16 @@ abstract class PaymentPayload
             'description' => '',
             'ref' => $item->get_id(),
         ];
+    }
+
+    /**
+     * Determine if the payment should be two step.
+     *
+     * @param  \WC_Order  $order
+     * @return bool
+     */
+    public static function shouldBeTwoStep(WC_Order $order)
+    {
+        return (bool) apply_filters('cone_simplepay_enable_two_step_payment', Config::isTwoStep(), $order);
     }
 }

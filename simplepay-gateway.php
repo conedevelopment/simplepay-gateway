@@ -9,7 +9,7 @@
  * Author URI:        https://conedevelopment.com
  * License:           MIT
  * License URI:       https://opensource.org/licenses/MIT
- * Text Domain:       pine-simplepay
+ * Text Domain:       cone-simplepay
  * Domain Path:       /languages/
  * Requires at least: 5.1
  * Tested up to:      5.7.1
@@ -21,8 +21,8 @@
 require_once __DIR__.'/autoload.php';
 
 // Register the activation and the deactivation hooks
-register_activation_hook(__FILE__, [Pine\SimplePay\Plugin::class, 'activate']);
-register_deactivation_hook(__FILE__, [Pine\SimplePay\Plugin::class, 'deactivate']);
+register_activation_hook(__FILE__, [Cone\SimplePay\Plugin::class, 'activate']);
+register_deactivation_hook(__FILE__, [Cone\SimplePay\Plugin::class, 'deactivate']);
 
 // Boot the plugin
-Pine\SimplePay\Plugin::boot();
+Cone\SimplePay\Plugin::boot();

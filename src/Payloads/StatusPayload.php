@@ -1,10 +1,10 @@
 <?php
 
-namespace Pine\SimplePay\Payloads;
+namespace Cone\SimplePay\Payloads;
 
-use Pine\SimplePay\Plugin;
-use Pine\SimplePay\Support\Config;
-use Pine\SimplePay\Support\Hash;
+use Cone\SimplePay\Plugin;
+use Cone\SimplePay\Support\Config;
+use Cone\SimplePay\Support\Hash;
 
 abstract class StatusPayload
 {

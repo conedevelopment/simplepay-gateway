@@ -1,8 +1,8 @@
 <?php
 
-namespace Pine\SimplePay\Handlers;
+namespace Cone\SimplePay\Handlers;
 
-use Pine\SimplePay\Support\Log;
+use Cone\SimplePay\Support\Log;
 
 class IPNHandler extends Handler
 {
@@ -16,7 +16,7 @@ class IPNHandler extends Handler
     {
         Log::info(sprintf(
             "%s\n%s",
-            __('IPN event was fired.', 'pine-simplepay'),
+            __('IPN event was fired.', 'cone-simplepay'),
             json_encode($payload)
         ));
 

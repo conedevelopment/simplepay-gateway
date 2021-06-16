@@ -1,6 +1,6 @@
 <?php
 
-namespace Pine\SimplePay\Handlers;
+namespace Cone\SimplePay\Handlers;
 
 use WC_Order;
 
