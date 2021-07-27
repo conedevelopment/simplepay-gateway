@@ -12,7 +12,7 @@ abstract class Str
      */
     public static function refFromId($id)
     {
-        $prefix = Config::has('prefix') ? Config::get('prefix') : 'wc-';
+        $prefix = Config::get('prefix') ?: 'wc-';
 
         $prefix = preg_replace('/(?:\-)+$/u', '', $prefix).'-';
 
@@ -27,7 +27,7 @@ abstract class Str
      */
     public static function idFromRef($ref)
     {
-        $prefix = Config::has('prefix') ? Config::get('prefix') : 'wc-';
+        $prefix = Config::get('prefix') ?: 'wc-';
 
         $ref = str_replace($prefix, '', $ref);
 
