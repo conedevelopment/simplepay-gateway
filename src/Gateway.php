@@ -1,18 +1,18 @@
 <?php
 
-namespace Pine\SimplePay;
+namespace Cone\SimplePay;
 
+use Cone\SimplePay\Handlers\IPNHandler;
+use Cone\SimplePay\Handlers\IRNHandler;
+use Cone\SimplePay\Handlers\PaymentHandler;
+use Cone\SimplePay\Payloads\PaymentPayload;
+use Cone\SimplePay\Payloads\RefundPayload;
+use Cone\SimplePay\Support\Config;
+use Cone\SimplePay\Support\Hash;
+use Cone\SimplePay\Support\Log;
+use Cone\SimplePay\Support\Request;
+use Cone\SimplePay\Support\Str;
 use Exception;
-use Pine\SimplePay\Handlers\IPNHandler;
-use Pine\SimplePay\Handlers\IRNHandler;
-use Pine\SimplePay\Handlers\PaymentHandler;
-use Pine\SimplePay\Payloads\PaymentPayload;
-use Pine\SimplePay\Payloads\RefundPayload;
-use Pine\SimplePay\Support\Config;
-use Pine\SimplePay\Support\Hash;
-use Pine\SimplePay\Support\Log;
-use Pine\SimplePay\Support\Request;
-use Pine\SimplePay\Support\Str;
 use WC_Order;
 use WC_Payment_Gateway;
 
@@ -116,7 +116,7 @@ class Gateway extends WC_Payment_Gateway
             $this->{$key} = $option;
         }
 
-        $this->method_description = __('OTP SimplePay Payment Gateway', 'pine-simplepay');
+        $this->method_description = __('OTP SimplePay Payment Gateway', 'cone-simplepay');
 
         if (isset($this->show_icon) && $this->show_icon === 'yes') {
             $this->icon = apply_filters('pine_simplepay_gateway_icon', plugin_dir_url(__DIR__).'/images/icon.png');
@@ -144,7 +144,7 @@ class Gateway extends WC_Payment_Gateway
             $request->send();
 
             if (! $request->valid()) {
-                Log::info(sprintf(__('Request is invalid: %s', 'pine-simplepay'), $request->response('body')));
+                Log::info(sprintf(__('Request is invalid: %s', 'cone-simplepay'), $request->response('body')));
 
                 return [
                     'result' => 'failure',
@@ -194,18 +194,19 @@ class Gateway extends WC_Payment_Gateway
     public function handleNotification()
     {
         $input = file_get_contents('php://input');
+
         $payload = json_decode($input, true);
 
         $order = wc_get_order(Str::idFromRef($payload['orderRef']));
 
         if (! $order instanceof WC_Order) {
-            die(__('Order not found.', 'pine-simplepay'));
+            die(__('Order not found.', 'cone-simplepay'));
         }
 
         Config::setByCurrency($order->get_currency());
 
         if (! Hash::check($_SERVER['HTTP_SIGNATURE'], $input)) {
-            die(__('Invalid signature.', 'pine-simplepay'));
+            die(__('Invalid signature.', 'cone-simplepay'));
         }
 
         if (isset($payload['refundStatus']) && $payload['status'] === 'FINISHED') {
@@ -215,6 +216,7 @@ class Gateway extends WC_Payment_Gateway
         }
 
         $payload['receiveDate'] = date('c');
+
         header('Content-type: application/json');
         header('Signature: '.Hash::make($response = json_encode($payload)));
         die($response);

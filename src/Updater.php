@@ -1,6 +1,6 @@
 <?php
 
-namespace Pine\SimplePay;
+namespace Cone\SimplePay;
 
 class Updater
 {

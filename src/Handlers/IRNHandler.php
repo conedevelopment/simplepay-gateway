@@ -1,12 +1,12 @@
 <?php
 
-namespace Pine\SimplePay\Handlers;
+namespace Cone\SimplePay\Handlers;
 
+use Cone\SimplePay\Payloads\StatusPayload;
+use Cone\SimplePay\Support\Config;
+use Cone\SimplePay\Support\Log;
+use Cone\SimplePay\Support\Request;
 use Exception;
-use Pine\SimplePay\Payloads\StatusPayload;
-use Pine\SimplePay\Support\Config;
-use Pine\SimplePay\Support\Log;
-use Pine\SimplePay\Support\Request;
 
 class IRNHandler extends Handler
 {
@@ -20,7 +20,7 @@ class IRNHandler extends Handler
     {
         Log::info(sprintf(
             "%s\n%s",
-            __('IRN event was fired.', 'pine-simplepay'),
+            __('IRN event was fired.', 'cone-simplepay'),
             json_encode($payload)
         ));
 

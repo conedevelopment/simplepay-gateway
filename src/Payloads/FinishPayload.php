@@ -8,36 +8,35 @@ use Cone\SimplePay\Support\Hash;
 use Cone\SimplePay\Support\Str;
 use WC_Order;
 
-abstract class RefundPayload
+abstract class FinishPayload
 {
     /**
      * Handle the data.
      *
      * @param  \WC_Order  $order
-     * @param  int|float  $amount
      * @return string
      */
-    public static function handle(WC_Order $order, $amount)
+    public static function handle(WC_Order $order)
     {
-        return json_encode(static::serialize($order, $amount));
+        return json_encode(static::serialize($order));
     }
 
     /**
      * Serialize the data.
      *
      * @param  \WC_Order  $order
-     * @param  int|float  $amount
      * @return array
      */
-    protected static function serialize(WC_Order $order, $amount)
+    protected static function serialize(WC_Order $order)
     {
         return [
             'salt' => Hash::salt(),
-            'refundTotal' => $amount,
             'merchant' => Config::get('merchant'),
-            'currency' => $order->get_order_currency(),
             'orderRef' => Str::refFromId($order->get_order_number()),
+            'currency' => $order->get_currency(),
             'sdkVersion' => 'Pine SimplePay Gateway:'.Plugin::VERSION,
+            'originalTotal' => $reserved = $order->get_meta('_cone_simplepay_two_step_payment_reserved'),
+            'approveTotal' => min($reserved, $order->get_total()),
         ];
     }
 }

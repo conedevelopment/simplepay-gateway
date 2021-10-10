@@ -1,6 +1,6 @@
 <?php
 
-namespace Pine\SimplePay\Support;
+namespace Cone\SimplePay\Support;
 
 abstract class Config
 {
@@ -111,5 +111,15 @@ abstract class Config
     public static function isDebug()
     {
         return static::get('debug') === 'yes';
+    }
+
+    /**
+     * Determine if the two step payment is enabled.
+     *
+     * @return bool
+     */
+    public static function isTwoStep()
+    {
+        return static::get('two_step') === 'yes';
     }
 }

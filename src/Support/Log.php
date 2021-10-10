@@ -1,6 +1,6 @@
 <?php
 
-namespace Pine\SimplePay\Support;
+namespace Cone\SimplePay\Support;
 
 abstract class Log
 {

@@ -1,12 +1,12 @@
 {
     "name": "conedevelopment/simplepay-gateway",
-    "description": "OTP SimplePay integration for WooCommerce (WordPress) stores",
+    "description": "OTP SimplePay integration for WooCommerce (WordPress) stores.",
     "type": "wordpress-plugin",
     "license": "MIT",
     "authors": [
         {
-            "name": "Gergő D. Nagy",
-            "email": "hello@iamgergo.com"
+            "name": "Cone Development",
+            "email": "hello@conedevelopment.com"
         }
     ],
     "require": {

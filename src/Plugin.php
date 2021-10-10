@@ -1,8 +1,8 @@
 <?php
 
-namespace Pine\SimplePay;
+namespace Cone\SimplePay;
 
-use Pine\SimplePay\Support\Config;
+use Cone\SimplePay\Support\Config;
 use WooCommerce;
 
 class Plugin
@@ -12,7 +12,7 @@ class Plugin
      *
      * @var string
      */
-    public const VERSION = '2.4.14';
+    public const VERSION = '2.5.0';
 
     /**
      * The plugin slug.
@@ -33,7 +33,7 @@ class Plugin
         add_filter('plugin_action_links_'.static::SLUG, [__CLASS__, 'addLink']);
         add_filter('body_class', [__CLASS__, 'addBodyClass']);
 
-        load_plugin_textdomain('pine-simplepay', false, basename(dirname(__DIR__)).'/languages');
+        load_plugin_textdomain('cone-simplepay', false, basename(dirname(__DIR__)).'/languages');
 
         Config::boot(get_option('woocommerce_simplepay-gateway_settings', []));
 
@@ -58,7 +58,7 @@ class Plugin
     public static function activate()
     {
         if (! class_exists(WooCommerce::class)) {
-            die(__('Please activate WooCommerce before using SimplePay Gateway!', 'pine-simplepay'));
+            die(__('Please activate WooCommerce before using SimplePay Gateway!', 'cone-simplepay'));
         }
     }
 
@@ -98,6 +98,7 @@ class Plugin
     {
         if (class_exists(WooCommerce::class)) {
             Gateway::boot();
+            TwoStepPayment::boot();
         }
     }
 
@@ -109,6 +110,6 @@ class Plugin
      */
     public static function addBodyClass($classes)
     {
-        return array_merge($classes, ['pine-simplepay-gateway']);
+        return array_merge($classes, ['cone-simplepay-gateway']);
     }
 }
