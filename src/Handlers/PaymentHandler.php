@@ -83,7 +83,8 @@ class PaymentHandler extends Handler
             }
         } catch (Exception $e) {
             $this->order->update_meta_data(
-                '_cone_simplepay_two_step_payment_reserved', $total = $this->order->get_total()
+                '_cone_simplepay_two_step_payment_reserved',
+                $total = $this->order->get_total()
             );
 
             $this->order->add_order_note(sprintf(
