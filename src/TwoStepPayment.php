@@ -69,15 +69,15 @@ class TwoStepPayment
                 throw new Exception(__('Request is invalid', 'cone-simplepay'));
             }
 
-            $order->add_order_note(sprintf(
-                __('Two step SimplePay payment has been finished.', 'cone-simplepay'),
-            ));
+            $order->add_order_note(
+                __('Two step SimplePay payment has been finished.', 'cone-simplepay')
+            );
         } catch (Exception $e) {
             Log::info(sprintf('%s: %s', $e->getMessage(), $payload));
 
-            $order->add_order_note(sprintf(
-                __('Two step SimplePay payment request has been failed.', 'cone-simplepay'),
-            ));
+            $order->add_order_note(
+                __('Two step SimplePay payment request has been failed.', 'cone-simplepay')
+            );
         }
     }
 }
