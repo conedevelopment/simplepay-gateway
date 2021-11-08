@@ -1,6 +1,9 @@
 # Changelog
 
-## v2.5.0 (Unreleased)
+## v2.5.1
+- Fixed trailing comma ([#86](https://github.com/conedevelopment/simplepay-gateway/issues/86))
+
+## v2.5.0 (2021-10-10)
 
 - Changed namespace from `Pine\SimplePay` to `Cone\SimplePay`
 - Changed translation keys from `pine-simplepay` to `cone-simplepay`
