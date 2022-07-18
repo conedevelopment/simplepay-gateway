@@ -138,7 +138,7 @@ abstract class PaymentPayload
             'price' => ($item->get_total() + $item->get_total_tax()) / $quantity,
             'amount' => $quantity,
             'title' => $product->get_name(),
-            'description' => $product->get_description(),
+            'description' => wp_trim_words($product->get_description()),
             'ref' => $product->get_sku() ?: $product->get_id(),
         ];
     }
