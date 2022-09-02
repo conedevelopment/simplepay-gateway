@@ -6,6 +6,7 @@ use Cone\SimplePay\Plugin;
 use Cone\SimplePay\Support\Config;
 use Cone\SimplePay\Support\Hash;
 use Cone\SimplePay\Support\Str;
+use DateTime;
 use WC_Order;
 use WC_Order_Item;
 use WC_Order_Item_Fee;
@@ -33,7 +34,7 @@ abstract class PaymentPayload
     {
         return [
             'salt' => Hash::salt(),
-            'timeout' => date('c', strtotime('+30 minutes')),
+            'timeout' => static::timeout($order),
             'methods' => ['CARD'],
             'merchant' => Config::get('merchant'),
             'orderRef' => Str::refFromId($order->get_order_number()),
@@ -161,6 +162,18 @@ abstract class PaymentPayload
             'description' => '',
             'ref' => $item->get_id(),
         ];
+    }
+
+    /**
+     * Get the timeout.
+     *
+     * @return string
+     */
+    public function timeout(WC_Order $order): string
+    {
+        $time = new DateTime('+30 minutes', wp_timezone());
+
+        return $time->format('c');
     }
 
     /**
