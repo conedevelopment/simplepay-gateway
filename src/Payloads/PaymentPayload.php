@@ -167,6 +167,7 @@ abstract class PaymentPayload
     /**
      * Get the timeout.
      *
+     * @param  \WC_Order  $order
      * @return string
      */
     public function timeout(WC_Order $order): string
