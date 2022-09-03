@@ -170,7 +170,7 @@ abstract class PaymentPayload
      * @param  \WC_Order  $order
      * @return string
      */
-    public function timeout(WC_Order $order): string
+    public static function timeout(WC_Order $order): string
     {
         $time = new DateTime('+30 minutes', wp_timezone());
 
