@@ -172,7 +172,7 @@ abstract class PaymentPayload
      */
     public static function timeout(WC_Order $order): string
     {
-        $time = new DateTime('+30 minutes', wp_timezone());
+        $time = new DateTime(apply_filters('cone_simplepay_payment_timeout', '+30 minutes'), wp_timezone());
 
         return $time->format('c');
     }
