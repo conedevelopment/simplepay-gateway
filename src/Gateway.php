@@ -178,7 +178,7 @@ class Gateway extends WC_Payment_Gateway
 
         if (! $order instanceof WC_Order) {
             wp_safe_redirect(wc_get_checkout_url());
-            die;
+            die();
         }
 
         Config::setByCurrency($order->get_currency());
@@ -324,7 +324,7 @@ class Gateway extends WC_Payment_Gateway
      */
     public static function boot()
     {
-        (new static)->registerHooks();
+        (new static())->registerHooks();
     }
 
     /**
