@@ -23,7 +23,8 @@ class PaymentHandler extends Handler
         $this->order->set_transaction_id($payload['t']);
 
         if ($payload['e'] === 'SUCCESS') {
-            $this->order->set_status('pending');
+			if (!$this->order->is_paid())
+            	$this->order->set_status('pending');
 
             if (PaymentPayload::shouldBeTwoStep($this->order)) {
                 $this->handleTwoStepPayment();
