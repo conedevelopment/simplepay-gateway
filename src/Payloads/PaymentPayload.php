@@ -40,7 +40,7 @@ abstract class PaymentPayload
             'orderRef' => Str::refFromId($order->get_order_number()),
             'discount' => static::discount_total($order),
             'currency' => $order->get_currency(),
-            'shippingCost' => $order->get_shipping_total() + $order->get_shipping_tax(),
+            'shippingCost' => (float)$order->get_shipping_total() + (float)$order->get_shipping_tax(),
             'language' => substr(get_locale(), 0, 2),
             'url' => add_query_arg(['wc-api' => 'process_simplepay_payment'], home_url('/')),
             'sdkVersion' => 'Pine SimplePay Gateway:'.Plugin::VERSION,
@@ -104,23 +104,23 @@ abstract class PaymentPayload
     }
 
     /**
-     * Serialize the discount items.
+     * Get the total discount of the order
      *
      * @param  \WC_Order  $order
-     * @return array
+     * @return float
      */
     protected static function discount_total(WC_Order $order)
     {
         return array_sum(array_reduce($order->get_items(['line_item', 'fee']), function ($items, $item) {
-            return $item->get_total() < 0
-                ? array_merge(
-                    $items,
-                    $item instanceof WC_Order_Item_Fee ? [static::mapFeeItem($item)['price']] : [static::mapLineItem($item)['price']]
-                )
-                : $items;
-        }, []) + $order->get_discount_total();
+                return $item->get_total() < 0
+                    ? array_merge(
+                        $items,
+                        $item instanceof WC_Order_Item_Fee ? [static::mapFeeItem($item)['price']] : [static::mapLineItem($item)['price']]
+                    )
+                    : $items;
+            }, [])) + (float)$order->get_discount_total();
     }
-    
+
     /**
      * Serialize the items.
      *
