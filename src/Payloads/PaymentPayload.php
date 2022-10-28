@@ -38,7 +38,7 @@ abstract class PaymentPayload
             'methods' => ['CARD'],
             'merchant' => Config::get('merchant'),
             'orderRef' => Str::refFromId($order->get_order_number()),
-            'discount' => 0,
+            'discount' => static::discounts($order),
             'currency' => $order->get_currency(),
             'shippingCost' => $order->get_shipping_total() + $order->get_shipping_tax(),
             'language' => substr(get_locale(), 0, 2),
@@ -103,6 +103,24 @@ abstract class PaymentPayload
         ];
     }
 
+    /**
+     * Serialize the discount items.
+     *
+     * @param  \WC_Order  $order
+     * @return array
+     */
+    protected static function discount_total(WC_Order $order)
+    {
+        return array_sum(array_reduce($order->get_items(['line_item', 'fee']), function ($items, $item) {
+            return $item->get_total() < 0
+                ? array_merge(
+                    $items,
+                    $item instanceof WC_Order_Item_Fee ? [static::mapFeeItem($item)] : [static::mapLineItem($item)]
+                )
+                : $items;
+        }, []) + $order->get_discount_total();
+    }
+    
     /**
      * Serialize the items.
      *
