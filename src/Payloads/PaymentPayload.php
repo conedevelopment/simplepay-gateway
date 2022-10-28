@@ -38,7 +38,7 @@ abstract class PaymentPayload
             'methods' => ['CARD'],
             'merchant' => Config::get('merchant'),
             'orderRef' => Str::refFromId($order->get_order_number()),
-            'discount' => static::discounts($order),
+            'discount' => static::discount_total($order),
             'currency' => $order->get_currency(),
             'shippingCost' => $order->get_shipping_total() + $order->get_shipping_tax(),
             'language' => substr(get_locale(), 0, 2),
