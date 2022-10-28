@@ -115,7 +115,7 @@ abstract class PaymentPayload
             return $item->get_total() < 0
                 ? array_merge(
                     $items,
-                    $item instanceof WC_Order_Item_Fee ? [static::mapFeeItem($item)] : [static::mapLineItem($item)]
+                    $item instanceof WC_Order_Item_Fee ? [static::mapFeeItem($item)['price']] : [static::mapLineItem($item)['price']]
                 )
                 : $items;
         }, []) + $order->get_discount_total();
