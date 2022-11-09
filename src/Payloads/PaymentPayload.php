@@ -118,7 +118,7 @@ abstract class PaymentPayload
                         $item instanceof WC_Order_Item_Fee ? [static::mapFeeItem($item)['price']] : [static::mapLineItem($item)['price']]
                     )
                     : $items;
-            }, [])) + (float)$order->get_discount_total() + (float)$order->get_discount_tax();
+            }, []));
     }
 
     /**
