@@ -21,5 +21,17 @@ class IPNHandler extends Handler
         ));
 
         $this->order->payment_complete();
+
+        $virtual = true;
+
+        foreach ($this->order->get_items(['line_item']) as $item) {
+            if (! $virtual = $item->get_product()->is_virtual()) {
+                break;
+            }
+        }
+
+        if ($virtual) {
+            $this->order->update_status('completed');
+        }
     }
 }
