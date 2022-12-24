@@ -104,21 +104,20 @@ abstract class PaymentPayload
     }
 
     /**
-     * Get the total discount of the order
+     * Get the total discount of the order.
      *
      * @param  \WC_Order  $order
      * @return float
      */
-    protected static function discount_total(WC_Order $order)
+    protected static function discount(WC_Order $order)
     {
-        return abs(array_sum(array_reduce($order->get_items(['line_item', 'fee']), function ($items, $item) {
-                return $item->get_total() < 0
-                    ? array_merge(
-                        $items,
-                        $item instanceof WC_Order_Item_Fee ? [static::mapFeeItem($item)['price']] : [static::mapLineItem($item)['price']]
-                    )
-                    : $items;
-            }, [])));
+        return array_reduce($order->get_items(['line_item', 'fee']), function ($total, $item) {
+            if ($item->get_total() < 0) {
+                $total += abs($item instanceof WC_Order_Item_Fee ? [static::mapFeeItem($item)['price']] : [static::mapLineItem($item)['price']]);
+            }
+
+            return $total;
+        }, 0);
     }
 
     /**
