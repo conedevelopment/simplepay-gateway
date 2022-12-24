@@ -113,7 +113,7 @@ abstract class PaymentPayload
     {
         return array_reduce($order->get_items(['line_item', 'fee']), function ($total, $item) {
             if ($item->get_total() < 0) {
-                $total += abs($item instanceof WC_Order_Item_Fee ? [static::mapFeeItem($item)['price']] : [static::mapLineItem($item)['price']]);
+                $total += abs($item instanceof WC_Order_Item_Fee ? static::mapFeeItem($item)['price'] : static::mapLineItem($item)['price']);
             }
 
             return $total;
