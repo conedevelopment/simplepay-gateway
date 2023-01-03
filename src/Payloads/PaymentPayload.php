@@ -38,9 +38,9 @@ abstract class PaymentPayload
             'methods' => ['CARD'],
             'merchant' => Config::get('merchant'),
             'orderRef' => Str::refFromId($order->get_order_number()),
-            'discount' => 0,
+            'discount' => static::discount($order),
             'currency' => $order->get_currency(),
-            'shippingCost' => $order->get_shipping_total() + $order->get_shipping_tax(),
+            'shippingCost' => (float) $order->get_shipping_total() + (float) $order->get_shipping_tax(),
             'language' => substr(get_locale(), 0, 2),
             'url' => add_query_arg(['wc-api' => 'process_simplepay_payment'], home_url('/')),
             'sdkVersion' => 'Pine SimplePay Gateway:'.Plugin::VERSION,
@@ -101,6 +101,23 @@ abstract class PaymentPayload
             'address2' => $order->get_shipping_address_2(),
             'name' => $order->get_formatted_shipping_full_name(),
         ];
+    }
+
+    /**
+     * Get the total discount of the order.
+     *
+     * @param  \WC_Order  $order
+     * @return float
+     */
+    protected static function discount(WC_Order $order)
+    {
+        return array_reduce($order->get_items(['line_item', 'fee']), function ($total, $item) {
+            if ($item->get_total() < 0) {
+                $total += abs($item->get_total() + $item->get_total_tax());
+            }
+
+            return $total;
+        }, 0);
     }
 
     /**
