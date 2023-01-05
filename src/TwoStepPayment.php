@@ -25,7 +25,7 @@ class TwoStepPayment
      */
     public static function boot()
     {
-        add_action('woocommerce_order_actions', [static::class, 'register']);
+        add_filter('woocommerce_order_actions', [static::class, 'register']);
         add_action('woocommerce_order_action_'.static::ACTION, [static::class, 'handle']);
     }
 

@@ -16,7 +16,7 @@
     "require-dev": {
         "php": "^7.2",
         "squizlabs/php_codesniffer": "^3.5.5",
-        "szepeviktor/phpstan-wordpress": "^0.7.7",
+        "szepeviktor/phpstan-wordpress": "^1.0",
         "php-stubs/woocommerce-stubs": "^4.2.2"
     },
     "scripts": {
@@ -28,5 +28,10 @@
             "@test:cs",
             "@test:phpstan"
         ]
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true
+        }
     }
 }

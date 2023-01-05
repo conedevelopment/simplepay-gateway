@@ -337,7 +337,7 @@ class Gateway extends WC_Payment_Gateway
         add_action('admin_enqueue_scripts', [$this, 'scripts']);
         add_filter('woocommerce_payment_gateways', [$this, 'register']);
         add_filter('woocommerce_gateway_icon', [$this, 'addIconLink'], 10, 2);
-        add_filter('woocommerce_api_process_simplepay_payment', [$this, 'handlePayment']);
+        add_action('woocommerce_api_process_simplepay_payment', [$this, 'handlePayment']);
         add_action("woocommerce_api_wc_gateway_{$this->id}", [$this, 'handleNotification']);
         add_action('woocommerce_order_details_after_order_table_items', [$this, 'extnendOrderTable']);
         add_action("woocommerce_update_options_payment_gateways_{$this->id}", [$this, 'process_admin_options']);
