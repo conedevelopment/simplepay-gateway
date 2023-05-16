@@ -50,7 +50,7 @@ class PaymentHandler extends Handler
             $this->order->set_status('cancelled');
 
             wc_add_notice(sprintf(
-                __('The transaction (%d) has been expired!', 'cone-simplepay')
+                __('The transaction (%d) has been expired!', 'cone-simplepay'),
                 $payload['t']
             ), 'error');
         }
