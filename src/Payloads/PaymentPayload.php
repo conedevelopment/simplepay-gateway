@@ -176,7 +176,7 @@ abstract class PaymentPayload
 
         return [
             'tax' => 0,
-            'price' => ($item->get_total() + $item->get_total_tax()) / $quantity,
+            'price' => ($item->get_subtotal() + $item->get_total_tax()) / $quantity,
             'amount' => $quantity,
             'title' => $item->get_name(),
             'description' => '',
