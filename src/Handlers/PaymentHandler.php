@@ -35,7 +35,10 @@ class PaymentHandler extends Handler
         } elseif ($payload['e'] === 'CANCEL') {
             $this->order->set_status('pending');
 
-            wc_add_notice(__('You cancelled your transaction.', 'cone-simplepay'), 'error');
+            wc_add_notice(sprintf(
+                __('You cancelled your transaction: %d.', 'cone-simplepay'),
+                $payload['t']
+            ), 'error');
         } elseif ($payload['e'] === 'FAIL') {
             $this->order->set_status('failed');
 
@@ -46,7 +49,10 @@ class PaymentHandler extends Handler
         } elseif ($payload['e'] === 'TIMEOUT') {
             $this->order->set_status('cancelled');
 
-            wc_add_notice(__('The transaction has been expired!', 'cone-simplepay'), 'error');
+            wc_add_notice(sprintf(
+                __('The transaction (%d) has been expired!', 'cone-simplepay')
+                $payload['t']
+            ), 'error');
         }
 
         $this->order->save();

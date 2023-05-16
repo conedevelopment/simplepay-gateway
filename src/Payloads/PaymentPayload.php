@@ -9,6 +9,7 @@ use Cone\SimplePay\Support\Str;
 use DateTime;
 use WC_Order;
 use WC_Order_Item;
+use WC_Order_Item_Coupon;
 use WC_Order_Item_Fee;
 
 abstract class PaymentPayload
@@ -111,8 +112,10 @@ abstract class PaymentPayload
      */
     protected static function discount(WC_Order $order)
     {
-        return array_reduce($order->get_items(['line_item', 'fee']), function ($total, $item) {
-            if ($item->get_total() < 0) {
+        return array_reduce($order->get_items(['line_item', 'fee', 'coupon']), function ($total, $item) {
+            if ($item instanceof WC_Order_Item_Coupon) {
+                $total += $item->get_discount();
+            } elseif ($item->get_total() < 0) {
                 $total += abs($item->get_total() + $item->get_total_tax());
             }
 
