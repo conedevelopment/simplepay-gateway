@@ -8,7 +8,7 @@ This plugin provides a payment gateway for OTP SimplePay.
 
 ### Verisons
 
-| Bővítmény | SimplePay API |
+| Plugin    | SimplePay API |
 |:---------:|:-------------:|
 | v1+       | v1            |
 | v2+       | v2            |
