@@ -132,12 +132,10 @@ abstract class PaymentPayload
     protected static function items(WC_Order $order)
     {
         return array_filter(array_reduce($order->get_items(['line_item', 'fee']), function ($items, $item) {
-            return $item->get_total() > 0
-                ? array_merge(
-                    $items,
-                    $item instanceof WC_Order_Item_Fee ? [static::mapFeeItem($item)] : [static::mapLineItem($item)]
-                )
-                : $items;
+            return array_merge(
+                $items,
+                $item instanceof WC_Order_Item_Fee ? [static::mapFeeItem($item)] : [static::mapLineItem($item)]
+            );
         }, []), function ($item) {
             return isset($item['price']) && $item['price'] > 0;
         });
@@ -156,7 +154,7 @@ abstract class PaymentPayload
 
         return [
             'tax' => 0,
-            'price' => ($item->get_subtotal() + $item->get_total_tax()) / $quantity,
+            'price' => abs($item->get_subtotal() + $item->get_total_tax()) / $quantity,
             'amount' => $quantity,
             'title' => $product->get_name(),
             'description' => wp_trim_words($product->get_description()),
@@ -176,7 +174,7 @@ abstract class PaymentPayload
 
         return [
             'tax' => 0,
-            'price' => ($item->get_subtotal() + $item->get_total_tax()) / $quantity,
+            'price' => abs($item->get_subtotal() + $item->get_total_tax()) / $quantity,
             'amount' => $quantity,
             'title' => $item->get_name(),
             'description' => '',
