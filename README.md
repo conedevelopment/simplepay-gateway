@@ -6,6 +6,9 @@
 
 # OTP SimplePay bővítmény Woocommerce-hez (WordPress)
 
+[![en](https://img.shields.io/badge/lang-English%20%F0%9F%87%AC%F0%9F%87%A7-white)](README.en.md)
+[![hu](https://img.shields.io/badge/nyelv-magyar%20%F0%9F%87%AD%F0%9F%87%BA-white)](README.md)
+
 Bővítményünk OTP SimplePay fizetési kaput biztosít WooCommerce (WordPress) áruházak részére ingyenesen.
 
 ## További információk
