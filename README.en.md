@@ -1,4 +1,13 @@
-# Readme
+<p>
+    <a href="https://conedevelopment.com/hu/">
+        <img alt="Cone Development" src="https://conedevelopment.com/wp-content/themes/cone/assets/img/logo.svg" width="100">
+    </a>
+</p>
+
+# OTP SimplePay plugin for Woocommerce (WordPress)
+
+[![hu](https://img.shields.io/badge/nyelv-magyar%20%F0%9F%87%AD%F0%9F%87%BA-white)](README.md)
+[![en](https://img.shields.io/badge/lang-English%20%F0%9F%87%AC%F0%9F%87%A7-white)](README.en.md)
 
 This plugin provides a payment gateway for OTP SimplePay.
 
