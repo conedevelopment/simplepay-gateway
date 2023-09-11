@@ -123,6 +123,40 @@ class Gateway extends WC_Payment_Gateway
         }
     }
 
+     /**
+     * Get the order.
+     *
+     * @param  string  $orderId
+     * @return WC_Order|false
+     */
+    public function getOrder($orderId)
+    {
+        if (! $order = wc_get_order(Str::idFromRef($orderId))) {
+            $order = wc_get_order(wc_get_order_id_by_order_key($orderId));
+        }
+
+        if (! $order instanceof WC_Order) {
+            // search for the order by custom order number
+            $query_args = array(
+                'numberposts' => 1,
+                'meta_key'    => '_order_number_formatted',
+                'meta_value'  => preg_replace("/^wc-/","", $orderId),
+                'post_type'   => 'shop_order',
+                'post_status' => 'any',
+                'fields'      => 'ids',
+            );
+    
+            $posts            = get_posts( $query_args );
+            list( $order_id ) = ! empty( $posts ) ? $posts : null;            
+            // order was found
+            if ( $order_id !== null ) {
+                $order=wc_get_order($order_id);
+            }
+       }
+
+       return $order;
+    }
+
     /**
      * Process the payment.
      *
@@ -131,7 +165,7 @@ class Gateway extends WC_Payment_Gateway
      */
     public function process_payment($orderId)
     {
-        $order = wc_get_order($orderId);
+        $order = $this->getOrder($orderId);
 
         Config::setByCurrency($order->get_currency());
 
@@ -172,9 +206,7 @@ class Gateway extends WC_Payment_Gateway
     {
         $payload = json_decode(base64_decode($_GET['r']), true);
 
-        if (! $order = wc_get_order(Str::idFromRef($payload['o']))) {
-            $order = wc_get_order(wc_get_order_id_by_order_key($payload['o']));
-        }
+        $order = $this->getOrder($payload['o']);        
 
         if (! $order instanceof WC_Order) {
             wp_safe_redirect(wc_get_checkout_url());
@@ -197,7 +229,7 @@ class Gateway extends WC_Payment_Gateway
 
         $payload = json_decode($input, true);
 
-        $order = wc_get_order(Str::idFromRef($payload['orderRef']));
+        $order = $this->getOrder($payload['orderRef']);
 
         if (! $order instanceof WC_Order) {
             die(__('Order not found.', 'cone-simplepay'));
@@ -232,7 +264,7 @@ class Gateway extends WC_Payment_Gateway
      */
     public function process_refund($orderId, $amount = null, $reason = '')
     {
-        $order = wc_get_order($orderId);
+        $order = $this->getOrder($orderId);
 
         if ($order && $order->get_transaction_id()) {
             Config::setByCurrency($order->get_currency());
