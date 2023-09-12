@@ -132,7 +132,7 @@ class Gateway extends WC_Payment_Gateway
     public function getOrder($orderId)
     {
         $order = wc_get_order(Str::idFromRef($orderId));
-        
+
         if (! $order instanceof WC_Order) {
             $order = wc_get_order(wc_get_order_id_by_order_key($orderId));
         }
@@ -202,7 +202,7 @@ class Gateway extends WC_Payment_Gateway
     {
         $payload = json_decode(base64_decode($_GET['r']), true);
 
-        $order = $this->getOrder($payload['o']);        
+        $order = $this->getOrder($payload['o']);
 
         if (! $order instanceof WC_Order) {
             wp_safe_redirect(wc_get_checkout_url());
@@ -253,7 +253,7 @@ class Gateway extends WC_Payment_Gateway
     /**
      * Process the refund.
      *
-     * @param  int  $orderId
+     * @param  int|string  $orderId
      * @param  float|null  $amount
      * @param  string|null  $reason
      * @return bool
