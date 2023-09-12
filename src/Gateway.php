@@ -126,32 +126,28 @@ class Gateway extends WC_Payment_Gateway
      /**
      * Get the order.
      *
-     * @param  string  $orderId
-     * @return WC_Order|false
+     * @param  int|string  $orderId
+     * @return \WC_Order|false
      */
     public function getOrder($orderId)
     {
-        if (! $order = wc_get_order(Str::idFromRef($orderId))) {
+        $order = wc_get_order(Str::idFromRef($orderId));
+        
+        if (! $order instanceof WC_Order) {
             $order = wc_get_order(wc_get_order_id_by_order_key($orderId));
         }
 
         if (! $order instanceof WC_Order) {
-            // search for the order by custom order number
-            $query_args = array(
+            $ids = get_posts([
                 'numberposts' => 1,
-                'meta_key'    => '_order_number_formatted',
-                'meta_value'  => preg_replace("/^wc-/","", $orderId),
-                'post_type'   => 'shop_order',
+                'meta_key' => '_order_number_formatted',
+                'meta_value' => preg_replace('/^wc-/', '', $orderId),
+                'post_type' => 'shop_order',
                 'post_status' => 'any',
-                'fields'      => 'ids',
-            );
-    
-            $posts            = get_posts( $query_args );
-            list( $order_id ) = ! empty( $posts ) ? $posts : null;            
-            // order was found
-            if ( $order_id !== null ) {
-                $order=wc_get_order($order_id);
-            }
+                'fields' => 'ids',
+            ]);
+
+            $order = empty($ids) ? false : wc_get_order($ids[0]);
        }
 
        return $order;
@@ -160,7 +156,7 @@ class Gateway extends WC_Payment_Gateway
     /**
      * Process the payment.
      *
-     * @param  int  $orderId
+     * @param  int|string  $orderId
      * @return array|void
      */
     public function process_payment($orderId)
