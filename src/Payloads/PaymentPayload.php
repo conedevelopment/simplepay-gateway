@@ -158,7 +158,7 @@ abstract class PaymentPayload
             'tax' => 0,
             'price' => abs($item->get_subtotal() + $item->get_total_tax()) / $quantity,
             'amount' => $quantity,
-            'title' => $product->get_name(),
+            'title' => wp_strip_all_tags($product->get_name(), true),
             'description' => wp_trim_words($product->get_description()),
             'ref' => $product->get_sku() ?: $product->get_id(),
         ];
@@ -178,7 +178,7 @@ abstract class PaymentPayload
             'tax' => 0,
             'price' => abs($item->get_total() + $item->get_total_tax()) / $quantity,
             'amount' => $quantity,
-            'title' => $item->get_name(),
+            'title' => wp_strip_all_tags($item->get_name(), true),
             'description' => '',
             'ref' => $item->get_id(),
         ];
