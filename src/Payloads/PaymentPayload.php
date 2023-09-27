@@ -132,7 +132,7 @@ abstract class PaymentPayload
     protected static function items(WC_Order $order)
     {
         return array_filter(array_reduce($order->get_items(['line_item', 'fee']), function ($items, $item) {
-            return $item->get_total() > 0
+            return $item->get_total() >= 0
                 ? array_merge(
                     $items,
                     $item instanceof WC_Order_Item_Fee ? [static::mapFeeItem($item)] : [static::mapLineItem($item)]
