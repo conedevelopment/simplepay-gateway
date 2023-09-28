@@ -24,7 +24,7 @@ require_once __DIR__.'/autoload.php';
 register_activation_hook(__FILE__, [Cone\SimplePay\Plugin::class, 'activate']);
 register_deactivation_hook(__FILE__, [Cone\SimplePay\Plugin::class, 'deactivate']);
 
-// Declare HPOS compatiblity
+// Declare HPOS compatibility
 add_action('before_woocommerce_init', function () {
     if (class_exists(Automattic\WooCommerce\Utilities\FeaturesUtil::class)) {
         Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility('custom_order_tables', __FILE__, true);
