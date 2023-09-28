@@ -1,7 +1,13 @@
 <p>
-    <a href="https://conedevelopment.com/hu/">
-        <img alt="Cone Development" src="https://conedevelopment.com/wp-content/themes/cone/assets/img/logo.svg" width="100">
-    </a>
+  <a href="https://conedevelopment.com/">
+    <br>
+    <picture>
+      <source media="(prefers-color-scheme: light)" srcset="https://github.com/conedevelopment/.github/raw/master/.github/cone-logo-dark.svg">
+      <source media="(prefers-color-scheme: dark)" srcset="https://github.com/conedevelopment/.github/raw/master/.github/cone-logo-light.svg">
+      <img alt="Cone Development" width="120" src="https://github.com/conedevelopment/.github/raw/master/.github/cone-logo-dark.svg">
+    </picture>
+    <br>
+  </a>
 </p>
 
 # OTP SimplePay plugin for Woocommerce (WordPress)
