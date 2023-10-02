@@ -2,9 +2,9 @@
   <a href="https://conedevelopment.com/hu/">
     <br>
     <picture>
-      <source media="(prefers-color-scheme: light)" srcset="https://github.com/conedevelopment/.github/raw/master/.github/cone-logo-dark.svg">
-      <source media="(prefers-color-scheme: dark)" srcset="https://github.com/conedevelopment/.github/raw/master/.github/cone-logo-light.svg">
-      <img alt="Cone Development" width="120" src="https://github.com/conedevelopment/.github/raw/master/.github/cone-logo-dark.svg">
+      <source media="(prefers-color-scheme: light)" srcset="https://github.com/conedevelopment/.github/raw/master/.github/cone-logo-dark-square.svg">
+      <source media="(prefers-color-scheme: dark)" srcset="https://github.com/conedevelopment/.github/raw/master/.github/cone-logo-light-square.svg">
+      <img alt="Cone Development" width="110" src="https://github.com/conedevelopment/.github/raw/master/.github/cone-logo-dark-square.svg">
     </picture>
     <br>
   </a>
