@@ -2,7 +2,7 @@
     "slug": "simplepay-gateway-master/simplepay-gateway.php",
     "plugin": "simplepay-gateway-master/simplepay-gateway.php",
     "tested": "6.3.1",
-    "new_version": "2.7.1",
+    "new_version": "2.7.2",
     "package": "https://github.com/conedevelopment/simplepay-gateway/archive/master.zip",
     "url": "https://github.com/conedevelopment/simplepay-gateway"
 }
