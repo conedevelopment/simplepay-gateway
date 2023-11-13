@@ -132,9 +132,9 @@ abstract class PaymentPayload
     protected static function items(WC_Order $order)
     {
         return array_reduce($order->get_items(['line_item', 'fee']), function ($items, $item) {
-            if ($item instanceof WC_Order_Item_Fee && $item->get_total() > 0) {
+            if ($item->is_type('fee') && $item->get_total() > 0) {
                 $items[] = static::mapFeeItem($item);
-            } elseif ($item->get_subtotal() > 0) {
+            } elseif ($item->is_type('line_item') && $item->get_subtotal() > 0) {
                 $items[] = static::mapLineItem($item);
             }
 
