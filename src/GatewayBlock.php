@@ -41,7 +41,7 @@ final class GatewayBlock extends AbstractPaymentMethodType {
 		return [
 			'title' => $this->gateway->title,
 			'description' => $this->gateway->description,
-            'icon' => $this->gateway->icon
+			'icon' => $this->gateway->icon
 		];
 	}
 
