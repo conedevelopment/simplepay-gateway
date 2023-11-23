@@ -19,6 +19,4 @@
         },
     };
     window.wc.wcBlocksRegistry.registerPaymentMethod(SimplePayCheckout);
-    console.log(SimplePayCheckout);
-    console.log(settings);
 })();

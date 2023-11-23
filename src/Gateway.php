@@ -15,6 +15,8 @@ use Cone\SimplePay\Support\Str;
 use Exception;
 use WC_Order;
 use WC_Payment_Gateway;
+use Automattic\WooCommerce\Blocks\Payments\Integrations\AbstractPaymentMethodType;
+use Automattic\WooCommerce\Blocks\Payments\PaymentMethodRegistry;
 
 class Gateway extends WC_Payment_Gateway
 {
@@ -363,14 +365,13 @@ class Gateway extends WC_Payment_Gateway
      */
     public static function initBlock()
     {
-        if( ! class_exists( 'Automattic\WooCommerce\Blocks\Payments\Integrations\AbstractPaymentMethodType' ) ) {
+        if( ! class_exists( AbstractPaymentMethodType::class ) ) {
             return;
         }
 
-        require_once 'GatewayBlock.php';
         add_action(
             'woocommerce_blocks_payment_method_type_registration',
-            function (\Automattic\WooCommerce\Blocks\Payments\PaymentMethodRegistry $payment_method_registry) {
+            function (PaymentMethodRegistry $payment_method_registry) {
                 $payment_method_registry->register( new GatewayBlock );
         } );
     }
