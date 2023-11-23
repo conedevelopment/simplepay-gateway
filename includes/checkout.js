@@ -13,7 +13,6 @@
         content: Object(window.wp.element.createElement)(Content, null),
         edit: Object(window.wp.element.createElement)(Content, null),
         canMakePayment: () => true,
-        // placeOrderButtonLabel: window.wp.i18n.__( 'Proceed to Barion', 'pay-via-barion-for-woocommerce' ),
         ariaLabel: label,
         supports: {
             features: settings.supports,
