@@ -1,0 +1,55 @@
+name: "Coding Standards"
+
+on:
+  workflow_dispatch: null
+
+permissions:
+  contents: "write"
+  pull-requests: "write"
+
+concurrency:
+  group: "${{ github.workflow }}-${{ github.ref }}"
+  cancel-in-progress: true
+
+jobs:
+  fix:
+    name: "Fix"
+    runs-on: "ubuntu-latest"
+    steps:
+    -
+      name: "Set up PHP"
+      uses: "shivammathur/setup-php@v2"
+      with:
+        php-version: "7.4"
+    -
+      name: "Checkout repository"
+      uses: "actions/checkout@v4"
+    -
+      name: "Install dependencies"
+      run: "composer update --no-interaction"
+    -
+      name: "Fix violations"
+      run: |
+        # phpcbf exists with 1 on success
+        composer run fix:cs || true
+        # Complex errors need a second run
+        composer run fix:cs || true
+    -
+      name: "Check difference to repository"
+      id: "list_diff"
+      run: |
+        if ! git diff --exit-code; then
+          echo "exit_status=1" >>"${GITHUB_OUTPUT}"
+        fi
+    -
+      name: "Create pull request"
+      if: "${{ steps.list_diff.outputs.exit_status == '1' }}"
+      uses: "peter-evans/create-pull-request@v4"
+      with:
+        add-paths: "./"
+        branch: "cs-fixer"
+        commit-message: "Fix CS"
+        title: "Fix Coding Standards violations"
+        body: |
+            Automated changes by running `phpcbf`.
+        delete-branch: true
