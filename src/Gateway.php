@@ -15,6 +15,8 @@ use Cone\SimplePay\Support\Str;
 use Exception;
 use WC_Order;
 use WC_Payment_Gateway;
+use Automattic\WooCommerce\Blocks\Payments\Integrations\AbstractPaymentMethodType;
+use Automattic\WooCommerce\Blocks\Payments\PaymentMethodRegistry;
 
 class Gateway extends WC_Payment_Gateway
 {
@@ -119,7 +121,7 @@ class Gateway extends WC_Payment_Gateway
         $this->method_description = __('OTP SimplePay Payment Gateway', 'cone-simplepay');
 
         if (isset($this->show_icon) && $this->show_icon === 'yes') {
-            $this->icon = apply_filters('cone_simplepay_icon', plugin_dir_url(__DIR__).'/images/icon.png');
+            $this->icon = apply_filters('cone_simplepay_icon', plugin_dir_url(__DIR__).'images/icon.png');
         }
     }
 
@@ -357,6 +359,24 @@ class Gateway extends WC_Payment_Gateway
     }
 
     /**
+     * Init checkout block compatibility.
+     *
+     * @return void
+     */
+    public static function initBlock()
+    {
+        if( ! class_exists( AbstractPaymentMethodType::class ) ) {
+            return;
+        }
+
+        add_action(
+            'woocommerce_blocks_payment_method_type_registration',
+            function (PaymentMethodRegistry $payment_method_registry) {
+                $payment_method_registry->register( new GatewayBlock );
+        } );
+    }
+
+    /**
      * Register the hooks.
      *
      * @return void
@@ -370,5 +390,6 @@ class Gateway extends WC_Payment_Gateway
         add_action("woocommerce_api_wc_gateway_{$this->id}", [$this, 'handleNotification']);
         add_action('woocommerce_order_details_after_order_table_items', [$this, 'extnendOrderTable']);
         add_action("woocommerce_update_options_payment_gateways_{$this->id}", [$this, 'process_admin_options']);
+        add_action('woocommerce_blocks_loaded', [$this, 'initBlock']);
     }
 }
