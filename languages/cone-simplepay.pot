@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: OTP SimplePay Gateway for WooCommerce 2.7.2\n"
+"Project-Id-Version: OTP SimplePay Gateway for WooCommerce 2.8.0\n"
 "Report-Msgid-Bugs-To: https://simplepay.conedevelopment.com/\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Cone Development <hello@conedevelopment.com>\n"
