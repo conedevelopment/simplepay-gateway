@@ -308,7 +308,7 @@ class Gateway extends WC_Payment_Gateway
      * @param  \WC_Order  $order
      * @return void
      */
-    public function extnendOrderTable($order)
+    public function extendOrderTable($order)
     {
         include __DIR__.'/../includes/order-item-row.php';
     }
@@ -387,7 +387,7 @@ class Gateway extends WC_Payment_Gateway
         add_filter('woocommerce_gateway_icon', [$this, 'addIconLink'], 10, 2);
         add_action('woocommerce_api_process_simplepay_payment', [$this, 'handlePayment']);
         add_action("woocommerce_api_wc_gateway_{$this->id}", [$this, 'handleNotification']);
-        add_action('woocommerce_order_details_after_order_table_items', [$this, 'extnendOrderTable']);
+        add_action('woocommerce_order_details_after_order_table_items', [$this, 'extendOrderTable']);
         add_action("woocommerce_update_options_payment_gateways_{$this->id}", [$this, 'process_admin_options']);
         add_action('woocommerce_blocks_loaded', [$this, 'initBlock']);
     }
