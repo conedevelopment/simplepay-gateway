@@ -31,7 +31,7 @@ abstract class StatusPayload
             'salt' => Hash::salt(),
             'transactionIds' => (array) $ids,
             'merchant' => Config::get('merchant'),
-            'sdkVersion' => 'Pine SimplePay Gateway:'.Plugin::VERSION,
+            'sdkVersion' => 'Pine SimplePay Gateway:' . Plugin::VERSION,
         ];
     }
 }

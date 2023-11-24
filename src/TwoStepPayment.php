@@ -26,7 +26,7 @@ class TwoStepPayment
     public static function boot()
     {
         add_filter('woocommerce_order_actions', [static::class, 'register']);
-        add_action('woocommerce_order_action_'.static::ACTION, [static::class, 'handle']);
+        add_action('woocommerce_order_action_' . static::ACTION, [static::class, 'handle']);
     }
 
     /**
@@ -39,9 +39,11 @@ class TwoStepPayment
     {
         global $theorder;
 
-        if (! $theorder->is_paid()
+        if (
+            ! $theorder->is_paid()
             && $theorder->get_meta('_cone_simplepay_two_step_payment_reserved')
-            && ! $theorder->get_meta('_cone_simplepay_two_step_payment_finished')) {
+            && ! $theorder->get_meta('_cone_simplepay_two_step_payment_finished')
+        ) {
             $actions[static::ACTION] = __('Finish the two step SimplePay payment', 'cone-simplepay');
         }
 

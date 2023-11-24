@@ -8,7 +8,7 @@ spl_autoload_register(static function ($class) {
         return;
     }
 
-    $file = __DIR__.sprintf('/src/%s.php', str_replace(['Cone\\SimplePay\\', '\\'], ['', '/'], $class));
+    $file = __DIR__ . sprintf('/src/%s.php', str_replace(['Cone\\SimplePay\\', '\\'], ['', '/'], $class));
 
     if (is_file($file)) {
         require_once $file;

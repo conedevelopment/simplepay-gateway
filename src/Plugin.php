@@ -30,10 +30,10 @@ class Plugin
     {
         add_action('widgets_init', [__CLASS__, 'registerWidget']);
         add_action('plugins_loaded', [__CLASS__, 'bootGateway']);
-        add_filter('plugin_action_links_'.static::SLUG, [__CLASS__, 'addLink']);
+        add_filter('plugin_action_links_' . static::SLUG, [__CLASS__, 'addLink']);
         add_filter('body_class', [__CLASS__, 'addBodyClass']);
 
-        load_plugin_textdomain('cone-simplepay', false, basename(dirname(__DIR__)).'/languages');
+        load_plugin_textdomain('cone-simplepay', false, basename(dirname(__DIR__)) . '/languages');
 
         Config::boot(get_option('woocommerce_simplepay-gateway_settings', []));
 

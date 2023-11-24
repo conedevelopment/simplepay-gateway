@@ -37,7 +37,7 @@ abstract class RefundPayload
             'merchant' => Config::get('merchant'),
             'currency' => $order->get_order_currency(),
             'orderRef' => Str::refFromId($order->get_order_number()),
-            'sdkVersion' => 'Pine SimplePay Gateway:'.Plugin::VERSION,
+            'sdkVersion' => 'Pine SimplePay Gateway:' . Plugin::VERSION,
         ];
     }
 }

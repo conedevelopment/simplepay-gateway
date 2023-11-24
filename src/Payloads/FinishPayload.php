@@ -34,7 +34,7 @@ abstract class FinishPayload
             'merchant' => Config::get('merchant'),
             'orderRef' => Str::refFromId($order->get_order_number()),
             'currency' => $order->get_currency(),
-            'sdkVersion' => 'Pine SimplePay Gateway:'.Plugin::VERSION,
+            'sdkVersion' => 'Pine SimplePay Gateway:' . Plugin::VERSION,
             'originalTotal' => $reserved = $order->get_meta('_cone_simplepay_two_step_payment_reserved'),
             'approveTotal' => min($reserved, $order->get_total()),
         ];

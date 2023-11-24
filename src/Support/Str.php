@@ -14,7 +14,7 @@ abstract class Str
     {
         $prefix = Config::get('prefix') ?: 'wc-';
 
-        $prefix = preg_replace('/(?:\-)+$/u', '', $prefix).'-';
+        $prefix = preg_replace('/(?:\-)+$/u', '', $prefix) . '-';
 
         return sprintf('%s%s', $prefix, $id);
     }
@@ -29,7 +29,7 @@ abstract class Str
     {
         $prefix = Config::get('prefix') ?: 'wc-';
 
-        $ref = preg_replace('/^'.$prefix.'/', '', $ref);
+        $ref = preg_replace('/^' . $prefix . '/', '', $ref);
 
         $position = strrpos($ref, '-');
 

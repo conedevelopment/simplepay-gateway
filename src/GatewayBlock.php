@@ -50,7 +50,7 @@ class GatewayBlock extends AbstractPaymentMethodType
     {
         wp_register_script(
             'simplepay-gateway-blocks-integration',
-            plugin_dir_url(__DIR__).'includes/checkout.js',
+            plugin_dir_url(__DIR__) . 'includes/checkout.js',
             [
                 'wc-blocks-registry',
                 'wc-settings',

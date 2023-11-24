@@ -11,11 +11,11 @@
             src: settings.icon,
             alt: window.wp.htmlEntities.decodeEntities(settings.title || 'SimplePay'),
         }),
-        content: Object(window.wp.element.createElement)(Content, null),
-        edit: Object(window.wp.element.createElement)(Content, null),
-        canMakePayment: function () {
-            return true;
-        },
+    content: Object(window.wp.element.createElement)(Content, null),
+    edit: Object(window.wp.element.createElement)(Content, null),
+    canMakePayment: function () {
+        return true;
+    },
         ariaLabel: label,
         supports: {
             features: settings.supports,

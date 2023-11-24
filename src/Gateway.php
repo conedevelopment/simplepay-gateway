@@ -104,7 +104,7 @@ class Gateway extends WC_Payment_Gateway
      */
     public function init_form_fields()
     {
-        $this->form_fields = (include __DIR__.'/../includes/fields.php');
+        $this->form_fields = (include __DIR__ . '/../includes/fields.php');
     }
 
     /**
@@ -121,7 +121,7 @@ class Gateway extends WC_Payment_Gateway
         $this->method_description = __('OTP SimplePay Payment Gateway', 'cone-simplepay');
 
         if (isset($this->show_icon) && $this->show_icon === 'yes') {
-            $this->icon = apply_filters('cone_simplepay_icon', plugin_dir_url(__DIR__).'images/icon.png');
+            $this->icon = apply_filters('cone_simplepay_icon', plugin_dir_url(__DIR__) . 'images/icon.png');
         }
     }
 
@@ -151,9 +151,9 @@ class Gateway extends WC_Payment_Gateway
             ]);
 
             $order = $orders[0] ?? false;
-       }
+        }
 
-       return $order;
+        return $order;
     }
 
     /**
@@ -249,7 +249,7 @@ class Gateway extends WC_Payment_Gateway
         $payload['receiveDate'] = date('c');
 
         header('Content-type: application/json');
-        header('Signature: '.Hash::make($response = json_encode($payload)));
+        header('Signature: ' . Hash::make($response = json_encode($payload)));
         die($response);
     }
 
@@ -310,7 +310,7 @@ class Gateway extends WC_Payment_Gateway
      */
     public function extnendOrderTable($order)
     {
-        include __DIR__.'/../includes/order-item-row.php';
+        include __DIR__ . '/../includes/order-item-row.php';
     }
 
     /**
@@ -344,7 +344,7 @@ class Gateway extends WC_Payment_Gateway
     public function scripts($hook)
     {
         if ($hook === 'woocommerce_page_wc-settings' && (isset($_GET['section']) && $_GET['section'] === 'simplepay-gateway')) {
-            wp_enqueue_script('simplepay', plugin_dir_url(__DIR__).'includes/simplepay.js');
+            wp_enqueue_script('simplepay', plugin_dir_url(__DIR__) . 'includes/simplepay.js');
         }
     }
 
