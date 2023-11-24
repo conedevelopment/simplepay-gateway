@@ -2,6 +2,8 @@
 
 namespace Cone\SimplePay;
 
+use Automattic\WooCommerce\Blocks\Payments\Integrations\AbstractPaymentMethodType;
+use Automattic\WooCommerce\Blocks\Payments\PaymentMethodRegistry;
 use Cone\SimplePay\Handlers\IPNHandler;
 use Cone\SimplePay\Handlers\IRNHandler;
 use Cone\SimplePay\Handlers\PaymentHandler;
@@ -15,8 +17,6 @@ use Cone\SimplePay\Support\Str;
 use Exception;
 use WC_Order;
 use WC_Payment_Gateway;
-use Automattic\WooCommerce\Blocks\Payments\Integrations\AbstractPaymentMethodType;
-use Automattic\WooCommerce\Blocks\Payments\PaymentMethodRegistry;
 
 class Gateway extends WC_Payment_Gateway
 {
@@ -365,15 +365,14 @@ class Gateway extends WC_Payment_Gateway
      */
     public static function initBlock()
     {
-        if( ! class_exists( AbstractPaymentMethodType::class ) ) {
-            return;
+        if (class_exists(AbstractPaymentMethodType::class)) {
+            add_action(
+                'woocommerce_blocks_payment_method_type_registration',
+                function (PaymentMethodRegistry $registry) {
+                    $registry->register(new GatewayBlock());
+                }
+            );
         }
-
-        add_action(
-            'woocommerce_blocks_payment_method_type_registration',
-            function (PaymentMethodRegistry $payment_method_registry) {
-                $payment_method_registry->register( new GatewayBlock );
-        } );
     }
 
     /**

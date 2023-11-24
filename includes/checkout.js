@@ -1,22 +1,24 @@
 (function () {
-    const settings = window.wc.wcSettings.getSetting('simplepay-gateway_data', {});
-    const label = window.wp.htmlEntities.decodeEntities(settings.title) || 'SimplePay';
-    const Content = () => {
+    var settings = window.wc.wcSettings.getSetting('simplepay-gateway_data', {});
+    var label = window.wp.htmlEntities.decodeEntities(settings.title) || 'SimplePay';
+    var Content = function () {
         return window.wp.htmlEntities.decodeEntities(settings.description || '');
     };
-    const SimplePayCheckout = {
+
+    window.wc.wcBlocksRegistry.registerPaymentMethod({
         name: 'simplepay-gateway',
         label: React.createElement('img', {
-            src: `${settings.icon}`,
+            src: settings.icon,
             alt: window.wp.htmlEntities.decodeEntities(settings.title || 'SimplePay'),
         }),
         content: Object(window.wp.element.createElement)(Content, null),
         edit: Object(window.wp.element.createElement)(Content, null),
-        canMakePayment: () => true,
+        canMakePayment: function () {
+            return true;
+        },
         ariaLabel: label,
         supports: {
             features: settings.supports,
         },
-    };
-    window.wc.wcBlocksRegistry.registerPaymentMethod(SimplePayCheckout);
+    });
 })();
