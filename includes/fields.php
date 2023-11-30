@@ -40,7 +40,7 @@ return [
         ),
     ],
 
-    'sanbox_settings' => [
+    'sandbox_settings' => [
         'title' => __('Sandbox Settings', 'cone-simplepay'),
         'type' => 'title',
         'description' => __('If this option is on this gateway is in test (sandbox) mode.', 'cone-simplepay'),
