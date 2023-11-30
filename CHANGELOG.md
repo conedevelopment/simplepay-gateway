@@ -1,5 +1,7 @@
 # Changelog
 
+https://github.com/conedevelopment/simplepay-gateway/releases
+
 ## v2.5.1
 - Fixed trailing comma ([#86](https://github.com/conedevelopment/simplepay-gateway/issues/86))
 
