@@ -120,8 +120,8 @@ https://github.com/conedevelopment/simplepay-gateway/releases
 ## v2.2.2 (2020-05-21)
 
 - Added custom error messages when IPN/IRN should fail
-- Added red labels for sanbox inputs
-- Determine if `$order` is instnace of `WC_Order`
+- Added red labels for sandbox inputs
+- Determine if `$order` is instance of `WC_Order`
 
 ## v2.2.1 (2020-05-18)
 

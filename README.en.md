@@ -21,7 +21,7 @@ This plugin provides a payment gateway for OTP SimplePay.
 
 [Download the plugin](https://github.com/conedevelopment/simplepay-gateway/archive/master.zip) and install it as any other WordPress plugin.
 
-### Verisons
+### Versions
 
 | Plugin    | SimplePay API |
 |:---------:|:-------------:|
@@ -30,7 +30,7 @@ This plugin provides a payment gateway for OTP SimplePay.
 
 ### Updates
 
-The plugin will recieve updates from the GitHub repository that you can install as any other plugin update.
+The plugin will receive updates from the GitHub repository that you can install as any other plugin update.
 
 ## Configuration
 
@@ -74,7 +74,7 @@ To prevent price conflicts, prices will be passed as gross values and VAT will b
 ### Discount handling
 
 WooCommerce handles discounts differently than SimplePay.
-Woo reduces the discount from the prodocut prices direcly.
+Woo reduces the discount from the product prices directly.
 Because of this, SimplePay will get the reduced prices.
 To prevent double price reduction, the discounted amount will be `0`.
 

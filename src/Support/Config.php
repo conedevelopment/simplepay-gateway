@@ -19,7 +19,7 @@ abstract class Config
     protected static $settings = [];
 
     /**
-     * Set the confing manager.
+     * Set the config manager.
      *
      * @param  array  $settings
      * @return void
