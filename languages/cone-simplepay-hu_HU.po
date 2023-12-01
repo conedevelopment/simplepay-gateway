@@ -1,10 +1,10 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Pine SimplePay\n"
-"POT-Creation-Date: 2023-06-13 08:24+0200\n"
-"PO-Revision-Date: 2023-06-13 08:26+0200\n"
+"Project-Id-Version: Cone SimplePay Gateway\n"
+"POT-Creation-Date: 2023-12-01 19:43+0100\n"
+"PO-Revision-Date: 2023-12-01 19:46+0100\n"
 "Last-Translator: \n"
-"Language-Team: https://pineco.de\n"
+"Language-Team: https://conedevelopment.com\n"
 "Language: hu_HU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -239,20 +239,20 @@ msgstr ""
 msgid "SimplePay transaction ID"
 msgstr "SimplePay tranzakció azonosító"
 
-#: src/Gateway.php:119
+#: src/Gateway.php:121
 msgid "OTP SimplePay Payment Gateway"
 msgstr "OTP SimplePay Fizetési Kapu"
 
-#: src/Gateway.php:147
+#: src/Gateway.php:180
 #, php-format
 msgid "Request is invalid: %s"
 msgstr "Request is invalid: %s"
 
-#: src/Gateway.php:203
+#: src/Gateway.php:234
 msgid "Order not found."
 msgstr "A rendelés nem található."
 
-#: src/Gateway.php:209
+#: src/Gateway.php:240
 msgid "Invalid signature."
 msgstr "Érvénytelen aláírás."
 
@@ -264,12 +264,11 @@ msgstr "Az IPN hívás megtörtént."
 msgid "IRN event was fired."
 msgstr "Az IRN hívás megtörtént."
 
-#: src/Handlers/PaymentHandler.php:39
-#, php-format
-msgid "Cancelled transaction: %d."
-msgstr "Megszakított tranzakció: %d."
+#: src/Handlers/PaymentHandler.php:38
+msgid "Cancelled transaction."
+msgstr "Megszakított tranzakció."
 
-#: src/Handlers/PaymentHandler.php:46
+#: src/Handlers/PaymentHandler.php:43
 #, php-format
 msgid ""
 "Failed transaction: %d. Please check if the given credentials are correct, "
@@ -278,18 +277,16 @@ msgstr ""
 "Sikertelen tranzakció: %d. Kérjük ellenőrizze, hogy a megadott adatok "
 "helyesek-e vagy szíveskedjen kapcsolatba lépni kártyakibocsátó bankjával."
 
-#: src/Handlers/PaymentHandler.php:53
-#, fuzzy, php-format
-#| msgid "Expired transaction: %d"
-msgid "Expired transaction: %d."
-msgstr "Lejárt tranzakció: %d."
+#: src/Handlers/PaymentHandler.php:49
+msgid "Expired transaction."
+msgstr "Lejárt tranzakció."
 
-#: src/Handlers/PaymentHandler.php:87
+#: src/Handlers/PaymentHandler.php:81
 #, php-format
 msgid "%d %s is reserved in SimplePay."
 msgstr "%d %s lefoglalásra került a SimplePay rendszerében."
 
-#: src/Handlers/PaymentHandler.php:99
+#: src/Handlers/PaymentHandler.php:93
 #, php-format
 msgid "%d %s is reserved in SimplePay (not precise)."
 msgstr "%d %s lefoglalásra került a SimplePay rendszerében (nem pontos)."
