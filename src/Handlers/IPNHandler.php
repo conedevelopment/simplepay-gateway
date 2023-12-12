@@ -34,6 +34,11 @@ class IPNHandler extends Handler
                 $this->handleTimeout();
                 break;
             default:
+                Log::error(sprintf(
+                    '%s %s',
+                    __('Unknown IPN status:', 'cone-simplepay'),
+                    $payload['status']
+                ));
                 break;
         };
     }
