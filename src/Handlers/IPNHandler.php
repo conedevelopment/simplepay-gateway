@@ -20,6 +20,31 @@ class IPNHandler extends Handler
             json_encode($payload)
         ));
 
+        switch ($payload['status']) {
+            case 'FINISHED';
+                $this->handleFinished();
+                break;
+            case 'NOTAUTHORIZED';
+                $this->handleNotAuthorized();
+                break;
+            case 'CANCELLED';
+                $this->handleCancelled();
+                break;
+            case 'TIMEOUT';
+                $this->handleTimeout();
+                break;
+            default:
+                break;
+        };
+    }
+
+    /**
+     * Handle the FINISHED event.
+     *
+     * @return void
+     */
+    protected function handleFinished()
+    {
         $this->order->payment_complete();
 
         $virtual = true;
@@ -33,5 +58,35 @@ class IPNHandler extends Handler
         if ($virtual) {
             $this->order->update_status('completed');
         }
+    }
+
+    /**
+     * Handle the NOTAUTHORIZED event.
+     *
+     * @return void
+     */
+    protected function handleNotAuthorized()
+    {
+        $this->order->update_status('failed');
+    }
+
+    /**
+     * Handle the CANCELLED event.
+     *
+     * @return void
+     */
+    protected function handleCancelled()
+    {
+        $this->order->update_status('pending');
+    }
+
+    /**
+     * Handle the TIMEOUT event.
+     *
+     * @return void
+     */
+    protected function handleTimeout()
+    {
+        $this->order->update_status('cancelled');
     }
 }

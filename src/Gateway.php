@@ -240,9 +240,9 @@ class Gateway extends WC_Payment_Gateway
             die(__('Invalid signature.', 'cone-simplepay'));
         }
 
-        if (isset($payload['refundStatus']) && $payload['status'] === 'FINISHED') {
+        if ((isset($payload['refundStatus']) && $payload['status'] === 'FINISHED') || $payload['status'] === 'REFUND') {
             (new IRNHandler($order))->handle($payload);
-        } elseif ($payload['status'] === 'FINISHED') {
+        } else {
             (new IPNHandler($order))->handle($payload);
         }
 
