@@ -52,6 +52,12 @@ class IPNHandler extends Handler
     {
         $this->order->payment_complete();
 
+        if ($this->order->get_meta('_cone_simplepay_two_step_payment_reserved') && ! $this->order->get_meta('_cone_simplepay_two_step_payment_finished')) {
+            $this->order->update_meta_data('_cone_simplepay_two_step_payment_finished', date('c'));
+
+            $this->order->save();
+        }
+
         $virtual = true;
 
         foreach ($this->order->get_items(['line_item']) as $item) {

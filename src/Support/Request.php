@@ -117,6 +117,7 @@ class Request
 
         if (is_wp_error($response)) {
             Log::info($response->get_error_message());
+
             throw new Exception($response->get_error_message());
         }
 
