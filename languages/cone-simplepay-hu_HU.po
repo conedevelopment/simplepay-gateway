@@ -1,8 +1,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Cone SimplePay Gateway\n"
-"POT-Creation-Date: 2023-12-01 19:43+0100\n"
-"PO-Revision-Date: 2023-12-01 19:46+0100\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/simplepay-"
+"gateway\n"
+"POT-Creation-Date: 2024-03-05T09:09:13+00:00\n"
+"PO-Revision-Date: 2024-03-05 10:12+0100\n"
 "Last-Translator: \n"
 "Language-Team: https://conedevelopment.com\n"
 "Language: hu_HU\n"
@@ -10,41 +12,45 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.1\n"
+"X-Generator: Poedit 3.4.2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: languages\n"
 
-#: includes/fields.php:6 includes/fields.php:49 includes/fields.php:61
-msgid "Enable/Disable"
-msgstr "Bekapcsol/Kikapcsol"
+#. Plugin Name of the plugin
+#: simplepay-gateway.php
+msgid "OTP SimplePay Gateway for WooCommerce"
+msgstr "OTP SimplePay Fizetési Kapu"
+
+#. Plugin URI of the plugin
+#: simplepay-gateway.php
+msgid "https://simplepay.conedevelopment.com/"
+msgstr "https://simplepay.conedevelopment.com/"
+
+#. Description of the plugin
+#: simplepay-gateway.php
+msgid "OTP SimplePay payment gateway integration for WooCommerce."
+msgstr "OTP SimplePay Fizetési Kapu"
+
+#. Author of the plugin
+#: simplepay-gateway.php
+msgid "Cone Development"
+msgstr "Cone Development"
+
+#. Author URI of the plugin
+#: simplepay-gateway.php
+msgid "https://conedevelopment.com"
+msgstr "https://conedevelopment.com"
 
 #: includes/fields.php:8
 msgid "Enable SimplePay"
 msgstr "SimplePay engedélyezése"
 
-#: includes/fields.php:12
-msgid "Title"
-msgstr "Cím"
-
-#: includes/fields.php:14
-msgid "This controls the title which the user sees during checkout."
-msgstr "Ez állítja be a címet, amelyet a felhasználó a vásárlás folyamát lát."
-
 #: includes/fields.php:15
 msgid "Credit Card"
 msgstr "Bankkártya"
-
-#: includes/fields.php:19
-msgid "Description"
-msgstr "Leírás"
-
-#: includes/fields.php:21
-msgid "This controls the description which the user sees during checkout."
-msgstr ""
-"Ez állítja be a leírást, amelyet a felhasználó a vásárlás folyamát lát."
 
 #: includes/fields.php:22
 msgid "Pay with credit card via SimplePay."
@@ -244,7 +250,6 @@ msgid "OTP SimplePay Payment Gateway"
 msgstr "OTP SimplePay Fizetési Kapu"
 
 #: src/Gateway.php:180
-#, php-format
 msgid "Request is invalid: %s"
 msgstr "Request is invalid: %s"
 
@@ -260,6 +265,10 @@ msgstr "Érvénytelen aláírás."
 msgid "IPN event was fired."
 msgstr "Az IPN hívás megtörtént."
 
+#: src/Handlers/IPNHandler.php:39
+msgid "Unknown IPN status:"
+msgstr "Ismeretlen IPN status:"
+
 #: src/Handlers/IRNHandler.php:23
 msgid "IRN event was fired."
 msgstr "Az IRN hívás megtörtént."
@@ -269,7 +278,6 @@ msgid "Cancelled transaction."
 msgstr "Megszakított tranzakció."
 
 #: src/Handlers/PaymentHandler.php:43
-#, php-format
 msgid ""
 "Failed transaction: %d. Please check if the given credentials are correct, "
 "or contact your card publisher."
@@ -282,40 +290,66 @@ msgid "Expired transaction."
 msgstr "Lejárt tranzakció."
 
 #: src/Handlers/PaymentHandler.php:81
-#, php-format
 msgid "%d %s is reserved in SimplePay."
 msgstr "%d %s lefoglalásra került a SimplePay rendszerében."
 
 #: src/Handlers/PaymentHandler.php:93
-#, php-format
 msgid "%d %s is reserved in SimplePay (not precise)."
 msgstr "%d %s lefoglalásra került a SimplePay rendszerében (nem pontos)."
 
-#: src/Plugin.php:61
+#: src/Plugin.php:38 src/Plugin.php:48
+msgid ""
+"The OTP SimplePay Gateway plugin V3 has been released. This version will not "
+"get any updates in the future."
+msgstr ""
+"Az OTP SimplePay fizetési kapu V3-as verziója elérhető. A jelenlegi V2-es "
+"verzió támogatása megszűnik."
+
+#: src/Plugin.php:40 src/Plugin.php:50
+msgid "Get your license:"
+msgstr "Licenc beszerzése:"
+
+#: src/Plugin.php:80
 msgid "Please activate WooCommerce before using SimplePay Gateway!"
 msgstr ""
 "Kérünk, aktiváld a WooCommerce bővítményt mielőtt a SimplePay fizetési kaput "
 "használod!"
 
-#: src/Plugin.php:76
-msgid "Settings"
-msgstr "Beállítások"
-
-#: src/TwoStepPayment.php:45
+#: src/TwoStepPayment.php:42
 msgid "Finish the two step SimplePay payment"
 msgstr "Kétlépcsős SimplePay tranzakció lezárása"
 
-#: src/TwoStepPayment.php:69
+#: src/TwoStepPayment.php:66
 msgid "Request is invalid"
 msgstr "Request is invalid"
 
-#: src/TwoStepPayment.php:73
+#: src/TwoStepPayment.php:74
 msgid "Two step SimplePay payment has been finished."
 msgstr "A kétlépcsős SimplePay tranzakció lezárásra került."
 
-#: src/TwoStepPayment.php:79
+#: src/TwoStepPayment.php:80
 msgid "Two step SimplePay payment request has been failed."
 msgstr "A kétlépcsős SimplePay tranzakció lezárása sikertelen."
+
+#~ msgid "Enable/Disable"
+#~ msgstr "Bekapcsol/Kikapcsol"
+
+#~ msgid "Title"
+#~ msgstr "Cím"
+
+#~ msgid "This controls the title which the user sees during checkout."
+#~ msgstr ""
+#~ "Ez állítja be a címet, amelyet a felhasználó a vásárlás folyamát lát."
+
+#~ msgid "Description"
+#~ msgstr "Leírás"
+
+#~ msgid "This controls the description which the user sees during checkout."
+#~ msgstr ""
+#~ "Ez állítja be a leírást, amelyet a felhasználó a vásárlás folyamát lát."
+
+#~ msgid "Settings"
+#~ msgstr "Beállítások"
 
 #~ msgid "The transaction has been expired!"
 #~ msgstr "A tranzakció érvényességi ideje lejárt!"

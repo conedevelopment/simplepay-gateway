@@ -1,34 +1,41 @@
+# Copyright (C) 2024 Cone Development
+# This file is distributed under the MIT.
 msgid ""
 msgstr ""
-"Project-Id-Version: OTP SimplePay Gateway for WooCommerce 2.8.2\n"
-"Report-Msgid-Bugs-To: https://simplepay.conedevelopment.com/\n"
+"Project-Id-Version: OTP SimplePay Gateway for WooCommerce 2.8.3\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/simplepay-gateway\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Cone Development <hello@conedevelopment.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-06-16T08:36:08+00:00\n"
+"POT-Creation-Date: 2024-03-05T09:09:13+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.4.0\n"
+"X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: cone-simplepay\n"
 
 #. Plugin Name of the plugin
+#: simplepay-gateway.php
 msgid "OTP SimplePay Gateway for WooCommerce"
 msgstr ""
 
 #. Plugin URI of the plugin
+#: simplepay-gateway.php
 msgid "https://simplepay.conedevelopment.com/"
 msgstr ""
 
 #. Description of the plugin
+#: simplepay-gateway.php
 msgid "OTP SimplePay payment gateway integration for WooCommerce."
 msgstr ""
 
 #. Author of the plugin
+#: simplepay-gateway.php
 msgid "Cone Development"
 msgstr ""
 
 #. Author URI of the plugin
+#: simplepay-gateway.php
 msgid "https://conedevelopment.com"
 msgstr ""
 
@@ -227,19 +234,19 @@ msgstr ""
 msgid "SimplePay transaction ID"
 msgstr ""
 
-#: src/Gateway.php:119
+#: src/Gateway.php:121
 msgid "OTP SimplePay Payment Gateway"
 msgstr ""
 
-#: src/Gateway.php:147
+#: src/Gateway.php:180
 msgid "Request is invalid: %s"
 msgstr ""
 
-#: src/Gateway.php:203
+#: src/Gateway.php:234
 msgid "Order not found."
 msgstr ""
 
-#: src/Gateway.php:209
+#: src/Gateway.php:240
 msgid "Invalid signature."
 msgstr ""
 
@@ -247,46 +254,60 @@ msgstr ""
 msgid "IPN event was fired."
 msgstr ""
 
+#: src/Handlers/IPNHandler.php:39
+msgid "Unknown IPN status:"
+msgstr ""
+
 #: src/Handlers/IRNHandler.php:23
 msgid "IRN event was fired."
 msgstr ""
 
-#: src/Handlers/PaymentHandler.php:36
-msgid "You cancelled your transaction."
+#: src/Handlers/PaymentHandler.php:38
+msgid "Cancelled transaction."
 msgstr ""
 
-#: src/Handlers/PaymentHandler.php:41
-msgid "Failed SimplePay transaction: %d. Please check if your data is correct. If yes, please contact your card publisher."
+#: src/Handlers/PaymentHandler.php:43
+msgid "Failed transaction: %d. Please check if the given credentials are correct, or contact your card publisher."
 msgstr ""
 
-#: src/Handlers/PaymentHandler.php:47
-msgid "The transaction has been expired!"
+#: src/Handlers/PaymentHandler.php:49
+msgid "Expired transaction."
 msgstr ""
 
-#: src/Handlers/PaymentHandler.php:79
+#: src/Handlers/PaymentHandler.php:81
 msgid "%d %s is reserved in SimplePay."
 msgstr ""
 
-#: src/Handlers/PaymentHandler.php:90
+#: src/Handlers/PaymentHandler.php:93
 msgid "%d %s is reserved in SimplePay (not precise)."
 msgstr ""
 
-#: src/Plugin.php:61
+#: src/Plugin.php:38
+#: src/Plugin.php:48
+msgid "The OTP SimplePay Gateway plugin V3 has been released. This version will not get any updates in the future."
+msgstr ""
+
+#: src/Plugin.php:40
+#: src/Plugin.php:50
+msgid "Get your license:"
+msgstr ""
+
+#: src/Plugin.php:80
 msgid "Please activate WooCommerce before using SimplePay Gateway!"
 msgstr ""
 
-#: src/TwoStepPayment.php:45
+#: src/TwoStepPayment.php:42
 msgid "Finish the two step SimplePay payment"
 msgstr ""
 
-#: src/TwoStepPayment.php:69
+#: src/TwoStepPayment.php:66
 msgid "Request is invalid"
 msgstr ""
 
-#: src/TwoStepPayment.php:73
+#: src/TwoStepPayment.php:74
 msgid "Two step SimplePay payment has been finished."
 msgstr ""
 
-#: src/TwoStepPayment.php:79
+#: src/TwoStepPayment.php:80
 msgid "Two step SimplePay payment request has been failed."
 msgstr ""

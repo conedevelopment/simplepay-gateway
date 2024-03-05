@@ -12,7 +12,7 @@ class Plugin
      *
      * @var string
      */
-    public const VERSION = '2.8.3';
+    public const VERSION = '2.9.0';
 
     /**
      * The plugin slug.
@@ -32,6 +32,25 @@ class Plugin
         add_action('plugins_loaded', [__CLASS__, 'bootGateway']);
         add_filter('plugin_action_links_'.static::SLUG, [__CLASS__, 'addLink']);
         add_filter('body_class', [__CLASS__, 'addBodyClass']);
+
+        add_action('admin_notices', function () {
+            echo '<div class="notice notice-error is-dismissible"><p>';
+            _e('The OTP SimplePay Gateway plugin V3 has been released. This version will not get any updates in the future.', 'cone-simplepay');
+            echo '&nbsp;';
+            _e('Get your license:', 'cone-simplepay');
+            echo '<a href="https://shop.conedevelopment.com/products/simplepay-x-woocommerce" target="_blank">https://shop.conedevelopment.com/products/simplepay-x-woocommerce</a>';
+            echo '</p></div>';
+        });
+
+        add_action('after_plugin_row_simplepay-gateway/simplepay-gateway.php', function () {
+            echo '<tr class="active is-uninstallable" data-slug data-plugin><td colspan="4">';
+            echo '<div class="notice inline notice-error notice-alt"><p class="small">';
+            _e('The OTP SimplePay Gateway plugin V3 has been released. This version will not get any updates in the future.', 'cone-simplepay');
+            echo '&nbsp;';
+            _e('Get your license:', 'cone-simplepay');
+            echo '<a href="https://shop.conedevelopment.com/products/simplepay-x-woocommerce" target="_blank">https://shop.conedevelopment.com/products/simplepay-x-woocommerce</a>';
+            echo '</p></div></td></tr>';
+        });
 
         load_plugin_textdomain('cone-simplepay', false, basename(dirname(__DIR__)).'/languages');
 
